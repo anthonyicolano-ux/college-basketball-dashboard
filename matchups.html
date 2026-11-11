@@ -1,1 +1,97 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>College Basketball | Matchups</title><link rel="stylesheet" href="assets/style.css"></head><body><header><h1>College Basketball Dashboard</h1><p>Matchup analysis · Planned enhancement</p><nav aria-label="Main navigation"><a class="navlink" href="index.html">Team Stats</a><a class="navlink" href="players.html">Player Stats</a><a class="navlink" aria-current="page" href="matchups.html">Matchups</a></nav></header><main><section class="notice"><h2>Matchups are not connected yet</h2><p>We will add completed-data team comparisons and upcoming matchups after season scope, provider permissions, and schedule coverage are verified. No predictions are displayed.</p></section></main><footer class="footer">Independent prototype. No NCAA affiliation.</footer></body></html>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>College Basketball | Matchups</title><link rel="stylesheet" href="assets/style.css">
+<style>
+.mode-picker{display:flex;flex-wrap:wrap;gap:10px;margin:15px 0}
+.mode-picker button{font:inherit;color:#fff;background:#263a57;border:1px solid #647d9d;border-radius:9px;padding:11px 16px;cursor:pointer}
+.mode-picker button[aria-pressed=true]{background:#146bd1;border-color:#65a8ff}
+.compare-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.compare-card{background:#223853;border:1px solid #415978;border-radius:10px;padding:16px;overflow-wrap:anywhere}
+.compare-card h3{margin:0 0 8px}.compare-card p{margin:6px 0}
+.compare-table th:first-child,.compare-table td:first-child{position:static}
+.compare-table th,.compare-table td{text-align:right}.compare-table th:first-child,.compare-table td:first-child{text-align:left}
+.compare-table .leader{color:#a7f3c3;font-weight:750}
+@media(max-width:640px){.compare-grid{grid-template-columns:1fr}}
+</style></head>
+<body><header><h1>College Basketball Dashboard</h1><p>Matchup analysis · Fictional demo</p>
+<nav aria-label="Main navigation"><a class="navlink" href="index.html">Team Stats</a><a class="navlink" href="players.html">Player Stats</a><a class="navlink" aria-current="page" href="matchups.html">Matchups</a></nav></header>
+<main>
+<section class="notice"><h2>Synthetic demo — not real NCAA games</h2><p>All teams, statistics and scheduled games on this page are fictional. No live schedule, CBBD API calls, predictions or provider data are used.</p></section>
+<section class="panel"><h2>Compare a matchup</h2>
+<div class="mode-picker" role="group" aria-label="Comparison mode"><button id="upcomingMode" type="button" aria-pressed="true">Demo upcoming games</button><button id="customMode" type="button" aria-pressed="false">Custom team comparison</button></div>
+<div id="upcomingControls" class="controls"><label for="game">Choose a fictional upcoming game<select id="game"></select></label></div>
+<div id="customControls" class="controls" hidden><label for="teamA">Team A<select id="teamA"></select></label><label for="teamB">Team B<select id="teamB"></select></label></div>
+<p id="message" role="status" class="muted">Loading fictional teams…</p>
+<div id="results" hidden>
+<div class="compare-grid"><div class="compare-card"><h3 id="nameA"></h3><p id="recordA"></p><p id="confA" class="muted"></p></div><div class="compare-card"><h3 id="nameB"></h3><p id="recordB"></p><p id="confB" class="muted"></p></div></div>
+<h3>Statistical comparison</h3><div class="table-wrap"><table class="compare-table"><thead><tr><th scope="col">Metric</th><th scope="col" id="headA">Team A</th><th scope="col" id="headB">Team B</th></tr></thead><tbody id="metrics"></tbody></table></div>
+<p class="muted">Green highlights the better figure where direction is meaningful. Lower opponent points, defensive rating and turnovers are better. Pace is neutral.</p>
+<h3>Offense vs. opposing defense</h3><div id="edges" class="compare-grid"></div>
+<p class="muted">Efficiency gap is offensive rating minus the opponent's defensive rating, in points per 100 possessions. It is not a projected score or winning probability. Opponent quality and sample-size adjustments are not applied.</p>
+</div></section></main>
+<footer class="footer">Independent prototype. No NCAA affiliation. Fictional demonstration data only.</footer>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const metrics=[['ppg','Points per game',true],['oppPpg','Opponent points per game',false],['offRating','Offensive rating / 100',true],['defRating','Defensive rating / 100',false],['pace','Pace',null],['fgPct','Field goal %',true],['threePct','Three-point %',true],['ftPct','Free throw %',true],['eFg','Effective FG %',true],['tsPct','True shooting %',true],['rebounds','Rebounds / game',true],['assists','Assists / game',true],['turnovers','Turnovers / game',false]];
+const demoGames=[['North Valley','Lake Institute'],['Cedar State','West Metro'],['Pine Coast','Red Mesa'],['North Valley','Cedar State'],['Lake Institute','Pine Coast']];
+let teams=[],mode='upcoming';
+const valid=x=>typeof x==='number'&&Number.isFinite(x);
+const fmt=x=>valid(x)?x.toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1}):'N/A';
+function chooseMode(next){
+ mode=next;
+ $('upcomingMode').setAttribute('aria-pressed',String(mode==='upcoming'));
+ $('customMode').setAttribute('aria-pressed',String(mode==='custom'));
+ $('upcomingControls').hidden=mode!=='upcoming';
+ $('customControls').hidden=mode!=='custom';
+ render();
+}
+function render(){
+ let a,b;
+ if(mode==='upcoming'){
+ const pair=demoGames[Number($('game').value)];
+ if(pair){a=teams.find(t=>t.team===pair[0]);b=teams.find(t=>t.team===pair[1])}
+ }else{a=teams.find(t=>t.team===$('teamA').value);b=teams.find(t=>t.team===$('teamB').value)}
+ if(!a||!b||a.team===b.team){$('results').hidden=true;$('message').textContent='Select two different fictional teams.';return}
+ $('results').hidden=false;
+ $('message').textContent=mode==='upcoming'?'Fictional scheduled pairing — not a real game date or forecast':'Custom comparison — fictional statistics only';
+ for(const [suffix,t] of [['A',a],['B',b]]){
+ $('name'+suffix).textContent=t.team;$('record'+suffix).textContent=(t.wins??'—')+'–'+(t.losses??'—')+' demo record';
+ $('conf'+suffix).textContent=t.conference||'Conference unavailable';$('head'+suffix).textContent=t.team;
+ }
+ const tbody=$('metrics');tbody.replaceChildren();
+ for(const [key,label,higher] of metrics){
+ const tr=document.createElement('tr'),th=document.createElement('th');th.scope='row';th.textContent=label;tr.append(th);
+ for(const [v,other] of [[a[key],b[key]],[b[key],a[key]]]){
+ const td=document.createElement('td');td.textContent=fmt(v);
+ if(higher!==null&&valid(v)&&valid(other)&&v!==other&&((higher&&v>other)||(!higher&&v<other)))td.className='leader';
+ tr.append(td);
+ }tbody.append(tr);
+ }
+ const edges=$('edges');edges.replaceChildren();
+ for(const [off,def] of [[a,b],[b,a]]){
+ const div=document.createElement('div');div.className='compare-card';
+ const h=document.createElement('h3');h.textContent=off.team+' offense vs. '+def.team+' defense';div.append(h);
+ const p=document.createElement('p');p.textContent='Offensive rating: '+fmt(off.offRating)+' | Opponent defensive rating: '+fmt(def.defRating);div.append(p);
+ const gap=document.createElement('p');gap.className='metric';const value=valid(off.offRating)&&valid(def.defRating)?off.offRating-def.defRating:null;
+ gap.textContent='Efficiency gap: '+(value===null?'N/A':(value>=0?'+':'')+fmt(value));div.append(gap);edges.append(div);
+ }
+}
+async function init(){
+ try{
+ const response=await fetch('data/teams.json',{cache:'no-store'});if(!response.ok)throw Error('Team dataset unavailable');
+ const data=await response.json();
+ if(data.schemaVersion!==1||data.demo!==true||!Array.isArray(data.rows))throw Error('Only approved synthetic demo data is supported');
+ teams=data.rows.filter(t=>t&&typeof t.team==='string').sort((a,b)=>a.team.localeCompare(b.team));
+ if(teams.length<2)throw Error('At least two fictional teams are required');
+ for(const id of ['teamA','teamB'])for(const t of teams){const o=document.createElement('option');o.value=t.team;o.textContent=t.team;$(id).append(o)}
+ $('teamB').selectedIndex=1;
+ demoGames.forEach((pair,i)=>{const o=document.createElement('option');o.value=String(i);o.textContent=pair[0]+' vs. '+pair[1]+' (demo)';$('game').append(o)});
+ $('upcomingMode').addEventListener('click',()=>chooseMode('upcoming'));
+ $('customMode').addEventListener('click',()=>chooseMode('custom'));
+ $('game').addEventListener('change',render);$('teamA').addEventListener('change',render);$('teamB').addEventListener('change',render);
+ render();
+ }catch(error){$('message').textContent='Comparison unavailable: '+error.message;$('results').hidden=true}
+}
+init();
+</script></body></html>
