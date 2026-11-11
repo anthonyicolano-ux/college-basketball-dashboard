@@ -47,6 +47,8 @@ def team_row(record):
     fta = number(record, 'teamStats.freeThrows.attempted')
     team_rebounds = per_game(number(record, 'teamStats.rebounds.total'), games)
     opponent_rebounds = per_game(number(record, 'opponentStats.rebounds.total'), games)
+    team_off_rebounds = per_game(number(record, 'teamStats.rebounds.offensive'), games)
+    team_def_rebounds = per_game(number(record, 'teamStats.rebounds.defensive'), games)
     return {
         'team': record['team'], 'conference': record.get('conference'),
         'games': games, 'wins': number(record, 'wins'), 'losses': number(record, 'losses'),
@@ -73,6 +75,8 @@ def team_row(record):
         'turnoversForced': per_game(number(record, 'opponentStats.turnovers.total'), games),
         'oppTurnovers': per_game(number(record, 'opponentStats.turnovers.total'), games),
         'rebounds': team_rebounds,
+        'offRebounds': team_off_rebounds,
+        'defRebounds': team_def_rebounds,
         'assists': per_game(number(record, 'teamStats.assists'), games),
         'turnovers': per_game(number(record, 'teamStats.turnovers.total'), games),
     }
@@ -86,7 +90,9 @@ def player_row(record):
     return {
         'name': record['name'], 'team': record['team'], 'conference': record.get('conference'),
         'games': games, 'minutes': number(record, 'minutes'), 'points': number(record, 'points'),
-        'rebounds': number(record, 'rebounds.total'), 'assists': number(record, 'assists'),
+        'rebounds': number(record, 'rebounds.total'),
+        'offRebounds': number(record, 'rebounds.offensive'),
+        'defRebounds': number(record, 'rebounds.defensive'), 'assists': number(record, 'assists'),
         'steals': number(record, 'steals'), 'blocks': number(record, 'blocks'),
         'turnovers': number(record, 'turnovers'),
         'fgMade': number(record, 'fieldGoals.made'), 'fgAttempted': number(record, 'fieldGoals.attempted'),
@@ -112,6 +118,6 @@ def private_validate(team_records, player_records):
     teams = [team_row(r) for r in team_records]
     players = [player_row(r) for r in player_records]
     return {'season': SEASON,
-            'teams': quality_summary(teams, ('ppg', 'oppPpg', 'offRating', 'defRating', 'pace', 'eFg', 'tsPct', 'threeMade', 'oppThreeMade', 'oppThreePct', 'oppFgPct', 'oppRebounds', 'oppAssists', 'turnoversForced')),
-            'players': quality_summary(players, ('points', 'rebounds', 'assists', 'usage', 'offRating', 'defRating', 'trueShootingPct')),
+            'teams': quality_summary(teams, ('ppg', 'oppPpg', 'offRating', 'defRating', 'pace', 'eFg', 'tsPct', 'threeMade', 'oppThreeMade', 'oppThreePct', 'oppFgPct', 'oppRebounds', 'offRebounds', 'defRebounds', 'oppAssists', 'turnoversForced')),
+            'players': quality_summary(players, ('points', 'rebounds', 'offRebounds', 'defRebounds', 'assists', 'usage', 'offRating', 'defRating', 'trueShootingPct')),
             'publication': 'DISABLED: provider redistribution clearance required'}
