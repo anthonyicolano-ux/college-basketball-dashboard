@@ -15,7 +15,7 @@ class ScheduleTests(unittest.TestCase):
         row = game_row(self.game)
         self.assertEqual(row['gameId'], '1001')
         self.assertEqual(row['startUtc'], '2026-11-16T01:30:00Z')
-        self.assertFalse(row['statusVerified'])
+        self.assertTrue(row['statusVerified'])
         self.assertFalse(row['startTimeTbd'])
         self.assertEqual(row['homeTeam'], 'North Valley')
         self.assertEqual(row['awayTeamId'], 2)
@@ -46,12 +46,12 @@ class ScheduleTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             game_row(dict(self.game, startTimeTbd=True, startDate='bad-date'))
 
-    def test_unverified_status_is_never_classified_as_upcoming(self):
+    def test_only_observed_status_values_are_verified(self):
         for value in ('scheduled', 'final', 'canceled', 'unrecognized'):
             with self.subTest(status=value):
                 row = game_row(dict(self.game, status=value))
                 self.assertEqual(row['status'], value)
-                self.assertFalse(row['statusVerified'])
+                self.assertEqual(row['statusVerified'], value in ('scheduled', 'final'))
 
     def test_wrong_season_rejected(self):
         self.game['season'] = 2026
