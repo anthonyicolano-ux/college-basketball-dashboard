@@ -2,7 +2,7 @@
 const $ = id => document.getElementById(id);
 const mode = document.body.dataset.mode;
 const columns = mode === 'players' ? [
- ['name','Player','text'],['team','Team','text'],['conference','Conf.','text'],['games','GP'],['minutes','MIN'],['points','PTS'],['rebounds','REB'],['assists','AST'],['steals','STL'],['blocks','BLK'],['turnovers','TO'],['fgPct','FG%'],['threePct','3P%'],['ftPct','FT%']
+ ['name','Player','text'],['team','Team','text'],['conference','Conf.','text'],['games','GP'],['minutes','MIN'],['points','PTS'],['rebounds','REB'],['assists','AST'],['steals','STL'],['blocks','BLK'],['turnovers','TO'],['fgMade','FGM'],['fgAttempted','FGA'],['fgPct','FG%'],['threeMade','3PM'],['threeAttempted','3PA'],['threePct','3P%'],['ftMade','FTM'],['ftAttempted','FTA'],['ftPct','FT%']
 ] : [
  ['team','Team','text'],['conference','Conf.','text'],['wins','W'],['losses','L'],['games','GP'],['ppg','PPG'],['oppPpg','Opp PPG'],['offRating','Off/100'],['defRating','Def/100'],['netRating','Net/100'],['scoringMargin','Margin/G'],['pace','Pace'],['fgPct','FG%'],['threePct','3P%'],['ftPct','FT%'],['eFg','eFG%'],['tsPct','TS%'],['rebounds','REB/G'],['assists','AST/G'],['turnovers','TO/G']
 ];
@@ -17,7 +17,7 @@ function render(){
  const body=$('body');body.replaceChildren();for(const r of sorted){const tr=document.createElement('tr');for(const [key,,type] of columns){const td=document.createElement('td');const v=displayValue(r,key);td.textContent=v==null?'—':type==='text'?String(v):['games','wins','losses'].includes(key)?String(v):v.toLocaleString(undefined,{maximumFractionDigits:1,minimumFractionDigits:1});tr.append(td)}body.append(tr)}
  if(!filtered.length){const tr=document.createElement('tr'),td=document.createElement('td');td.colSpan=columns.length;td.textContent='No matching records. Try a different filter.';tr.append(td);body.append(tr)}
 }
-function displayValue(row,key){let v=row[key];if(mode==='players'&&['minutes','points','rebounds','assists','steals','blocks','turnovers'].includes(key)&&perGame){const g=number(row.games);v=g>0&&number(v)!==null?v/g:null}return v===undefined?null:v}
+function displayValue(row,key){let v=row[key];if(mode==='players'&&['minutes','points','rebounds','assists','steals','blocks','turnovers','fgMade','fgAttempted','threeMade','threeAttempted','ftMade','ftAttempted'].includes(key)&&perGame){const g=number(row.games);v=g>0&&number(v)!==null?v/g:null}return v===undefined?null:v}
 async function init(){
  const status=$('status');try{const [response,sr]=await Promise.all([fetch('data/'+(mode==='players'?'players':'teams')+'.json',{cache:'no-store'}),fetch('data/refresh-status.json',{cache:'no-store'})]);if(!response.ok)throw Error('No dashboard dataset is published');const data=await response.json();if(data.schemaVersion!==1||!Array.isArray(data.rows))throw Error('Dataset format not supported');rows=data.rows;
  const cs=[...new Set(rows.map(x=>x.conference).filter(Boolean))].sort();for(const c of cs){const o=document.createElement('option');o.value=c;o.textContent=c;$('conference').append(o)}
