@@ -32,7 +32,9 @@
       "oppRebounds": 33.76,
       "oppAssists": 12.02,
       "turnoversForced": 13.97,
-      "oppTurnovers": 13.97
+      "oppTurnovers": 13.97,
+      "netRating": 16.284224250325934,
+      "scoringMargin": 10
     },
     {
       "team": "Lake Institute",
@@ -60,7 +62,9 @@
       "oppRebounds": 35.84,
       "oppAssists": 13.58,
       "turnoversForced": 12.28,
-      "oppTurnovers": 12.28
+      "oppTurnovers": 12.28,
+      "netRating": 0.3850552802134928,
+      "scoringMargin": 1.2222222222222285
     },
     {
       "team": "Cedar State",
@@ -88,7 +92,9 @@
       "oppRebounds": 33.52,
       "oppAssists": 11.84,
       "turnoversForced": 14.17,
-      "oppTurnovers": 14.17
+      "oppTurnovers": 14.17,
+      "netRating": 24.248878239793243,
+      "scoringMargin": 15.555555555555557
     },
     {
       "team": "West Metro",
@@ -116,7 +122,9 @@
       "oppRebounds": 36.32,
       "oppAssists": 13.94,
       "turnoversForced": 11.89,
-      "oppTurnovers": 11.89
+      "oppTurnovers": 11.89,
+      "netRating": -12.336233623362347,
+      "scoringMargin": -6.777777777777786
     },
     {
       "team": "Pine Coast",
@@ -144,7 +152,9 @@
       "oppRebounds": 34.96,
       "oppAssists": 12.92,
       "turnoversForced": 13,
-      "oppTurnovers": 13
+      "oppTurnovers": 13,
+      "netRating": 8.610213316095667,
+      "scoringMargin": 5.333333333333329
     },
     {
       "team": "Red Mesa",
@@ -172,7 +182,9 @@
       "oppRebounds": 36.8,
       "oppAssists": 14.3,
       "turnoversForced": 11.5,
-      "oppTurnovers": 11.5
+      "oppTurnovers": 11.5,
+      "netRating": -18.04498035496546,
+      "scoringMargin": -12.777777777777771
     }
   ]
 }
