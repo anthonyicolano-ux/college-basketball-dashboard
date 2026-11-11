@@ -63,6 +63,9 @@ class DemoGenerationTests(unittest.TestCase):
                 self.assertAlmostEqual(team['netRating'], team['offRating'] - team['defRating'])
                 self.assertAlmostEqual(team['scoringMargin'], team['ppg'] - team['oppPpg'])
                 self.assertAlmostEqual(team['reboundingMargin'], team['rebounds'] - team['oppRebounds'])
+                self.assertAlmostEqual(team['offRebounds'] + team['defRebounds'], team['rebounds'])
+            for player in players['rows']:
+                self.assertEqual(player['offRebounds'] + player['defRebounds'], player['rebounds'])
             shooting = ('fgMade', 'fgAttempted', 'threeMade', 'threeAttempted', 'ftMade', 'ftAttempted')
             for player in players['rows']:
                 for field in shooting:
@@ -78,6 +81,9 @@ class DemoGenerationTests(unittest.TestCase):
             self.assertIn("['scoringMargin','Margin/G']", app)
             self.assertIn("['oppRebounds','Opp REB/G']", app)
             self.assertIn("['reboundingMargin','REB Margin']", app)
+            for key, label in (('offRebounds','OREB'), ('defRebounds','DREB'), ('offRebounds','OREB/G'), ('defRebounds','DREB/G')):
+                self.assertIn(f"['{key}','{label}']", app)
+            self.assertIn("'rebounds','offRebounds','defRebounds','assists'", app)
             page = (Path(__file__).resolve().parents[1] / 'players.html').read_text()
             self.assertIn('<select id="team">', page)
             self.assertIn('function updateTeamOptions()', app)
