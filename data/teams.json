@@ -35,7 +35,9 @@
       "oppTurnovers": 13.97,
       "netRating": 16.284224250325934,
       "scoringMargin": 10,
-      "reboundingMargin": 0.6844444444444449
+      "reboundingMargin": 0.6844444444444449,
+      "offRebounds": 10.222222222222221,
+      "defRebounds": 24.22222222222222
     },
     {
       "team": "Lake Institute",
@@ -66,7 +68,9 @@
       "oppTurnovers": 12.28,
       "netRating": 0.3850552802134928,
       "scoringMargin": 1.2222222222222285,
-      "reboundingMargin": -0.7288888888888891
+      "reboundingMargin": -0.7288888888888891,
+      "offRebounds": 10.555555555555555,
+      "defRebounds": 24.555555555555557
     },
     {
       "team": "Cedar State",
@@ -97,7 +101,9 @@
       "oppTurnovers": 14.17,
       "netRating": 24.248878239793243,
       "scoringMargin": 15.555555555555557,
-      "reboundingMargin": 2.2577777777777754
+      "reboundingMargin": 2.2577777777777754,
+      "offRebounds": 10.88888888888889,
+      "defRebounds": 24.88888888888889
     },
     {
       "team": "West Metro",
@@ -128,7 +134,9 @@
       "oppTurnovers": 11.89,
       "netRating": -12.336233623362347,
       "scoringMargin": -6.777777777777786,
-      "reboundingMargin": 0.12444444444444258
+      "reboundingMargin": 0.12444444444444258,
+      "offRebounds": 11.222222222222221,
+      "defRebounds": 25.22222222222222
     },
     {
       "team": "Pine Coast",
@@ -159,7 +167,9 @@
       "oppTurnovers": 13,
       "netRating": 8.610213316095667,
       "scoringMargin": 5.333333333333329,
-      "reboundingMargin": 2.1511111111111134
+      "reboundingMargin": 2.1511111111111134,
+      "offRebounds": 11.555555555555555,
+      "defRebounds": 25.555555555555557
     },
     {
       "team": "Red Mesa",
@@ -190,7 +200,9 @@
       "oppTurnovers": 11.5,
       "netRating": -18.04498035496546,
       "scoringMargin": -12.777777777777771,
-      "reboundingMargin": 0.9777777777777814
+      "reboundingMargin": 0.9777777777777814,
+      "offRebounds": 11.88888888888889,
+      "defRebounds": 25.88888888888889
     }
   ]
 }
