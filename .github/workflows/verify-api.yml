@@ -1,0 +1,19 @@
+# Explicit manual action only. At most two authenticated CBBD calls; no data publication.
+name: Verify CBBD fields privately
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check API response field coverage (no raw data retained)
+        env:
+          CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+        run: python scripts/probe_api.py
