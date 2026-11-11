@@ -9,10 +9,10 @@ class TransformTests(unittest.TestCase):
         self.team = {'season': 2027, 'team': 'Fictional Test U', 'conference': 'Demo', 'games': 2, 'wins': 1, 'losses': 1,
                      'teamStats': {'points': {'total': 160}, 'fieldGoals': {'made': 60, 'attempted': 120},
                                    'threePointFieldGoals': {'made': 20, 'attempted': 50}, 'freeThrows': {'made': 20, 'attempted': 30},
-                                   'possessions': 140, 'rebounds': {'total': 70}, 'assists': 32, 'turnovers': {'total': 20}},
+                                   'possessions': 140, 'rebounds': {'total': 70, 'offensive': 22, 'defensive': 48}, 'assists': 32, 'turnovers': {'total': 20}},
                      'opponentStats': {'points': {'total': 150}, 'possessions': 140}}
         self.player = {'season': 2027, 'team': 'Fictional Test U', 'name': 'Demo Player', 'games': 2, 'points': 40,
-                       'rebounds': {'total': 12}, 'fieldGoals': {'made': 15, 'attempted': 30},
+                       'rebounds': {'total': 12, 'offensive': 4, 'defensive': 8}, 'fieldGoals': {'made': 15, 'attempted': 30},
                        'threePointFieldGoals': {'made': 5, 'attempted': 10}, 'freeThrows': {'made': 5, 'attempted': 6},
                        'usage': None, 'offensiveRating': 112.5}
 
@@ -22,6 +22,8 @@ class TransformTests(unittest.TestCase):
         self.assertAlmostEqual(r['offRating'], 114.285714, places=5)
         self.assertAlmostEqual(r['eFg'], 58.333333, places=5)
         self.assertEqual(r['rebounds'], 35)
+        self.assertEqual(r['offRebounds'], 11)
+        self.assertEqual(r['defRebounds'], 24)
 
     def test_opponent_matchup_fields(self):
         self.team['opponentStats'].update({
@@ -51,6 +53,8 @@ class TransformTests(unittest.TestCase):
     def test_player_nested_fields(self):
         r = player_row(self.player)
         self.assertEqual(r['rebounds'], 12)
+        self.assertEqual(r['offRebounds'], 4)
+        self.assertEqual(r['defRebounds'], 8)
         self.assertEqual(r['fgPct'], 50)
         self.assertEqual(r['fgMade'], 15)
         self.assertEqual(r['fgAttempted'], 30)
@@ -65,6 +69,8 @@ class TransformTests(unittest.TestCase):
         self.assertIsNone(team_row(self.team)['fgPct'])
         self.player.pop('rebounds')
         self.assertIsNone(player_row(self.player)['rebounds'])
+        self.assertIsNone(player_row(self.player)['offRebounds'])
+        self.assertIsNone(player_row(self.player)['defRebounds'])
 
     def test_reject_wrong_season(self):
         self.team['season'] = 2026
