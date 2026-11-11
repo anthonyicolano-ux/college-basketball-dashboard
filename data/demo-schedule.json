@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "season": 2027,
+  "demo": true,
+  "mode": "rolling-fictional-calendar",
+  "description": "Fictional game day offsets from viewer's local today; not real dates or provider schedules.",
+  "rows": [
+    {
+      "gameId": "demo-001",
+      "dayOffset": 0,
+      "homeTeam": "North Valley",
+      "awayTeam": "Lake Institute",
+      "status": "scheduled",
+      "startTimeTbd": false,
+      "neutralSite": false
+    },
+    {
+      "gameId": "demo-002",
+      "dayOffset": 0,
+      "homeTeam": "Cedar State",
+      "awayTeam": "West Metro",
+      "status": "scheduled",
+      "startTimeTbd": true,
+      "neutralSite": true
+    },
+    {
+      "gameId": "demo-003",
+      "dayOffset": 2,
+      "homeTeam": "Pine Coast",
+      "awayTeam": "Red Mesa",
+      "status": "scheduled",
+      "startTimeTbd": false,
+      "neutralSite": false
+    },
+    {
+      "gameId": "demo-004",
+      "dayOffset": 3,
+      "homeTeam": "North Valley",
+      "awayTeam": "Cedar State",
+      "status": "scheduled",
+      "startTimeTbd": false,
+      "neutralSite": false
+    },
+    {
+      "gameId": "demo-005",
+      "dayOffset": 4,
+      "homeTeam": "Lake Institute",
+      "awayTeam": "Pine Coast",
+      "status": "scheduled",
+      "startTimeTbd": false,
+      "neutralSite": true
+    },
+    {
+      "gameId": "demo-006",
+      "dayOffset": 5,
+      "homeTeam": "West Metro",
+      "awayTeam": "Red Mesa",
+      "status": "scheduled",
+      "startTimeTbd": true,
+      "neutralSite": false
+    },
+    {
+      "gameId": "demo-007",
+      "dayOffset": 6,
+      "homeTeam": "North Valley",
+      "awayTeam": "Pine Coast",
+      "status": "scheduled",
+      "startTimeTbd": false,
+      "neutralSite": false
+    }
+  ]
+}
