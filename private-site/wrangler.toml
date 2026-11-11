@@ -7,10 +7,9 @@ directory = "./site"
 binding = "ASSETS"
 run_worker_first = true
 
-# After creating a KV namespace, uncomment and fill in its ID.
-# [[kv_namespaces]]
-# binding = "PRIVATE_DATA"
-# id = "YOUR_KV_NAMESPACE_ID"
+[[kv_namespaces]]
+binding = "PRIVATE_DATA"
+id = "7f0ff2851f7044c9b09c5c181f5d499b"
 
 # Set secrets using Wrangler (never commit them):
 # npx wrangler secret put ACCESS_PASSWORD
