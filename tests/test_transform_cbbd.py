@@ -50,6 +50,12 @@ class TransformTests(unittest.TestCase):
         r = player_row(self.player)
         self.assertEqual(r['rebounds'], 12)
         self.assertEqual(r['fgPct'], 50)
+        self.assertEqual(r['fgMade'], 15)
+        self.assertEqual(r['fgAttempted'], 30)
+        self.assertEqual(r['threeMade'], 5)
+        self.assertEqual(r['threeAttempted'], 10)
+        self.assertEqual(r['ftMade'], 5)
+        self.assertEqual(r['ftAttempted'], 6)
         self.assertIsNone(r['usage'])
 
     def test_missing_and_zero_denominators(self):
