@@ -23,16 +23,22 @@ class DemoGenerationTests(unittest.TestCase):
         self.assertTrue(any(g['neutralSite'] for g in rows))
         names = {'North Valley', 'Lake Institute', 'Cedar State',
                  'West Metro', 'Pine Coast', 'Red Mesa'}
+        self.assertEqual(sum(g['status'] == 'final' for g in rows), 1)
+        self.assertEqual(sum(g['status'] == 'scheduled' for g in rows), 7)
         for game in rows:
             self.assertIn(game['homeTeam'], names)
             self.assertIn(game['awayTeam'], names)
             self.assertNotEqual(game['homeTeam'], game['awayTeam'])
-            self.assertEqual(game['status'], 'scheduled')
-        self.assertEqual([sum(0 <= g['dayOffset'] < d for g in rows) for d in (1, 3, 5, 7)],
+            self.assertIn(game['status'], ('scheduled', 'final'))
+        self.assertEqual([sum(g['status'] == 'scheduled' and 0 <= g['dayOffset'] < d for g in rows) for d in (1, 3, 5, 7)],
                          [2, 3, 5, 7])
         page = (Path(__file__).resolve().parents[1] / 'matchups.html').read_text()
         self.assertIn("fetch('data/demo-schedule.json'", page)
         self.assertIn("eligibleGames(count)", page)
+        self.assertIn("function upcomingGames()", page)
+        self.assertIn("const game=upcomingGames().find", page)
+        self.assertIn("upcomingGames().forEach", page)
+        self.assertIn("!['scheduled','final'].includes(g.status)", page)
         self.assertIn("g.gameId===$('game').value", page)
         self.assertNotIn('const demoGames=[[', page)
 
