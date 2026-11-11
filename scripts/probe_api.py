@@ -62,13 +62,13 @@ def game_format_summary(records):
             fmt = 'missing'
         elif not isinstance(value, str):
             fmt = 'non-string'
-        elif re.fullmatch(r'\\d{4}-\\d{2}-\\d{2}', value):
+        elif re.fullmatch(r'\d{4}-\d{2}-\d{2}', value):
             fmt = 'date-only'
-        elif re.fullmatch(r'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z', value):
+        elif re.fullmatch(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z', value):
             fmt = 'utc-Z'
-        elif re.fullmatch(r'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?[+-]\\d{2}:\\d{2}', value):
+        elif re.fullmatch(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?[+-]\d{2}:\d{2}', value):
             fmt = 'offset-aware'
-        elif re.fullmatch(r'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?', value):
+        elif re.fullmatch(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?', value):
             fmt = 'timezone-missing'
         else:
             fmt = 'unrecognized'
