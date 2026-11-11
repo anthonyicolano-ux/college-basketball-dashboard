@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "season": 2027,
-  "seasonLabel": "2026\u201327 (SYNTHETIC DEMO)",
-  "scope": "Fictional Division I-style sample; no real teams or games",
+  "seasonLabel": "2026–27 (SYNTHETIC DEMO)",
+  "scope": "Fictional six-team demo; invented opponent stats and fictional games; not a national sample",
   "generatedAt": "2026-11-11T17:16:21+00:00",
   "demo": true,
   "rows": [
@@ -12,11 +12,11 @@
       "games": 9,
       "wins": 7,
       "losses": 2,
-      "ppg": 79.0,
-      "oppPpg": 69.0,
+      "ppg": 79,
+      "oppPpg": 69,
       "offRating": 121.53846153846153,
       "defRating": 105.2542372881356,
-      "pace": 65.0,
+      "pace": 65,
       "fgPct": 45.925925925925924,
       "threePct": 40.888888888888886,
       "ftPct": 74.09638554216868,
@@ -24,7 +24,15 @@
       "tsPct": 57.98969072164949,
       "rebounds": 34.44444444444444,
       "assists": 12.777777777777779,
-      "turnovers": 10.333333333333334
+      "turnovers": 10.333333333333334,
+      "threeMade": 9,
+      "oppThreeMade": 6.53,
+      "oppThreePct": 31.68,
+      "oppFgPct": 42.81,
+      "oppRebounds": 33.76,
+      "oppAssists": 12.02,
+      "turnoversForced": 13.97,
+      "oppTurnovers": 13.97
     },
     {
       "team": "Lake Institute",
@@ -44,7 +52,15 @@
       "tsPct": 55.11889695597149,
       "rebounds": 35.111111111111114,
       "assists": 13.333333333333334,
-      "turnovers": 11.0
+      "turnovers": 11,
+      "threeMade": 8.33,
+      "oppThreeMade": 8.22,
+      "oppThreePct": 35.32,
+      "oppFgPct": 45.54,
+      "oppRebounds": 35.84,
+      "oppAssists": 13.58,
+      "turnoversForced": 12.28,
+      "oppTurnovers": 12.28
     },
     {
       "team": "Cedar State",
@@ -64,7 +80,15 @@
       "tsPct": 59.97291545753531,
       "rebounds": 35.77777777777778,
       "assists": 13.88888888888889,
-      "turnovers": 11.666666666666666
+      "turnovers": 11.666666666666666,
+      "threeMade": 9.73,
+      "oppThreeMade": 6.33,
+      "oppThreePct": 31.26,
+      "oppFgPct": 42.5,
+      "oppRebounds": 33.52,
+      "oppAssists": 11.84,
+      "turnoversForced": 14.17,
+      "oppTurnovers": 14.17
     },
     {
       "team": "West Metro",
@@ -84,7 +108,15 @@
       "tsPct": 52.425082865453554,
       "rebounds": 36.44444444444444,
       "assists": 14.444444444444445,
-      "turnovers": 12.333333333333334
+      "turnovers": 12.333333333333334,
+      "threeMade": 7.73,
+      "oppThreeMade": 8.61,
+      "oppThreePct": 36.16,
+      "oppFgPct": 46.17,
+      "oppRebounds": 36.32,
+      "oppAssists": 13.94,
+      "turnoversForced": 11.89,
+      "oppTurnovers": 11.89
     },
     {
       "team": "Pine Coast",
@@ -103,8 +135,16 @@
       "eFg": 54.37956204379562,
       "tsPct": 56.67671340584458,
       "rebounds": 37.111111111111114,
-      "assists": 15.0,
-      "turnovers": 13.0
+      "assists": 15,
+      "turnovers": 13,
+      "threeMade": 8.27,
+      "oppThreeMade": 7.5,
+      "oppThreePct": 33.78,
+      "oppFgPct": 44.39,
+      "oppRebounds": 34.96,
+      "oppAssists": 12.92,
+      "turnoversForced": 13,
+      "oppTurnovers": 13
     },
     {
       "team": "Red Mesa",
@@ -113,7 +153,7 @@
       "wins": 3,
       "losses": 6,
       "ppg": 66.22222222222223,
-      "oppPpg": 79.0,
+      "oppPpg": 79,
       "offRating": 98.51239669421487,
       "defRating": 116.55737704918033,
       "pace": 67.22222222222223,
@@ -124,7 +164,15 @@
       "tsPct": 50.020142339196994,
       "rebounds": 37.77777777777778,
       "assists": 15.555555555555555,
-      "turnovers": 13.666666666666666
+      "turnovers": 13.666666666666666,
+      "threeMade": 6.96,
+      "oppThreeMade": 9,
+      "oppThreePct": 37,
+      "oppFgPct": 46.8,
+      "oppRebounds": 36.8,
+      "oppAssists": 14.3,
+      "turnoversForced": 11.5,
+      "oppTurnovers": 11.5
     }
   ]
 }
