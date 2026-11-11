@@ -1,7 +1,7 @@
 """Private, in-memory CBBD game normalization; never publishes provider records.
 
 Core field names were confirmed in a private /games field report; status values
-and timestamp formats still require private verification before live use. This module does not fetch or write any data.
+and timestamp formats were sampled privately; unknown values remain unverified. This module does not fetch or write any data.
 """
 from datetime import datetime, timezone
 
@@ -62,9 +62,10 @@ def game_row(record):
     status = _text(_first(record, 'status', 'gameStatus'))
     if not status:
         raise ValueError('Missing game status')
-    # Status values have not yet been verified. Never treat an unknown label as upcoming.
+    # Only observed CBBD status labels are verified; all others fail closed.
+    status_verified = status in ('scheduled', 'final')
     return {'gameId': str(game_id), 'season': SEASON, 'startUtc': start,
-            'gameDate': game_date, 'startTimeTbd': tbd, 'statusVerified': False,
+            'gameDate': game_date, 'startTimeTbd': tbd, 'statusVerified': status_verified,
             'homeTeam': home, 'awayTeam': away, 'status': status,
             'homeTeamId': _first(record, 'homeTeamId', 'homeId'),
             'awayTeamId': _first(record, 'awayTeamId', 'awayId')}
