@@ -9,7 +9,7 @@ from urllib.request import Request, urlopen
 BASE = 'https://api.collegebasketballdata.com'
 SEASON = 2027
 TEAM = 'Duke'
-ENDPOINTS = ('/stats/team/season', '/stats/player/season')
+ENDPOINTS = ('/stats/team/season', '/stats/player/season', '/games')
 
 def field_paths(value, prefix=''):
     if not isinstance(value, dict):
