@@ -15,6 +15,8 @@ class ScheduleTests(unittest.TestCase):
         row = game_row(self.game)
         self.assertEqual(row['gameId'], '1001')
         self.assertEqual(row['startUtc'], '2026-11-16T01:30:00Z')
+        self.assertFalse(row['statusVerified'])
+        self.assertFalse(row['startTimeTbd'])
         self.assertEqual(row['homeTeam'], 'North Valley')
         self.assertEqual(row['awayTeamId'], 2)
 
@@ -22,6 +24,34 @@ class ScheduleTests(unittest.TestCase):
         self.game['gameId'] = self.game.pop('id')
         self.game['startTime'] = self.game.pop('startDate')
         self.assertEqual(game_row(self.game)['gameId'], '1001')
+
+    def test_tbd_tipoff_does_not_claim_precise_start(self):
+        self.game['startTimeTbd'] = True
+        row = game_row(self.game)
+        self.assertIsNone(row['startUtc'])
+        self.assertEqual(row['gameDate'], '2026-11-15')
+        self.assertTrue(row['startTimeTbd'])
+
+    def test_tbd_date_only_is_supported_without_time(self):
+        self.game.update(startTimeTbd=True, startDate='2026-11-15')
+        row = game_row(self.game)
+        self.assertIsNone(row['startUtc'])
+        self.assertEqual(row['gameDate'], '2026-11-15')
+
+    def test_invalid_tbd_flag_and_date_rejected(self):
+        for value in ('true', 1, None):
+            with self.subTest(value=value):
+                with self.assertRaises(ValueError):
+                    game_row(dict(self.game, startTimeTbd=value))
+        with self.assertRaises(ValueError):
+            game_row(dict(self.game, startTimeTbd=True, startDate='bad-date'))
+
+    def test_unverified_status_is_never_classified_as_upcoming(self):
+        for value in ('scheduled', 'final', 'canceled', 'unrecognized'):
+            with self.subTest(status=value):
+                row = game_row(dict(self.game, status=value))
+                self.assertEqual(row['status'], value)
+                self.assertFalse(row['statusVerified'])
 
     def test_wrong_season_rejected(self):
         self.game['season'] = 2026
