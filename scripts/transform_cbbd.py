@@ -45,6 +45,8 @@ def team_row(record):
     fga = number(record, 'teamStats.fieldGoals.attempted')
     threes = number(record, 'teamStats.threePointFieldGoals.made')
     fta = number(record, 'teamStats.freeThrows.attempted')
+    team_rebounds = per_game(number(record, 'teamStats.rebounds.total'), games)
+    opponent_rebounds = per_game(number(record, 'opponentStats.rebounds.total'), games)
     return {
         'team': record['team'], 'conference': record.get('conference'),
         'games': games, 'wins': number(record, 'wins'), 'losses': number(record, 'losses'),
@@ -65,11 +67,12 @@ def team_row(record):
                                  number(record, 'opponentStats.threePointFieldGoals.attempted'), 100),
         'oppFgPct': safe_rate(number(record, 'opponentStats.fieldGoals.made'),
                               number(record, 'opponentStats.fieldGoals.attempted'), 100),
-        'oppRebounds': per_game(number(record, 'opponentStats.rebounds.total'), games),
+        'oppRebounds': opponent_rebounds,
+        'reboundingMargin': team_rebounds - opponent_rebounds if team_rebounds is not None and opponent_rebounds is not None else None,
         'oppAssists': per_game(number(record, 'opponentStats.assists'), games),
         'turnoversForced': per_game(number(record, 'opponentStats.turnovers.total'), games),
         'oppTurnovers': per_game(number(record, 'opponentStats.turnovers.total'), games),
-        'rebounds': per_game(number(record, 'teamStats.rebounds.total'), games),
+        'rebounds': team_rebounds,
         'assists': per_game(number(record, 'teamStats.assists'), games),
         'turnovers': per_game(number(record, 'teamStats.turnovers.total'), games),
     }
