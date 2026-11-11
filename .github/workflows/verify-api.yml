@@ -1,4 +1,4 @@
-# Explicit manual action only. At most two authenticated CBBD calls; no data publication.
+# Explicit manual action only. At most three authenticated CBBD calls; no data publication.
 name: Verify CBBD fields privately
 on:
   workflow_dispatch:
