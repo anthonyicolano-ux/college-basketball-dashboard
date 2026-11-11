@@ -23,6 +23,29 @@ class TransformTests(unittest.TestCase):
         self.assertAlmostEqual(r['eFg'], 58.333333, places=5)
         self.assertEqual(r['rebounds'], 35)
 
+    def test_opponent_matchup_fields(self):
+        self.team['opponentStats'].update({
+            'threePointFieldGoals': {'made': 14, 'attempted': 40},
+            'fieldGoals': {'made': 55, 'attempted': 130},
+            'rebounds': {'total': 64}, 'assists': 26,
+            'turnovers': {'total': 22}
+        })
+        r = team_row(self.team)
+        self.assertEqual(r['threeMade'], 10)
+        self.assertEqual(r['oppThreeMade'], 7)
+        self.assertEqual(r['oppThreePct'], 35)
+        self.assertAlmostEqual(r['oppFgPct'], 55 / 130 * 100)
+        self.assertEqual(r['oppRebounds'], 32)
+        self.assertEqual(r['oppAssists'], 13)
+        self.assertEqual(r['turnoversForced'], 11)
+        self.assertEqual(r['oppTurnovers'], 11)
+
+    def test_missing_opponent_fields_are_not_zero(self):
+        r = team_row(self.team)
+        for field in ('oppThreeMade', 'oppThreePct', 'oppFgPct',
+                      'oppRebounds', 'oppAssists', 'turnoversForced', 'oppTurnovers'):
+            self.assertIsNone(r[field], field)
+
     def test_player_nested_fields(self):
         r = player_row(self.player)
         self.assertEqual(r['rebounds'], 12)
