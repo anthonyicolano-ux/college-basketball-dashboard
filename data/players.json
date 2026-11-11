@@ -26,7 +26,9 @@
       "threeMade": 13,
       "threeAttempted": 36,
       "ftMade": 17,
-      "ftAttempted": 23
+      "ftAttempted": 23,
+      "offRebounds": 9,
+      "defRebounds": 18
     },
     {
       "name": "North Demo Player 2",
@@ -48,7 +50,9 @@
       "threeMade": 19,
       "threeAttempted": 50,
       "ftMade": 25,
-      "ftAttempted": 33
+      "ftAttempted": 33,
+      "offRebounds": 18,
+      "defRebounds": 27
     },
     {
       "name": "North Demo Player 3",
@@ -70,7 +74,9 @@
       "threeMade": 25,
       "threeAttempted": 64,
       "ftMade": 33,
-      "ftAttempted": 43
+      "ftAttempted": 43,
+      "offRebounds": 27,
+      "defRebounds": 36
     },
     {
       "name": "Lake Demo Player 1",
@@ -92,7 +98,9 @@
       "threeMade": 13,
       "threeAttempted": 36,
       "ftMade": 17,
-      "ftAttempted": 23
+      "ftAttempted": 23,
+      "offRebounds": 9,
+      "defRebounds": 18
     },
     {
       "name": "Lake Demo Player 2",
@@ -114,7 +122,9 @@
       "threeMade": 19,
       "threeAttempted": 50,
       "ftMade": 25,
-      "ftAttempted": 33
+      "ftAttempted": 33,
+      "offRebounds": 18,
+      "defRebounds": 27
     },
     {
       "name": "Lake Demo Player 3",
@@ -136,7 +146,9 @@
       "threeMade": 25,
       "threeAttempted": 64,
       "ftMade": 33,
-      "ftAttempted": 43
+      "ftAttempted": 43,
+      "offRebounds": 27,
+      "defRebounds": 36
     },
     {
       "name": "Cedar Demo Player 1",
@@ -158,7 +170,9 @@
       "threeMade": 13,
       "threeAttempted": 36,
       "ftMade": 17,
-      "ftAttempted": 23
+      "ftAttempted": 23,
+      "offRebounds": 9,
+      "defRebounds": 18
     },
     {
       "name": "Cedar Demo Player 2",
@@ -180,7 +194,9 @@
       "threeMade": 19,
       "threeAttempted": 50,
       "ftMade": 25,
-      "ftAttempted": 33
+      "ftAttempted": 33,
+      "offRebounds": 18,
+      "defRebounds": 27
     },
     {
       "name": "Cedar Demo Player 3",
@@ -202,7 +218,9 @@
       "threeMade": 25,
       "threeAttempted": 64,
       "ftMade": 33,
-      "ftAttempted": 43
+      "ftAttempted": 43,
+      "offRebounds": 27,
+      "defRebounds": 36
     },
     {
       "name": "West Demo Player 1",
@@ -224,7 +242,9 @@
       "threeMade": 13,
       "threeAttempted": 36,
       "ftMade": 17,
-      "ftAttempted": 23
+      "ftAttempted": 23,
+      "offRebounds": 9,
+      "defRebounds": 18
     },
     {
       "name": "West Demo Player 2",
@@ -246,7 +266,9 @@
       "threeMade": 19,
       "threeAttempted": 50,
       "ftMade": 25,
-      "ftAttempted": 33
+      "ftAttempted": 33,
+      "offRebounds": 18,
+      "defRebounds": 27
     },
     {
       "name": "West Demo Player 3",
@@ -268,7 +290,9 @@
       "threeMade": 25,
       "threeAttempted": 64,
       "ftMade": 33,
-      "ftAttempted": 43
+      "ftAttempted": 43,
+      "offRebounds": 27,
+      "defRebounds": 36
     },
     {
       "name": "Pine Demo Player 1",
@@ -290,7 +314,9 @@
       "threeMade": 13,
       "threeAttempted": 36,
       "ftMade": 17,
-      "ftAttempted": 23
+      "ftAttempted": 23,
+      "offRebounds": 9,
+      "defRebounds": 18
     },
     {
       "name": "Pine Demo Player 2",
@@ -312,7 +338,9 @@
       "threeMade": 19,
       "threeAttempted": 50,
       "ftMade": 25,
-      "ftAttempted": 33
+      "ftAttempted": 33,
+      "offRebounds": 18,
+      "defRebounds": 27
     },
     {
       "name": "Pine Demo Player 3",
@@ -334,7 +362,9 @@
       "threeMade": 25,
       "threeAttempted": 64,
       "ftMade": 33,
-      "ftAttempted": 43
+      "ftAttempted": 43,
+      "offRebounds": 27,
+      "defRebounds": 36
     },
     {
       "name": "Mesa Demo Player 1",
@@ -356,7 +386,9 @@
       "threeMade": 13,
       "threeAttempted": 36,
       "ftMade": 17,
-      "ftAttempted": 23
+      "ftAttempted": 23,
+      "offRebounds": 9,
+      "defRebounds": 18
     },
     {
       "name": "Mesa Demo Player 2",
@@ -378,7 +410,9 @@
       "threeMade": 19,
       "threeAttempted": 50,
       "ftMade": 25,
-      "ftAttempted": 33
+      "ftAttempted": 33,
+      "offRebounds": 18,
+      "defRebounds": 27
     },
     {
       "name": "Mesa Demo Player 3",
@@ -400,7 +434,9 @@
       "threeMade": 25,
       "threeAttempted": 64,
       "ftMade": 33,
-      "ftAttempted": 43
+      "ftAttempted": 43,
+      "offRebounds": 27,
+      "defRebounds": 36
     }
   ]
 }
