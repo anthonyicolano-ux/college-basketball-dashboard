@@ -57,6 +57,18 @@ def team_row(record):
         'ftPct': safe_rate(number(record, 'teamStats.freeThrows.made'), fta, 100),
         'eFg': effective_fg(fgm, threes, fga),
         'tsPct': true_shooting(points, fga, fta),
+        # Opponent fields are optional until their actual API paths are verified.
+        # Never replace absent statistics with zero: rankings must exclude missing data.
+        'threeMade': per_game(threes, games),
+        'oppThreeMade': per_game(number(record, 'opponentStats.threePointFieldGoals.made'), games),
+        'oppThreePct': safe_rate(number(record, 'opponentStats.threePointFieldGoals.made'),
+                                 number(record, 'opponentStats.threePointFieldGoals.attempted'), 100),
+        'oppFgPct': safe_rate(number(record, 'opponentStats.fieldGoals.made'),
+                              number(record, 'opponentStats.fieldGoals.attempted'), 100),
+        'oppRebounds': per_game(number(record, 'opponentStats.rebounds.total'), games),
+        'oppAssists': per_game(number(record, 'opponentStats.assists'), games),
+        'turnoversForced': per_game(number(record, 'opponentStats.turnovers.total'), games),
+        'oppTurnovers': per_game(number(record, 'opponentStats.turnovers.total'), games),
         'rebounds': per_game(number(record, 'teamStats.rebounds.total'), games),
         'assists': per_game(number(record, 'teamStats.assists'), games),
         'turnovers': per_game(number(record, 'teamStats.turnovers.total'), games),
@@ -94,6 +106,6 @@ def private_validate(team_records, player_records):
     teams = [team_row(r) for r in team_records]
     players = [player_row(r) for r in player_records]
     return {'season': SEASON,
-            'teams': quality_summary(teams, ('ppg', 'oppPpg', 'offRating', 'defRating', 'pace', 'eFg', 'tsPct')),
+            'teams': quality_summary(teams, ('ppg', 'oppPpg', 'offRating', 'defRating', 'pace', 'eFg', 'tsPct', 'threeMade', 'oppThreeMade', 'oppThreePct', 'oppFgPct', 'oppRebounds', 'oppAssists', 'turnoversForced')),
             'players': quality_summary(players, ('points', 'rebounds', 'assists', 'usage', 'offRating', 'defRating', 'trueShootingPct')),
             'publication': 'DISABLED: provider redistribution clearance required'}
