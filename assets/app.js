@@ -4,7 +4,7 @@ const mode = document.body.dataset.mode;
 const columns = mode === 'players' ? [
  ['name','Player','text'],['team','Team','text'],['conference','Conf.','text'],['games','GP'],['minutes','MIN'],['points','PTS'],['rebounds','REB'],['assists','AST'],['steals','STL'],['blocks','BLK'],['turnovers','TO'],['fgMade','FGM'],['fgAttempted','FGA'],['fgPct','FG%'],['threeMade','3PM'],['threeAttempted','3PA'],['threePct','3P%'],['ftMade','FTM'],['ftAttempted','FTA'],['ftPct','FT%']
 ] : [
- ['team','Team','text'],['conference','Conf.','text'],['wins','W'],['losses','L'],['games','GP'],['ppg','PPG'],['oppPpg','Opp PPG'],['offRating','Off/100'],['defRating','Def/100'],['netRating','Net/100'],['scoringMargin','Margin/G'],['pace','Pace'],['fgPct','FG%'],['threePct','3P%'],['ftPct','FT%'],['eFg','eFG%'],['tsPct','TS%'],['rebounds','REB/G'],['assists','AST/G'],['turnovers','TO/G']
+ ['team','Team','text'],['conference','Conf.','text'],['wins','W'],['losses','L'],['games','GP'],['ppg','PPG'],['oppPpg','Opp PPG'],['offRating','Off/100'],['defRating','Def/100'],['netRating','Net/100'],['scoringMargin','Margin/G'],['pace','Pace'],['fgPct','FG%'],['threePct','3P%'],['ftPct','FT%'],['eFg','eFG%'],['tsPct','TS%'],['rebounds','REB/G'],['oppRebounds','Opp REB/G'],['reboundingMargin','REB Margin'],['assists','AST/G'],['turnovers','TO/G']
 ];
 let rows = [], currentSort = mode === 'players' ? 'points' : 'offRating', ascending = false, perGame = true;
 const number = v => (typeof v === 'number' && Number.isFinite(v)) ? v : null;
