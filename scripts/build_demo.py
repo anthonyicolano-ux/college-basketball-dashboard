@@ -27,6 +27,10 @@ def main():
     for idx,(team,prefix,conf,w,l,pts,opp,poss,opp_poss,fgm,fga,tpm,tpa,ftm,fta) in enumerate(names):
         games=w+l
         teams.append({'team':team,'conference':conf,'games':games,'wins':w,'losses':l,'ppg':per_game(pts,games),'oppPpg':per_game(opp,games),'offRating':safe_rate(pts,poss,100),'defRating':safe_rate(opp,opp_poss,100),'pace':per_game(poss,games),'fgPct':safe_rate(fgm,fga,100),'threePct':safe_rate(tpm,tpa,100),'ftPct':safe_rate(ftm,fta,100),'eFg':effective_fg(fgm,tpm,fga),'tsPct':true_shooting(pts,fga,fta),'rebounds':per_game(310+idx*6,games),'assists':per_game(115+idx*5,games),'turnovers':per_game(93+idx*6,games)})
+        total_team_rebounds = 310 + idx*6
+        offensive_team_rebounds = 92 + idx*3  # fictional season totals
+        teams[-1]['offRebounds'] = per_game(offensive_team_rebounds, games)
+        teams[-1]['defRebounds'] = per_game(total_team_rebounds - offensive_team_rebounds, games)
         teams[-1]['netRating'] = teams[-1]['offRating'] - teams[-1]['defRating'] if teams[-1]['offRating'] is not None and teams[-1]['defRating'] is not None else None
         teams[-1]['scoringMargin'] = teams[-1]['ppg'] - teams[-1]['oppPpg'] if teams[-1]['ppg'] is not None and teams[-1]['oppPpg'] is not None else None
         opp_three_made,opp_three_pct,opp_fg_pct,opp_rebounds,opp_assists,opp_turnovers = opponent_demo[idx]
@@ -43,7 +47,9 @@ def main():
         teams[-1]['reboundingMargin'] = teams[-1]['rebounds'] - teams[-1]['oppRebounds'] if teams[-1]['rebounds'] is not None and teams[-1]['oppRebounds'] is not None else None
         for j in range(3):
             pfgm=38+j*15+idx;pfg=91+j*27+idx*2;p3m=13+j*6;p3a=36+j*14;pftm=17+j*8;pfta=23+j*10
-            players.append({'name':f'{prefix} Demo Player {j+1}','team':team,'conference':conf,'games':games,'minutes':games*(19+j*6),'points':pfgm*2+p3m+pftm,'rebounds':games*(3+j*2),'assists':games*(1+j),'steals':games+j*3,'blocks':j*3+idx,'turnovers':games+j*4,'fgMade':pfgm,'fgAttempted':pfg,'threeMade':p3m,'threeAttempted':p3a,'ftMade':pftm,'ftAttempted':pfta,'fgPct':safe_rate(pfgm,pfg,100),'threePct':safe_rate(p3m,p3a,100),'ftPct':safe_rate(pftm,pfta,100)})
+            total_player_rebounds = games*(3+j*2)
+            offensive_player_rebounds = games*(1+j)
+            players.append({'name':f'{prefix} Demo Player {j+1}','team':team,'conference':conf,'games':games,'minutes':games*(19+j*6),'points':pfgm*2+p3m+pftm,'rebounds':total_player_rebounds,'offRebounds':offensive_player_rebounds,'defRebounds':total_player_rebounds-offensive_player_rebounds,'assists':games*(1+j),'steals':games+j*3,'blocks':j*3+idx,'turnovers':games+j*4,'fgMade':pfgm,'fgAttempted':pfg,'threeMade':p3m,'threeAttempted':p3a,'ftMade':pftm,'ftAttempted':pfta,'fgPct':safe_rate(pfgm,pfg,100),'threePct':safe_rate(p3m,p3a,100),'ftPct':safe_rate(pftm,pfta,100)})
     write('teams.json',teams);write('players.json',players)
     (ROOT/'data'/'refresh-status.json').write_text(json.dumps({'schemaVersion':1,'outcome':'demo only — no live API attempted','lastSuccessAt':None,'lastAttemptAt':None},indent=2)+'\n',encoding='utf-8')
 if __name__=='__main__':main()
