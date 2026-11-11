@@ -40,6 +40,7 @@ def main():
             'turnoversForced': opp_turnovers,
             'oppTurnovers': opp_turnovers,
         })
+        teams[-1]['reboundingMargin'] = teams[-1]['rebounds'] - teams[-1]['oppRebounds'] if teams[-1]['rebounds'] is not None and teams[-1]['oppRebounds'] is not None else None
         for j in range(3):
             pfgm=38+j*15+idx;pfg=91+j*27+idx*2;p3m=13+j*6;p3a=36+j*14;pftm=17+j*8;pfta=23+j*10
             players.append({'name':f'{prefix} Demo Player {j+1}','team':team,'conference':conf,'games':games,'minutes':games*(19+j*6),'points':pfgm*2+p3m+pftm,'rebounds':games*(3+j*2),'assists':games*(1+j),'steals':games+j*3,'blocks':j*3+idx,'turnovers':games+j*4,'fgMade':pfgm,'fgAttempted':pfg,'threeMade':p3m,'threeAttempted':p3a,'ftMade':pftm,'ftAttempted':pfta,'fgPct':safe_rate(pfgm,pfg,100),'threePct':safe_rate(p3m,p3a,100),'ftPct':safe_rate(pftm,pfta,100)})
