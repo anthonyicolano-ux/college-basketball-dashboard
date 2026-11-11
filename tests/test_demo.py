@@ -62,8 +62,18 @@ class DemoGenerationTests(unittest.TestCase):
                 self.assertEqual(team['turnoversForced'], team['oppTurnovers'])
                 self.assertAlmostEqual(team['netRating'], team['offRating'] - team['defRating'])
                 self.assertAlmostEqual(team['scoringMargin'], team['ppg'] - team['oppPpg'])
+            shooting = ('fgMade', 'fgAttempted', 'threeMade', 'threeAttempted', 'ftMade', 'ftAttempted')
+            for player in players['rows']:
+                for field in shooting:
+                    self.assertIsInstance(player.get(field), int, (player['name'], field))
+                self.assertAlmostEqual(player['fgPct'], 100 * player['fgMade'] / player['fgAttempted'])
+                self.assertAlmostEqual(player['threePct'], 100 * player['threeMade'] / player['threeAttempted'])
+                self.assertAlmostEqual(player['ftPct'], 100 * player['ftMade'] / player['ftAttempted'])
             app = (Path(__file__).resolve().parents[1] / 'assets' / 'app.js').read_text()
             self.assertIn("['netRating','Net/100']", app)
+            for key, label in (('fgMade', 'FGM'), ('fgAttempted', 'FGA'), ('threeMade', '3PM'), ('threeAttempted', '3PA'), ('ftMade', 'FTM'), ('ftAttempted', 'FTA')):
+                self.assertIn(f"['{key}','{label}']", app)
+            self.assertIn("'fgMade','fgAttempted','threeMade','threeAttempted','ftMade','ftAttempted'].includes(key)", app)
             self.assertIn("['scoringMargin','Margin/G']", app)
             self.assertAlmostEqual(teams['rows'][0]['threeMade'], 92 / 9)
             self.assertEqual(teams['rows'][0]['oppThreeMade'], 6.53)
