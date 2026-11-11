@@ -42,7 +42,7 @@ def main():
         })
         for j in range(3):
             pfgm=38+j*15+idx;pfg=91+j*27+idx*2;p3m=13+j*6;p3a=36+j*14;pftm=17+j*8;pfta=23+j*10
-            players.append({'name':f'{prefix} Demo Player {j+1}','team':team,'conference':conf,'games':games,'minutes':games*(19+j*6),'points':pfgm*2+p3m+pftm,'rebounds':games*(3+j*2),'assists':games*(1+j),'steals':games+j*3,'blocks':j*3+idx,'turnovers':games+j*4,'fgPct':safe_rate(pfgm,pfg,100),'threePct':safe_rate(p3m,p3a,100),'ftPct':safe_rate(pftm,pfta,100)})
+            players.append({'name':f'{prefix} Demo Player {j+1}','team':team,'conference':conf,'games':games,'minutes':games*(19+j*6),'points':pfgm*2+p3m+pftm,'rebounds':games*(3+j*2),'assists':games*(1+j),'steals':games+j*3,'blocks':j*3+idx,'turnovers':games+j*4,'fgMade':pfgm,'fgAttempted':pfg,'threeMade':p3m,'threeAttempted':p3a,'ftMade':pftm,'ftAttempted':pfta,'fgPct':safe_rate(pfgm,pfg,100),'threePct':safe_rate(p3m,p3a,100),'ftPct':safe_rate(pftm,pfta,100)})
     write('teams.json',teams);write('players.json',players)
     (ROOT/'data'/'refresh-status.json').write_text(json.dumps({'schemaVersion':1,'outcome':'demo only — no live API attempted','lastSuccessAt':None,'lastAttemptAt':None},indent=2)+'\n',encoding='utf-8')
 if __name__=='__main__':main()
