@@ -26,12 +26,30 @@ main{max-width:1500px;width:100%;padding-left:clamp(12px,2vw,28px);padding-right
 .benchmark-table th:first-child,.benchmark-table td:first-child{width:28%;white-space:normal}
 .benchmark-table th:not(:first-child),.benchmark-table td:not(:first-child){white-space:normal}
 @media(max-width:700px){.benchmark-table th,.benchmark-table td{padding:9px 7px;font-size:.82rem}.benchmark-table th:first-child,.benchmark-table td:first-child{width:32%}}
+
+.rank-controls{display:flex;flex-wrap:wrap;gap:14px;align-items:end;margin:14px 0}
+.rank-controls label{display:flex;flex-direction:column;gap:6px;font-weight:650}
+.rank-controls select{font:inherit;min-height:44px;border-radius:7px;padding:8px;background:#fff;color:#152031}
+.ranking-table th:first-child,.ranking-table td:first-child{position:static}
+.ranking-table td,.ranking-table th{white-space:normal}
+.ranking-table button{font:inherit;color:#b8dcff;background:none;border:0;text-decoration:underline;cursor:pointer;text-align:left;padding:2px}
+.ranking-table button:focus-visible{outline:3px solid #ffd37e}
+.rank-score{font-weight:800;color:#a7f3c3}
+@media(max-width:700px){.ranking-table td,.ranking-table th{padding:8px 7px;font-size:.84rem}}
 </style></head>
 <body><header><h1>College Basketball Dashboard</h1><p>Matchup analysis · Fictional demo</p>
 <nav aria-label="Main navigation"><a class="navlink" href="index.html">Team Stats</a><a class="navlink" href="players.html">Player Stats</a><a class="navlink" aria-current="page" href="matchups.html">Matchups</a></nav></header>
 <main>
 <section class="notice"><h2>Synthetic demo — not real NCAA games</h2><p>All teams, statistics and scheduled games on this page are fictional. No live schedule, CBBD API calls, predictions or provider data are used. All rankings and averages below are based only on the six fictional teams.</p></section>
-<section class="panel"><h2>Compare a matchup</h2>
+<section class="panel" id="rankings"><h2>Upcoming matchup rankings — fictional demo</h2>
+<p class="muted">Ranks each team's offensive opportunity against its scheduled opponent's defense. These are descriptive scores relative to six fictional teams, not win probabilities, point projections, or real NCAA schedules.</p>
+<div class="rank-controls"><label for="days">Rolling date window<select id="days"><option value="1">Today</option><option value="3">3 days</option><option value="5" selected>5 days</option><option value="7">7 days</option></select></label>
+<label for="category">Rank by<select id="category"><option value="overall">Overall offense</option><option value="scoring">Scoring</option><option value="three">Three-pointers</option><option value="assists">Assists</option><option value="rebounds">Rebounding</option></select></label></div>
+<p id="rankSummary" role="status" class="muted">Loading demo rankings…</p>
+<div class="table-wrap"><table class="ranking-table"><thead><tr><th scope="col">Rank</th><th scope="col">Fictional game date</th><th scope="col">Offense vs. defense</th><th scope="col">Opportunity score</th><th scope="col">Compare</th></tr></thead><tbody id="rankingRows"></tbody></table></div>
+<p class="muted">Scores are computed from the current fictional statistics. Higher scores mean more favorable offensive production and defensive allowances within the six-team sample. Both teams in each game are ranked separately. Tied scores share a rank.</p>
+</section>
+<section class="panel" id="compare"><h2>Compare a matchup</h2>
 <div class="mode-picker" role="group" aria-label="Comparison mode"><button id="upcomingMode" type="button" aria-pressed="true">Demo upcoming games</button><button id="customMode" type="button" aria-pressed="false">Custom team comparison</button></div>
 <div id="upcomingControls" class="controls"><label for="game">Choose a fictional upcoming game<select id="game"></select></label></div>
 <div id="customControls" class="controls" hidden><label for="teamA">Team A<select id="teamA"></select></label><label for="teamB">Team B<select id="teamB"></select></label></div>
@@ -57,7 +75,54 @@ const allowedMetrics=[
  ['assists','Assists / game','oppAssists',true],
  ['turnovers','Turnovers / game','turnoversForced',false]
 ];
-const demoGames=[['North Valley','Lake Institute'],['Cedar State','West Metro'],['Pine Coast','Red Mesa'],['North Valley','Cedar State'],['Lake Institute','Pine Coast']];
+const demoGames=[['North Valley','Lake Institute'],['Cedar State','West Metro'],['Pine Coast','Red Mesa'],['North Valley','Cedar State'],['Lake Institute','Pine Coast'],['West Metro','Red Mesa'],['North Valley','Pine Coast']];
+const categoryFields={
+ scoring:[['ppg','oppPpg'],['offRating','defRating']],
+ three:[['threeMade','oppThreeMade'],['threePct','oppThreePct']],
+ assists:[['assists','oppAssists']],
+ rebounds:[['rebounds','oppRebounds']],
+ overall:[['ppg','oppPpg'],['offRating','defRating'],['threeMade','oppThreeMade'],['threePct','oppThreePct'],['assists','oppAssists'],['rebounds','oppRebounds']]
+};
+// Assign fictional games to today and the next six calendar days in the viewer's local timezone.
+function demoDate(offset){const d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()+offset);return d}
+function relativeScore(value,key){
+ const values=teams.map(t=>t[key]).filter(valid);
+ if(!valid(value)||values.length<2)return null;
+ const lower=values.filter(x=>x<value).length;
+ const equal=values.filter(x=>x===value).length;
+ return 100*(lower+(equal-1)/2)/(values.length-1);
+}
+function opportunity(off,def,category){
+ const fields=categoryFields[category],parts=[];
+ for(const [offKey,defKey] of fields){
+ const a=relativeScore(off[offKey],offKey),b=relativeScore(def[defKey],defKey);
+ if(a===null||b===null)return null;
+ parts.push((a+b)/2);
+ }
+ return parts.reduce((a,b)=>a+b,0)/parts.length;
+}
+function renderRankings(){
+ const count=Number($('days').value),category=$('category').value,rows=[];
+ for(let i=0;i<Math.min(count,demoGames.length);i++){
+ const pair=demoGames[i],a=teams.find(t=>t.team===pair[0]),b=teams.find(t=>t.team===pair[1]);
+ if(!a||!b)continue;
+ for(const [off,def] of [[a,b],[b,a]])rows.push({i,off,def,score:opportunity(off,def,category)});
+ }
+ rows.sort((a,b)=>(b.score??-1)-(a.score??-1)||a.i-b.i||a.off.team.localeCompare(b.off.team));
+ const body=$('rankingRows');body.replaceChildren();
+ let prior=null,rank=0;
+ rows.forEach((item,index)=>{
+ if(prior===null||item.score!==prior)rank=index+1;
+ prior=item.score;
+ const tr=document.createElement('tr');
+ const cells=[String(rank),demoDate(item.i).toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'}),item.off.team+' offense vs. '+item.def.team+' defense',item.score===null?'N/A':Math.round(item.score)+'/100'];
+ cells.forEach((value,i)=>{const td=document.createElement('td');td.textContent=value;if(i===3)td.className='rank-score';tr.append(td)});
+ const td=document.createElement('td'),button=document.createElement('button');button.type='button';button.textContent='View matchup';
+ button.addEventListener('click',()=>{$('game').value=String(item.i);chooseMode('upcoming');$('compare').scrollIntoView({behavior:'smooth',block:'start'})});
+ td.append(button);tr.append(td);body.append(tr);
+ });
+ $('rankSummary').textContent=rows.length+' offensive opportunities across '+Math.min(count,demoGames.length)+' fictional games · '+(category==='three'?'Three-pointers':category[0].toUpperCase()+category.slice(1))+' ranking · rolling '+count+'-day window';
+}
 let teams=[],mode='upcoming';
 const valid=x=>typeof x==='number'&&Number.isFinite(x);
 const fmt=x=>valid(x)?x.toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1}):'N/A';
@@ -132,7 +197,10 @@ async function init(){
  if(teams.length<2)throw Error('At least two fictional teams are required');
  for(const id of ['teamA','teamB'])for(const t of teams){const o=document.createElement('option');o.value=t.team;o.textContent=t.team;$(id).append(o)}
  $('teamB').selectedIndex=1;
- demoGames.forEach((pair,i)=>{const o=document.createElement('option');o.value=String(i);o.textContent=pair[0]+' vs. '+pair[1]+' (demo)';$('game').append(o)});
+ demoGames.forEach((pair,i)=>{const o=document.createElement('option');o.value=String(i);o.textContent=demoDate(i).toLocaleDateString(undefined,{month:'short',day:'numeric'})+' · '+pair[0]+' vs. '+pair[1]+' (demo)';$('game').append(o)});
+ $('days').addEventListener('change',renderRankings);
+ $('category').addEventListener('change',renderRankings);
+ renderRankings();
  $('upcomingMode').addEventListener('click',()=>chooseMode('upcoming'));
  $('customMode').addEventListener('click',()=>chooseMode('custom'));
  $('game').addEventListener('change',render);$('teamA').addEventListener('change',render);$('teamB').addEventListener('change',render);
