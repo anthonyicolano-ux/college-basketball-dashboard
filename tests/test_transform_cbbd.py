@@ -36,6 +36,7 @@ class TransformTests(unittest.TestCase):
         self.assertEqual(r['oppThreePct'], 35)
         self.assertAlmostEqual(r['oppFgPct'], 55 / 130 * 100)
         self.assertEqual(r['oppRebounds'], 32)
+        self.assertEqual(r['reboundingMargin'], 3)
         self.assertEqual(r['oppAssists'], 13)
         self.assertEqual(r['turnoversForced'], 11)
         self.assertEqual(r['oppTurnovers'], 11)
@@ -45,6 +46,7 @@ class TransformTests(unittest.TestCase):
         for field in ('oppThreeMade', 'oppThreePct', 'oppFgPct',
                       'oppRebounds', 'oppAssists', 'turnoversForced', 'oppTurnovers'):
             self.assertIsNone(r[field], field)
+        self.assertIsNone(r['reboundingMargin'])
 
     def test_player_nested_fields(self):
         r = player_row(self.player)
