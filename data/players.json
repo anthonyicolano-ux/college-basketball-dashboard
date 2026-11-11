@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "season": 2027,
-  "seasonLabel": "2026\u201327 (SYNTHETIC DEMO)",
+  "seasonLabel": "2026–27 (SYNTHETIC DEMO)",
   "scope": "Fictional Division I-style sample; no real teams or games",
   "generatedAt": "2026-11-11T17:16:21+00:00",
   "demo": true,
@@ -20,7 +20,13 @@
       "turnovers": 9,
       "fgPct": 41.75824175824176,
       "threePct": 36.111111111111114,
-      "ftPct": 73.91304347826087
+      "ftPct": 73.91304347826087,
+      "fgMade": 38,
+      "fgAttempted": 91,
+      "threeMade": 13,
+      "threeAttempted": 36,
+      "ftMade": 17,
+      "ftAttempted": 23
     },
     {
       "name": "North Demo Player 2",
@@ -35,8 +41,14 @@
       "blocks": 3,
       "turnovers": 13,
       "fgPct": 44.91525423728814,
-      "threePct": 38.0,
-      "ftPct": 75.75757575757575
+      "threePct": 38,
+      "ftPct": 75.75757575757575,
+      "fgMade": 53,
+      "fgAttempted": 118,
+      "threeMade": 19,
+      "threeAttempted": 50,
+      "ftMade": 25,
+      "ftAttempted": 33
     },
     {
       "name": "North Demo Player 3",
@@ -52,7 +64,13 @@
       "turnovers": 17,
       "fgPct": 46.89655172413793,
       "threePct": 39.0625,
-      "ftPct": 76.74418604651163
+      "ftPct": 76.74418604651163,
+      "fgMade": 68,
+      "fgAttempted": 145,
+      "threeMade": 25,
+      "threeAttempted": 64,
+      "ftMade": 33,
+      "ftAttempted": 43
     },
     {
       "name": "Lake Demo Player 1",
@@ -68,7 +86,13 @@
       "turnovers": 9,
       "fgPct": 41.935483870967744,
       "threePct": 36.111111111111114,
-      "ftPct": 73.91304347826087
+      "ftPct": 73.91304347826087,
+      "fgMade": 39,
+      "fgAttempted": 93,
+      "threeMade": 13,
+      "threeAttempted": 36,
+      "ftMade": 17,
+      "ftAttempted": 23
     },
     {
       "name": "Lake Demo Player 2",
@@ -82,9 +106,15 @@
       "steals": 12,
       "blocks": 4,
       "turnovers": 13,
-      "fgPct": 45.0,
-      "threePct": 38.0,
-      "ftPct": 75.75757575757575
+      "fgPct": 45,
+      "threePct": 38,
+      "ftPct": 75.75757575757575,
+      "fgMade": 54,
+      "fgAttempted": 120,
+      "threeMade": 19,
+      "threeAttempted": 50,
+      "ftMade": 25,
+      "ftAttempted": 33
     },
     {
       "name": "Lake Demo Player 3",
@@ -100,7 +130,13 @@
       "turnovers": 17,
       "fgPct": 46.93877551020408,
       "threePct": 39.0625,
-      "ftPct": 76.74418604651163
+      "ftPct": 76.74418604651163,
+      "fgMade": 69,
+      "fgAttempted": 147,
+      "threeMade": 25,
+      "threeAttempted": 64,
+      "ftMade": 33,
+      "ftAttempted": 43
     },
     {
       "name": "Cedar Demo Player 1",
@@ -116,7 +152,13 @@
       "turnovers": 9,
       "fgPct": 42.10526315789474,
       "threePct": 36.111111111111114,
-      "ftPct": 73.91304347826087
+      "ftPct": 73.91304347826087,
+      "fgMade": 40,
+      "fgAttempted": 95,
+      "threeMade": 13,
+      "threeAttempted": 36,
+      "ftMade": 17,
+      "ftAttempted": 23
     },
     {
       "name": "Cedar Demo Player 2",
@@ -131,8 +173,14 @@
       "blocks": 5,
       "turnovers": 13,
       "fgPct": 45.08196721311475,
-      "threePct": 38.0,
-      "ftPct": 75.75757575757575
+      "threePct": 38,
+      "ftPct": 75.75757575757575,
+      "fgMade": 55,
+      "fgAttempted": 122,
+      "threeMade": 19,
+      "threeAttempted": 50,
+      "ftMade": 25,
+      "ftAttempted": 33
     },
     {
       "name": "Cedar Demo Player 3",
@@ -148,7 +196,13 @@
       "turnovers": 17,
       "fgPct": 46.97986577181208,
       "threePct": 39.0625,
-      "ftPct": 76.74418604651163
+      "ftPct": 76.74418604651163,
+      "fgMade": 70,
+      "fgAttempted": 149,
+      "threeMade": 25,
+      "threeAttempted": 64,
+      "ftMade": 33,
+      "ftAttempted": 43
     },
     {
       "name": "West Demo Player 1",
@@ -164,7 +218,13 @@
       "turnovers": 9,
       "fgPct": 42.2680412371134,
       "threePct": 36.111111111111114,
-      "ftPct": 73.91304347826087
+      "ftPct": 73.91304347826087,
+      "fgMade": 41,
+      "fgAttempted": 97,
+      "threeMade": 13,
+      "threeAttempted": 36,
+      "ftMade": 17,
+      "ftAttempted": 23
     },
     {
       "name": "West Demo Player 2",
@@ -179,8 +239,14 @@
       "blocks": 6,
       "turnovers": 13,
       "fgPct": 45.16129032258065,
-      "threePct": 38.0,
-      "ftPct": 75.75757575757575
+      "threePct": 38,
+      "ftPct": 75.75757575757575,
+      "fgMade": 56,
+      "fgAttempted": 124,
+      "threeMade": 19,
+      "threeAttempted": 50,
+      "ftMade": 25,
+      "ftAttempted": 33
     },
     {
       "name": "West Demo Player 3",
@@ -196,7 +262,13 @@
       "turnovers": 17,
       "fgPct": 47.019867549668874,
       "threePct": 39.0625,
-      "ftPct": 76.74418604651163
+      "ftPct": 76.74418604651163,
+      "fgMade": 71,
+      "fgAttempted": 151,
+      "threeMade": 25,
+      "threeAttempted": 64,
+      "ftMade": 33,
+      "ftAttempted": 43
     },
     {
       "name": "Pine Demo Player 1",
@@ -212,7 +284,13 @@
       "turnovers": 9,
       "fgPct": 42.42424242424242,
       "threePct": 36.111111111111114,
-      "ftPct": 73.91304347826087
+      "ftPct": 73.91304347826087,
+      "fgMade": 42,
+      "fgAttempted": 99,
+      "threeMade": 13,
+      "threeAttempted": 36,
+      "ftMade": 17,
+      "ftAttempted": 23
     },
     {
       "name": "Pine Demo Player 2",
@@ -227,8 +305,14 @@
       "blocks": 7,
       "turnovers": 13,
       "fgPct": 45.23809523809524,
-      "threePct": 38.0,
-      "ftPct": 75.75757575757575
+      "threePct": 38,
+      "ftPct": 75.75757575757575,
+      "fgMade": 57,
+      "fgAttempted": 126,
+      "threeMade": 19,
+      "threeAttempted": 50,
+      "ftMade": 25,
+      "ftAttempted": 33
     },
     {
       "name": "Pine Demo Player 3",
@@ -244,7 +328,13 @@
       "turnovers": 17,
       "fgPct": 47.05882352941177,
       "threePct": 39.0625,
-      "ftPct": 76.74418604651163
+      "ftPct": 76.74418604651163,
+      "fgMade": 72,
+      "fgAttempted": 153,
+      "threeMade": 25,
+      "threeAttempted": 64,
+      "ftMade": 33,
+      "ftAttempted": 43
     },
     {
       "name": "Mesa Demo Player 1",
@@ -260,7 +350,13 @@
       "turnovers": 9,
       "fgPct": 42.57425742574257,
       "threePct": 36.111111111111114,
-      "ftPct": 73.91304347826087
+      "ftPct": 73.91304347826087,
+      "fgMade": 43,
+      "fgAttempted": 101,
+      "threeMade": 13,
+      "threeAttempted": 36,
+      "ftMade": 17,
+      "ftAttempted": 23
     },
     {
       "name": "Mesa Demo Player 2",
@@ -275,8 +371,14 @@
       "blocks": 8,
       "turnovers": 13,
       "fgPct": 45.3125,
-      "threePct": 38.0,
-      "ftPct": 75.75757575757575
+      "threePct": 38,
+      "ftPct": 75.75757575757575,
+      "fgMade": 58,
+      "fgAttempted": 128,
+      "threeMade": 19,
+      "threeAttempted": 50,
+      "ftMade": 25,
+      "ftAttempted": 33
     },
     {
       "name": "Mesa Demo Player 3",
@@ -292,7 +394,13 @@
       "turnovers": 17,
       "fgPct": 47.096774193548384,
       "threePct": 39.0625,
-      "ftPct": 76.74418604651163
+      "ftPct": 76.74418604651163,
+      "fgMade": 73,
+      "fgAttempted": 155,
+      "threeMade": 25,
+      "threeAttempted": 64,
+      "ftMade": 33,
+      "ftAttempted": 43
     }
   ]
 }
