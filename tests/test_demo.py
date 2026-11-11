@@ -60,6 +60,11 @@ class DemoGenerationTests(unittest.TestCase):
                 for field in fields:
                     self.assertIsInstance(team.get(field), (int, float), (team['team'], field))
                 self.assertEqual(team['turnoversForced'], team['oppTurnovers'])
+                self.assertAlmostEqual(team['netRating'], team['offRating'] - team['defRating'])
+                self.assertAlmostEqual(team['scoringMargin'], team['ppg'] - team['oppPpg'])
+            app = (Path(__file__).resolve().parents[1] / 'assets' / 'app.js').read_text()
+            self.assertIn("['netRating','Net/100']", app)
+            self.assertIn("['scoringMargin','Margin/G']", app)
             self.assertAlmostEqual(teams['rows'][0]['threeMade'], 92 / 9)
             self.assertEqual(teams['rows'][0]['oppThreeMade'], 6.53)
             self.assertEqual(teams['rows'][0]['oppThreePct'], 31.68)
