@@ -2,9 +2,9 @@
 const $ = id => document.getElementById(id);
 const mode = document.body.dataset.mode;
 const columns = mode === 'players' ? [
- ['name','Player','text'],['team','Team','text'],['conference','Conf.','text'],['games','GP'],['minutes','MIN'],['points','PTS'],['rebounds','REB'],['assists','AST'],['steals','STL'],['blocks','BLK'],['turnovers','TO'],['fgMade','FGM'],['fgAttempted','FGA'],['fgPct','FG%'],['threeMade','3PM'],['threeAttempted','3PA'],['threePct','3P%'],['ftMade','FTM'],['ftAttempted','FTA'],['ftPct','FT%']
+ ['name','Player','text'],['team','Team','text'],['conference','Conf.','text'],['games','GP'],['minutes','MIN'],['points','PTS'],['rebounds','REB'],['offRebounds','OREB'],['defRebounds','DREB'],['assists','AST'],['steals','STL'],['blocks','BLK'],['turnovers','TO'],['fgMade','FGM'],['fgAttempted','FGA'],['fgPct','FG%'],['threeMade','3PM'],['threeAttempted','3PA'],['threePct','3P%'],['ftMade','FTM'],['ftAttempted','FTA'],['ftPct','FT%']
 ] : [
- ['team','Team','text'],['conference','Conf.','text'],['wins','W'],['losses','L'],['games','GP'],['ppg','PPG'],['oppPpg','Opp PPG'],['offRating','Off/100'],['defRating','Def/100'],['netRating','Net/100'],['scoringMargin','Margin/G'],['pace','Pace'],['fgPct','FG%'],['threePct','3P%'],['ftPct','FT%'],['eFg','eFG%'],['tsPct','TS%'],['rebounds','REB/G'],['oppRebounds','Opp REB/G'],['reboundingMargin','REB Margin'],['assists','AST/G'],['turnovers','TO/G']
+ ['team','Team','text'],['conference','Conf.','text'],['wins','W'],['losses','L'],['games','GP'],['ppg','PPG'],['oppPpg','Opp PPG'],['offRating','Off/100'],['defRating','Def/100'],['netRating','Net/100'],['scoringMargin','Margin/G'],['pace','Pace'],['fgPct','FG%'],['threePct','3P%'],['ftPct','FT%'],['eFg','eFG%'],['tsPct','TS%'],['rebounds','REB/G'],['offRebounds','OREB/G'],['defRebounds','DREB/G'],['oppRebounds','Opp REB/G'],['reboundingMargin','REB Margin'],['assists','AST/G'],['turnovers','TO/G']
 ];
 let rows = [], currentSort = mode === 'players' ? 'points' : 'offRating', ascending = false, perGame = true;
 const number = v => (typeof v === 'number' && Number.isFinite(v)) ? v : null;
@@ -17,7 +17,7 @@ function render(){
  const body=$('body');body.replaceChildren();for(const r of sorted){const tr=document.createElement('tr');for(const [key,,type] of columns){const td=document.createElement('td');const v=displayValue(r,key);td.textContent=v==null?'—':type==='text'?String(v):['games','wins','losses'].includes(key)?String(v):v.toLocaleString(undefined,{maximumFractionDigits:1,minimumFractionDigits:1});tr.append(td)}body.append(tr)}
  if(!filtered.length){const tr=document.createElement('tr'),td=document.createElement('td');td.colSpan=columns.length;td.textContent='No matching records. Try a different filter.';tr.append(td);body.append(tr)}
 }
-function displayValue(row,key){let v=row[key];if(mode==='players'&&['minutes','points','rebounds','assists','steals','blocks','turnovers','fgMade','fgAttempted','threeMade','threeAttempted','ftMade','ftAttempted'].includes(key)&&perGame){const g=number(row.games);v=g>0&&number(v)!==null?v/g:null}return v===undefined?null:v}
+function displayValue(row,key){let v=row[key];if(mode==='players'&&['minutes','points','rebounds','offRebounds','defRebounds','assists','steals','blocks','turnovers','fgMade','fgAttempted','threeMade','threeAttempted','ftMade','ftAttempted'].includes(key)&&perGame){const g=number(row.games);v=g>0&&number(v)!==null?v/g:null}return v===undefined?null:v}
 function updateTeamOptions(){
  if(mode!=='players')return;
  const selector=$('team'), previous=selector.value, conf=$('conference').value;
