@@ -1,7 +1,7 @@
 """Private, in-memory CBBD game normalization; never publishes provider records.
 
-Candidate field names must be checked against the private /games field report
-before use with real data. This module does not fetch or write any data.
+Core field names were confirmed in a private /games field report; status values
+and timestamp formats still require private verification before live use. This module does not fetch or write any data.
 """
 from datetime import datetime, timezone
 
@@ -40,14 +40,31 @@ def game_row(record):
     away = _text(_first(record, 'awayTeam', 'away'))
     if not home or not away or home == away:
         raise ValueError('Missing or invalid opponents')
-    start = _date(_first(record, 'startDate', 'startTime', 'date'))
-    if start is None:
+    tbd = record.get('startTimeTbd', False)
+    if not isinstance(tbd, bool):
+        raise ValueError('Invalid startTimeTbd flag')
+    raw_start = _first(record, 'startDate', 'startTime', 'date')
+    start = _date(raw_start)
+    if tbd:
+        # A TBD start is not a reliable instant, even if the API supplies one.
+        if not isinstance(raw_start, str) or len(raw_start) < 10:
+            raise ValueError('Missing date for TBD game')
+        try:
+            datetime.strptime(raw_start[:10], '%Y-%m-%d')
+        except ValueError as error:
+            raise ValueError('Invalid date for TBD game') from error
+        game_date = raw_start[:10]
+        start = None
+    elif start is None:
         raise ValueError('Missing or invalid timezone-aware game time')
+    else:
+        game_date = start[:10]
     status = _text(_first(record, 'status', 'gameStatus'))
     if not status:
         raise ValueError('Missing game status')
-    # Do not infer completed/canceled status from scores or unverified labels.
+    # Status values have not yet been verified. Never treat an unknown label as upcoming.
     return {'gameId': str(game_id), 'season': SEASON, 'startUtc': start,
+            'gameDate': game_date, 'startTimeTbd': tbd, 'statusVerified': False,
             'homeTeam': home, 'awayTeam': away, 'status': status,
             'homeTeamId': _first(record, 'homeTeamId', 'homeId'),
             'awayTeamId': _first(record, 'awayTeamId', 'awayId')}
