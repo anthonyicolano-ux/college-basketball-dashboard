@@ -2,10 +2,14 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>College Basketball | Matchups</title><link rel="stylesheet" href="assets/style.css">
 <style>
-[hidden]{display:none!important}\n.mode-picker{display:flex;flex-wrap:wrap;gap:10px;margin:15px 0}
+[hidden]{display:none!important}
+.mode-picker{display:flex;flex-wrap:wrap;gap:10px;margin:15px 0}
 .mode-picker button{font:inherit;color:#fff;background:#263a57;border:1px solid #647d9d;border-radius:9px;padding:11px 16px;cursor:pointer}
 .mode-picker button[aria-pressed=true]{background:#146bd1;border-color:#65a8ff}
 .compare-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#edges{grid-template-columns:minmax(0,1fr);gap:20px}
+main{max-width:1500px;width:100%;padding-left:clamp(12px,2vw,28px);padding-right:clamp(12px,2vw,28px)}
+#edges .compare-card{width:100%;min-width:0;padding:clamp(12px,2vw,24px)}
 .compare-card{background:#223853;border:1px solid #415978;border-radius:10px;padding:16px;overflow-wrap:anywhere}
 .compare-card h3{margin:0 0 8px}.compare-card p{margin:6px 0}
 .compare-table th:first-child,.compare-table td:first-child{position:static}
@@ -17,7 +21,11 @@
 .benchmark-key span{border:1px solid #657c98;border-radius:6px;padding:5px 9px}
 .favorable{color:#a7f3c3;font-weight:750}.unfavorable{color:#ffb1b1;font-weight:750}.neutral{color:#d7e1ef}
 .benchmark-table th:first-child,.benchmark-table td:first-child{position:static;text-align:left}
-.benchmark-table th,.benchmark-table td{text-align:right}
+.benchmark-table th,.benchmark-table td{text-align:right;padding:12px 16px}
+.benchmark-table{width:100%;table-layout:auto}
+.benchmark-table th:first-child,.benchmark-table td:first-child{width:28%;white-space:normal}
+.benchmark-table th:not(:first-child),.benchmark-table td:not(:first-child){white-space:normal}
+@media(max-width:700px){.benchmark-table th,.benchmark-table td{padding:9px 7px;font-size:.82rem}.benchmark-table th:first-child,.benchmark-table td:first-child{width:32%}}
 </style></head>
 <body><header><h1>College Basketball Dashboard</h1><p>Matchup analysis · Fictional demo</p>
 <nav aria-label="Main navigation"><a class="navlink" href="index.html">Team Stats</a><a class="navlink" href="players.html">Player Stats</a><a class="navlink" aria-current="page" href="matchups.html">Matchups</a></nav></header>
@@ -93,7 +101,7 @@ function render(){
  const wrap=document.createElement('div');wrap.className='table-wrap';
  const table=document.createElement('table');table.className='benchmark-table';
  const head=document.createElement('thead');const hr=document.createElement('tr');
- for(const title of ['Metric',off.team+' offense',def.team+' allows','Demo allowed avg','Defense rank']){const th=document.createElement('th');th.scope='col';th.textContent=title;hr.append(th)}
+ for(const title of ['Metric',off.team+' offense',def.team+' allows','Demo avg.','Def. rank']){const th=document.createElement('th');th.scope='col';th.textContent=title;hr.append(th)}
  head.append(hr);table.append(head);
  const body=document.createElement('tbody');
  for(const [offKey,label,defKey,higherOff] of allowedMetrics){
