@@ -1,7 +1,16 @@
-# Explicit manual action only. At most three authenticated CBBD calls; no data publication.
+# Manual only; at most three authenticated calls per selected job. No data publication.
 name: Verify CBBD fields privately
 on:
   workflow_dispatch:
+    inputs:
+      test_mode:
+        description: "Choose field inspection or private integration validation"
+        type: choice
+        required: true
+        default: fields
+        options:
+          - fields
+          - integration
 permissions:
   contents: read
 jobs:
@@ -16,6 +25,12 @@ jobs:
         with:
           python-version: '3.12'
       - name: Check API response field coverage (no raw data retained)
+        if: ${{ inputs.test_mode == 'fields' }}
         env:
           CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
         run: python scripts/probe_api.py
+      - name: Validate real data privately (no raw data retained)
+        if: ${{ inputs.test_mode == 'integration' }}
+        env:
+          CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+        run: python scripts/test_live_integration.py
