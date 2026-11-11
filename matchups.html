@@ -12,11 +12,17 @@
 .compare-table th,.compare-table td{text-align:right}.compare-table th:first-child,.compare-table td:first-child{text-align:left}
 .compare-table .leader{color:#a7f3c3;font-weight:750}
 @media(max-width:640px){.compare-grid{grid-template-columns:1fr}}
+
+.benchmark-key{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 16px}
+.benchmark-key span{border:1px solid #657c98;border-radius:6px;padding:5px 9px}
+.favorable{color:#a7f3c3;font-weight:750}.unfavorable{color:#ffb1b1;font-weight:750}.neutral{color:#d7e1ef}
+.benchmark-table th:first-child,.benchmark-table td:first-child{position:static;text-align:left}
+.benchmark-table th,.benchmark-table td{text-align:right}
 </style></head>
 <body><header><h1>College Basketball Dashboard</h1><p>Matchup analysis · Fictional demo</p>
 <nav aria-label="Main navigation"><a class="navlink" href="index.html">Team Stats</a><a class="navlink" href="players.html">Player Stats</a><a class="navlink" aria-current="page" href="matchups.html">Matchups</a></nav></header>
 <main>
-<section class="notice"><h2>Synthetic demo — not real NCAA games</h2><p>All teams, statistics and scheduled games on this page are fictional. No live schedule, CBBD API calls, predictions or provider data are used.</p></section>
+<section class="notice"><h2>Synthetic demo — not real NCAA games</h2><p>All teams, statistics and scheduled games on this page are fictional. No live schedule, CBBD API calls, predictions or provider data are used. All rankings and averages below are based only on the six fictional teams.</p></section>
 <section class="panel"><h2>Compare a matchup</h2>
 <div class="mode-picker" role="group" aria-label="Comparison mode"><button id="upcomingMode" type="button" aria-pressed="true">Demo upcoming games</button><button id="customMode" type="button" aria-pressed="false">Custom team comparison</button></div>
 <div id="upcomingControls" class="controls"><label for="game">Choose a fictional upcoming game<select id="game"></select></label></div>
@@ -26,7 +32,7 @@
 <div class="compare-grid"><div class="compare-card"><h3 id="nameA"></h3><p id="recordA"></p><p id="confA" class="muted"></p></div><div class="compare-card"><h3 id="nameB"></h3><p id="recordB"></p><p id="confB" class="muted"></p></div></div>
 <h3>Statistical comparison</h3><div class="table-wrap"><table class="compare-table"><thead><tr><th scope="col">Metric</th><th scope="col" id="headA">Team A</th><th scope="col" id="headB">Team B</th></tr></thead><tbody id="metrics"></tbody></table></div>
 <p class="muted">Green highlights the better figure where direction is meaningful. Lower opponent points, defensive rating and turnovers are better. Pace is neutral.</p>
-<h3>Offense vs. opposing defense</h3><div id="edges" class="compare-grid"></div>
+<h3>Offense vs. opposing defense</h3><p class="muted">Each comparison shows the offense's production and what its opponent allows. Benchmarks and ranks use only the six fictional teams, not Division I nationally.</p><div class="benchmark-key"><span class="favorable">● Favorable vs. demo average</span><span class="neutral">● Near average</span><span class="unfavorable">● Unfavorable vs. demo average</span></div><div id="edges" class="compare-grid"></div>
 <p class="muted">Efficiency gap is offensive rating minus the opponent's defensive rating, in points per 100 possessions. It is not a projected score or winning probability. Opponent quality and sample-size adjustments are not applied.</p>
 </div></section></main>
 <footer class="footer">Independent prototype. No NCAA affiliation. Fictional demonstration data only.</footer>
@@ -34,6 +40,15 @@
 'use strict';
 const $=id=>document.getElementById(id);
 const metrics=[['ppg','Points per game',true],['oppPpg','Opponent points per game',false],['offRating','Offensive rating / 100',true],['defRating','Defensive rating / 100',false],['pace','Pace',null],['fgPct','Field goal %',true],['threePct','Three-point %',true],['ftPct','Free throw %',true],['eFg','Effective FG %',true],['tsPct','True shooting %',true],['rebounds','Rebounds / game',true],['assists','Assists / game',true],['turnovers','Turnovers / game',false]];
+const allowedMetrics=[
+ ['ppg','Points / game','oppPpg',true],
+ ['threeMade','3-pointers made / game','oppThreeMade',true],
+ ['threePct','3-point shooting %','oppThreePct',true],
+ ['fgPct','Field goal shooting %','oppFgPct',true],
+ ['rebounds','Rebounds / game','oppRebounds',true],
+ ['assists','Assists / game','oppAssists',true],
+ ['turnovers','Turnovers / game','turnoversForced',false]
+];
 const demoGames=[['North Valley','Lake Institute'],['Cedar State','West Metro'],['Pine Coast','Red Mesa'],['North Valley','Cedar State'],['Lake Institute','Pine Coast']];
 let teams=[],mode='upcoming';
 const valid=x=>typeof x==='number'&&Number.isFinite(x);
@@ -74,7 +89,30 @@ function render(){
  const h=document.createElement('h3');h.textContent=off.team+' offense vs. '+def.team+' defense';div.append(h);
  const p=document.createElement('p');p.textContent='Offensive rating: '+fmt(off.offRating)+' | Opponent defensive rating: '+fmt(def.defRating);div.append(p);
  const gap=document.createElement('p');gap.className='metric';const value=valid(off.offRating)&&valid(def.defRating)?off.offRating-def.defRating:null;
- gap.textContent='Efficiency gap: '+(value===null?'N/A':(value>=0?'+':'')+fmt(value));div.append(gap);edges.append(div);
+ gap.textContent='Efficiency gap: '+(value===null?'N/A':(value>=0?'+':'')+fmt(value));div.append(gap);
+ const wrap=document.createElement('div');wrap.className='table-wrap';
+ const table=document.createElement('table');table.className='benchmark-table';
+ const head=document.createElement('thead');const hr=document.createElement('tr');
+ for(const title of ['Metric',off.team+' offense',def.team+' allows','Demo allowed avg','Defense rank']){const th=document.createElement('th');th.scope='col';th.textContent=title;hr.append(th)}
+ head.append(hr);table.append(head);
+ const body=document.createElement('tbody');
+ for(const [offKey,label,defKey,higherOff] of allowedMetrics){
+ const tr=document.createElement('tr');const th=document.createElement('th');th.scope='row';th.textContent=label;tr.append(th);
+ const values=teams.map(t=>t[defKey]).filter(valid);
+ const avg=values.length?values.reduce((sum,x)=>sum+x,0)/values.length:null;
+ const rank=valid(def[defKey])?1+values.filter(x=>defKey==='turnoversForced'?x>def[defKey]:x<def[defKey]).length:null;
+ const vals=[off[offKey],def[defKey],avg,rank];
+ vals.forEach((v,i)=>{
+ const td=document.createElement('td');td.textContent=i===3?(v===null?'N/A':v+' / '+values.length):fmt(v);
+ if(i===1&&valid(v)&&valid(avg)){
+ const delta=v-avg;const threshold=Math.max(0.3,Math.abs(avg)*0.025);
+ td.className=Math.abs(delta)<=threshold?'neutral':(delta<0?'favorable':'unfavorable');
+ if(defKey==='turnoversForced')td.className=Math.abs(delta)<=threshold?'neutral':(delta>0?'favorable':'unfavorable');
+ }
+ tr.append(td);
+ });body.append(tr);
+ }
+ table.append(body);wrap.append(table);div.append(wrap);edges.append(div);
  }
 }
 async function init(){
