@@ -67,6 +67,15 @@
       "status": "scheduled",
       "startTimeTbd": false,
       "neutralSite": false
+    },
+    {
+      "gameId": "demo-008",
+      "dayOffset": 1,
+      "homeTeam": "Red Mesa",
+      "awayTeam": "Lake Institute",
+      "status": "final",
+      "startTimeTbd": false,
+      "neutralSite": false
     }
   ]
 }
