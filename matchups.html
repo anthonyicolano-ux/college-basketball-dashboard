@@ -46,8 +46,8 @@ main{max-width:1500px;width:100%;padding-left:clamp(12px,2vw,28px);padding-right
 <div class="rank-controls"><label for="days">Rolling date window<select id="days"><option value="1">Today</option><option value="3">3 days</option><option value="5" selected>5 days</option><option value="7">7 days</option></select></label>
 <label for="category">Rank by<select id="category"><option value="overall">Overall offense</option><option value="scoring">Scoring</option><option value="three">Three-pointers</option><option value="assists">Assists</option><option value="rebounds">Rebounding</option></select></label></div>
 <p id="rankSummary" role="status" class="muted">Loading demo rankings…</p>
-<div class="table-wrap"><table class="ranking-table"><thead><tr><th scope="col">Rank</th><th scope="col">Fictional game date</th><th scope="col">Offense vs. defense</th><th scope="col">Opportunity score</th><th scope="col">Compare</th></tr></thead><tbody id="rankingRows"></tbody></table></div>
-<p class="muted">Scores are computed from the current fictional statistics. Higher scores mean more favorable offensive production and defensive allowances within the six-team sample. Both teams in each game are ranked separately. Tied scores share a rank.</p>
+<div class="table-wrap"><table class="ranking-table"><thead><tr><th scope="col">Rank</th><th scope="col">Fictional game date</th><th scope="col">Offense vs. defense</th><th scope="col">Opportunity score</th><th scope="col">Why it ranks here</th><th scope="col">Compare</th></tr></thead><tbody id="rankingRows"></tbody></table></div>
+<p class="muted">Scores are relative to six fictional teams (not NCAA percentiles). Counting stats are normalized to 100 possessions using team pace; efficiency is already per 100 possessions. Offensive strength and defensive allowances receive equal weight. Samples under 5 games are withheld; samples under 10 games are pulled toward neutral (50/100). Both offenses are ranked separately; scores are not win probabilities or predictions.</p>
 </section>
 <section class="panel" id="compare"><h2>Compare a matchup</h2>
 <div class="mode-picker" role="group" aria-label="Comparison mode"><button id="upcomingMode" type="button" aria-pressed="true">Demo upcoming games</button><button id="customMode" type="button" aria-pressed="false">Custom team comparison</button></div>
@@ -77,45 +77,64 @@ const allowedMetrics=[
 ];
 const demoGames=[['North Valley','Lake Institute'],['Cedar State','West Metro'],['Pine Coast','Red Mesa'],['North Valley','Cedar State'],['Lake Institute','Pine Coast'],['West Metro','Red Mesa'],['North Valley','Pine Coast']];
 const categoryFields={
- scoring:[['ppg','oppPpg'],['offRating','defRating']],
- three:[['threeMade','oppThreeMade'],['threePct','oppThreePct']],
- assists:[['assists','oppAssists']],
- rebounds:[['rebounds','oppRebounds']],
- overall:[['ppg','oppPpg'],['offRating','defRating'],['threeMade','oppThreeMade'],['threePct','oppThreePct'],['assists','oppAssists'],['rebounds','oppRebounds']]
+ scoring:[['offRating','defRating','Efficiency'],['ppg','oppPpg','Scoring']],
+ three:[['threeMade','oppThreeMade','3PM'],['threePct','oppThreePct','3P%']],
+ assists:[['assists','oppAssists','Assists']],
+ rebounds:[['rebounds','oppRebounds','Rebounds']],
+ overall:[['offRating','defRating','Efficiency'],['threeMade','oppThreeMade','3PM'],['threePct','oppThreePct','3P%'],['assists','oppAssists','Assists'],['rebounds','oppRebounds','Rebounds']]
 };
+const rateKeys=new Set(['ppg','oppPpg','threeMade','oppThreeMade','assists','oppAssists','rebounds','oppRebounds']);
+const minGames=5,fullGames=10;
 // Assign fictional games to today and the next six calendar days in the viewer's local timezone.
 function demoDate(offset){const d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()+offset);return d}
+function sampleSize(t){return valid(t.games)?t.games:(valid(t.wins)&&valid(t.losses)?t.wins+t.losses:0)}
+function normalized(t,key){
+ const v=t[key];
+ if(!valid(v))return null;
+ if(!rateKeys.has(key))return v;
+ return valid(t.pace)&&t.pace>0?v*100/t.pace:null;
+}
 function relativeScore(value,key){
- const values=teams.map(t=>t[key]).filter(valid);
+ const values=teams.map(t=>normalized(t,key)).filter(valid);
  if(!valid(value)||values.length<2)return null;
- const lower=values.filter(x=>x<value).length;
- const equal=values.filter(x=>x===value).length;
+ const lower=values.filter(x=>x<value).length,equal=values.filter(x=>x===value).length;
  return 100*(lower+(equal-1)/2)/(values.length-1);
 }
 function opportunity(off,def,category){
- const fields=categoryFields[category],parts=[];
- for(const [offKey,defKey] of fields){
- const a=relativeScore(off[offKey],offKey),b=relativeScore(def[defKey],defKey);
- if(a===null||b===null)return null;
- parts.push((a+b)/2);
+ const games=Math.min(sampleSize(off),sampleSize(def));
+ if(games<minGames)return {score:null,reason:'Insufficient sample ('+games+' games; minimum '+minGames+')'};
+ const parts=[];
+ for(const [offKey,defKey,label] of categoryFields[category]){
+  const a=relativeScore(normalized(off,offKey),offKey),b=relativeScore(normalized(def,defKey),defKey);
+  if(a===null||b===null)return {score:null,reason:'Missing '+label+' or pace data'};
+  const raw=(a+b)/2;
+  parts.push({label,raw,off:a,def:b});
  }
- return parts.reduce((a,b)=>a+b,0)/parts.length;
+ const raw=parts.reduce((sum,p)=>sum+p.raw,0)/parts.length;
+ const confidence=Math.min(1,games/fullGames);
+ const score=50+(raw-50)*confidence;
+ const ordered=[...parts].sort((a,b)=>b.raw-a.raw);
+ const strongest=ordered[0],weakest=ordered[ordered.length-1];
+ const explanation=strongest.label+' ('+Math.round(strongest.raw)+'/100)'+
+ (parts.length>1?'; weakest: '+weakest.label+' ('+Math.round(weakest.raw)+'/100)':'')+
+ (confidence<1?'; limited '+games+'-game sample':'');
+ return {score,reason:explanation};
 }
 function renderRankings(){
  const count=Number($('days').value),category=$('category').value,rows=[];
  for(let i=0;i<Math.min(count,demoGames.length);i++){
  const pair=demoGames[i],a=teams.find(t=>t.team===pair[0]),b=teams.find(t=>t.team===pair[1]);
  if(!a||!b)continue;
- for(const [off,def] of [[a,b],[b,a]])rows.push({i,off,def,score:opportunity(off,def,category)});
+ for(const [off,def] of [[a,b],[b,a]])rows.push({i,off,def,...opportunity(off,def,category)});
  }
  rows.sort((a,b)=>(b.score??-1)-(a.score??-1)||a.i-b.i||a.off.team.localeCompare(b.off.team));
  const body=$('rankingRows');body.replaceChildren();
  let prior=null,rank=0;
  rows.forEach((item,index)=>{
- if(prior===null||item.score!==prior)rank=index+1;
+ if(item.score!==null&&(prior===null||item.score!==prior))rank=index+1;
  prior=item.score;
  const tr=document.createElement('tr');
- const cells=[String(rank),demoDate(item.i).toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'}),item.off.team+' offense vs. '+item.def.team+' defense',item.score===null?'N/A':Math.round(item.score)+'/100'];
+ const cells=[item.score===null?'—':String(rank),demoDate(item.i).toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'}),item.off.team+' offense vs. '+item.def.team+' defense',item.score===null?'N/A':Math.round(item.score)+'/100',item.reason];
  cells.forEach((value,i)=>{const td=document.createElement('td');td.textContent=value;if(i===3)td.className='rank-score';tr.append(td)});
  const td=document.createElement('td'),button=document.createElement('button');button.type='button';button.textContent='View matchup';
  button.addEventListener('click',()=>{$('game').value=String(item.i);chooseMode('upcoming');$('compare').scrollIntoView({behavior:'smooth',block:'start'})});
