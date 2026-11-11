@@ -27,6 +27,8 @@ def main():
     for idx,(team,prefix,conf,w,l,pts,opp,poss,opp_poss,fgm,fga,tpm,tpa,ftm,fta) in enumerate(names):
         games=w+l
         teams.append({'team':team,'conference':conf,'games':games,'wins':w,'losses':l,'ppg':per_game(pts,games),'oppPpg':per_game(opp,games),'offRating':safe_rate(pts,poss,100),'defRating':safe_rate(opp,opp_poss,100),'pace':per_game(poss,games),'fgPct':safe_rate(fgm,fga,100),'threePct':safe_rate(tpm,tpa,100),'ftPct':safe_rate(ftm,fta,100),'eFg':effective_fg(fgm,tpm,fga),'tsPct':true_shooting(pts,fga,fta),'rebounds':per_game(310+idx*6,games),'assists':per_game(115+idx*5,games),'turnovers':per_game(93+idx*6,games)})
+        teams[-1]['netRating'] = teams[-1]['offRating'] - teams[-1]['defRating'] if teams[-1]['offRating'] is not None and teams[-1]['defRating'] is not None else None
+        teams[-1]['scoringMargin'] = teams[-1]['ppg'] - teams[-1]['oppPpg'] if teams[-1]['ppg'] is not None and teams[-1]['oppPpg'] is not None else None
         opp_three_made,opp_three_pct,opp_fg_pct,opp_rebounds,opp_assists,opp_turnovers = opponent_demo[idx]
         teams[-1].update({
             'threeMade': per_game(tpm, games),
