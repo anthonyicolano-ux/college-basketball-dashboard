@@ -87,7 +87,8 @@ const rateKeys=new Set(['ppg','oppPpg','threeMade','oppThreeMade','assists','opp
 const minGames=5,fullGames=10;
 // Synthetic rolling schedule: dayOffset is a local calendar-day offset, not a real NCAA date.
 function demoDate(offset){const d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()+offset);return d}
-function eligibleGames(days){return demoGames.filter(g=>g.status==='scheduled'&&g.dayOffset>=0&&g.dayOffset<days&&teams.some(t=>t.team===g.homeTeam)&&teams.some(t=>t.team===g.awayTeam))}
+function upcomingGames(){return demoGames.filter(g=>g.status==='scheduled'&&g.dayOffset>=0&&teams.some(t=>t.team===g.homeTeam)&&teams.some(t=>t.team===g.awayTeam))}
+function eligibleGames(days){return upcomingGames().filter(g=>g.dayOffset<days)}
 function gameLabel(g){return demoDate(g.dayOffset).toLocaleDateString(undefined,{month:'short',day:'numeric'})+' · '+g.awayTeam+' at '+g.homeTeam+(g.neutralSite?' (neutral)':'')+(g.startTimeTbd?' (tipoff TBD)':'')+' (demo)'}
 function sampleSize(t){return valid(t.games)?t.games:(valid(t.wins)&&valid(t.losses)?t.wins+t.losses:0)}
 function normalized(t,key){
@@ -158,7 +159,7 @@ function chooseMode(next){
 function render(){
  let a,b;
  if(mode==='upcoming'){
- const game=demoGames.find(g=>g.gameId===$('game').value);
+ const game=upcomingGames().find(g=>g.gameId===$('game').value);
  if(game){a=teams.find(t=>t.team===game.homeTeam);b=teams.find(t=>t.team===game.awayTeam)}
  }else{a=teams.find(t=>t.team===$('teamA').value);b=teams.find(t=>t.team===$('teamB').value)}
  if(!a||!b||a.team===b.team){$('results').hidden=true;$('message').textContent='Select two different fictional teams.';return}
@@ -218,7 +219,7 @@ async function init(){
  if(schedule.schemaVersion!==1||schedule.demo!==true||schedule.season!==2027||schedule.mode!=='rolling-fictional-calendar'||!Array.isArray(schedule.rows))throw Error('Only approved fictional schedule data is supported');
  const ids=new Set();
  for(const g of schedule.rows){
-  if(!g||typeof g.gameId!=='string'||!g.gameId.startsWith('demo-')||ids.has(g.gameId)||!Number.isInteger(g.dayOffset)||g.dayOffset<0||g.dayOffset>30||typeof g.homeTeam!=='string'||typeof g.awayTeam!=='string'||g.homeTeam===g.awayTeam||g.status!=='scheduled'||typeof g.startTimeTbd!=='boolean'||typeof g.neutralSite!=='boolean')throw Error('Invalid fictional schedule record');
+  if(!g||typeof g.gameId!=='string'||!g.gameId.startsWith('demo-')||ids.has(g.gameId)||!Number.isInteger(g.dayOffset)||g.dayOffset<0||g.dayOffset>30||typeof g.homeTeam!=='string'||typeof g.awayTeam!=='string'||g.homeTeam===g.awayTeam||!['scheduled','final'].includes(g.status)||typeof g.startTimeTbd!=='boolean'||typeof g.neutralSite!=='boolean')throw Error('Invalid fictional schedule record');
   ids.add(g.gameId);
  }
  demoGames=schedule.rows.slice().sort((a,b)=>a.dayOffset-b.dayOffset||a.gameId.localeCompare(b.gameId));
@@ -227,7 +228,7 @@ async function init(){
  if(teams.length<2)throw Error('At least two fictional teams are required');
  for(const id of ['teamA','teamB'])for(const t of teams){const o=document.createElement('option');o.value=t.team;o.textContent=t.team;$(id).append(o)}
  $('teamB').selectedIndex=1;
- demoGames.filter(g=>teams.some(t=>t.team===g.homeTeam)&&teams.some(t=>t.team===g.awayTeam)).forEach(g=>{const o=document.createElement('option');o.value=g.gameId;o.textContent=gameLabel(g);$('game').append(o)});
+ upcomingGames().forEach(g=>{const o=document.createElement('option');o.value=g.gameId;o.textContent=gameLabel(g);$('game').append(o)});
  $('days').addEventListener('change',renderRankings);
  $('category').addEventListener('change',renderRankings);
  renderRankings();
