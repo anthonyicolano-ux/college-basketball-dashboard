@@ -1,7 +1,38 @@
 {
   "season": 2027,
   "sport": "mens_basketball",
-  "status": "UNVERIFIED_REFERENCE_PENDING",
-  "note": "Do not infer NCAA Division I membership from season-statistics API records. Populate schools only after checking 2026-27 NCAA sport-specific membership and conference sources. Every entry requires a source URL.",
-  "schools": []
+  "status": "PARTIAL_SECONDARY_SOURCE_SEED",
+  "note": "Four initial basketball conference memberships corroborated by a 2026-27 published conference listing. This is NOT the complete NCAA Division I roster; confirm official NCAA sport-specific membership and reclassification statuses before claiming full verified eligibility. No automated publication permitted.",
+  "schools": [
+    {
+      "name": "Duke",
+      "conference": "ACC",
+      "status": "active",
+      "aliases": [],
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Kansas",
+      "conference": "Big 12",
+      "status": "active",
+      "aliases": [],
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UConn",
+      "conference": "Big East",
+      "status": "active",
+      "aliases": [
+        "Connecticut"
+      ],
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Gonzaga",
+      "conference": "Pac-12",
+      "status": "active",
+      "aliases": [],
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    }
+  ]
 }
