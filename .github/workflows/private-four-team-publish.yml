@@ -1,0 +1,43 @@
+name: Private four-team basketball pilot
+on:
+  workflow_dispatch:
+    inputs:
+      publish_pilot:
+        description: 'Publish four-team pilot to private KV?'
+        type: boolean
+        required: true
+        default: false
+      rights_confirmation:
+        description: 'If publishing, enter: I CONFIRM PRIVATE DATA DISPLAY IS PERMITTED'
+        type: string
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: private-team-publishing
+  cancel-in-progress: false
+
+jobs:
+  four-team-pilot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Offline regression tests
+        run: python -m unittest discover -s tests -v
+      - name: Validate or publish four-team private KV pilot
+        env:
+          CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          PUBLISH_FOUR_TEAM_KV: ${{ inputs.publish_pilot }}
+          PUBLICATION_APPROVAL: ${{ inputs.rights_confirmation }}
+        run: python scripts/refresh_private_four_team_kv.py
