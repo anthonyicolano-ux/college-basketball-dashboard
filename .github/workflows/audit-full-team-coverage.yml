@@ -1,0 +1,28 @@
+name: Audit full basketball team coverage
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: full-basketball-team-audit
+  cancel-in-progress: false
+
+jobs:
+  audit-teams:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Run offline tests
+        run: python -m unittest discover -s tests -v
+      - name: Audit full season team coverage (one API request, no publication)
+        env:
+          CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+        run: python scripts/audit_full_team_coverage.py
