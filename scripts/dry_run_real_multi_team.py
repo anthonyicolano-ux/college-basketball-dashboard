@@ -46,6 +46,7 @@ def main():
     if not os.environ.get('CBBD_API_KEY', '').strip():
         print('FAIL: missing CBBD_API_KEY; no API request.')
         return 2
+    stage = 'API request or response'
     try:
         url = 'https://api.collegebasketballdata.com/stats/team/season?' + urlencode({
             'season': 2027, 'seasonType': 'regular'})
@@ -56,21 +57,25 @@ def main():
             records = json.load(response)
         if not isinstance(records, list):
             raise ValueError('Unexpected API response')
+        stage = 'target team selection'
         selected = choose(records)
+        stage = 'team statistics transformation and completeness'
         dataset = prepare(list(selected.values()))
         rows = dataset['rows']
+        stage = 'conference verification'
         for target, aliases in TARGETS.items():
             row = next((r for r in rows if r['team'].strip().casefold() in aliases), None)
             if row is None or row['conference'].strip().casefold() not in EXPECTED_CONFERENCES[target]:
                 raise ValueError('Conference mismatch or missing team')
+        stage = 'cross-team metric and record consistency'
         summary = validate_rows(rows, min_teams=4, max_teams=4)
         print('PASS: real four-team pilot validated; teams=4; conferences=' +
               str(summary['conferences']) + '; CBBD requests=1.')
         print('DRY RUN: no Cloudflare access, KV writes, GitHub artifacts, or data publication.')
         return 0
     except Exception as error:
-        print('FAIL: real four-team validation (' + type(error).__name__ +
-              '); no provider data printed.')
+        print('FAIL: stage=' + stage + '; error_type=' + type(error).__name__ +
+              '; no provider records, response bodies, or credentials printed.')
         return 1
 
 if __name__ == '__main__':
