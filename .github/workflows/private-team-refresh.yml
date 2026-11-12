@@ -1,0 +1,25 @@
+# Manual dry run only. Exactly one CBBD request; no data upload or artifacts.
+name: Dry run private basketball team refresh
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-team:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Offline tests (no API requests)
+        run: python -m unittest discover -s tests -v
+      - name: Validate one real team in memory (one API request)
+        env:
+          CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+        run: python scripts/dry_run_private_team_refresh.py
