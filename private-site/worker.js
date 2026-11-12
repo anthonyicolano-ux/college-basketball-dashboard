@@ -37,6 +37,19 @@ export default {
     if(url.pathname==='/logout')return new Response(null,{status:303,headers:{location:'/', 'set-cookie':'basketball_access=; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=0','cache-control':'no-store'}});
     if(!await authorized(request,env.SESSION_SECRET))return page();
     if(request.method!=='GET'&&request.method!=='HEAD')return new Response('Method not allowed',{status:405});
+    // Derive private refresh status from the actual validated KV pilot dataset.
+    // Do not use the public demo's stale refresh-status.json for live team data.
+    if(url.pathname==='/data/refresh-status.json'&&env.PRIVATE_DATA){
+      const raw=await env.PRIVATE_DATA.get('teams');
+      if(raw){
+        let dataset=null;
+        try { dataset=JSON.parse(raw); } catch {}
+        if(dataset?.schemaVersion===1&&dataset.season===2027&&dataset.demo===false&&Array.isArray(dataset.rows)&&dataset.rows.length===1&&dataset.rows[0]?.team==='Duke'&&typeof dataset.generatedAt==='string'&&!Number.isNaN(Date.parse(dataset.generatedAt))){
+          const status={schemaVersion:1,outcome:'private team pilot published (Duke)',lastSuccessAt:dataset.generatedAt,lastAttemptAt:dataset.generatedAt};
+          return new Response(JSON.stringify(status),{headers:{'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'}});
+        }
+      }
+    }
     // Team statistics are served from private KV only after authentication.
     // An absent or invalid dataset leaves the existing fictional demo intact.
     if(url.pathname==='/data/teams.json'&&env.PRIVATE_DATA){
