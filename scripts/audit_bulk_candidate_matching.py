@@ -73,7 +73,7 @@ CONFERENCE_ALIASES = {
     "American": ("American Athletic", "American Athletic Conference"),
     "Atlantic 10": ("Atlantic 10 Conference", "A-10"),
     "Mountain West": ("Mountain West Conference",),
-    "Missouri Valley": ("Missouri Valley Conference",),
+    "Missouri Valley": ("Missouri Valley Conference", "MVC"),
     "Sun Belt": ("Sun Belt Conference",),
     "Southland": ("Southland Conference",),
     "SoCon": ("Southern Conference",),
@@ -84,7 +84,7 @@ CONFERENCE_ALIASES = {
     "Big Sky": ("Big Sky Conference",),
     "Big South": ("Big South Conference",),
     "Big West": ("Big West Conference",),
-    "America East": ("America East Conference",),
+    "America East": ("America East Conference", "Am. East"),
     "Patriot": ("Patriot League",),
     "Summit": ("Summit League",),
     "Conference USA": ("C-USA",),
@@ -140,6 +140,7 @@ def reconcile(records, verified, candidates):
     conference_difference_label_groups = defaultdict(Counter)
     official_roster_conflicts = Counter()
     unmatched_candidate_name_diagnostics = Counter()
+    unmatched_candidate_fuzzy_strength = Counter()
     unmatched_candidate_groups = Counter()
     ambiguous_alias_keys = sum(len(ids) > 1 for ids in lookup.values())
     alias_matches = 0
@@ -201,8 +202,14 @@ def reconcile(records, verified, candidates):
     unresolved_keys = [key(name) for name in unresolved]
     for identifier in candidate_names - matched:
         names = [entries[identifier]["name"], *entries[identifier].get("aliases", []), *PROVIDER_NAME_ALIASES.get(identifier[1], ())]
-        if any(difflib.get_close_matches(key(name), unresolved_keys, n=1, cutoff=0.82) for name in names):
+        best_score = max(
+            (difflib.SequenceMatcher(None, key(name), provider_key).ratio()
+             for name in names for provider_key in unresolved_keys),
+            default=0.0,
+        )
+        if best_score >= 0.82:
             unmatched_candidate_name_diagnostics[entries[identifier]["conference"]] += 1
+            unmatched_candidate_fuzzy_strength["high_0_95_plus" if best_score >= 0.95 else "review_0_82_to_0_95"] += 1
     counts["unmatched_candidates"] = len(candidate_names - matched)
     counts["ambiguous_alias_keys_in_reference"] = ambiguous_alias_keys
     counts["exact_name_matches"] = exact_matches
@@ -225,6 +232,7 @@ def reconcile(records, verified, candidates):
         "official_conference_roster_checks": official_roster_audit(candidates),
         "unmatched_candidate_counts_by_conference": dict(sorted(unmatched_candidate_groups.items())),
         "unmatched_candidates_with_similar_provider_name_by_conference": dict(sorted(unmatched_candidate_name_diagnostics.items())),
+        "unmatched_candidate_fuzzy_strength_counts": dict(sorted(unmatched_candidate_fuzzy_strength.items())),
         "provider_conference_labels_by_expected_conference": {k: dict(sorted(v.items())) for k, v in sorted(conference_difference_label_groups.items())},
         "official_roster_provider_conflict_counts": dict(sorted(official_roster_conflicts.items())),
         "conference_difference_counts_by_expected_conference": dict(sorted(conference_difference_groups.items())),
