@@ -2,7 +2,7 @@
   "season": 2027,
   "sport": "mens_basketball",
   "status": "PARTIAL_SECONDARY_SOURCE_SEED",
-  "note": "Four initial basketball conference memberships corroborated by a 2026-27 published conference listing. This is NOT the complete NCAA Division I roster; confirm official NCAA sport-specific membership and reclassification statuses before claiming full verified eligibility. No automated publication permitted.",
+  "note": "PARTIAL reference only. Official NCAA projected 365 DI men's basketball programs, but school-level verification and 2026-27 conference affiliations remain incomplete. Do not publish full-DI rankings from this reference.",
   "schools": [
     {
       "name": "Duke",
@@ -34,5 +34,14 @@
       "aliases": [],
       "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     }
-  ]
+  ],
+  "official_baseline": {
+    "projected_mens_basketball_sponsorship": 365,
+    "active_division_i_institutions": 361,
+    "primary_division_i_conferences": 32,
+    "as_of": "2026-09",
+    "membership_source_url": "https://www.ncaa.org/about-us/membership-directory/membership-composition-and-sport-sponsorship/",
+    "sport_specific_directory_url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=MBB&type=12",
+    "caution": "Projected sport sponsorship is not an exact membership roster and may include transitioning institutions; counts cannot establish individual eligibility."
+  }
 }
