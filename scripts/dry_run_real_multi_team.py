@@ -65,8 +65,16 @@ def main():
         stage = 'conference verification'
         for target, aliases in TARGETS.items():
             row = next((r for r in rows if r['team'].strip().casefold() in aliases), None)
-            if row is None or row['conference'].strip().casefold() not in EXPECTED_CONFERENCES[target]:
-                raise ValueError('Conference mismatch or missing team')
+            if row is None:
+                print('DIAGNOSTIC: team=' + target + '; reason=missing transformed row')
+                raise ValueError('Missing transformed team')
+            conference = row.get('conference')
+            if not isinstance(conference, str) or not conference.strip():
+                print('DIAGNOSTIC: team=' + target + '; reason=missing conference')
+                raise ValueError('Missing conference')
+            if conference.strip().casefold() not in EXPECTED_CONFERENCES[target]:
+                print('DIAGNOSTIC: team=' + target + '; reason=unexpected conference label')
+                raise ValueError('Unexpected conference label')
         stage = 'cross-team metric and record consistency'
         summary = validate_rows(rows, min_teams=4, max_teams=4)
         print('PASS: real four-team pilot validated; teams=4; conferences=' +
