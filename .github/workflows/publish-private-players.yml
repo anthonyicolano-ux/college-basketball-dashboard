@@ -1,0 +1,40 @@
+name: Publish private basketball players (approval gated)
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Publish to password-protected Cloudflare KV (default false)'
+        required: true
+        type: boolean
+        default: false
+      approval:
+        description: 'For publication type exactly I APPROVE PRIVATE PLAYER KV PUBLICATION'
+        required: false
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  validate-and-publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Offline regression tests
+        run: python -m unittest discover -s tests
+      - name: Validate and optionally publish private player dataset
+        env:
+          CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          PUBLISH_PRIVATE_PLAYERS: ${{ inputs.publish }}
+          PUBLICATION_APPROVAL: ${{ inputs.approval }}
+        run: python scripts/publish_private_players_kv.py
