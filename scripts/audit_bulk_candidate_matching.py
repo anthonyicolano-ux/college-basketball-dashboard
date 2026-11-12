@@ -69,7 +69,7 @@ CONFERENCE_ALIASES = {
     "SWAC": ("Southwestern Athletic Conference",),
     "WCC": ("West Coast", "West Coast Conference"),
     "UAC": ("United Athletic Conference",),
-    "Metro": ("Metro Conference", "MAAC"),
+    "Metro": ("Metro Conference",),  # MAAC is not interchangeable with Metro without evidence
     "American": ("American Athletic", "American Athletic Conference"),
     "Atlantic 10": ("Atlantic 10 Conference", "A-10"),
     "Mountain West": ("Mountain West Conference",),
@@ -107,6 +107,9 @@ def reconcile(records, verified, candidates):
     by_conference = Counter()
     seen_provider = set()
     unresolved = []
+    conference_difference_groups = Counter()
+    unmatched_candidate_groups = Counter()
+    ambiguous_alias_keys = sum(len(ids) > 1 for ids in lookup.values())
     alias_matches = 0
     exact_matches = 0
     for record in records:
@@ -138,6 +141,7 @@ def reconcile(records, verified, candidates):
         if record.get("conference"):
             if not same_conference(entry["conference"], str(record["conference"])):
                 counts["conference_label_differences_unreviewed"] += 1
+                conference_difference_groups[entry["conference"]] += 1
         else:
             counts["missing_provider_conference"] += 1
         try:
@@ -155,7 +159,10 @@ def reconcile(records, verified, candidates):
             counts["transform_errors"] += 1
 
     candidate_names = {("candidate", x["name"]) for x in candidates}
+    for identifier in candidate_names - matched:
+        unmatched_candidate_groups[entries[identifier]["conference"]] += 1
     counts["unmatched_candidates"] = len(candidate_names - matched)
+    counts["ambiguous_alias_keys_in_reference"] = ambiguous_alias_keys
     counts["exact_name_matches"] = exact_matches
     counts["explicit_alias_matches"] = alias_matches
     counts["candidate_total"] = len(candidates)
@@ -173,6 +180,8 @@ def reconcile(records, verified, candidates):
         "publication": "DISABLED",
         "counts": dict(sorted(counts.items())),
         "matched_conference_groups": len(by_conference),
+        "unmatched_candidate_counts_by_conference": dict(sorted(unmatched_candidate_groups.items())),
+        "conference_difference_counts_by_expected_conference": dict(sorted(conference_difference_groups.items())),
         "note": "All candidate matches remain unverified. Explicit aliases only; fuzzy matches are diagnostics. Conference label differences after known synonym mapping require review."
     }
 
