@@ -1,4 +1,5 @@
-# Manual dry run only. Exactly one CBBD request; no data upload or artifacts.
+# Manual only. One CBBD request per run. Publishing is blocked until
+# explicit rights clearance is separately confirmed and enabled in code.
 name: Dry run private basketball team refresh
 on:
   workflow_dispatch:
@@ -19,7 +20,8 @@ jobs:
           python-version: '3.12'
       - name: Offline tests (no API requests)
         run: python -m unittest discover -s tests -v
-      - name: Validate one real team in memory (one API request)
+      - name: Prepare private KV upload in dry-run mode (one API request)
         env:
           CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
-        run: python scripts/dry_run_private_team_refresh.py
+          PUBLISH_PRIVATE_KV: 'false'
+        run: python scripts/refresh_private_team_kv.py
