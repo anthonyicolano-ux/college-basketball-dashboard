@@ -37,6 +37,22 @@ export default {
     if(url.pathname==='/logout')return new Response(null,{status:303,headers:{location:'/', 'set-cookie':'basketball_access=; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=0','cache-control':'no-store'}});
     if(!await authorized(request,env.SESSION_SECRET))return page();
     if(request.method!=='GET'&&request.method!=='HEAD')return new Response('Method not allowed',{status:405});
+    // Accept only the approved one- or four-team private pilot.
+    // Fail closed to demo for malformed, unexpected, or larger KV datasets.
+    const approvedTeams=new Set(['Duke','Kansas','UConn','Gonzaga']);
+    function validTeamPilot(data) {
+      if(data?.schemaVersion!==1||data.season!==2027||data.demo!==false||
+         !Array.isArray(data.rows)||![1,4].includes(data.rows.length)||
+         typeof data.generatedAt!=='string'||Number.isNaN(Date.parse(data.generatedAt))) return false;
+      const names=data.rows.map(r=>r?.team);
+      if(names.some(n=>typeof n!=='string'||!approvedTeams.has(n))||
+         new Set(names).size!==names.length) return false;
+      if(names.length===1&&names[0]!=='Duke')return false;
+      if(names.length===4&&approvedTeams.size!==new Set(names).size)return false;
+      return data.rows.every(r=>typeof r.conference==='string'&&r.conference.trim()&&
+        ['wins','losses','games','ppg','oppPpg','offRating','defRating','netRating','scoringMargin'].every(k=>
+          typeof r[k]==='number'&&Number.isFinite(r[k])));
+    }
     // Derive private refresh status from the actual validated KV pilot dataset.
     // Do not use the public demo's stale refresh-status.json for live team data.
     if(url.pathname==='/data/refresh-status.json'&&env.PRIVATE_DATA){
@@ -44,8 +60,8 @@ export default {
       if(raw){
         let dataset=null;
         try { dataset=JSON.parse(raw); } catch {}
-        if(dataset?.schemaVersion===1&&dataset.season===2027&&dataset.demo===false&&Array.isArray(dataset.rows)&&dataset.rows.length===1&&dataset.rows[0]?.team==='Duke'&&typeof dataset.generatedAt==='string'&&!Number.isNaN(Date.parse(dataset.generatedAt))){
-          const status={schemaVersion:1,outcome:'private team pilot published (Duke)',lastSuccessAt:dataset.generatedAt,lastAttemptAt:dataset.generatedAt};
+        if(validTeamPilot(dataset)){
+          const status={schemaVersion:1,outcome:'private team pilot published ('+dataset.rows.length+' team'+(dataset.rows.length===1?'':'s')+')',lastSuccessAt:dataset.generatedAt,lastAttemptAt:dataset.generatedAt};
           return new Response(JSON.stringify(status),{headers:{'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'}});
         }
       }
@@ -60,9 +76,9 @@ export default {
         // Pilot publication is limited to one team and only UI-required fields.
         // Never forward arbitrary provider fields or an unbounded KV payload.
         const allowed=['team','conference','wins','losses','games','ppg','oppPpg','offRating','defRating','netRating','scoringMargin','pace','fgPct','threePct','ftPct','eFg','tsPct','rebounds','offRebounds','defRebounds','oppRebounds','reboundingMargin','assists','turnovers'];
-        if(dataset?.schemaVersion===1&&dataset.season===2027&&dataset.demo===false&&Array.isArray(dataset.rows)&&dataset.rows.length===1&&dataset.rows[0]?.team==='Duke'){
-          const row=Object.fromEntries(allowed.map(key=>[key,dataset.rows[0][key]??null]));
-          const publicView={schemaVersion:1,season:2027,seasonLabel:'2026–27',scope:'Private one-team pilot · Data: CollegeBasketballData.com',generatedAt:dataset.generatedAt,demo:false,rows:[row]};
+        if(validTeamPilot(dataset)){
+          const rows=dataset.rows.map(source=>Object.fromEntries(allowed.map(key=>[key,source[key]??null])));
+          const publicView={schemaVersion:1,season:2027,seasonLabel:'2026–27',scope:'Private '+rows.length+'-team pilot · Data: CollegeBasketballData.com',generatedAt:dataset.generatedAt,demo:false,rows};
           return new Response(JSON.stringify(publicView),{headers:{'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'}});
         }
       }
