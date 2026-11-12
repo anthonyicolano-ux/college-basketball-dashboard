@@ -25,14 +25,36 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - name: Offline tests (no API requests)
         run: python -m unittest discover -s tests -v
+      - name: Offline multi-conference comparison pilot (synthetic data only)
+        run: |
+          python - <<'PY'
+          from scripts.validate_multi_team_pilot import validate_rows
+          teams = [
+              ('Duke', 'ACC', 82, 71, 117, 100),
+              ('Kansas', 'Big 12', 79, 72, 112, 103),
+              ('UConn', 'Big East', 77, 69, 110, 98),
+              ('Gonzaga', 'WCC', 85, 74, 120, 105),
+          ]
+          rows = [
+              dict(team=name, conference=conf, games=3, wins=2, losses=1,
+                   ppg=ppg, oppPpg=opp, offRating=off, defRating=defense,
+                   netRating=off-defense, scoringMargin=ppg-opp)
+              for name, conf, ppg, opp, off, defense in teams
+          ]
+          result = validate_rows(rows)
+          assert result == {'teams': 4, 'conferences': 4, 'publication': 'DISABLED'}
+          assert sorted(rows, key=lambda x: x['netRating'], reverse=True)[0]['team'] == 'Duke'
+          assert len({r['conference'] for r in rows if r['conference'] == 'ACC'}) == 1
+          print('PASS: 4 synthetic teams, 4 conferences, sorting and filtering; no provider data or KV writes.')
+          PY
       - name: Validate or publish one-team pilot (one API request)
         env:
           CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
