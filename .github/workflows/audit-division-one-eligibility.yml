@@ -1,0 +1,28 @@
+name: Audit basketball Division I eligibility and conferences
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: basketball-eligibility-audit
+  cancel-in-progress: false
+
+jobs:
+  audit-eligibility:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Run offline regression tests
+        run: python -m unittest discover -s tests -v
+      - name: Audit D-I eligibility signals and conference fields (one request; no publishing)
+        env:
+          CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+        run: python scripts/audit_division_one_eligibility.py
