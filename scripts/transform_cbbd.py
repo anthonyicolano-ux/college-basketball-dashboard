@@ -49,12 +49,20 @@ def team_row(record):
     opponent_rebounds = per_game(number(record, 'opponentStats.rebounds.total'), games)
     team_off_rebounds = per_game(number(record, 'teamStats.rebounds.offensive'), games)
     team_def_rebounds = per_game(number(record, 'teamStats.rebounds.defensive'), games)
+    off_rating = number(record, 'teamStats.rating')
+    if off_rating is None:
+        off_rating = safe_rate(points, number(record, 'teamStats.possessions'), 100)
+    def_rating = number(record, 'opponentStats.rating')
+    if def_rating is None:
+        def_rating = safe_rate(opp_points, number(record, 'opponentStats.possessions'), 100)
     return {
         'team': record['team'], 'conference': record.get('conference'),
         'games': games, 'wins': number(record, 'wins'), 'losses': number(record, 'losses'),
         'ppg': per_game(points, games), 'oppPpg': per_game(opp_points, games),
-        'offRating': number(record, 'teamStats.rating') or safe_rate(points, number(record, 'teamStats.possessions'), 100),
-        'defRating': number(record, 'opponentStats.rating') or safe_rate(opp_points, number(record, 'opponentStats.possessions'), 100),
+        'offRating': off_rating,
+        'defRating': def_rating,
+        'netRating': off_rating - def_rating if off_rating is not None and def_rating is not None else None,
+        'scoringMargin': per_game(points - opp_points, games) if points is not None and opp_points is not None else None,
         'pace': number(record, 'pace'),
         'fgPct': safe_rate(fgm, fga, 100),
         'threePct': safe_rate(number(record, 'teamStats.threePointFieldGoals.made'), number(record, 'teamStats.threePointFieldGoals.attempted'), 100),
