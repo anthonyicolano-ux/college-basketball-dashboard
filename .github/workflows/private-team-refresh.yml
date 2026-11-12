@@ -3,9 +3,22 @@
 name: Dry run private basketball team refresh
 on:
   workflow_dispatch:
+    inputs:
+      publish_pilot:
+        description: 'Publish one-team pilot to private KV?'
+        type: boolean
+        default: false
+      rights_confirmation:
+        description: 'If publishing, enter: I CONFIRM PRIVATE DATA DISPLAY IS PERMITTED'
+        type: string
+        default: ''
 
 permissions:
   contents: read
+
+concurrency:
+  group: private-team-refresh
+  cancel-in-progress: false
 
 jobs:
   validate-team:
@@ -20,8 +33,11 @@ jobs:
           python-version: '3.12'
       - name: Offline tests (no API requests)
         run: python -m unittest discover -s tests -v
-      - name: Prepare private KV upload in dry-run mode (one API request)
+      - name: Validate or publish one-team pilot (one API request)
         env:
           CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
-          PUBLISH_PRIVATE_KV: 'false'
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          PUBLISH_PRIVATE_KV: ${{ inputs.publish_pilot }}
+          PUBLICATION_APPROVAL: ${{ inputs.rights_confirmation }}
         run: python scripts/refresh_private_team_kv.py
