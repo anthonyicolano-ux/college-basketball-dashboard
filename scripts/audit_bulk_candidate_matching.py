@@ -69,7 +69,7 @@ CONFERENCE_ALIASES = {
     "SWAC": ("Southwestern Athletic Conference",),
     "WCC": ("West Coast", "West Coast Conference"),
     "UAC": ("United Athletic Conference",),
-    "Metro": ("Metro Conference",),  # MAAC is not interchangeable with Metro without evidence
+    "Metro": ("Metro Conference",),  # Season-specific renaming needs explicit evidence
     "American": ("American Athletic", "American Athletic Conference"),
     "Atlantic 10": ("Atlantic 10 Conference", "A-10"),
     "Mountain West": ("Mountain West Conference",),
@@ -91,6 +91,35 @@ CONFERENCE_ALIASES = {
 }
 def same_conference(expected, observed):
     return key(observed) in {key(expected), *(key(x) for x in CONFERENCE_ALIASES.get(expected, ()))}
+
+# Official 2026-27 men's basketball conference rosters, checked 2026-11-12.
+# These verify conference roster listings only, not independent NCAA eligibility.
+OFFICIAL_CONFERENCE_ROSTERS = {
+    "America East": {
+        "source": "https://americaeast.com/standings.aspx?path=mbball",
+        "schools": ("Binghamton", "Bryant", "Maine", "New Hampshire", "NJIT", "UAlbany", "UMass Lowell", "UMBC", "Vermont"),
+    },
+    "Missouri Valley": {
+        "source": "https://mvc-sports.com/sports/2022/11/3/MBB_1103224612.aspx",
+        "schools": ("Belmont", "Bradley", "Drake", "Evansville", "UIC", "Illinois State", "Indiana State", "Murray State", "Northern Iowa", "Southern Illinois", "Valparaiso"),
+    },
+}
+
+def official_roster_audit(candidates):
+    """Compare candidate reference against official conference rosters, not provider labels."""
+    result = {}
+    for conference, roster in OFFICIAL_CONFERENCE_ROSTERS.items():
+        expected = {key(name) for name in roster["schools"]}
+        actual = {key(row["name"]) for row in candidates if row["conference"] == conference}
+        result[conference] = {
+            "official_roster_count": len(expected),
+            "candidate_count": len(actual),
+            "candidate_names_missing_from_official_roster": len(actual - expected),
+            "official_names_missing_from_candidates": len(expected - actual),
+            "roster_alignment": "MATCH" if actual == expected else "REVIEW",
+            "source": roster["source"],
+        }
+    return result
 
 def reconcile(records, verified, candidates):
     lookup = defaultdict(set)
@@ -180,6 +209,7 @@ def reconcile(records, verified, candidates):
         "publication": "DISABLED",
         "counts": dict(sorted(counts.items())),
         "matched_conference_groups": len(by_conference),
+        "official_conference_roster_checks": official_roster_audit(candidates),
         "unmatched_candidate_counts_by_conference": dict(sorted(unmatched_candidate_groups.items())),
         "conference_difference_counts_by_expected_conference": dict(sorted(conference_difference_groups.items())),
         "note": "All candidate matches remain unverified. Explicit aliases only; fuzzy matches are diagnostics. Conference label differences after known synonym mapping require review."
