@@ -73,7 +73,11 @@ def main():
                 print('DIAGNOSTIC: team=' + target + '; reason=missing conference')
                 raise ValueError('Missing conference')
             if conference.strip().casefold() not in EXPECTED_CONFERENCES[target]:
-                print('DIAGNOSTIC: team=' + target + '; reason=unexpected conference label')
+                # Conference labels are public metadata, but sanitize before logging.
+                # No provider statistics, raw records, or credentials are printed.
+                safe_label = ''.join(ch for ch in conference[:80] if ch.isalnum() or ch in ' -_&.()/')
+                print('DIAGNOSTIC: team=' + target +
+                      '; reason=unexpected conference label; observed=' + repr(safe_label))
                 raise ValueError('Unexpected conference label')
         stage = 'cross-team metric and record consistency'
         summary = validate_rows(rows, min_teams=4, max_teams=4)
