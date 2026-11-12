@@ -2,7 +2,7 @@
   "season": 2027,
   "sport": "mens_basketball",
   "status": "CANDIDATES_ONLY_NOT_ELIGIBILITY",
-  "description": "Staging area for school-level 2026-27 men's basketball membership candidates. Entries do not establish NCAA Division I eligibility and must never be used to publish rankings.",
+  "description": "2026-27 candidate schools transcribed from a secondary school-level directory. Names and basketball conferences are unverified; never publish or classify as eligible until independently corroborated. First batch covers AL, AR, AZ, CA, CO, CT (except UConn), DC (except Georgetown? included), and DE; reference-matched schools omitted.",
   "sources": [
     {
       "name": "NCAA Division I member schools",
@@ -23,5 +23,433 @@
       "scope": "institution detail pages can document 2026-27 men's basketball division and conference"
     }
   ],
-  "candidates": []
+  "candidates": [
+    {
+      "name": "Alabama A&M University",
+      "conference": "Southwestern Athletic Conf.",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Alabama State University",
+      "conference": "Southwestern Athletic Conf.",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of Arkansas, Pine Bluff",
+      "conference": "Southwestern Athletic Conf.",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Auburn University",
+      "conference": "Southeastern Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of Alabama",
+      "conference": "Southeastern Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of Arkansas, Fayetteville",
+      "conference": "Southeastern Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Jacksonville State University",
+      "conference": "Conference USA",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of Delaware",
+      "conference": "Conference USA",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Samford University",
+      "conference": "Southern Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Troy University",
+      "conference": "Sun Belt Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of South Alabama",
+      "conference": "Sun Belt Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Arkansas State University",
+      "conference": "Sun Belt Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of Alabama at Birmingham",
+      "conference": "American Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of North Alabama",
+      "conference": "United Athletic Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of Arkansas at Little Rock",
+      "conference": "United Athletic Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of Central Arkansas",
+      "conference": "United Athletic Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Arizona State University",
+      "conference": "Big 12 Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of Arizona",
+      "conference": "Big 12 Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of Colorado Boulder",
+      "conference": "Big 12 Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Grand Canyon University",
+      "conference": "Mountain West Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "San Jose State University",
+      "conference": "Mountain West Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "U.S. Air Force Academy",
+      "conference": "Mountain West Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Northern Arizona University",
+      "conference": "Big Sky Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of Northern Colorado",
+      "conference": "Big Sky Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "California Baptist University",
+      "conference": "Big West Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "California Polytechnic State University",
+      "conference": "Big West Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "California State University, Bakersfield",
+      "conference": "Big West Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "California State University, Fullerton",
+      "conference": "Big West Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "California State University, Northridge",
+      "conference": "Big West Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "California State University, Sacramento",
+      "conference": "Big West Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Long Beach State University",
+      "conference": "Big West Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of California, Irvine",
+      "conference": "Big West Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of California, Riverside",
+      "conference": "Big West Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of California, San Diego",
+      "conference": "Big West Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of California, Santa Barbara",
+      "conference": "Big West Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "California State University, Fresno",
+      "conference": "Pac-12 Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "San Diego State University",
+      "conference": "Pac-12 Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Colorado State University",
+      "conference": "Pac-12 Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Loyola Marymount University",
+      "conference": "West Coast Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Pepperdine University",
+      "conference": "West Coast Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Saint Mary's College of California",
+      "conference": "West Coast Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Santa Clara University",
+      "conference": "West Coast Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of San Diego",
+      "conference": "West Coast Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of San Francisco",
+      "conference": "West Coast Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of the Pacific",
+      "conference": "West Coast Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of Denver",
+      "conference": "West Coast Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Stanford University",
+      "conference": "Atlantic Coast Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of California, Berkeley",
+      "conference": "Atlantic Coast Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of California, Los Angeles",
+      "conference": "Big Ten Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of Southern California",
+      "conference": "Big Ten Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Central Connecticut State University",
+      "conference": "Northeast Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "University of New Haven",
+      "conference": "Northeast Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Fairfield University",
+      "conference": "Metro Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Quinnipiac University",
+      "conference": "Metro Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Sacred Heart University",
+      "conference": "Metro Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Yale University",
+      "conference": "The Ivy League",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "American University",
+      "conference": "Patriot League",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "George Washington University",
+      "conference": "Atlantic 10 Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Georgetown University",
+      "conference": "BIG EAST Conference",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Howard University",
+      "conference": "Mid-Eastern Athletic Conf.",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    },
+    {
+      "name": "Delaware State University",
+      "conference": "Mid-Eastern Athletic Conf.",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+    }
+  ]
 }
