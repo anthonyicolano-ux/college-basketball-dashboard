@@ -44,8 +44,13 @@ export default {
       if(value){
         let dataset=null;
         try { dataset=JSON.parse(value); } catch {}
-        if(dataset?.schemaVersion===1&&dataset.demo===false&&Array.isArray(dataset.rows)&&dataset.rows.every(row=>row&&typeof row.team==='string')){
-          return new Response(value,{headers:{'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'}});
+        // Pilot publication is limited to one team and only UI-required fields.
+        // Never forward arbitrary provider fields or an unbounded KV payload.
+        const allowed=['team','conference','wins','losses','games','ppg','oppPpg','offRating','defRating','netRating','scoringMargin','pace','fgPct','threePct','ftPct','eFg','tsPct','rebounds','offRebounds','defRebounds','oppRebounds','reboundingMargin','assists','turnovers'];
+        if(dataset?.schemaVersion===1&&dataset.season===2027&&dataset.demo===false&&Array.isArray(dataset.rows)&&dataset.rows.length===1&&dataset.rows[0]?.team==='Duke'){
+          const row=Object.fromEntries(allowed.map(key=>[key,dataset.rows[0][key]??null]));
+          const publicView={schemaVersion:1,season:2027,seasonLabel:'2026–27',scope:'Private one-team pilot · Data: CollegeBasketballData.com',generatedAt:dataset.generatedAt,demo:false,rows:[row]};
+          return new Response(JSON.stringify(publicView),{headers:{'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'}});
         }
       }
     }
