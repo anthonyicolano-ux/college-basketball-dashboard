@@ -1,8 +1,8 @@
 {
   "season": 2027,
   "sport": "mens_basketball",
-  "status": "CANDIDATES_ONLY_NOT_ELIGIBILITY",
-  "description": "2026-27 candidate schools transcribed from a secondary school-level directory. Names and basketball conferences are unverified; never publish or classify as eligible until independently corroborated. First batch covers AL, AR, AZ, CA, CO, CT (except UConn), DC (except Georgetown? included), and DE; reference-matched schools omitted.",
+  "status": "COMPLETE_SECONDARY_DIRECTORY_CANDIDATES_UNVERIFIED",
+  "description": "2026-27 conference member candidate names from ESPN published 2026-09-30; not NCAA school-level membership verification. Four previously seeded schools excluded. All entries quarantined from publication. Differences from NCAA projected sponsorship must be investigated.",
   "sources": [
     {
       "name": "NCAA Division I member schools",
@@ -25,431 +25,2531 @@
   ],
   "candidates": [
     {
-      "name": "Alabama A&M University",
-      "conference": "Southwestern Athletic Conf.",
+      "name": "Boston College",
+      "conference": "ACC",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Alabama State University",
-      "conference": "Southwestern Athletic Conf.",
+      "name": "California",
+      "conference": "ACC",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of Arkansas, Pine Bluff",
-      "conference": "Southwestern Athletic Conf.",
+      "name": "Clemson",
+      "conference": "ACC",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Auburn University",
-      "conference": "Southeastern Conference",
+      "name": "Florida State",
+      "conference": "ACC",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of Alabama",
-      "conference": "Southeastern Conference",
+      "name": "Georgia Tech",
+      "conference": "ACC",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of Arkansas, Fayetteville",
-      "conference": "Southeastern Conference",
+      "name": "Louisville",
+      "conference": "ACC",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Jacksonville State University",
+      "name": "Miami (Florida)",
+      "conference": "ACC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "NC State",
+      "conference": "ACC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "North Carolina",
+      "conference": "ACC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Notre Dame",
+      "conference": "ACC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Pittsburgh",
+      "conference": "ACC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "SMU",
+      "conference": "ACC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Stanford",
+      "conference": "ACC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Syracuse",
+      "conference": "ACC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Virginia",
+      "conference": "ACC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Virginia Tech",
+      "conference": "ACC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Wake Forest",
+      "conference": "ACC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Binghamton",
+      "conference": "America East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Bryant",
+      "conference": "America East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Maine",
+      "conference": "America East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "New Hampshire",
+      "conference": "America East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "NJIT",
+      "conference": "America East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UAlbany",
+      "conference": "America East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UMass Lowell",
+      "conference": "America East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UMBC",
+      "conference": "America East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Vermont",
+      "conference": "America East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Charlotte",
+      "conference": "American",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "East Carolina",
+      "conference": "American",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Florida Atlantic",
+      "conference": "American",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Memphis",
+      "conference": "American",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "North Texas",
+      "conference": "American",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Rice",
+      "conference": "American",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Temple",
+      "conference": "American",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Tulane",
+      "conference": "American",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Tulsa",
+      "conference": "American",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UAB",
+      "conference": "American",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "USF",
+      "conference": "American",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UTSA",
+      "conference": "American",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Wichita State",
+      "conference": "American",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Davidson",
+      "conference": "Atlantic 10",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Dayton",
+      "conference": "Atlantic 10",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Duquesne",
+      "conference": "Atlantic 10",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Fordham",
+      "conference": "Atlantic 10",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "George Mason",
+      "conference": "Atlantic 10",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "George Washington",
+      "conference": "Atlantic 10",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "La Salle",
+      "conference": "Atlantic 10",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Loyola Chicago",
+      "conference": "Atlantic 10",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Rhode Island",
+      "conference": "Atlantic 10",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Richmond",
+      "conference": "Atlantic 10",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Saint Joseph's",
+      "conference": "Atlantic 10",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Saint Louis",
+      "conference": "Atlantic 10",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "St. Bonaventure",
+      "conference": "Atlantic 10",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "VCU",
+      "conference": "Atlantic 10",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Bellarmine",
+      "conference": "ASUN",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "FGCU",
+      "conference": "ASUN",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Jacksonville",
+      "conference": "ASUN",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Lipscomb",
+      "conference": "ASUN",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "North Florida",
+      "conference": "ASUN",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Queens",
+      "conference": "ASUN",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Stetson",
+      "conference": "ASUN",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "West Florida",
+      "conference": "ASUN",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Arizona",
+      "conference": "Big 12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Arizona State",
+      "conference": "Big 12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Baylor",
+      "conference": "Big 12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "BYU",
+      "conference": "Big 12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Cincinnati",
+      "conference": "Big 12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Colorado",
+      "conference": "Big 12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Houston",
+      "conference": "Big 12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Iowa State",
+      "conference": "Big 12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Kansas State",
+      "conference": "Big 12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Oklahoma State",
+      "conference": "Big 12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "TCU",
+      "conference": "Big 12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Texas Tech",
+      "conference": "Big 12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UCF",
+      "conference": "Big 12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Utah",
+      "conference": "Big 12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "West Virginia",
+      "conference": "Big 12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Butler",
+      "conference": "Big East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Creighton",
+      "conference": "Big East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "DePaul",
+      "conference": "Big East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Georgetown",
+      "conference": "Big East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Marquette",
+      "conference": "Big East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Providence",
+      "conference": "Big East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "St. John's",
+      "conference": "Big East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Seton Hall",
+      "conference": "Big East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Villanova",
+      "conference": "Big East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Xavier",
+      "conference": "Big East",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Eastern Washington",
+      "conference": "Big Sky",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Idaho",
+      "conference": "Big Sky",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Idaho State",
+      "conference": "Big Sky",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Montana",
+      "conference": "Big Sky",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Montana State",
+      "conference": "Big Sky",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Northern Arizona",
+      "conference": "Big Sky",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Northern Colorado",
+      "conference": "Big Sky",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Portland State",
+      "conference": "Big Sky",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Southern Utah",
+      "conference": "Big Sky",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Utah Tech",
+      "conference": "Big Sky",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Weber State",
+      "conference": "Big Sky",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Charleston Southern",
+      "conference": "Big South",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Gardner-Webb",
+      "conference": "Big South",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "High Point",
+      "conference": "Big South",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Longwood",
+      "conference": "Big South",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Presbyterian",
+      "conference": "Big South",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Radford",
+      "conference": "Big South",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UNC Asheville",
+      "conference": "Big South",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "USC Upstate",
+      "conference": "Big South",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Winthrop",
+      "conference": "Big South",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Illinois",
+      "conference": "Big Ten",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Indiana",
+      "conference": "Big Ten",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Iowa",
+      "conference": "Big Ten",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Maryland",
+      "conference": "Big Ten",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Michigan",
+      "conference": "Big Ten",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Michigan State",
+      "conference": "Big Ten",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Minnesota",
+      "conference": "Big Ten",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Nebraska",
+      "conference": "Big Ten",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Northwestern",
+      "conference": "Big Ten",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Ohio State",
+      "conference": "Big Ten",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Oregon",
+      "conference": "Big Ten",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Penn State",
+      "conference": "Big Ten",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Purdue",
+      "conference": "Big Ten",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Rutgers",
+      "conference": "Big Ten",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UCLA",
+      "conference": "Big Ten",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "USC",
+      "conference": "Big Ten",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Washington",
+      "conference": "Big Ten",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Wisconsin",
+      "conference": "Big Ten",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Cal Poly",
+      "conference": "Big West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Cal State Bakersfield",
+      "conference": "Big West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Cal State Fullerton",
+      "conference": "Big West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Cal State Northridge",
+      "conference": "Big West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "California Baptist",
+      "conference": "Big West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Long Beach State",
+      "conference": "Big West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Sacramento State",
+      "conference": "Big West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UC Irvine",
+      "conference": "Big West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UC Riverside",
+      "conference": "Big West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UC San Diego",
+      "conference": "Big West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UC Santa Barbara",
+      "conference": "Big West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Utah Valley",
+      "conference": "Big West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Campbell",
+      "conference": "CAA",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Charleston",
+      "conference": "CAA",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Drexel",
+      "conference": "CAA",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Elon",
+      "conference": "CAA",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Hampton",
+      "conference": "CAA",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Hofstra",
+      "conference": "CAA",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Monmouth",
+      "conference": "CAA",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "North Carolina A&T",
+      "conference": "CAA",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Northeastern",
+      "conference": "CAA",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Stony Brook",
+      "conference": "CAA",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Towson",
+      "conference": "CAA",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UNC Wilmington",
+      "conference": "CAA",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "William & Mary",
+      "conference": "CAA",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Delaware",
       "conference": "Conference USA",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of Delaware",
+      "name": "FIU",
       "conference": "Conference USA",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Samford University",
-      "conference": "Southern Conference",
+      "name": "Jacksonville State",
+      "conference": "Conference USA",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Troy University",
-      "conference": "Sun Belt Conference",
+      "name": "Kennesaw State",
+      "conference": "Conference USA",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of South Alabama",
-      "conference": "Sun Belt Conference",
+      "name": "Liberty",
+      "conference": "Conference USA",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Arkansas State University",
-      "conference": "Sun Belt Conference",
+      "name": "Middle Tennessee",
+      "conference": "Conference USA",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of Alabama at Birmingham",
-      "conference": "American Conference",
+      "name": "Missouri State",
+      "conference": "Conference USA",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of North Alabama",
-      "conference": "United Athletic Conference",
+      "name": "New Mexico State",
+      "conference": "Conference USA",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of Arkansas at Little Rock",
-      "conference": "United Athletic Conference",
+      "name": "Sam Houston",
+      "conference": "Conference USA",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of Central Arkansas",
-      "conference": "United Athletic Conference",
+      "name": "Western Kentucky",
+      "conference": "Conference USA",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Arizona State University",
-      "conference": "Big 12 Conference",
+      "name": "Cleveland State",
+      "conference": "Horizon",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of Arizona",
-      "conference": "Big 12 Conference",
+      "name": "Detroit Mercy",
+      "conference": "Horizon",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of Colorado Boulder",
-      "conference": "Big 12 Conference",
+      "name": "Green Bay",
+      "conference": "Horizon",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Grand Canyon University",
-      "conference": "Mountain West Conference",
+      "name": "IU Indy",
+      "conference": "Horizon",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "San Jose State University",
-      "conference": "Mountain West Conference",
+      "name": "Milwaukee",
+      "conference": "Horizon",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "U.S. Air Force Academy",
-      "conference": "Mountain West Conference",
+      "name": "Northern Illinois",
+      "conference": "Horizon",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Northern Arizona University",
-      "conference": "Big Sky Conference",
+      "name": "Northern Kentucky",
+      "conference": "Horizon",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of Northern Colorado",
-      "conference": "Big Sky Conference",
+      "name": "Oakland",
+      "conference": "Horizon",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "California Baptist University",
-      "conference": "Big West Conference",
+      "name": "Purdue Fort Wayne",
+      "conference": "Horizon",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "California Polytechnic State University",
-      "conference": "Big West Conference",
+      "name": "Robert Morris",
+      "conference": "Horizon",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "California State University, Bakersfield",
-      "conference": "Big West Conference",
+      "name": "Wright State",
+      "conference": "Horizon",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "California State University, Fullerton",
-      "conference": "Big West Conference",
+      "name": "Youngstown State",
+      "conference": "Horizon",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "California State University, Northridge",
-      "conference": "Big West Conference",
+      "name": "Brown",
+      "conference": "Ivy",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "California State University, Sacramento",
-      "conference": "Big West Conference",
+      "name": "Columbia",
+      "conference": "Ivy",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Long Beach State University",
-      "conference": "Big West Conference",
+      "name": "Cornell",
+      "conference": "Ivy",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of California, Irvine",
-      "conference": "Big West Conference",
+      "name": "Dartmouth",
+      "conference": "Ivy",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of California, Riverside",
-      "conference": "Big West Conference",
+      "name": "Harvard",
+      "conference": "Ivy",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of California, San Diego",
-      "conference": "Big West Conference",
+      "name": "Penn",
+      "conference": "Ivy",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of California, Santa Barbara",
-      "conference": "Big West Conference",
+      "name": "Princeton",
+      "conference": "Ivy",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "California State University, Fresno",
-      "conference": "Pac-12 Conference",
+      "name": "Yale",
+      "conference": "Ivy",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "San Diego State University",
-      "conference": "Pac-12 Conference",
+      "name": "Canisius",
+      "conference": "Metro",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Colorado State University",
-      "conference": "Pac-12 Conference",
+      "name": "Fairfield",
+      "conference": "Metro",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Loyola Marymount University",
-      "conference": "West Coast Conference",
+      "name": "Iona",
+      "conference": "Metro",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Pepperdine University",
-      "conference": "West Coast Conference",
+      "name": "Manhattan",
+      "conference": "Metro",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Saint Mary's College of California",
-      "conference": "West Coast Conference",
+      "name": "Marist",
+      "conference": "Metro",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Santa Clara University",
-      "conference": "West Coast Conference",
+      "name": "Merrimack",
+      "conference": "Metro",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of San Diego",
-      "conference": "West Coast Conference",
+      "name": "Mount St. Mary's",
+      "conference": "Metro",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of San Francisco",
-      "conference": "West Coast Conference",
+      "name": "Niagara",
+      "conference": "Metro",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of the Pacific",
-      "conference": "West Coast Conference",
+      "name": "Quinnipiac",
+      "conference": "Metro",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of Denver",
-      "conference": "West Coast Conference",
+      "name": "Rider",
+      "conference": "Metro",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Stanford University",
-      "conference": "Atlantic Coast Conference",
+      "name": "Sacred Heart",
+      "conference": "Metro",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of California, Berkeley",
-      "conference": "Atlantic Coast Conference",
+      "name": "Saint Peter's",
+      "conference": "Metro",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of California, Los Angeles",
-      "conference": "Big Ten Conference",
+      "name": "Siena",
+      "conference": "Metro",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of Southern California",
-      "conference": "Big Ten Conference",
+      "name": "Akron",
+      "conference": "MAC",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Central Connecticut State University",
-      "conference": "Northeast Conference",
+      "name": "Ball State",
+      "conference": "MAC",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "University of New Haven",
-      "conference": "Northeast Conference",
+      "name": "Bowling Green",
+      "conference": "MAC",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Fairfield University",
-      "conference": "Metro Conference",
+      "name": "Buffalo",
+      "conference": "MAC",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Quinnipiac University",
-      "conference": "Metro Conference",
+      "name": "Central Michigan",
+      "conference": "MAC",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Sacred Heart University",
-      "conference": "Metro Conference",
+      "name": "Eastern Michigan",
+      "conference": "MAC",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Yale University",
-      "conference": "The Ivy League",
+      "name": "Kent State",
+      "conference": "MAC",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "American University",
-      "conference": "Patriot League",
+      "name": "Miami (Ohio)",
+      "conference": "MAC",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "George Washington University",
-      "conference": "Atlantic 10 Conference",
+      "name": "Ohio",
+      "conference": "MAC",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Georgetown University",
-      "conference": "BIG EAST Conference",
+      "name": "Toledo",
+      "conference": "MAC",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Howard University",
-      "conference": "Mid-Eastern Athletic Conf.",
+      "name": "UMass",
+      "conference": "MAC",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     },
     {
-      "name": "Delaware State University",
-      "conference": "Mid-Eastern Athletic Conf.",
+      "name": "Western Michigan",
+      "conference": "MAC",
       "aliases": [],
       "verification_status": "pending",
-      "source_url": "https://www.collegebasketballschedule.net/blog/ncaa-division-i-mens-basketball-teams-by-state-conference"
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Coppin State",
+      "conference": "MEAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Delaware State",
+      "conference": "MEAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Howard",
+      "conference": "MEAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Maryland Eastern Shore",
+      "conference": "MEAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Morgan State",
+      "conference": "MEAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "NC Central",
+      "conference": "MEAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Norfolk State",
+      "conference": "MEAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "South Carolina State",
+      "conference": "MEAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Belmont",
+      "conference": "Missouri Valley",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Bradley",
+      "conference": "Missouri Valley",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Drake",
+      "conference": "Missouri Valley",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Evansville",
+      "conference": "Missouri Valley",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Illinois State",
+      "conference": "Missouri Valley",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Indiana State",
+      "conference": "Missouri Valley",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Murray State",
+      "conference": "Missouri Valley",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Northern Iowa",
+      "conference": "Missouri Valley",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Southern Illinois",
+      "conference": "Missouri Valley",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UIC",
+      "conference": "Missouri Valley",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Valparaiso",
+      "conference": "Missouri Valley",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Air Force",
+      "conference": "Mountain West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Grand Canyon",
+      "conference": "Mountain West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Hawai'i",
+      "conference": "Mountain West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Nevada",
+      "conference": "Mountain West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "New Mexico",
+      "conference": "Mountain West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "San José State",
+      "conference": "Mountain West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UC Davis",
+      "conference": "Mountain West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UNLV",
+      "conference": "Mountain West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UTEP",
+      "conference": "Mountain West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Wyoming",
+      "conference": "Mountain West",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Central Connecticut State",
+      "conference": "NEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Chicago State",
+      "conference": "NEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "FDU",
+      "conference": "NEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Le Moyne",
+      "conference": "NEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "LIU",
+      "conference": "NEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Mercyhurst",
+      "conference": "NEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "New Haven",
+      "conference": "NEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Stonehill",
+      "conference": "NEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Wagner",
+      "conference": "NEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Eastern Illinois",
+      "conference": "OVC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Lindenwood",
+      "conference": "OVC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Morehead State",
+      "conference": "OVC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Southeast Missouri",
+      "conference": "OVC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "SIUE",
+      "conference": "OVC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Southern Indiana",
+      "conference": "OVC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Tennessee State",
+      "conference": "OVC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UT Martin",
+      "conference": "OVC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Western Illinois",
+      "conference": "OVC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Boise State",
+      "conference": "Pac-12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Colorado State",
+      "conference": "Pac-12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Fresno State",
+      "conference": "Pac-12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Oregon State",
+      "conference": "Pac-12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "San Diego State",
+      "conference": "Pac-12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Texas State",
+      "conference": "Pac-12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Utah State",
+      "conference": "Pac-12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Washington State",
+      "conference": "Pac-12",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "American",
+      "conference": "Patriot",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Army",
+      "conference": "Patriot",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Boston University",
+      "conference": "Patriot",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Bucknell",
+      "conference": "Patriot",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Colgate",
+      "conference": "Patriot",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Holy Cross",
+      "conference": "Patriot",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Lafayette",
+      "conference": "Patriot",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Lehigh",
+      "conference": "Patriot",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Loyola Maryland",
+      "conference": "Patriot",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Navy",
+      "conference": "Patriot",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Alabama",
+      "conference": "SEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Arkansas",
+      "conference": "SEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Auburn",
+      "conference": "SEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Florida",
+      "conference": "SEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Georgia",
+      "conference": "SEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Kentucky",
+      "conference": "SEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "LSU",
+      "conference": "SEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Mississippi State",
+      "conference": "SEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Missouri",
+      "conference": "SEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Oklahoma",
+      "conference": "SEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Ole Miss",
+      "conference": "SEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "South Carolina",
+      "conference": "SEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Tennessee",
+      "conference": "SEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Texas",
+      "conference": "SEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Texas A&M",
+      "conference": "SEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Vanderbilt",
+      "conference": "SEC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Chattanooga",
+      "conference": "SoCon",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "The Citadel",
+      "conference": "SoCon",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "East Tennessee State",
+      "conference": "SoCon",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Furman",
+      "conference": "SoCon",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Mercer",
+      "conference": "SoCon",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Samford",
+      "conference": "SoCon",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Tennessee Tech",
+      "conference": "SoCon",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UNC Greensboro",
+      "conference": "SoCon",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "VMI",
+      "conference": "SoCon",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Western Carolina",
+      "conference": "SoCon",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Wofford",
+      "conference": "SoCon",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "East Texas A&M",
+      "conference": "Southland",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Houston Christian",
+      "conference": "Southland",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Lamar",
+      "conference": "Southland",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "LSU New Orleans",
+      "conference": "Southland",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "McNeese",
+      "conference": "Southland",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Nicholls",
+      "conference": "Southland",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Northwestern State",
+      "conference": "Southland",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Southeastern Louisiana",
+      "conference": "Southland",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Stephen F. Austin",
+      "conference": "Southland",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Texas A&M-Corpus Christi",
+      "conference": "Southland",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UIW",
+      "conference": "Southland",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UTRGV",
+      "conference": "Southland",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Alabama A&M",
+      "conference": "SWAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Alabama State",
+      "conference": "SWAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Alcorn State",
+      "conference": "SWAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Arkansas-Pine Bluff",
+      "conference": "SWAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Bethune-Cookman",
+      "conference": "SWAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Florida A&M",
+      "conference": "SWAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Grambling",
+      "conference": "SWAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Jackson State",
+      "conference": "SWAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Mississippi Valley State",
+      "conference": "SWAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Prairie View A&M",
+      "conference": "SWAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Southern",
+      "conference": "SWAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Texas Southern",
+      "conference": "SWAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Kansas City",
+      "conference": "Summit",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "North Dakota",
+      "conference": "Summit",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "North Dakota State",
+      "conference": "Summit",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Omaha",
+      "conference": "Summit",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Oral Roberts",
+      "conference": "Summit",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "South Dakota",
+      "conference": "Summit",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "South Dakota State",
+      "conference": "Summit",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "St. Thomas",
+      "conference": "Summit",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "App State",
+      "conference": "Sun Belt",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Arkansas State",
+      "conference": "Sun Belt",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Coastal Carolina",
+      "conference": "Sun Belt",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Georgia Southern",
+      "conference": "Sun Belt",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Georgia State",
+      "conference": "Sun Belt",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "James Madison",
+      "conference": "Sun Belt",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Louisiana",
+      "conference": "Sun Belt",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Louisiana Tech",
+      "conference": "Sun Belt",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Marshall",
+      "conference": "Sun Belt",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Old Dominion",
+      "conference": "Sun Belt",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "South Alabama",
+      "conference": "Sun Belt",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Southern Miss",
+      "conference": "Sun Belt",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Troy",
+      "conference": "Sun Belt",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UL Monroe",
+      "conference": "Sun Belt",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Abilene Christian",
+      "conference": "UAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Austin Peay",
+      "conference": "UAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Central Arkansas",
+      "conference": "UAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Eastern Kentucky",
+      "conference": "UAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Little Rock",
+      "conference": "UAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "North Alabama",
+      "conference": "UAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Tarleton State",
+      "conference": "UAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "UT Arlington",
+      "conference": "UAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "West Georgia",
+      "conference": "UAC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Denver",
+      "conference": "WCC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Loyola Marymount",
+      "conference": "WCC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Pacific",
+      "conference": "WCC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Pepperdine",
+      "conference": "WCC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Portland",
+      "conference": "WCC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Saint Mary's",
+      "conference": "WCC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "San Diego",
+      "conference": "WCC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "San Francisco",
+      "conference": "WCC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Santa Clara",
+      "conference": "WCC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
+    },
+    {
+      "name": "Seattle",
+      "conference": "WCC",
+      "aliases": [],
+      "verification_status": "pending",
+      "source_url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment"
     }
   ]
 }
