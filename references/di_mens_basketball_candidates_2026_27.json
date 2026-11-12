@@ -1,0 +1,27 @@
+{
+  "season": 2027,
+  "sport": "mens_basketball",
+  "status": "CANDIDATES_ONLY_NOT_ELIGIBILITY",
+  "description": "Staging area for school-level 2026-27 men's basketball membership candidates. Entries do not establish NCAA Division I eligibility and must never be used to publish rankings.",
+  "sources": [
+    {
+      "name": "NCAA Division I member schools",
+      "url": "https://www.ncaa.org/division-i/member-schools/",
+      "authority": "official",
+      "scope": "institution membership; not necessarily sport-specific"
+    },
+    {
+      "name": "NCAA membership composition and sport sponsorship",
+      "url": "https://www.ncaa.org/about-us/membership-directory/membership-composition-and-sport-sponsorship/",
+      "authority": "official",
+      "scope": "aggregate 2026-27 sponsorship projection; not school-level evidence"
+    },
+    {
+      "name": "NCAA membership directory",
+      "url": "https://web3.ncaa.org/directory/",
+      "authority": "official",
+      "scope": "institution detail pages can document 2026-27 men's basketball division and conference"
+    }
+  ],
+  "candidates": []
+}
