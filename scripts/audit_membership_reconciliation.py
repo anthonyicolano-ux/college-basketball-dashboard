@@ -1,7 +1,7 @@
 """Read-only reconciliation framework for 2026-27 D-I men's basketball.
 
 Official NCAA sport-specific membership reference is required before classification.
-Reference JSON is intentionally empty until names and aliases are verified.
+Verified-reference entries and candidate staging entries are kept separate.
 One CBBD request, aggregate logs only; never publishes data.
 """
 import json
@@ -14,6 +14,7 @@ from urllib.request import Request, urlopen
 from transform_cbbd import team_row
 
 REFERENCE = Path(__file__).resolve().parents[1] / 'references' / 'di_mens_basketball_2026_27.json'
+CANDIDATES = Path(__file__).resolve().parents[1] / 'references' / 'di_mens_basketball_candidates_2026_27.json'
 
 def normalized(name):
     return ' '.join(name.casefold().strip().split())
@@ -46,6 +47,39 @@ def validate_reference(data):
                 raise ValueError('Duplicate reference alias')
             index[key] = entry
     return index
+
+def validate_candidates(data, verified_index):
+    if data.get('season') != 2027 or data.get('sport') != 'mens_basketball':
+        raise ValueError('Incorrect candidate reference season or sport')
+    if data.get('status') != 'CANDIDATES_ONLY_NOT_ELIGIBILITY':
+        raise ValueError('Candidate reference must be quarantined')
+    entries = data.get('candidates')
+    if not isinstance(entries, list):
+        raise ValueError('Candidate entries must be a list')
+    seen = set(verified_index)
+    for entry in entries:
+        if not isinstance(entry, dict):
+            raise ValueError('Invalid candidate entry')
+        name = entry.get('name')
+        if not isinstance(name, str) or not name.strip():
+            raise ValueError('Candidate missing name')
+        if entry.get('verification_status') not in ('pending', 'conflicting'):
+            raise ValueError('Candidate must remain unverified')
+        source = entry.get('source_url')
+        if not isinstance(source, str) or not source.startswith('https://'):
+            raise ValueError('Candidate missing source URL')
+        conference = entry.get('conference')
+        if conference is not None and (not isinstance(conference, str) or not conference.strip()):
+            raise ValueError('Invalid candidate conference')
+        aliases = entry.get('aliases', [])
+        if not isinstance(aliases, list) or any(not isinstance(a, str) or not a.strip() for a in aliases):
+            raise ValueError('Invalid candidate aliases')
+        for alias in [name, *aliases]:
+            key = normalized(alias)
+            if key in seen:
+                raise ValueError('Duplicate or conflicting candidate alias')
+            seen.add(key)
+    return len(entries)
 
 def audit(records, index):
     if not isinstance(records, list):
@@ -103,6 +137,7 @@ def audit(records, index):
 def main():
     try:
         index = validate_reference(json.loads(REFERENCE.read_text(encoding='utf-8')))
+        candidate_count = validate_candidates(json.loads(CANDIDATES.read_text(encoding='utf-8')), index)
     except (OSError, ValueError, TypeError):
         print('FAIL: invalid membership reference; no API request.')
         return 2
@@ -115,7 +150,10 @@ def main():
         req = Request(url, headers={'Authorization': 'Bearer ' + token, 'Accept': 'application/json'})
         with urlopen(req, timeout=40) as response:
             records = json.load(response)
-        print('MEMBERSHIP RECONCILIATION: ' + json.dumps(audit(records, index), sort_keys=True))
+        report = audit(records, index)
+        report['staged_candidates'] = candidate_count
+        report['candidate_publication'] = 'DISABLED'
+        print('MEMBERSHIP RECONCILIATION: ' + json.dumps(report, sort_keys=True))
         print('DRY RUN: one API request; no raw records logged, KV writes, or publication.')
         return 0
     except Exception as error:
