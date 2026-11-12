@@ -22,7 +22,7 @@ EXPECTED_CONFERENCES = {
     'Duke': {'acc'},
     'Kansas': {'big 12', 'big 12 conference'},
     'UConn': {'big east', 'big east conference'},
-    'Gonzaga': {'wcc', 'west coast', 'west coast conference'},
+    'Gonzaga': {'pac-12', 'pac 12', 'pac-12 conference'},
 }
 
 def choose(records):
