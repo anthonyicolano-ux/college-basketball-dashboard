@@ -6,7 +6,6 @@ import re
 import sys
 import unicodedata
 from collections import Counter, defaultdict
-from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
@@ -23,6 +22,76 @@ def key(value):
     return re.sub(r"[^a-z0-9]+", "", value)
 
 
+# Explicit, non-eligibility name aliases. These are matching hints, not proof of NCAA membership.
+# Avoid general fuzzy auto-matching, which can confuse distinct schools.
+PROVIDER_NAME_ALIASES = {
+    "Miami (Florida)": ("Miami", "Miami FL"),
+    "Miami (Ohio)": ("Miami OH",),
+    "Saint Joseph's": ("St. Joseph's", "Saint Josephs"),
+    "St. Bonaventure": ("Saint Bonaventure",),
+    "Saint Mary's": ("St. Mary's", "Saint Marys"),
+    "San José State": ("San Jose State",),
+    "Hawai'i": ("Hawaii",),
+    "NC State": ("North Carolina State",),
+    "UAlbany": ("Albany",),
+    "UMass": ("Massachusetts",),
+    "USF": ("South Florida",),
+    "FIU": ("Florida International",),
+    "FGCU": ("Florida Gulf Coast",),
+    "UIC": ("Illinois Chicago",),
+    "IU Indy": ("IUPUI",),
+    "FDU": ("Fairleigh Dickinson",),
+    "LIU": ("Long Island",),
+    "UTRGV": ("UT Rio Grande Valley",),
+    "SE Louisiana": ("Southeastern Louisiana",),
+    "UL Monroe": ("Louisiana Monroe",),
+    "App State": ("Appalachian State",),
+    "Southern Miss": ("Southern Mississippi",),
+    "UT Arlington": ("Texas Arlington",),
+    "Cal Poly": ("Cal Poly SLO",),
+    "Cal State Bakersfield": ("CSU Bakersfield",),
+    "Cal State Fullerton": ("CSU Fullerton",),
+    "Cal State Northridge": ("CSU Northridge",),
+}
+# A conference's full name and abbreviation are the same conference.
+# Do not map membership changes here: those need separate season-specific evidence.
+CONFERENCE_ALIASES = {
+    "ACC": ("Atlantic Coast", "Atlantic Coast Conference"),
+    "Big 12": ("Big 12 Conference",),
+    "Big East": ("Big East Conference",),
+    "Pac-12": ("Pac 12", "Pac-12 Conference"),
+    "Big Ten": ("Big Ten Conference",),
+    "SEC": ("Southeastern", "Southeastern Conference"),
+    "ASUN": ("Atlantic Sun", "ASUN Conference"),
+    "CAA": ("Coastal Athletic Association",),
+    "MAC": ("Mid-American", "Mid-American Conference"),
+    "MEAC": ("Mid-Eastern Athletic Conference",),
+    "SWAC": ("Southwestern Athletic Conference",),
+    "WCC": ("West Coast", "West Coast Conference"),
+    "UAC": ("United Athletic Conference",),
+    "Metro": ("Metro Conference", "MAAC"),
+    "American": ("American Athletic", "American Athletic Conference"),
+    "Atlantic 10": ("Atlantic 10 Conference", "A-10"),
+    "Mountain West": ("Mountain West Conference",),
+    "Missouri Valley": ("Missouri Valley Conference",),
+    "Sun Belt": ("Sun Belt Conference",),
+    "Southland": ("Southland Conference",),
+    "SoCon": ("Southern Conference",),
+    "OVC": ("Ohio Valley Conference",),
+    "NEC": ("Northeast Conference",),
+    "Ivy": ("Ivy League",),
+    "Horizon": ("Horizon League",),
+    "Big Sky": ("Big Sky Conference",),
+    "Big South": ("Big South Conference",),
+    "Big West": ("Big West Conference",),
+    "America East": ("America East Conference",),
+    "Patriot": ("Patriot League",),
+    "Summit": ("Summit League",),
+    "Conference USA": ("C-USA",),
+}
+def same_conference(expected, observed):
+    return key(observed) in {key(expected), *(key(x) for x in CONFERENCE_ALIASES.get(expected, ()))}
+
 def reconcile(records, verified, candidates):
     lookup = defaultdict(set)
     entries = {}
@@ -30,7 +99,7 @@ def reconcile(records, verified, candidates):
         for row in rows:
             identifier = (label, row["name"])
             entries[identifier] = row
-            for name in [row["name"], *row.get("aliases", [])]:
+            for name in [row["name"], *row.get("aliases", []), *PROVIDER_NAME_ALIASES.get(row["name"], ())]:
                 lookup[key(name)].add(identifier)
 
     counts = Counter()
@@ -38,6 +107,8 @@ def reconcile(records, verified, candidates):
     by_conference = Counter()
     seen_provider = set()
     unresolved = []
+    alias_matches = 0
+    exact_matches = 0
     for record in records:
         if not isinstance(record, dict) or record.get("season") != 2027:
             counts["invalid_season_or_record"] += 1
@@ -57,11 +128,15 @@ def reconcile(records, verified, candidates):
             continue
         identifier = next(iter(options))
         matched.add(identifier)
+        if normalized == key(identifier[1]):
+            exact_matches += 1
+        else:
+            alias_matches += 1
         counts["verified_matches" if identifier[0] == "verified" else "candidate_matches_unverified"] += 1
         entry = entries[identifier]
         by_conference[entry["conference"]] += 1
         if record.get("conference"):
-            if key(str(record["conference"])) != key(entry["conference"]):
+            if not same_conference(entry["conference"], str(record["conference"])):
                 counts["conference_label_differences_unreviewed"] += 1
         else:
             counts["missing_provider_conference"] += 1
@@ -81,6 +156,8 @@ def reconcile(records, verified, candidates):
 
     candidate_names = {("candidate", x["name"]) for x in candidates}
     counts["unmatched_candidates"] = len(candidate_names - matched)
+    counts["exact_name_matches"] = exact_matches
+    counts["explicit_alias_matches"] = alias_matches
     counts["candidate_total"] = len(candidates)
     counts["provider_records"] = len(records)
     counts["matched_unique_entries"] = len(matched)
@@ -96,7 +173,7 @@ def reconcile(records, verified, candidates):
         "publication": "DISABLED",
         "counts": dict(sorted(counts.items())),
         "matched_conference_groups": len(by_conference),
-        "note": "Matches are name comparisons only, not NCAA membership confirmation. Conference label differences require manual mapping."
+        "note": "All candidate matches remain unverified. Explicit aliases only; fuzzy matches are diagnostics. Conference label differences after known synonym mapping require review."
     }
 
 
