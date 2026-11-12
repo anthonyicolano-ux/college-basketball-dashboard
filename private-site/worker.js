@@ -37,8 +37,20 @@ export default {
     if(url.pathname==='/logout')return new Response(null,{status:303,headers:{location:'/', 'set-cookie':'basketball_access=; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=0','cache-control':'no-store'}});
     if(!await authorized(request,env.SESSION_SECRET))return page();
     if(request.method!=='GET'&&request.method!=='HEAD')return new Response('Method not allowed',{status:405});
-    // Private data is fetched from KV, not committed to the public GitHub repository.
-    const privateFiles={'/data/teams.json':'teams','/data/players.json':'players','/data/demo-schedule.json':'schedule'};
+    // Team statistics are served from private KV only after authentication.
+    // An absent or invalid dataset leaves the existing fictional demo intact.
+    if(url.pathname==='/data/teams.json'&&env.PRIVATE_DATA){
+      const value=await env.PRIVATE_DATA.get('teams');
+      if(value){
+        let dataset=null;
+        try { dataset=JSON.parse(value); } catch {}
+        if(dataset?.schemaVersion===1&&dataset.demo===false&&Array.isArray(dataset.rows)&&dataset.rows.every(row=>row&&typeof row.team==='string')){
+          return new Response(value,{headers:{'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'}});
+        }
+      }
+    }
+    // Other datasets retain their existing private KV lookup behavior.
+    const privateFiles={'/data/players.json':'players','/data/demo-schedule.json':'schedule'};
     if(Object.hasOwn(privateFiles,url.pathname)&&env.PRIVATE_DATA){
       const value=await env.PRIVATE_DATA.get(privateFiles[url.pathname]);
       if(value)return new Response(value,{headers:{'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'}});
