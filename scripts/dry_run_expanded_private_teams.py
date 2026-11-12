@@ -16,7 +16,7 @@ from validate_multi_team_pilot import validate_rows
 SEASON = 2027
 
 
-def preview(records, reference, candidates):
+def preview(records, reference, candidates, *, include_dataset=False):
     """Only verified-reference or officially cross-checked conference-roster schools."""
     eligible = {}
     for row in reference:
@@ -39,6 +39,7 @@ def preview(records, reference, candidates):
             lookup[k] = name
 
     accepted = {}
+    blocked = set()
     rejected = Counter()
     for record in records:
         if not isinstance(record, dict) or record.get("season") != SEASON:
@@ -50,9 +51,13 @@ def preview(records, reference, candidates):
             continue
         identity = lookup[key(name)]
         entry, _ = eligible[identity]
+        if identity in blocked:
+            rejected["duplicate_identity"] += 1
+            continue
         if identity in accepted:
             rejected["duplicate_identity"] += 1
             del accepted[identity]
+            blocked.add(identity)
             continue
         if not record.get("conference") or not same_conference(entry["conference"], str(record["conference"])):
             rejected["conference_disagreement_or_missing"] += 1
@@ -73,7 +78,7 @@ def preview(records, reference, candidates):
     dataset = prepare(list(accepted.values()))
     rows = dataset["rows"]
     validate_rows(rows, min_teams=5, max_teams=30)
-    return {
+    summary = {
         "eligible_reference_entries": len(eligible),
         "validated_teams": len(rows),
         "conferences": len({r["conference"] for r in rows}),
@@ -81,6 +86,7 @@ def preview(records, reference, candidates):
         "publication": "DISABLED",
         "note": "Conference-roster verification is not independent NCAA eligibility certification. No candidate outside two officially checked conference rosters is accepted.",
     }
+    return (summary, dataset) if include_dataset else summary
 
 
 def main():
