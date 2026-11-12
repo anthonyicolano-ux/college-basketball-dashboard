@@ -1,0 +1,7 @@
+{
+  "season": 2027,
+  "sport": "mens_basketball",
+  "status": "UNVERIFIED_REFERENCE_PENDING",
+  "note": "Do not infer NCAA Division I membership from season-statistics API records. Populate schools only after checking 2026-27 NCAA sport-specific membership and conference sources. Every entry requires a source URL.",
+  "schools": []
+}
