@@ -1,0 +1,28 @@
+name: Audit basketball membership reconciliation
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: basketball-membership-reconciliation
+  cancel-in-progress: false
+
+jobs:
+  audit-membership:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Offline regression tests
+        run: python -m unittest discover -s tests -v
+      - name: Audit membership matching and game-count discrepancies (one API request; no publishing)
+        env:
+          CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+        run: python scripts/audit_membership_reconciliation.py
