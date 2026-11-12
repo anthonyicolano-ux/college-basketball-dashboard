@@ -21,6 +21,9 @@ def normalized(name):
 def validate_reference(data):
     if data.get('season') != 2027 or data.get('sport') != 'mens_basketball':
         raise ValueError('Incorrect reference season or sport')
+    baseline = data.get('official_baseline', {})
+    if baseline.get('projected_mens_basketball_sponsorship') != 365 or baseline.get('primary_division_i_conferences') != 32:
+        raise ValueError('Official NCAA baseline missing or inconsistent')
     entries = data.get('schools')
     if not isinstance(entries, list):
         raise ValueError('Reference schools must be a list')
@@ -87,6 +90,9 @@ def audit(records, index):
             counts['transformation_errors'] += 1
     return {
         'reference_schools': len({v['name'] for v in index.values()}),
+        'ncaa_projected_sponsorship': 365,
+        'reference_remaining_to_projection': max(0, 365 - len({v['name'] for v in index.values()})),
+        'note': 'Projection is a benchmark, not proof of membership or eligibility',
         'reference_matches': len(matched_schools),
         'conference_disagreements': conference_disagreement,
         'counts': dict(sorted(counts.items())),
