@@ -18,4 +18,6 @@ for name in allowed:
     target = out / name
     target.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(source,target)
+# The protected site uses a real-data matchup page; the public demo stays fictional.
+shutil.copy2(root / 'private-site/private-matchups.html', out / 'matchups.html')
 print('Prepared protected hosting assets using fictional demo data only.')
