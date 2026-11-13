@@ -27,3 +27,7 @@ jobs:
         env:
           CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
         run: python scripts/preview_next_private_team_expansion.py
+      - name: Audit player statistics for combined approved and staged conference scope (one API request)
+        env:
+          CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+        run: python scripts/dry_run_private_players.py
