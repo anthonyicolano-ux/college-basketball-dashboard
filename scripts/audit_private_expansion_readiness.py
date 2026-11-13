@@ -3,6 +3,7 @@ No raw provider records, player names, credentials, artifacts or KV writes are l
 Conference roster evidence is NOT independent NCAA sport-specific membership approval.
 """
 import json
+import difflib
 import os
 import sys
 from collections import Counter, defaultdict
@@ -186,6 +187,31 @@ def evaluate(teams, players, reference, candidates):
             if name not in team_name_matches and name not in player_name_matches
         ),
     }
+    # Diagnostic suggestions only. Never use these to match records or approve membership.
+    # Restrict suggestions to unmatched provider labels seen in BOTH datasets.
+    unmatched_provider_labels = sorted(
+        (team_provider_names & player_provider_names) - set(lookup)
+    )
+    identity_review_suggestions = {}
+    for name in identity_crosscheck["both_team_and_player_identity_missing"]:
+        existing_labels = (name, *staged[name].get("aliases", []),
+                           *PROVIDER_NAME_ALIASES.get(name, ()))
+        ranked = sorted(
+            ((max(difflib.SequenceMatcher(None, key(label), provider).ratio()
+                   for label in existing_labels), provider)
+             for provider in unmatched_provider_labels
+             if any(
+                 (key(label).startswith(provider) or provider.startswith(key(label)))
+                 and min(len(key(label)), len(provider)) >= 6
+                 for label in existing_labels
+             )),
+            reverse=True
+        )
+        # Only emit candidates with strong lexical overlap; these are NOT matches.
+        identity_review_suggestions[name] = {
+            "possible_provider_labels": [label for score, label in ranked[:3] if score >= 0.72],
+            "status": "UNVERIFIED_SUGGESTIONS_NO_AUTOMATIC_MATCH",
+        }
     exception_report = []
     for name in exception_names:
         issues = [reason for reason, schools in sorted(unresolved_schools.items())
@@ -226,6 +252,7 @@ def evaluate(teams, players, reference, candidates):
         "statistical_exception_summary": exception_summary,
         "statistical_exception_report": exception_report,
         "identity_crosscheck": identity_crosscheck,
+        "identity_review_suggestions": identity_review_suggestions,
         "team_validation_diagnostics_scope": "STAGED_SCHOOL_AGGREGATES_ONLY_NO_RAW_PROVIDER_ROWS",
         "staged_school_names_requiring_statistical_review": {k: sorted(unresolved_schools[k]) for k in actionable_reasons},
         "official_membership_source": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=MBB&type=12",
