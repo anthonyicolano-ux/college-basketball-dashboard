@@ -25,6 +25,12 @@ def key(value):
 # Explicit, non-eligibility name aliases. These are matching hints, not proof of NCAA membership.
 # Avoid general fuzzy auto-matching, which can confuse distinct schools.
 PROVIDER_NAME_ALIASES = {
+    # Provider labels observed in both private 2027 datasets; institutional identity
+    # cross-checked against official athletics/NCAA pages. These are name hints
+    # only; independent NCAA eligibility and team-stat validation remain required.
+    "Central Connecticut State": ("Central Connecticut",),
+    "Seattle": ("Seattle U",),
+    "Southeast Missouri": ("Southeast Missouri State",),
     "Miami (Florida)": ("Miami", "Miami FL"),
     "Miami (Ohio)": ("Miami OH",),
     "Saint Joseph's": ("St. Joseph's", "Saint Josephs"),
