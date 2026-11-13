@@ -74,10 +74,12 @@ def evaluate(teams, players, reference, candidates):
             continue
         try:
             row = prepare([source])["rows"][0]
-            if row["games"] > 0 and row["games"] == row["wins"] + row["losses"]:
-                team_games[name].append(row["games"])
+            if row["games"] <= 0:
+                team_validation_reasons[name]["nonpositive_games"] += 1
+            elif row["games"] != row["wins"] + row["losses"]:
+                team_validation_reasons[name]["games_wins_losses_mismatch"] += 1
             else:
-                team_validation_reasons[name]["nonpositive_games_or_record_mismatch"] += 1
+                team_games[name].append(row["games"])
         except (ValueError, TypeError, KeyError, ZeroDivisionError, IndexError):
             team_validation_reasons[name]["team_stat_transform_failed"] += 1
     player_counts = Counter()
