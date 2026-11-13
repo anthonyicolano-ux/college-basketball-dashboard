@@ -95,6 +95,18 @@ def same_conference(expected, observed):
 # Official 2026-27 men's basketball conference rosters, checked 2026-11-12.
 # These verify conference roster listings only, not independent NCAA eligibility.
 OFFICIAL_CONFERENCE_ROSTERS = {
+    "ACC": {
+        "source": "https://theacc.com/news/2026/9/9/acc-announces-2026-27-mens-basketball-conference-schedule.aspx",
+        "schools": ("Boston College", "California", "Clemson", "Duke", "Florida State", "Georgia Tech", "Louisville", "Miami (Florida)", "NC State", "North Carolina", "Notre Dame", "Pittsburgh", "SMU", "Stanford", "Syracuse", "Virginia", "Virginia Tech", "Wake Forest"),
+    },
+    "Big 12": {
+        "source": "https://big12sports.com/news/2026/9/17/2026-27-big-12-monster-energy-mens-basketball-schedule-unveiled.aspx",
+        "schools": ("Arizona", "Arizona State", "Baylor", "BYU", "Cincinnati", "Colorado", "Houston", "Iowa State", "Kansas", "Kansas State", "Oklahoma State", "TCU", "Texas Tech", "UCF", "Utah", "West Virginia"),
+    },
+    "Big East": {
+        "source": "https://www.bigeast.com/news/2026/9/13/big-east-announces-2026-27-mens-basketball-schedule.aspx",
+        "schools": ("Butler", "Creighton", "DePaul", "Georgetown", "Marquette", "Providence", "St. John's", "Seton Hall", "UConn", "Villanova", "Xavier"),
+    },
     "Big Ten": {
         "source": "https://bigten.org/news/2026/5/11/big-ten-conference-announces-2026-27-men-s-basketball-opponents-051226-60009.aspx",
         "schools": ("Illinois", "Indiana", "Iowa", "Maryland", "Michigan", "Michigan State", "Minnesota", "Nebraska", "Northwestern", "Ohio State", "Oregon", "Penn State", "Purdue", "Rutgers", "UCLA", "USC", "Washington", "Wisconsin"),
