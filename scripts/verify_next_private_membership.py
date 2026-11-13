@@ -16,26 +16,29 @@ def audit(reference, candidates):
     verified = validate_reference(reference)
     validate_candidates(candidates, verified)
     rows = candidates["candidates"]
+    # Include independently verified reference schools in conference roster matching.
+    # They are not staged candidates and must not inflate candidate evidence totals.
+    verified_rows = reference["schools"]
     result = {}
     counts = Counter()
     for conference, roster in sorted(OFFICIAL_CONFERENCE_ROSTERS.items()):
         expected = {key(s) for s in roster["schools"]}
-        actual = {key(row["name"]) for row in rows if row["conference"] == conference}
+        actual = {key(row["name"]) for row in [*rows, *verified_rows] if row["conference"] == conference}
         # Names are compared literally after punctuation/case normalization; aliases
         # are not treated as proof of conference membership.
         aligned = actual == expected
         result[conference] = {
             "official_roster_size": len(expected),
-            "candidate_roster_size": len(actual),
-            "candidate_names_not_in_roster": len(actual - expected),
-            "official_roster_names_not_in_candidates": len(expected - actual),
+            "combined_reference_roster_size": len(actual),
+            "reference_names_not_in_roster": len(actual - expected),
+            "official_roster_names_not_in_reference": len(expected - actual),
             "status": "ROSTER_ALIGNED_NOT_NCAA_VERIFIED" if aligned else "MANUAL_REVIEW_REQUIRED",
             "official_roster_source": roster["source"],
         }
         counts["conferences_checked"] += 1
         counts["conferences_aligned" if aligned else "conferences_needing_review"] += 1
         if aligned:
-            counts["candidate_schools_with_conference_roster_evidence"] += len(actual)
+            counts["candidate_schools_with_conference_roster_evidence"] += sum(row["conference"] == conference for row in rows)
     counts["staged_candidate_schools"] = len(rows)
     counts["candidate_schools_without_conference_roster_evidence"] = (
         len(rows) - counts["candidate_schools_with_conference_roster_evidence"]
