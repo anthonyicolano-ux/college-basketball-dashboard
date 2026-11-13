@@ -1,0 +1,29 @@
+name: Audit all staged private basketball candidates
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit-all-candidates:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Run offline regression tests
+        run: python -m unittest discover -s tests -v
+      - name: Audit every staged candidate and independent conference evidence
+        run: python scripts/audit_all_private_candidates.py
+      - name: Preview team statistics coverage for all staged candidates (one API request)
+        env:
+          CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+        run: python scripts/preview_next_private_team_expansion.py
