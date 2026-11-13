@@ -13,7 +13,6 @@ from audit_membership_reconciliation import REFERENCE, CANDIDATES, validate_refe
 from audit_bulk_candidate_matching import OFFICIAL_CONFERENCE_ROSTERS, PROVIDER_NAME_ALIASES, key, same_conference
 from verify_next_private_membership import audit as membership_audit
 from dry_run_private_players import approved_names, audit as player_audit
-from preview_next_private_team_expansion import preview as team_preview
 from prepare_private_teams import prepare
 from transform_cbbd import player_row
 
@@ -36,7 +35,6 @@ def evaluate(teams, players, reference, candidates):
     membership = membership_audit(reference, candidates)
     lookup = approved_names()
     candidate_rows = candidates["candidates"]
-    preview = team_preview(teams, candidate_rows, lookup)
     player_summary = player_audit(players, lookup)
     staged = {item["name"]: item for item in candidate_rows}
     aliases = defaultdict(set)
@@ -110,7 +108,7 @@ def evaluate(teams, players, reference, candidates):
         "issue_counts": dict(sorted(reasons.items())),
         "sample_school_names_by_category": dict(sorted(examples.items())),
         "conference_roster_evidence": membership["counts"],
-        "team_coverage": preview,
+        "team_coverage": {"staged_teams_with_one_valid_team_record": sum(len(v) == 1 for v in team_games.values()), "staged_teams_with_at_least_five_games": sum(len(v) == 1 and v[0] >= MIN_GAMES for v in team_games.values())},
         "player_coverage": player_summary,
         "schedule_identity_crosscheck": "NOT_RUN_NO_SCHEDULE_REQUEST",
         "ncaa_sport_specific_membership": "NOT_INDEPENDENTLY_VERIFIED",
