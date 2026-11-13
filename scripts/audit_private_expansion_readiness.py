@@ -108,6 +108,7 @@ def evaluate(teams, players, reference, candidates):
     diagnostics["distinct_provider_team_names"] = len(team_provider_names)
     diagnostics["distinct_provider_player_team_names"] = len(player_provider_names)
     diagnostics["ambiguous_alias_keys"] = sum(len(names) > 1 for names in aliases.values())
+    unresolved_schools = defaultdict(list)
     reasons = Counter()
     categories = Counter()
     examples = defaultdict(list)
@@ -144,6 +145,8 @@ def evaluate(teams, players, reference, candidates):
         issues.append("ncaa_sport_membership_not_independently_verified")
         for issue in issues:
             reasons[issue] += 1
+            if issue in ("team_statistics_missing_or_ambiguous", "player_statistics_missing_or_invalid", "player_identity_not_matched", "fewer_than_five_team_games"):
+                unresolved_schools[issue].append(name)
         if issues == ["ncaa_sport_membership_not_independently_verified"]:
             category = "data_ready_pending_ncaa_verification"
         else:
@@ -163,6 +166,9 @@ def evaluate(teams, players, reference, candidates):
             "counts": dict(sorted(coverage.items()))
         },
         "issue_counts": dict(sorted(reasons.items())),
+        "staged_school_names_requiring_statistical_review": {k: sorted(v) for k, v in sorted(unresolved_schools.items())},
+        "official_membership_source": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=MBB&type=12",
+        "official_membership_reconciliation": "PENDING_INDEPENDENT_SCHOOL_BY_SCHOOL_VERIFICATION",
         "sample_school_names_by_category": dict(sorted(examples.items())),
         "conference_roster_evidence": membership["counts"],
         "team_coverage": {"staged_teams_with_one_valid_team_record": sum(len(v) == 1 for v in team_games.values()), "staged_teams_with_at_least_five_games": sum(len(v) == 1 and v[0] >= MIN_GAMES for v in team_games.values())},
