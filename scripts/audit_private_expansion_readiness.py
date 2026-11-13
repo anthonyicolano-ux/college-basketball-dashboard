@@ -155,7 +155,31 @@ def evaluate(teams, players, reference, candidates):
         if len(examples[category]) < 12:
             examples[category].append(name)
     # Concise, actionable school-level exceptions. No provider rows or player identities.
-    exception_names = sorted(set().union(*unresolved_schools.values()))
+    # Under-five-game schools are ranking-ineligible, not statistical exceptions.
+    actionable_reasons = (
+        "team_statistics_missing_or_ambiguous",
+        "player_statistics_missing_or_invalid",
+        "player_identity_not_matched",
+    )
+    exception_names = sorted(set().union(
+        *(set(unresolved_schools[reason]) for reason in actionable_reasons)
+    ))
+    # Cross-check identity presence across the two already fetched provider datasets.
+    # This never auto-assigns aliases and does not require an additional API request.
+    identity_crosscheck = {
+        "team_missing_but_player_identity_matched": sorted(
+            name for name in exception_names
+            if name not in team_name_matches and name in player_name_matches
+        ),
+        "player_missing_but_team_identity_matched": sorted(
+            name for name in exception_names
+            if name not in player_name_matches and name in team_name_matches
+        ),
+        "both_team_and_player_identity_missing": sorted(
+            name for name in exception_names
+            if name not in team_name_matches and name not in player_name_matches
+        ),
+    }
     exception_report = []
     for name in exception_names:
         issues = [reason for reason, schools in sorted(unresolved_schools.items())
@@ -177,7 +201,7 @@ def evaluate(teams, players, reference, candidates):
         "team_statistics_exceptions": len(unresolved_schools["team_statistics_missing_or_ambiguous"]),
         "player_identity_exceptions": len(unresolved_schools["player_identity_not_matched"]),
         "player_statistics_invalid_exceptions": len(unresolved_schools["player_statistics_missing_or_invalid"]),
-        "under_five_games": len(unresolved_schools["fewer_than_five_team_games"]),
+        "under_five_games_ranking_only": len(unresolved_schools["fewer_than_five_team_games"]),
         "notes": "Exceptions may overlap. Under-five-games affects rankings, not basic stats display.",
     }
     return {
@@ -194,7 +218,8 @@ def evaluate(teams, players, reference, candidates):
         "issue_counts": dict(sorted(reasons.items())),
         "statistical_exception_summary": exception_summary,
         "statistical_exception_report": exception_report,
-        "staged_school_names_requiring_statistical_review": {k: sorted(v) for k, v in sorted(unresolved_schools.items())},
+        "identity_crosscheck": identity_crosscheck,
+        "staged_school_names_requiring_statistical_review": {k: sorted(unresolved_schools[k]) for k in actionable_reasons},
         "official_membership_source": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=MBB&type=12",
         "official_membership_reconciliation": "PENDING_INDEPENDENT_SCHOOL_BY_SCHOOL_VERIFICATION",
         "sample_school_names_by_category": dict(sorted(examples.items())),
@@ -203,6 +228,7 @@ def evaluate(teams, players, reference, candidates):
         "player_coverage": player_summary,
         "identity_and_coverage_diagnostics": dict(sorted(diagnostics.items())),
         "schedule_identity_crosscheck": "NOT_RUN_NO_SCHEDULE_REQUEST",
+        "identity_crosscheck_method": "EXISTING_TEAM_AND_PLAYER_RECORDS_NO_ADDITIONAL_REQUESTS",
         "ncaa_sport_specific_membership": "NOT_INDEPENDENTLY_VERIFIED",
         "publication": "DISABLED",
         "note": "Statistical coverage is independent of five-game matchup ranking maturity. Neither implies eligibility or permission to publish. All schools require independent NCAA sport-specific verification before expansion."
