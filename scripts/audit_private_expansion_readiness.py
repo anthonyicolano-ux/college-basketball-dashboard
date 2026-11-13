@@ -12,7 +12,7 @@ from urllib.request import Request, urlopen
 from audit_membership_reconciliation import REFERENCE, CANDIDATES, validate_reference, validate_candidates
 from audit_bulk_candidate_matching import OFFICIAL_CONFERENCE_ROSTERS, PROVIDER_NAME_ALIASES, key, same_conference
 from verify_next_private_membership import audit as membership_audit
-from dry_run_private_players import approved_names, audit as player_audit
+from dry_run_private_players import audit as player_audit
 from prepare_private_teams import prepare
 from transform_cbbd import player_row
 
@@ -33,23 +33,42 @@ def evaluate(teams, players, reference, candidates):
     verified = validate_reference(reference)
     validate_candidates(candidates, verified)
     membership = membership_audit(reference, candidates)
-    lookup = approved_names()
     candidate_rows = candidates["candidates"]
-    player_summary = player_audit(players, lookup)
     staged = {item["name"]: item for item in candidate_rows}
+    # Match every staged school, not just the seven conferences with roster evidence.
+    # Preserve ambiguous aliases as unresolved rather than assigning them arbitrarily.
     aliases = defaultdict(set)
-    for name, item in staged.items():
+    for item in (*reference["schools"], *candidate_rows):
+        name = item["name"]
         for label in (name, *item.get("aliases", []), *PROVIDER_NAME_ALIASES.get(name, ())):
             aliases[key(label)].add(name)
+    lookup = {label: next(iter(names)) for label, names in aliases.items() if len(names) == 1}
+    player_summary = player_audit(players, lookup)
+    diagnostics = Counter()
+    team_provider_names = set()
+    player_provider_names = set()
+    team_name_matches = set()
+    player_name_matches = set()
     team_games = defaultdict(list)
     for source in teams:
         if not isinstance(source, dict) or source.get("season") != SEASON:
             continue
-        names = aliases.get(key(source.get("team", "")))
-        if not names or len(names) != 1:
+        label = source.get("team")
+        if not isinstance(label, str) or not label.strip():
+            diagnostics["team_records_missing_identity"] += 1
             continue
-        name = next(iter(names))
+        team_provider_names.add(key(label))
+        names = aliases.get(key(label), set())
+        if len(names) > 1:
+            diagnostics["team_records_ambiguous_alias"] += 1
+            continue
+        name = lookup.get(key(label))
+        if name not in staged:
+            diagnostics["team_records_unmatched_to_staged"] += 1
+            continue
+        team_name_matches.add(name)
         if not source.get("conference") or not same_conference(staged[name]["conference"], str(source["conference"])):
+            diagnostics["team_records_conference_missing_or_different"] += 1
             continue
         try:
             row = prepare([source])["rows"][0]
@@ -62,9 +81,19 @@ def evaluate(teams, players, reference, candidates):
     for source in players:
         if not isinstance(source, dict) or source.get("season") != SEASON:
             continue
-        canonical = lookup.get(key(source.get("team", "")))
-        if canonical not in staged:
+        label = source.get("team")
+        if not isinstance(label, str) or not label.strip():
+            diagnostics["player_records_missing_identity"] += 1
             continue
+        player_provider_names.add(key(label))
+        if len(aliases.get(key(label), set())) > 1:
+            diagnostics["player_records_ambiguous_alias"] += 1
+            continue
+        canonical = lookup.get(key(label))
+        if canonical not in staged:
+            diagnostics["player_records_unmatched_to_staged"] += 1
+            continue
+        player_name_matches.add(canonical)
         try:
             row = player_row(source)
             if row["games"] > 0 and row["name"].strip():
@@ -73,6 +102,12 @@ def evaluate(teams, players, reference, candidates):
             pass
     for name, names in player_names.items():
         player_counts[name] = len(names)
+    # Distinguish a missing provider identity from records that match but fail validation.
+    diagnostics["staged_teams_without_matching_team_identity"] = len(set(staged) - team_name_matches)
+    diagnostics["staged_teams_without_matching_player_identity"] = len(set(staged) - player_name_matches)
+    diagnostics["distinct_provider_team_names"] = len(team_provider_names)
+    diagnostics["distinct_provider_player_team_names"] = len(player_provider_names)
+    diagnostics["ambiguous_alias_keys"] = sum(len(names) > 1 for names in aliases.values())
     reasons = Counter()
     categories = Counter()
     examples = defaultdict(list)
@@ -103,7 +138,7 @@ def evaluate(teams, players, reference, candidates):
         elif team_games[name][0] < MIN_GAMES:
             issues.append("fewer_than_five_team_games")
         if player_counts[name] == 0:
-            issues.append("no_player_statistics")
+            issues.append("player_statistics_missing_or_invalid" if name in player_name_matches else "player_identity_not_matched")
         # Independent NCAA sport-specific membership verification is not
         # represented by conference roster matching and remains mandatory.
         issues.append("ncaa_sport_membership_not_independently_verified")
@@ -132,6 +167,7 @@ def evaluate(teams, players, reference, candidates):
         "conference_roster_evidence": membership["counts"],
         "team_coverage": {"staged_teams_with_one_valid_team_record": sum(len(v) == 1 for v in team_games.values()), "staged_teams_with_at_least_five_games": sum(len(v) == 1 and v[0] >= MIN_GAMES for v in team_games.values())},
         "player_coverage": player_summary,
+        "identity_and_coverage_diagnostics": dict(sorted(diagnostics.items())),
         "schedule_identity_crosscheck": "NOT_RUN_NO_SCHEDULE_REQUEST",
         "ncaa_sport_specific_membership": "NOT_INDEPENDENTLY_VERIFIED",
         "publication": "DISABLED",
