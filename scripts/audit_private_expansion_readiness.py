@@ -154,6 +154,32 @@ def evaluate(teams, players, reference, candidates):
         categories[category] += 1
         if len(examples[category]) < 12:
             examples[category].append(name)
+    # Concise, actionable school-level exceptions. No provider rows or player identities.
+    exception_names = sorted(set().union(*unresolved_schools.values()))
+    exception_report = []
+    for name in exception_names:
+        issues = [reason for reason, schools in sorted(unresolved_schools.items())
+                  if name in schools]
+        exception_report.append({
+            "school": name,
+            "issues": issues,
+            "team_identity_matched": name in team_name_matches,
+            "player_identity_matched": name in player_name_matches,
+            "valid_team_record_count": len(team_games[name]),
+            "validated_player_count": player_counts[name],
+            "team_games": team_games[name][0] if len(team_games[name]) == 1 else None,
+            "conference_roster_evidence": membership["conference_results"].get(
+                staged[name]["conference"], {}).get("status", "NOT_CHECKED"),
+            "ncaa_sport_membership": "PENDING_INDEPENDENT_VERIFICATION",
+        })
+    exception_summary = {
+        "schools_requiring_statistical_review": len(exception_report),
+        "team_statistics_exceptions": len(unresolved_schools["team_statistics_missing_or_ambiguous"]),
+        "player_identity_exceptions": len(unresolved_schools["player_identity_not_matched"]),
+        "player_statistics_invalid_exceptions": len(unresolved_schools["player_statistics_missing_or_invalid"]),
+        "under_five_games": len(unresolved_schools["fewer_than_five_team_games"]),
+        "notes": "Exceptions may overlap. Under-five-games affects rankings, not basic stats display.",
+    }
     return {
         "season": SEASON,
         "staged_candidate_count": len(staged),
@@ -166,6 +192,8 @@ def evaluate(teams, players, reference, candidates):
             "counts": dict(sorted(coverage.items()))
         },
         "issue_counts": dict(sorted(reasons.items())),
+        "statistical_exception_summary": exception_summary,
+        "statistical_exception_report": exception_report,
         "staged_school_names_requiring_statistical_review": {k: sorted(v) for k, v in sorted(unresolved_schools.items())},
         "official_membership_source": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=MBB&type=12",
         "official_membership_reconciliation": "PENDING_INDEPENDENT_SCHOOL_BY_SCHOOL_VERIFICATION",
