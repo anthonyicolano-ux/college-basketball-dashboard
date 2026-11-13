@@ -95,6 +95,14 @@ def same_conference(expected, observed):
 # Official 2026-27 men's basketball conference rosters, checked 2026-11-12.
 # These verify conference roster listings only, not independent NCAA eligibility.
 OFFICIAL_CONFERENCE_ROSTERS = {
+    "Big Ten": {
+        "source": "https://bigten.org/news/2026/5/11/big-ten-conference-announces-2026-27-men-s-basketball-opponents-051226-60009.aspx",
+        "schools": ("Illinois", "Indiana", "Iowa", "Maryland", "Michigan", "Michigan State", "Minnesota", "Nebraska", "Northwestern", "Ohio State", "Oregon", "Penn State", "Purdue", "Rutgers", "UCLA", "USC", "Washington", "Wisconsin"),
+    },
+    "SEC": {
+        "source": "https://rolltide.com/documents/download/2026/11/6/SEC_Game_Notes_Game2.pdf",
+        "schools": ("Alabama", "Arkansas", "Auburn", "Florida", "Georgia", "Kentucky", "LSU", "Mississippi State", "Missouri", "Oklahoma", "Ole Miss", "South Carolina", "Tennessee", "Texas", "Texas A&M", "Vanderbilt"),
+    },
     "America East": {
         "source": "https://americaeast.com/standings.aspx?path=mbball",
         "schools": ("Binghamton", "Bryant", "Maine", "New Hampshire", "NJIT", "UAlbany", "UMass Lowell", "UMBC", "Vermont"),
