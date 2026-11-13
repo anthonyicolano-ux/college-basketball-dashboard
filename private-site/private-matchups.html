@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>College Basketball | Private Matchups</title><link rel="stylesheet" href="assets/style.css"><style>
 main{max-width:1400px}.match-card{border:1px solid #536b89;background:#1c304a;border-radius:10px;padding:16px;margin:12px 0}.match-card h3{margin:0 0 8px}.match-card p{margin:7px 0}.match-card button{font:inherit;padding:8px 12px;border-radius:7px;cursor:pointer}.match-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}.muted{color:#c1cede}select,input{padding:9px;border-radius:6px}table{width:100%;border-collapse:collapse}td,th{padding:8px;text-align:left;border-bottom:1px solid #52647c} .small{font-size:.9rem}
-</style></head><body><header><h1>College Basketball Dashboard</h1><p>Real upcoming games · Private team and player analysis</p><nav aria-label="Main navigation"><a class="navlink" href="index.html">Team Stats</a><a class="navlink" href="players.html">Player Stats</a><a class="navlink" aria-current="page" href="matchups.html">Matchups</a></nav></header><main>
-<section class="panel"><h2>Upcoming games</h2><p class="muted">Schedule: CollegeBasketballData.com · 2026–27 season. Matchup comparisons are descriptive, not predictions. Games involving teams outside our 24-team statistics coverage show limited analysis.</p><div class="controls"><label>Window <select id="window"><option value="7">Next 7 days</option><option value="14">Next 14 days</option><option value="30" selected>Next 30 days</option><option value="365">All upcoming games</option></select></label><label>Team <select id="team"><option value="">All approved teams</option></select></label><label>Search <input id="search" placeholder="Team or opponent"></label></div><p id="status" role="status">Loading protected schedule…</p><div id="games"></div></section>
+ .rank-panel{margin:16px 0;padding:14px;border:1px solid #536b89;border-radius:9px;background:#1c304a}.rank-panel h3{margin:0 0 8px}.rank-panel ol{padding-left:24px}.rank-panel li{margin:8px 0}.rank-panel button{font:inherit;cursor:pointer;margin-left:8px}.metric-note{font-size:.9rem;color:#c1cede}.player-highlights{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}.player-highlights p{margin:0;padding:10px;border:1px solid #536b89;border-radius:8px} </style></head><body><header><h1>College Basketball Dashboard</h1><p>Real upcoming games · Private team and player analysis</p><nav aria-label="Main navigation"><a class="navlink" href="index.html">Team Stats</a><a class="navlink" href="players.html">Player Stats</a><a class="navlink" aria-current="page" href="matchups.html">Matchups</a></nav></header><main>
+<section class="panel"><h2>Upcoming games</h2><p class="muted">Schedule: CollegeBasketballData.com · 2026–27 season. Matchup comparisons are descriptive, not predictions. Games involving teams outside our 24-team statistics coverage show limited analysis.</p><div class="controls"><label>Window <select id="window"><option value="7">Next 7 days</option><option value="14">Next 14 days</option><option value="30" selected>Next 30 days</option><option value="365">All upcoming games</option></select></label><label>Team <select id="team"><option value="">All approved teams</option></select></label><label>Search <input id="search" placeholder="Team or opponent"></label></div><p id="status" role="status">Loading protected schedule…</p><div id="rankings"></div><div id="games"></div></section>
 <section class="panel"><h2>Player matchup analysis</h2><p class="muted">Season-to-date player averages for the selected covered team. Opposing defense is shown only when both teams are in the approved dataset. Player rankings reflect current production, not projected performance.</p><div id="analysis"><p>Select an upcoming game to compare teams and players.</p></div></section>
 </main><footer class="footer">Independent private prototype. No NCAA affiliation. Actual games and statistics; no outcome predictions.</footer>
 <script>
@@ -16,6 +16,31 @@ const teamOf=n=>teams.find(t=>t.team===n);
 function dateOf(g){return new Date(g.startDate)}
 function labelOf(g){const d=dateOf(g);return d.toLocaleString(undefined,{weekday:'short',month:'short',day:'numeric',hour:g.startTimeTbd?undefined:'numeric',minute:g.startTimeTbd?undefined:'2-digit',timeZoneName:g.startTimeTbd?undefined:'short'})+(g.startTimeTbd?' · time TBD':'')+' · '+g.awayTeam+' at '+g.homeTeam+(g.neutralSite?' · neutral site':'')}
 function row(table,items,header=false){const tr=document.createElement('tr');for(const item of items){tr.append(text(header?'th':'td',String(item)))}table.append(tr)}
+function eligible(g){
+ const a=teamOf(g.awayTeam),b=teamOf(g.homeTeam);
+ return a&&b&&a.games>=5&&b.games>=5&&safeNum(a.offRating)&&safeNum(b.offRating)&&safeNum(a.defRating)&&safeNum(b.defRating);
+}
+function ranked(g){
+ if(!eligible(g))return [];
+ const a=teamOf(g.awayTeam),b=teamOf(g.homeTeam);
+ return [{name:a.team,opponent:b.team,g,score:a.offRating-b.defRating},{name:b.team,opponent:a.team,g,score:b.offRating-a.defRating}];
+}
+function showRankings(filtered){
+ const box=$('rankings');box.replaceChildren();
+ const panel=document.createElement('section');panel.className='rank-panel';panel.append(text('h3','Top 5 offensive matchup gaps'));
+ panel.append(text('p','Offense points per 100 possessions minus opponent defense points allowed per 100 possessions. Higher gaps indicate a more favorable relative comparison, not a predicted result. Only matchups with both teams covered and at least five games each are ranked.'));
+ const entries=filtered.flatMap(ranked).sort((a,b)=>b.score-a.score).slice(0,5);
+ if(!entries.length){panel.append(text('p','No eligible full-coverage matchups in this window yet. Expand the date window or wait until both teams have five games.'))}
+ else{const ol=document.createElement('ol');for(const e of entries){const li=document.createElement('li');li.append(text('span',e.name+' vs '+e.opponent+' · gap '+fmt(e.score)+' /100 · '+dateOf(e.g).toLocaleDateString()));const btn=text('button','View players');btn.addEventListener('click',()=>compare(e.g));li.append(btn);ol.append(li)}panel.append(ol)}
+ box.append(panel);
+}
+function highlights(name){
+ const roster=players.filter(p=>p.team===name&&p.games>0);
+ const metrics=[['Scoring','points','PTS/G'],['Rebounding','rebounds','REB/G'],['Playmaking','assists','AST/G']];
+ const root=document.createElement('div');root.className='player-highlights';
+ for(const [title,field,unit] of metrics){const leader=roster.filter(p=>safeNum(p[field])).sort((a,b)=>b[field]/b.games-a[field]/a.games)[0];const cell=text('p',leader?title+': '+leader.name+' · '+fmt(leader[field]/leader.games)+' '+unit:title+': unavailable');root.append(cell)}
+ return root;
+}
 function compare(g){
  const a=teamOf(g.awayTeam),b=teamOf(g.homeTeam),box=$('analysis');box.replaceChildren();box.append(text('h3',labelOf(g)));
  if(!a||!b)box.append(text('p','Opponent statistics unavailable: at least one team is outside the approved 24-team dataset. No matchup score is calculated.'));
@@ -34,7 +59,7 @@ function compare(g){
   if(!roster.length){box.append(text('p','No player statistics available.'));continue}
   const tbl=document.createElement('table');row(tbl,['Player','GP','PTS/G','REB/G','AST/G','MIN/G'],true);
   for(const p of roster)row(tbl,[p.name,p.games,fmt(p.points/p.games),fmt(p.rebounds/p.games),fmt(p.assists/p.games),fmt(p.minutes/p.games)]);
-  box.append(tbl);
+  box.append(tbl);box.append(highlights(name));
  }
  box.scrollIntoView({behavior:'smooth',block:'start'});
 }
@@ -42,9 +67,10 @@ function render(){
  const now=Date.now(),days=Number($('window').value),selected=$('team').value,query=$('search').value.trim().toLowerCase();
  const filtered=games.filter(g=>dateOf(g).getTime()>=now&&dateOf(g).getTime()<now+days*86400000&&(!selected||g.homeTeam===selected||g.awayTeam===selected)&&(!query||g.homeTeam.toLowerCase().includes(query)||g.awayTeam.toLowerCase().includes(query)));
  $('status').textContent=filtered.length+' upcoming games in selected window · '+games.length+' total future games in private schedule.';
+ showRankings(filtered);
  const root=$('games');root.replaceChildren();
  if(!filtered.length){root.append(text('p','No games match these filters. Try a wider window.'));return}
- for(const g of filtered.slice(0,100)){const card=document.createElement('div');card.className='match-card';card.append(text('h3',g.awayTeam+' at '+g.homeTeam));card.append(text('p',labelOf(g)));const missing=!teamOf(g.homeTeam)||!teamOf(g.awayTeam);card.append(text('p',missing?'Partial coverage · opponent comparison unavailable':'Both teams covered · team and player comparison available'));const button=text('button','Compare teams and players');button.addEventListener('click',()=>compare(g));card.append(button);root.append(card)}
+ for(const g of filtered.slice(0,100)){const card=document.createElement('div');card.className='match-card';card.append(text('h3',g.awayTeam+' at '+g.homeTeam));card.append(text('p',labelOf(g)));const missing=!teamOf(g.homeTeam)||!teamOf(g.awayTeam);card.append(text('p',missing?'Partial coverage · opponent comparison unavailable':eligible(g)?'Full coverage · eligible for efficiency-gap ranking':'Full coverage · fewer than five games or missing metrics; ranking unavailable'));const button=text('button','Compare teams and players');button.addEventListener('click',()=>compare(g));card.append(button);root.append(card)}
  if(filtered.length>100)root.append(text('p','Showing first 100 games; narrow the filters to see others.'));
 }
 async function init(){
