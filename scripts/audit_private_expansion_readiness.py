@@ -50,6 +50,7 @@ def evaluate(teams, players, reference, candidates):
     team_name_matches = set()
     player_name_matches = set()
     team_games = defaultdict(list)
+    team_validation_reasons = defaultdict(Counter)
     for source in teams:
         if not isinstance(source, dict) or source.get("season") != SEASON:
             continue
@@ -69,13 +70,16 @@ def evaluate(teams, players, reference, candidates):
         team_name_matches.add(name)
         if not source.get("conference") or not same_conference(staged[name]["conference"], str(source["conference"])):
             diagnostics["team_records_conference_missing_or_different"] += 1
+            team_validation_reasons[name]["conference_missing_or_different"] += 1
             continue
         try:
             row = prepare([source])["rows"][0]
             if row["games"] > 0 and row["games"] == row["wins"] + row["losses"]:
                 team_games[name].append(row["games"])
+            else:
+                team_validation_reasons[name]["nonpositive_games_or_record_mismatch"] += 1
         except (ValueError, TypeError, KeyError, ZeroDivisionError, IndexError):
-            pass
+            team_validation_reasons[name]["team_stat_transform_failed"] += 1
     player_counts = Counter()
     player_names = defaultdict(set)
     for source in players:
@@ -190,6 +194,7 @@ def evaluate(teams, players, reference, candidates):
             "team_identity_matched": name in team_name_matches,
             "player_identity_matched": name in player_name_matches,
             "valid_team_record_count": len(team_games[name]),
+            "team_validation_reasons": dict(sorted(team_validation_reasons[name].items())),
             "validated_player_count": player_counts[name],
             "team_games": team_games[name][0] if len(team_games[name]) == 1 else None,
             "conference_roster_evidence": membership["conference_results"].get(
@@ -219,6 +224,7 @@ def evaluate(teams, players, reference, candidates):
         "statistical_exception_summary": exception_summary,
         "statistical_exception_report": exception_report,
         "identity_crosscheck": identity_crosscheck,
+        "team_validation_diagnostics_scope": "STAGED_SCHOOL_AGGREGATES_ONLY_NO_RAW_PROVIDER_ROWS",
         "staged_school_names_requiring_statistical_review": {k: sorted(unresolved_schools[k]) for k in actionable_reasons},
         "official_membership_source": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=MBB&type=12",
         "official_membership_reconciliation": "PENDING_INDEPENDENT_SCHOOL_BY_SCHOOL_VERIFICATION",
