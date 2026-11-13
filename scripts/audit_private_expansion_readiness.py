@@ -199,7 +199,12 @@ def evaluate(teams, players, reference, candidates):
         ranked = sorted(
             ((max(difflib.SequenceMatcher(None, key(label), provider).ratio()
                    for label in existing_labels), provider)
-             for provider in unmatched_provider_labels),
+             for provider in unmatched_provider_labels
+             if any(
+                 (key(label).startswith(provider) or provider.startswith(key(label)))
+                 and min(len(key(label)), len(provider)) >= 6
+                 for label in existing_labels
+             )),
             reverse=True
         )
         # Only emit candidates with strong lexical overlap; these are NOT matches.
