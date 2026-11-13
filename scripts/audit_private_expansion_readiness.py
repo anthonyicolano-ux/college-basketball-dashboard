@@ -76,9 +76,25 @@ def evaluate(teams, players, reference, candidates):
     reasons = Counter()
     categories = Counter()
     examples = defaultdict(list)
+    coverage = Counter()
     for name, item in sorted(staged.items()):
         conference = item["conference"]
         evidence = membership["conference_results"].get(conference, {})
+        has_team_stats = len(team_games[name]) == 1
+        has_player_stats = player_counts[name] > 0
+        has_five_games = has_team_stats and team_games[name][0] >= MIN_GAMES
+        conference_evidence = evidence.get("status") == "ROSTER_ALIGNED_NOT_NCAA_VERIFIED"
+        # Statistical availability and ranking maturity are not eligibility approval.
+        if has_team_stats:
+            coverage["team_stats_available_any_games"] += 1
+        if has_player_stats:
+            coverage["player_stats_available_any_games"] += 1
+        if has_team_stats and has_player_stats:
+            coverage["team_and_player_stats_available_any_games"] += 1
+        if has_five_games:
+            coverage["team_stats_meet_five_game_ranking_threshold"] += 1
+        if conference_evidence and has_team_stats and has_player_stats:
+            coverage["data_coverage_ready_pending_independent_eligibility"] += 1
         issues = []
         if evidence.get("status") != "ROSTER_ALIGNED_NOT_NCAA_VERIFIED":
             issues.append("conference_roster_evidence_missing")
@@ -105,6 +121,12 @@ def evaluate(teams, players, reference, candidates):
         "staged_candidate_count": len(staged),
         "minimum_team_games": MIN_GAMES,
         "readiness_categories": dict(sorted(categories.items())),
+        "separate_coverage_gates": {
+            "basic_team_and_player_display": "VALID_STATISTICS_ANY_POSITIVE_GAME_COUNT; REQUIRES_SEPARATE_ELIGIBILITY_APPROVAL",
+            "ranked_matchup_analysis": "BOTH_OPPONENTS_REQUIRE_AT_LEAST_FIVE_GAMES_AND_APPROVED_COVERAGE",
+            "publication_eligibility": "INDEPENDENT_NCAA_SPORT_SPECIFIC_VERIFICATION_REQUIRED",
+            "counts": dict(sorted(coverage.items()))
+        },
         "issue_counts": dict(sorted(reasons.items())),
         "sample_school_names_by_category": dict(sorted(examples.items())),
         "conference_roster_evidence": membership["counts"],
@@ -113,7 +135,7 @@ def evaluate(teams, players, reference, candidates):
         "schedule_identity_crosscheck": "NOT_RUN_NO_SCHEDULE_REQUEST",
         "ncaa_sport_specific_membership": "NOT_INDEPENDENTLY_VERIFIED",
         "publication": "DISABLED",
-        "note": "Data readiness is not eligibility approval. All schools require independent NCAA sport-specific verification before expansion."
+        "note": "Statistical coverage is independent of five-game matchup ranking maturity. Neither implies eligibility or permission to publish. All schools require independent NCAA sport-specific verification before expansion."
     }
 
 
