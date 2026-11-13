@@ -97,11 +97,16 @@ def main():
     if os.environ.get("PUBLISH_EXPANDED_KV") or os.environ.get("PUBLICATION_APPROVAL"):
         print("BLOCKED: this workflow is dry-run only; no API request.")
         return 2
+    stage = "load_reference"
     try:
         ref = json.loads(REFERENCE.read_text(encoding="utf-8"))
+        stage = "load_candidates"
         candidates = json.loads(CANDIDATES.read_text(encoding="utf-8"))
+        stage = "validate_reference"
         verified = validate_reference(ref)
+        stage = "validate_candidates"
         validate_candidates(candidates, verified)
+        stage = "load_approved_names"
         lookup = approved_names()
         token = os.environ.get("CBBD_API_KEY", "").strip()
         if not token:
@@ -110,16 +115,20 @@ def main():
         url = "https://api.collegebasketballdata.com/stats/team/season?" + urlencode(
             {"season": 2027, "seasonType": "regular"}
         )
+        stage = "fetch_provider_response"
         with urlopen(Request(url, headers={
             "Authorization": "Bearer " + token, "Accept": "application/json"
         }), timeout=50) as response:
+            stage = "parse_provider_response"
             records = json.load(response)
+        stage = "preview_team_statistics"
         report = preview(records, candidates["candidates"], lookup)
         print("PRELIMINARY EXPANSION AUDIT: " + json.dumps(report, sort_keys=True))
         print("DRY RUN: one provider request; zero KV writes, artifacts, or raw provider rows.")
         return 0
     except Exception as error:
-        print("FAIL: expansion audit; error_type=" + type(error).__name__ +
+        print("FAIL: expansion audit; stage=" + stage +
+              "; error_type=" + type(error).__name__ +
               "; no provider records or credentials logged.")
         return 1
 
