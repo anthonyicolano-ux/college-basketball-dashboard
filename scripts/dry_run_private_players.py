@@ -30,7 +30,12 @@ def approved_names():
     for conference, roster in OFFICIAL_CONFERENCE_ROSTERS.items():
         expected = {key(n) for n in roster['schools']}
         matching = [x for x in candidates['candidates'] if x['conference'] == conference]
-        if {key(x['name']) for x in matching} != expected:
+        existing = [x for x in reference['schools'] if x['conference'] == conference]
+        combined_names = [x['name'] for x in (*existing, *matching)]
+        combined_keys = [key(name) for name in combined_names]
+        if len(combined_keys) != len(set(combined_keys)):
+            raise ValueError('Duplicate official conference identity')
+        if set(combined_keys) != expected:
             raise ValueError('Official conference roster mismatch')
         for item in matching:
             approved.setdefault(item['name'], item)
