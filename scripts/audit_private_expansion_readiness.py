@@ -328,6 +328,13 @@ def evaluate(teams, players, reference, candidates):
                 staged[name]["conference"], {}).get("status", "NOT_CHECKED"),
             "ncaa_sport_membership": "PENDING_INDEPENDENT_VERIFICATION",
         })
+    # Read-only grouped review; do not infer ties or repair source data.
+    game_record_review = [
+        {"school": name, "conference": staged[name]["conference"],
+         "records": team_record_discrepancies[name],
+         "status": "SOURCE_RECORD_REVIEW_REQUIRED_NO_AUTOMATIC_CORRECTION"}
+        for name in sorted(team_record_discrepancies)
+    ]
     exception_summary = {
         "schools_requiring_statistical_review": len(exception_report),
         "team_statistics_exceptions": len(unresolved_schools["team_statistics_missing_or_ambiguous"]),
@@ -350,6 +357,7 @@ def evaluate(teams, players, reference, candidates):
         "issue_counts": dict(sorted(reasons.items())),
         "statistical_exception_summary": exception_summary,
         "statistical_exception_report": exception_report,
+        "game_record_review": game_record_review,
         "identity_crosscheck": identity_crosscheck,
         "unmatched_identity_by_conference": {
             conference: sorted(names)
