@@ -31,9 +31,9 @@ PROVIDER_NAME_ALIASES = {
     # Staged provider-name hints supported by both team/player labels and conference checks.
     # These do NOT establish NCAA eligibility or authorize publication.
     "American": ("American University",),
-    "IU Indy": ("IU Indianapolis",),
-    "LIU": ("Long Island University",),
-    "LSU New Orleans": ("New Orleans",),
+    "IU Indy": ("IU Indianapolis", "IUPUI"),
+    "LIU": ("Long Island University", "Long Island"),
+    # LSU New Orleans is an unresolved staged institutional-name concern; do not map.
     "NC Central": ("North Carolina Central",),
     "Penn": ("Pennsylvania",),
     "Queens": ("Queens University",),
@@ -57,9 +57,7 @@ PROVIDER_NAME_ALIASES = {
     "FIU": ("Florida International",),
     "FGCU": ("Florida Gulf Coast",),
     "UIC": ("Illinois Chicago",),
-    "IU Indy": ("IUPUI",),
     "FDU": ("Fairleigh Dickinson",),
-    "LIU": ("Long Island",),
     "UTRGV": ("UT Rio Grande Valley",),
     "SE Louisiana": ("Southeastern Louisiana",),
     "UL Monroe": ("Louisiana Monroe",),
