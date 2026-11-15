@@ -50,6 +50,7 @@ class ActionableExceptionTests(unittest.TestCase):
         )
         self.assertEqual(report["identity_crosscheck"]["both_team_and_player_identity_missing"], ["Charlie"])
         self.assertEqual(report["unmatched_identity_by_conference"], {"ACC": ["Charlie"]})
+        self.assertEqual(report["final_identity_review"], [])
         self.assertEqual(len(report["batch_identity_candidate_review"]), 1)
         self.assertEqual(report["batch_identity_candidate_review"][0]["school"], "Charlie")
         self.assertEqual(report["batch_identity_candidate_review"][0]["candidates"], [])
