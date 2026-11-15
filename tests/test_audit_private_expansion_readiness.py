@@ -63,5 +63,34 @@ class ActionableExceptionTests(unittest.TestCase):
         )
 
 
+    def test_rejected_record_reports_aggregate_discrepancy_without_player_data(self):
+        reference = {"schools": []}
+        candidates = {"candidates": [{"name": "Alpha", "conference": "ACC"}]}
+        teams = [{"season": audit.SEASON, "team": "Alpha", "conference": "ACC",
+                  "games": 4, "wins": 2, "losses": 1}]
+        players = [{"season": audit.SEASON, "team": "Alpha",
+                    "name": "Private Player", "games": 2}]
+        with (
+            patch.object(audit, "validate_reference", return_value={}),
+            patch.object(audit, "validate_candidates"),
+            patch.object(audit, "membership_audit", return_value={
+                "conference_results": {"ACC": {"status": "ROSTER_ALIGNED_NOT_NCAA_VERIFIED"}},
+                "counts": {},
+            }),
+            patch.object(audit, "player_audit", return_value={}),
+            patch.object(audit, "prepare", side_effect=lambda rows: {"rows": [{
+                "games": rows[0]["games"], "wins": rows[0]["wins"],
+                "losses": rows[0]["losses"]}]}),
+            patch.object(audit, "player_row", side_effect=lambda row: row),
+        ):
+            report = audit.evaluate(teams, players, reference, candidates)
+        entry = report["statistical_exception_report"][0]
+        self.assertEqual(entry["team_validation_reasons"], {"games_wins_losses_mismatch": 1})
+        self.assertEqual(entry["team_record_discrepancies"],
+                         [{"games": 4, "wins_plus_losses": 3, "difference": 1}])
+        self.assertEqual(entry["valid_team_record_count"], 0)
+        self.assertEqual(report["publication"], "DISABLED")
+        self.assertNotIn("Private Player", str(report))
+
 if __name__ == "__main__":
     unittest.main()
