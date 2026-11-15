@@ -33,7 +33,12 @@ PROVIDER_NAME_ALIASES = {
     "American": ("American University",),
     "IU Indy": ("IU Indianapolis", "IUPUI"),
     "LIU": ("Long Island University", "Long Island"),
-    # LSU New Orleans is an unresolved staged institutional-name concern; do not map.
+    # LSU New Orleans was rebranded from University of New Orleans in July 2026.
+    # Official 2026 athletics release: https://privateersports.com/news/2026/11/13/mens-basketball-privateers-host-suno-on-saturday-evening.aspx
+    "LSU New Orleans": ("New Orleans",),
+    # OVC 2026-27 schedule and NCAA directory corroborate these institutions.
+    "SIUE": ("SIU Edwardsville",),
+    "UIW": ("Incarnate Word",),
     "NC Central": ("North Carolina Central",),
     "Penn": ("Pennsylvania",),
     "Queens": ("Queens University",),
