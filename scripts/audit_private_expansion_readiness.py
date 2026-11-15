@@ -286,6 +286,27 @@ def evaluate(teams, players, reference, candidates):
                 same_conference(staged[name]["conference"], value) for value in observed),
             "status": "PROBE_ONLY_REQUIRES_INDEPENDENT_IDENTITY_AND_NCAA_VERIFICATION",
         })
+    # Last three unresolved institutional identities: provider labels from both
+    # datasets, grouped by conference. These are review candidates, not mappings.
+    final_identity_review = []
+    for school in ("LSU New Orleans", "SIUE", "UIW"):
+        if school not in staged:
+            continue
+        conference = staged[school]["conference"]
+        conference_candidates = sorted(
+            label for label in unmatched_provider_labels
+            if any(same_conference(conference, observed)
+                   for observed in candidate_team_conferences.get(label, ()))
+        )
+        final_identity_review.append({
+            "staged_school": school,
+            "staged_conference": conference,
+            "provider_labels_in_both_datasets_with_matching_conference":
+                conference_candidates[:30],
+            "candidate_count": len(conference_candidates),
+            "truncated": len(conference_candidates) > 30,
+            "status": "INSTITUTIONAL_IDENTITY_UNVERIFIED_NO_AUTOMATIC_MATCH",
+        })
     unmatched_identity_by_conference = defaultdict(list)
     for name in identity_crosscheck["both_team_and_player_identity_missing"]:
         unmatched_identity_by_conference[staged[name]["conference"]].append(name)
@@ -337,6 +358,7 @@ def evaluate(teams, players, reference, candidates):
         "identity_review_suggestions": identity_review_suggestions,
         "batch_identity_candidate_review": batch_identity_candidate_review,
         "candidate_probe_review": candidate_probe_review,
+        "final_identity_review": final_identity_review,
         "unmatched_provider_label_inventory": unmatched_provider_label_inventory,
         "team_validation_diagnostics_scope": "STAGED_SCHOOL_AGGREGATES_ONLY_NO_RAW_PROVIDER_ROWS",
         "staged_school_names_requiring_statistical_review": {k: sorted(unresolved_schools[k]) for k in actionable_reasons},
