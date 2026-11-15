@@ -78,10 +78,15 @@ def evaluate(teams, players, reference, candidates):
             row = prepare([source])["rows"][0]
             if row["games"] <= 0:
                 team_validation_reasons[name]["nonpositive_games"] += 1
+            elif (row["wins"] is None or row["losses"] is None
+                  or row["wins"] < 0 or row["losses"] < 0):
+                team_validation_reasons[name]["missing_or_invalid_win_loss_record"] += 1
             elif row["games"] != row["wins"] + row["losses"]:
                 team_validation_reasons[name]["games_wins_losses_mismatch"] += 1
                 team_record_discrepancies[name].append({
                     "games": row["games"],
+                    "wins": row["wins"],
+                    "losses": row["losses"],
                     "wins_plus_losses": row["wins"] + row["losses"],
                     "difference": row["games"] - row["wins"] - row["losses"],
                 })
