@@ -53,6 +53,7 @@ class ActionableExceptionTests(unittest.TestCase):
         self.assertEqual(len(report["batch_identity_candidate_review"]), 1)
         self.assertEqual(report["batch_identity_candidate_review"][0]["school"], "Charlie")
         self.assertEqual(report["batch_identity_candidate_review"][0]["candidates"], [])
+        self.assertEqual(report["candidate_probe_review"], [])
         self.assertEqual(report["unmatched_provider_label_inventory"]["shared_label_count"], 0)
         self.assertFalse(report["unmatched_provider_label_inventory"]["truncated"])
         self.assertEqual(report["identity_crosscheck"]["player_missing_but_team_identity_matched"], [])
