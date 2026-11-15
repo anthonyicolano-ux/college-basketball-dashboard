@@ -198,6 +198,14 @@ def evaluate(teams, players, reference, candidates):
     unmatched_provider_labels = sorted(
         (team_provider_names & player_provider_names) - set(lookup)
     )
+    # School labels only (never player names or raw provider records). Diagnostic inventory,
+    # not an alias mapping; cap output to keep private audit logs compact.
+    unmatched_provider_label_inventory = {
+        "shared_team_and_player_labels": unmatched_provider_labels[:40],
+        "shared_label_count": len(unmatched_provider_labels),
+        "truncated": len(unmatched_provider_labels) > 40,
+        "status": "UNVERIFIED_LABELS_NOT_AUTOMATIC_MATCHES",
+    }
     identity_review_suggestions = {}
     for name in identity_crosscheck["both_team_and_player_identity_missing"]:
         existing_labels = (name, *staged[name].get("aliases", []),
@@ -267,6 +275,7 @@ def evaluate(teams, players, reference, candidates):
             for conference, names in sorted(unmatched_identity_by_conference.items())
         },
         "identity_review_suggestions": identity_review_suggestions,
+        "unmatched_provider_label_inventory": unmatched_provider_label_inventory,
         "team_validation_diagnostics_scope": "STAGED_SCHOOL_AGGREGATES_ONLY_NO_RAW_PROVIDER_ROWS",
         "staged_school_names_requiring_statistical_review": {k: sorted(unresolved_schools[k]) for k in actionable_reasons},
         "official_membership_source": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=MBB&type=12",
