@@ -52,6 +52,7 @@ def evaluate(teams, players, reference, candidates):
     player_name_matches = set()
     team_games = defaultdict(list)
     team_validation_reasons = defaultdict(Counter)
+    team_record_discrepancies = defaultdict(list)
     for source in teams:
         if not isinstance(source, dict) or source.get("season") != SEASON:
             continue
@@ -79,6 +80,11 @@ def evaluate(teams, players, reference, candidates):
                 team_validation_reasons[name]["nonpositive_games"] += 1
             elif row["games"] != row["wins"] + row["losses"]:
                 team_validation_reasons[name]["games_wins_losses_mismatch"] += 1
+                team_record_discrepancies[name].append({
+                    "games": row["games"],
+                    "wins_plus_losses": row["wins"] + row["losses"],
+                    "difference": row["games"] - row["wins"] - row["losses"],
+                })
             else:
                 team_games[name].append(row["games"])
         except (ValueError, TypeError, KeyError, ZeroDivisionError, IndexError):
@@ -223,6 +229,7 @@ def evaluate(teams, players, reference, candidates):
             "player_identity_matched": name in player_name_matches,
             "valid_team_record_count": len(team_games[name]),
             "team_validation_reasons": dict(sorted(team_validation_reasons[name].items())),
+            "team_record_discrepancies": team_record_discrepancies[name],
             "validated_player_count": player_counts[name],
             "team_games": team_games[name][0] if len(team_games[name]) == 1 else None,
             "conference_roster_evidence": membership["conference_results"].get(
