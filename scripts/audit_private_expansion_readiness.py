@@ -248,6 +248,44 @@ def evaluate(teams, players, reference, candidates):
                            for score, label in scored[:5]],
             "status": "MANUAL_REVIEW_ONLY_NO_AUTOMATIC_ALIAS_OR_ELIGIBILITY",
         })
+    # Candidate labels observed in the previous private audit. Diagnostic probes only:
+    # no alias assignment, data approval, eligibility change, or publishing.
+    candidate_probes = {
+        "American": "americanuniversity",
+        "IU Indy": "iuindianapolis",
+        "LIU": "longislanduniversity",
+        "LSU New Orleans": "neworleans",
+        "NC Central": "northcarolinacentral",
+        "Penn": "pennsylvania",
+        "Queens": "queensuniversity",
+        "Southeastern Louisiana": "selouisiana",
+        "St. Thomas": "stthomasminnesota",
+        "USC Upstate": "southcarolinaupstate",
+    }
+    # Aggregate conference and presence evidence from already fetched team records.
+    # Do not output provider rows or player identities.
+    candidate_team_conferences = defaultdict(set)
+    for source in teams:
+        if isinstance(source, dict) and source.get("season") == SEASON:
+            label = source.get("team")
+            if isinstance(label, str) and source.get("conference"):
+                candidate_team_conferences[key(label)].add(str(source["conference"]))
+    candidate_probe_review = []
+    for name, provider in sorted(candidate_probes.items()):
+        if name not in staged:
+            continue
+        observed = sorted(candidate_team_conferences.get(provider, set()))
+        candidate_probe_review.append({
+            "school": name,
+            "conference": staged[name]["conference"],
+            "provider_school_label": provider,
+            "team_identity_present": provider in team_provider_names,
+            "player_identity_present": provider in player_provider_names,
+            "provider_conference_labels": observed[:3],
+            "conference_agrees": bool(observed) and all(
+                same_conference(staged[name]["conference"], value) for value in observed),
+            "status": "PROBE_ONLY_REQUIRES_INDEPENDENT_IDENTITY_AND_NCAA_VERIFICATION",
+        })
     unmatched_identity_by_conference = defaultdict(list)
     for name in identity_crosscheck["both_team_and_player_identity_missing"]:
         unmatched_identity_by_conference[staged[name]["conference"]].append(name)
@@ -298,6 +336,7 @@ def evaluate(teams, players, reference, candidates):
         },
         "identity_review_suggestions": identity_review_suggestions,
         "batch_identity_candidate_review": batch_identity_candidate_review,
+        "candidate_probe_review": candidate_probe_review,
         "unmatched_provider_label_inventory": unmatched_provider_label_inventory,
         "team_validation_diagnostics_scope": "STAGED_SCHOOL_AGGREGATES_ONLY_NO_RAW_PROVIDER_ROWS",
         "staged_school_names_requiring_statistical_review": {k: sorted(unresolved_schools[k]) for k in actionable_reasons},
