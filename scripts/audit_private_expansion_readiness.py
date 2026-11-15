@@ -365,7 +365,14 @@ def evaluate(teams, players, reference, candidates):
         "statistical_exception_summary": exception_summary,
         "statistical_exception_report": exception_report,
         "game_record_review": game_record_review,
-        "game_record_review": game_record_review,
+        "game_record_review_summary": {
+            "schools_with_record_discrepancies": len(game_record_review),
+            "discrepancy_differences": dict(sorted(Counter(
+                record["difference"] for item in game_record_review
+                for record in item["records"]
+            ).items())),
+            "status": "SOURCE_GAME_RESULTS_NOT_CHECKED_NO_AUTOMATIC_CORRECTION",
+        },
         "identity_crosscheck": identity_crosscheck,
         "unmatched_identity_by_conference": {
             conference: sorted(names)
