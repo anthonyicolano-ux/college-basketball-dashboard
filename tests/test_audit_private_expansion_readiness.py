@@ -95,7 +95,7 @@ class ActionableExceptionTests(unittest.TestCase):
         entry = report["statistical_exception_report"][0]
         self.assertEqual(entry["team_validation_reasons"], {"games_wins_losses_mismatch": 1})
         self.assertEqual(entry["team_record_discrepancies"],
-                         [{"games": 4, "wins_plus_losses": 3, "difference": 1}])
+                         [{"games": 4, "wins": 2, "losses": 1, "wins_plus_losses": 3, "difference": 1}])
         self.assertEqual(entry["valid_team_record_count"], 0)
         self.assertEqual(report["publication"], "DISABLED")
         self.assertNotIn("Private Player", str(report))
