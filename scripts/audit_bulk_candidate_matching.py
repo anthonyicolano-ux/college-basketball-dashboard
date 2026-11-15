@@ -28,6 +28,18 @@ PROVIDER_NAME_ALIASES = {
     # Provider labels observed in both private 2027 datasets; institutional identity
     # cross-checked against official athletics/NCAA pages. These are name hints
     # only; independent NCAA eligibility and team-stat validation remain required.
+    # Staged provider-name hints supported by both team/player labels and conference checks.
+    # These do NOT establish NCAA eligibility or authorize publication.
+    "American": ("American University",),
+    "IU Indy": ("IU Indianapolis",),
+    "LIU": ("Long Island University",),
+    "LSU New Orleans": ("New Orleans",),
+    "NC Central": ("North Carolina Central",),
+    "Penn": ("Pennsylvania",),
+    "Queens": ("Queens University",),
+    "Southeastern Louisiana": ("SE Louisiana",),
+    "St. Thomas": ("St Thomas Minnesota",),
+    "USC Upstate": ("South Carolina Upstate",),
     "Central Connecticut State": ("Central Connecticut",),
     "Seattle": ("Seattle U",),
     "Southeast Missouri": ("Southeast Missouri State",),
