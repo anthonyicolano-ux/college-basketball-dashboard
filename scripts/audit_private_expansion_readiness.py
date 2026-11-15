@@ -218,6 +218,9 @@ def evaluate(teams, players, reference, candidates):
             "possible_provider_labels": [label for score, label in ranked[:3] if score >= 0.72],
             "status": "UNVERIFIED_SUGGESTIONS_NO_AUTOMATIC_MATCH",
         }
+    unmatched_identity_by_conference = defaultdict(list)
+    for name in identity_crosscheck["both_team_and_player_identity_missing"]:
+        unmatched_identity_by_conference[staged[name]["conference"]].append(name)
     exception_report = []
     for name in exception_names:
         issues = [reason for reason, schools in sorted(unresolved_schools.items())
@@ -259,6 +262,10 @@ def evaluate(teams, players, reference, candidates):
         "statistical_exception_summary": exception_summary,
         "statistical_exception_report": exception_report,
         "identity_crosscheck": identity_crosscheck,
+        "unmatched_identity_by_conference": {
+            conference: sorted(names)
+            for conference, names in sorted(unmatched_identity_by_conference.items())
+        },
         "identity_review_suggestions": identity_review_suggestions,
         "team_validation_diagnostics_scope": "STAGED_SCHOOL_AGGREGATES_ONLY_NO_RAW_PROVIDER_ROWS",
         "staged_school_names_requiring_statistical_review": {k: sorted(unresolved_schools[k]) for k in actionable_reasons},
