@@ -50,6 +50,8 @@ class ActionableExceptionTests(unittest.TestCase):
         )
         self.assertEqual(report["identity_crosscheck"]["both_team_and_player_identity_missing"], ["Charlie"])
         self.assertEqual(report["unmatched_identity_by_conference"], {"ACC": ["Charlie"]})
+        self.assertEqual(report["unmatched_provider_label_inventory"]["shared_label_count"], 0)
+        self.assertFalse(report["unmatched_provider_label_inventory"]["truncated"])
         self.assertEqual(report["identity_crosscheck"]["player_missing_but_team_identity_matched"], [])
         self.assertEqual(report["identity_crosscheck"]["team_missing_but_player_identity_matched"], [])
         bravo = report["statistical_exception_report"][0]
