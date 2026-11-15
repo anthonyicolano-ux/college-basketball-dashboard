@@ -226,6 +226,28 @@ def evaluate(teams, players, reference, candidates):
             "possible_provider_labels": [label for score, label in ranked[:3] if score >= 0.72],
             "status": "UNVERIFIED_SUGGESTIONS_NO_AUTOMATIC_MATCH",
         }
+    # One bounded review table for ALL missing identities. Similarity is a review
+    # priority only, never evidence of institutional identity or NCAA membership.
+    batch_identity_candidate_review = []
+    for name in identity_crosscheck["both_team_and_player_identity_missing"]:
+        labels = (name, *staged[name].get("aliases", []),
+                  *PROVIDER_NAME_ALIASES.get(name, ()))
+        scored = []
+        for provider in unmatched_provider_labels:
+            normalized = key(provider)
+            similarity = max(difflib.SequenceMatcher(None, key(label), normalized).ratio()
+                             for label in labels if key(label))
+            # Broad enough to surface plausible labels without implying a match.
+            if similarity >= 0.45:
+                scored.append((round(similarity, 3), provider))
+        scored.sort(key=lambda item: (-item[0], item[1]))
+        batch_identity_candidate_review.append({
+            "school": name,
+            "conference": staged[name]["conference"],
+            "candidates": [{"provider_school_label": label, "similarity": score}
+                           for score, label in scored[:5]],
+            "status": "MANUAL_REVIEW_ONLY_NO_AUTOMATIC_ALIAS_OR_ELIGIBILITY",
+        })
     unmatched_identity_by_conference = defaultdict(list)
     for name in identity_crosscheck["both_team_and_player_identity_missing"]:
         unmatched_identity_by_conference[staged[name]["conference"]].append(name)
@@ -275,6 +297,7 @@ def evaluate(teams, players, reference, candidates):
             for conference, names in sorted(unmatched_identity_by_conference.items())
         },
         "identity_review_suggestions": identity_review_suggestions,
+        "batch_identity_candidate_review": batch_identity_candidate_review,
         "unmatched_provider_label_inventory": unmatched_provider_label_inventory,
         "team_validation_diagnostics_scope": "STAGED_SCHOOL_AGGREGATES_ONLY_NO_RAW_PROVIDER_ROWS",
         "staged_school_names_requiring_statistical_review": {k: sorted(unresolved_schools[k]) for k in actionable_reasons},
