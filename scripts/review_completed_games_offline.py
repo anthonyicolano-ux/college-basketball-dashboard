@@ -27,10 +27,17 @@ def review(games, team_aliases):
                 raise ValueError("Ambiguous alias")
             aliases[label] = canonical
     counts = {team: Counter() for team in targets}
+    schema_keys = ("id", "homeTeam", "awayTeam", "completed", "homePoints", "awayPoints")
     seen = set()
     for game in games:
         if not isinstance(game, dict):
             raise ValueError("Invalid game row")
+        if any(field not in game for field in schema_keys):
+            raise ValueError("Unverified game schema: required fields absent")
+        if not isinstance(game["completed"], bool):
+            raise ValueError("Unverified game completion semantics")
+        if not isinstance(game["homeTeam"], str) or not isinstance(game["awayTeam"], str):
+            raise ValueError("Invalid team identities")
         game_id = game.get("id")
         if not isinstance(game_id, (str, int)) or isinstance(game_id, bool):
             raise ValueError("Missing game ID")
