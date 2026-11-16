@@ -34,7 +34,18 @@ def inspect_targets(rows, targets=TARGETS):
                                for x in (hp, ap)) and hp != ap)
             valid_winner = (isinstance(hw, bool) and isinstance(aw, bool)
                             and hw != aw and valid_score and hw == (hp > ap))
-            counts[target]["validated_final" if valid_winner else "unresolved_final"] += 1
+            if valid_winner:
+                counts[target]["validated_final"] += 1
+            else:
+                counts[target]["unresolved_final"] += 1
+                if not valid_score:
+                    counts[target]["invalid_or_tied_score"] += 1
+                elif hw is None and aw is None:
+                    counts[target]["missing_winner_flags_with_valid_score"] += 1
+                elif not isinstance(hw, bool) or not isinstance(aw, bool):
+                    counts[target]["partial_or_invalid_winner_flags"] += 1
+                else:
+                    counts[target]["contradictory_winner_flags"] += 1
     return {"coverage": "CAPPED_RESPONSE_NOT_SEASON_TOTALS",
             "identity_mapping": "EXACT_LABEL_ONLY_NOT_VERIFIED",
             "targets": {target: dict(sorted(counts[target].items())) for target in targets}}
