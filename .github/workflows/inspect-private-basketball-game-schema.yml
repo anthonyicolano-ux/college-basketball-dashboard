@@ -15,13 +15,13 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Check out selected branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - name: Run offline schema regression tests
-        run: python -m unittest discover -s tests -p 'test_audit_game_schema_inventory.py' -v
+        run: python -m unittest discover -s tests -p 'test_audit_*game*.py' -v
       - name: Inspect live game response field names and types
         env:
           CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
