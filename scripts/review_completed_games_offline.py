@@ -1,7 +1,7 @@
 """Offline-only review of completed game records for current season-stat discrepancies.
 No network access, provider credentials, KV writes, or publication.
 Input is a private local JSON array of game records. Output is counts only.
-Game schema/status semantics must be verified against actual CBBD response before use.
+Uses observed CBBD status values; final games require consistent scores and winner flags.
 """
 import argparse
 import json
@@ -27,15 +27,15 @@ def review(games, team_aliases):
                 raise ValueError("Ambiguous alias")
             aliases[label] = canonical
     counts = {team: Counter() for team in targets}
-    schema_keys = ("id", "homeTeam", "awayTeam", "completed", "homePoints", "awayPoints")
+    schema_keys = ("id", "homeTeam", "awayTeam", "status", "homePoints", "awayPoints", "homeWinner", "awayWinner")
     seen = set()
     for game in games:
         if not isinstance(game, dict):
             raise ValueError("Invalid game row")
         if any(field not in game for field in schema_keys):
             raise ValueError("Unverified game schema: required fields absent")
-        if not isinstance(game["completed"], bool):
-            raise ValueError("Unverified game completion semantics")
+        if not isinstance(game["status"], str) or not game["status"].strip():
+            raise ValueError("Invalid game status")
         if not isinstance(game["homeTeam"], str) or not isinstance(game["awayTeam"], str):
             raise ValueError("Invalid team identities")
         game_id = game.get("id")
@@ -46,14 +46,19 @@ def review(games, team_aliases):
         seen.add(game_id)
         home, away = game.get("homeTeam"), game.get("awayTeam")
         teams = {aliases[x] for x in (home, away) if isinstance(x, str) and x in aliases}
-        # 'completed' and scores are explicit; no assumptions about status strings.
-        completed = game.get("completed") is True
+        # Only observed provider status 'final' is a completion candidate.
+        completed = game["status"] == "final"
         home_score, away_score = game.get("homePoints"), game.get("awayPoints")
         score_valid = all(isinstance(x, int) and not isinstance(x, bool) and x >= 0
                           for x in (home_score, away_score))
+        home_winner, away_winner = game["homeWinner"], game["awayWinner"]
+        winner_valid = (isinstance(home_winner, bool) and isinstance(away_winner, bool)
+                        and home_winner != away_winner and score_valid
+                        and home_score != away_score
+                        and home_winner == (home_score > away_score))
         for team in teams:
             counts[team]["observed_games"] += 1
-            if completed and score_valid and home_score != away_score:
+            if completed and winner_valid:
                 counts[team]["scored_completed_games"] += 1
                 winner = home if home_score > away_score else away
                 counts[team]["wins" if aliases.get(winner) == team else "losses"] += 1
@@ -61,6 +66,7 @@ def review(games, team_aliases):
                 counts[team]["unresolved_status_or_score"] += 1
     return {"status": "OFFLINE_PARTIAL_COVERAGE_NOT_SEASON_RECONCILIATION",
             "unique_input_games": len(seen),
+            "coverage": "PARTIAL_OR_UNKNOWN_NEVER_SEASON_TOTALS",
             "teams": {team: dict(sorted(counts[team].items())) for team in targets}}
 
 
