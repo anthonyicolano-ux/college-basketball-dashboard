@@ -20,9 +20,14 @@ def inspect(rows):
     if len(rows) > 3000:
         raise ValueError("Unexpected result count")
     types = {}
+    statuses = Counter()
     for row in rows:
         if not isinstance(row, dict):
             raise ValueError("Expected game object")
+        status = row.get("status")
+        if not isinstance(status, str) or not status.strip():
+            raise ValueError("Missing or invalid status")
+        statuses[status] += 1
         for field, value in row.items():
             if not isinstance(field, str):
                 raise ValueError("Invalid field")
@@ -30,6 +35,8 @@ def inspect(rows):
             types.setdefault(field, Counter())[t] += 1
     return {"season": SEASON, "records_returned": len(rows),
             "at_documented_result_cap": len(rows) == 3000,
+            "status_counts": dict(sorted(statuses.items())),
+            "completion_classification": "UNVERIFIED",
             "field_types": {field: dict(sorted(counter.items()))
                             for field, counter in sorted(types.items())},
             "status": "SCHEMA_INVENTORY_ONLY_COMPLETION_NOT_VERIFIED"}
