@@ -14,7 +14,7 @@ class CompletedGamesOfflineTests(unittest.TestCase):
             {"id": 2, "homeTeam": "Opponent", "awayTeam": "Alabama A&M",
              "completed": True, "homePoints": 80, "awayPoints": 60},
             {"id": 3, "homeTeam": "Alabama A&M", "awayTeam": "Opponent",
-             "completed": False},
+             "completed": False, "homePoints": None, "awayPoints": None},
             {"id": 1, "homeTeam": "Alabama A&M", "awayTeam": "Opponent",
              "completed": True, "homePoints": 75, "awayPoints": 70},
         ]
@@ -31,6 +31,18 @@ class CompletedGamesOfflineTests(unittest.TestCase):
                         {"South Dakota": ["South Dakota"]})
         self.assertEqual(result["teams"]["South Dakota"]["wins"], 1)
         self.assertNotIn("Princeton", result["teams"])
+
+    def test_missing_required_score_field_rejected(self):
+        with self.assertRaises(ValueError):
+            review([{"id": 12, "homeTeam": "South Dakota", "awayTeam": "X",
+                     "completed": False, "homePoints": None}],
+                   {"South Dakota": ["South Dakota"]})
+
+    def test_nonboolean_completion_rejected(self):
+        with self.assertRaises(ValueError):
+            review([{"id": 13, "homeTeam": "South Dakota", "awayTeam": "X",
+                     "completed": "Final", "homePoints": 70, "awayPoints": 60}],
+                   {"South Dakota": ["South Dakota"]})
 
     def test_empty_targets_rejected(self):
         with self.assertRaises(ValueError):
