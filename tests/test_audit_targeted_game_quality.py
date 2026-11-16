@@ -25,6 +25,13 @@ class TargetedGameQualityTests(unittest.TestCase):
         self.assertNotIn("100", str(result))
         self.assertEqual(result["coverage"], "CAPPED_RESPONSE_NOT_SEASON_TOTALS")
 
+    def test_categorizes_missing_winner_flags(self):
+        row = {"homeTeam": "Bethune-Cookman", "awayTeam": "Other", "status": "final",
+               "homePoints": 70, "awayPoints": 60, "homeWinner": None, "awayWinner": None}
+        result = inspect_targets([row])["targets"]["Bethune-Cookman"]
+        self.assertEqual(result["missing_winner_flags_with_valid_score"], 1)
+        self.assertEqual(result["unresolved_final"], 1)
+
     def test_rejects_invalid_rows(self):
         with self.assertRaises(ValueError):
             inspect_targets([None])
