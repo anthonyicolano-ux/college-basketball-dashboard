@@ -20,8 +20,8 @@ def stage(source, destination):
         raise ValueError("Destination must be outside the public repository")
     if source == destination or source in destination.parents or destination in source.parents:
         raise ValueError("Source and destination must be separate folders")
-    if destination.exists() and any(destination.iterdir()):
-        raise ValueError("Destination must be empty")
+    if destination.exists():
+        raise ValueError("Destination must not exist (use a fresh private directory)")
     counts = check_bundle(source)
     destination.mkdir(parents=True, exist_ok=True)
     try:
