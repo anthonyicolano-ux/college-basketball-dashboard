@@ -1,0 +1,25 @@
+name: Inspect private basketball game schema (one request, read only)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect-game-schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out selected branch
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run offline schema regression tests
+        run: python -m unittest discover -s tests -p 'test_audit_game_schema_inventory.py' -v
+      - name: Inspect live game response field names and types
+        env:
+          CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+        run: python scripts/audit_game_schema_inventory.py
