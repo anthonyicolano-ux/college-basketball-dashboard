@@ -218,7 +218,7 @@ async function init(){
  if(data.schemaVersion!==1||!Array.isArray(data.rows)||typeof data.demo!=='boolean')throw Error('Unsupported team dataset');
  realMode=data.demo===false;
  if(realMode){
-   if(!data.generatedAt||!data.scope||data.rows.length<2)throw Error('Real dataset provenance or coverage missing');
+   if(data.approvedForPrivateDisplay!==true||!data.generatedAt||!data.scope||data.rows.length<2)throw Error('Real dataset requires explicit private-display approval and provenance');
    $('rankings').hidden=true;
    $('upcomingMode').hidden=true;
    $('upcomingControls').hidden=true;
