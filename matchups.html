@@ -225,7 +225,7 @@ async function init(){
    $('customMode').textContent='Custom team comparison';
    document.querySelector('header p').textContent='Matchup analysis · Approved team statistics';
    document.querySelector('main > .notice').replaceChildren(document.createTextNode('Approved team-statistics comparison only. No live schedule or upcoming-game rankings are available; this is not a prediction. Scope: '+data.scope));
-   document.querySelector('#compare > .muted').textContent='Team statistics are descriptive and not adjusted for opponent strength.';
+   document.querySelector('#results > .muted:last-child').textContent='Efficiency gaps describe observed differences; they are not projected scores or win probabilities.';
    document.querySelector('.benchmark-key').previousElementSibling.textContent='Benchmarks use the loaded approved dataset, not necessarily all Division I teams.';
    document.querySelectorAll('.benchmark-key span').forEach(el=>{el.textContent=el.textContent.replace('demo average','dataset average')});
    document.querySelector('.footer').textContent='Independent prototype. No NCAA affiliation. Approved dataset only.';
