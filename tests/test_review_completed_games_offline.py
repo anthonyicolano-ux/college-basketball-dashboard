@@ -25,6 +25,17 @@ class CompletedGamesOfflineTests(unittest.TestCase):
                           "unresolved_status_or_score": 1, "wins": 1, "losses": 1})
         self.assertIn("PARTIAL_COVERAGE", result["status"])
 
+    def test_new_current_school_can_be_reviewed(self):
+        result = review([{"id": 11, "homeTeam": "South Dakota", "awayTeam": "X",
+                          "completed": True, "homePoints": 66, "awayPoints": 60}],
+                        {"South Dakota": ["South Dakota"]})
+        self.assertEqual(result["teams"]["South Dakota"]["wins"], 1)
+        self.assertNotIn("Princeton", result["teams"])
+
+    def test_empty_targets_rejected(self):
+        with self.assertRaises(ValueError):
+            review([], {})
+
     def test_ambiguous_alias_is_rejected(self):
         with self.assertRaises(ValueError):
             review([], {"Alabama A&M": ["X"], "Princeton": ["X"]})
