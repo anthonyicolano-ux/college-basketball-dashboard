@@ -9,8 +9,8 @@ const columns = mode === 'players' ? [
 let rows = [], currentSort = mode === 'players' ? 'points' : 'offRating', ascending = false, perGame = true;
 const number = v => (typeof v === 'number' && Number.isFinite(v)) ? v : null;
 function render(){
- const filter = $('search').value.trim().toLowerCase(); const conf = $('conference').value; const team = mode === 'players' ? $('team').value : '';
- const filtered = rows.filter(r=>(!conf || r.conference === conf) && (!team || r.team === team) && (!filter || `${r.name||''} ${r.team||''} ${r.conference||''}`.toLowerCase().includes(filter)));
+ const filter = $('search').value.trim().toLowerCase(); const conf = $('conference').value; const minGames = Number($('minGames')?.value || 0); const team = mode === 'players' ? $('team').value : '';
+ const filtered = rows.filter(r=>(Number(r.games) >= minGames) && (!conf || r.conference === conf) && (!team || r.team === team) && (!filter || `${r.name||''} ${r.team||''} ${r.conference||''}`.toLowerCase().includes(filter)));
  const sorted = [...filtered].sort((a,b)=>{const va=displayValue(a,currentSort),vb=displayValue(b,currentSort);const missingA=va==null,missingB=vb==null;if(missingA||missingB)return Number(missingA)-Number(missingB);const cmp=typeof va === 'string' ? String(va).localeCompare(String(vb)) : va-vb;return ascending?cmp:-cmp;});
  $('count').textContent = `${filtered.length} ${mode === 'players' ? 'players' : 'teams'}`;
  const head=$('head');head.replaceChildren();const hr=document.createElement('tr');columns.forEach(([key,label])=>{const th=document.createElement('th');th.scope='col';const b=document.createElement('button');b.className='sort';b.textContent=label+(currentSort===key?(ascending?' ↑':' ↓'):'');b.addEventListener('click',()=>{if(currentSort===key)ascending=!ascending;else{currentSort=key;ascending=key==='team'||key==='name'||key==='conference'}render()});th.append(b);hr.append(th)});head.append(hr);
@@ -38,4 +38,5 @@ async function init(){
 $('search').addEventListener('input',render);$('conference').addEventListener('change',()=>{updateTeamOptions();render()});
 if(mode==='players')$('team').addEventListener('change',render);
 if($('view')){$('view').addEventListener('change',e=>{perGame=e.target.value==='perGame';render()})}
+if($('minGames'))$('minGames').addEventListener('change',render);
 init();
