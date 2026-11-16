@@ -27,10 +27,12 @@ function updateTeamOptions(){
  selector.value=teams.includes(previous)?previous:'';
 }
 async function init(){
- const status=$('status');try{const [response,sr]=await Promise.all([fetch('data/'+(mode==='players'?'players':'teams')+'.json',{cache:'no-store'}),fetch('data/refresh-status.json',{cache:'no-store'})]);if(!response.ok)throw Error('No dashboard dataset is published');const data=await response.json();if(data.schemaVersion!==1||!Array.isArray(data.rows))throw Error('Dataset format not supported');rows=data.rows;
+ const status=$('status');try{const [response,sr]=await Promise.all([fetch('data/'+(mode==='players'?'players':'teams')+'.json',{cache:'no-store'}),fetch('data/refresh-status.json',{cache:'no-store'})]);if(!response.ok)throw Error('No dashboard dataset is published');const data=await response.json();if(data.schemaVersion!==1||!Array.isArray(data.rows)||typeof data.demo!=='boolean'||data.season!==2027)throw Error('Dataset format or season not supported');
+ if(!data.demo && (data.approvedForPrivateDisplay!==true||typeof data.generatedAt!=='string'||!data.generatedAt||typeof data.scope!=='string'||!data.scope||!data.source))throw Error('Real dataset lacks explicit private-display approval or provenance');
+ rows=data.rows;
  const cs=[...new Set(rows.map(x=>x.conference).filter(Boolean))].sort();for(const c of cs){const o=document.createElement('option');o.value=c;o.textContent=c;$('conference').append(o)}
  updateTeamOptions();
- status.textContent=`${data.demo?'DEMO: synthetic figures only. Not actual NCAA statistics.':'Data published'} · Season ${data.seasonLabel} · ${data.scope||'scope not specified'} · Data generated ${data.generatedAt||'unknown'}.`;
+ status.textContent=`${data.demo?'DEMO: synthetic figures only. Not actual NCAA statistics.':'APPROVED PRIVATE DATASET: descriptive statistics, coverage may be incomplete.'} · Season ${data.seasonLabel} · ${data.scope||'scope not specified'} · Data generated ${data.generatedAt||'unknown'}.`;
  if(sr.ok){const s=await sr.json();$('refresh').textContent=`Latest attempt: ${s.outcome||'not run'}. Last successful data update: ${s.lastSuccessAt||'none'}.`}
  if(data.demo){document.querySelectorAll('.demo').forEach(x=>x.hidden=false)}render();
  }catch(err){status.textContent='No approved data published yet. No provider requests were made. '+err.message;$('count').textContent='0 records';}
