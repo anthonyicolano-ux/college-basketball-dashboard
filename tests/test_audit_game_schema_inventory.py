@@ -14,7 +14,7 @@ class GameSchemaInventoryTests(unittest.TestCase):
         ])
         self.assertEqual(result["records_returned"], 2)
         self.assertEqual(result["status_counts"], {"Final": 1, "Scheduled": 1})
-        self.assertEqual(result["completion_classification"], "UNVERIFIED"
+        self.assertEqual(result["completion_classification"], "UNVERIFIED")
         self.assertEqual(result["field_types"]["homePoints"], {"int": 1, "null": 1})
         self.assertNotIn("fixture-text", str(result))
         self.assertEqual(result["status"], "SCHEMA_INVENTORY_ONLY_COMPLETION_NOT_VERIFIED")
