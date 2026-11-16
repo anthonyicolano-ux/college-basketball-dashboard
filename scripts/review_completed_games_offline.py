@@ -28,7 +28,7 @@ def review(games, team_aliases):
             aliases[label] = canonical
     counts = {team: Counter() for team in targets}
     schema_keys = ("id", "homeTeam", "awayTeam", "status", "homePoints", "awayPoints", "homeWinner", "awayWinner")
-    seen = set()
+    seen = {}
     for game in games:
         if not isinstance(game, dict):
             raise ValueError("Invalid game row")
@@ -41,9 +41,12 @@ def review(games, team_aliases):
         game_id = game.get("id")
         if not isinstance(game_id, (str, int)) or isinstance(game_id, bool):
             raise ValueError("Missing game ID")
+        signature = tuple(game[field] for field in schema_keys if field != "id")
         if game_id in seen:
+            if seen[game_id] != signature:
+                raise ValueError("Conflicting duplicate game ID")
             continue
-        seen.add(game_id)
+        seen[game_id] = signature
         home, away = game.get("homeTeam"), game.get("awayTeam")
         teams = {aliases[x] for x in (home, away) if isinstance(x, str) and x in aliases}
         # Only observed provider status 'final' is a completion candidate.
