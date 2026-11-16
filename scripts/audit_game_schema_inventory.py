@@ -7,6 +7,7 @@ import json
 import os
 import sys
 from collections import Counter
+from audit_targeted_game_quality import inspect_targets
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
@@ -57,6 +58,7 @@ def main():
         with urlopen(request, timeout=30) as response:
             rows = json.load(response)
         print("PRIVATE GAME SCHEMA INVENTORY: " + json.dumps(inspect(rows), sort_keys=True))
+        print("PRIVATE TARGETED GAME QUALITY: " + json.dumps(inspect_targets(rows), sort_keys=True))
         print("READ ONLY: one provider request, no raw game values, KV writes or publication.")
         return 0
     except Exception as error:
