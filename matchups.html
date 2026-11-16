@@ -229,6 +229,8 @@ async function init(){
    document.querySelector('.benchmark-key').previousElementSibling.textContent='Benchmarks use the loaded approved dataset, not necessarily all Division I teams.';
    document.querySelectorAll('.benchmark-key span').forEach(el=>{el.textContent=el.textContent.replace('demo average','dataset average')});
    document.querySelector('.footer').textContent='Independent prototype. No NCAA affiliation. Approved dataset only.';
+   document.querySelector('#compare .compare-grid + h3 + .table-wrap + p').textContent='Green highlights the better figure where direction is meaningful. Lower opponent points, defensive rating and turnovers are better. Pace is neutral.';
+   document.querySelector('#edges').previousElementSibling.textContent='Offense and opposing defense are compared using the loaded approved dataset; sample coverage and opponent strength may vary.';
  }else{
    const scheduleResponse=await fetch('data/demo-schedule.json',{cache:'no-store'});
    if(!scheduleResponse.ok)throw Error('Fictional schedule unavailable');
