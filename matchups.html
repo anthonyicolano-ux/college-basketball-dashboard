@@ -145,7 +145,7 @@ function renderRankings(){
  });
  $('rankSummary').textContent=rows.length+' offensive opportunities across '+eligibleGames(count).length+' fictional games · '+(category==='three'?'Three-pointers':category[0].toUpperCase()+category.slice(1))+' ranking · rolling '+count+'-day window';
 }
-let teams=[],mode='upcoming';
+let teams=[],mode='upcoming',realMode=false;
 const valid=x=>typeof x==='number'&&Number.isFinite(x);
 const fmt=x=>valid(x)?x.toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1}):'N/A';
 function chooseMode(next){
@@ -162,11 +162,11 @@ function render(){
  const game=upcomingGames().find(g=>g.gameId===$('game').value);
  if(game){a=teams.find(t=>t.team===game.homeTeam);b=teams.find(t=>t.team===game.awayTeam)}
  }else{a=teams.find(t=>t.team===$('teamA').value);b=teams.find(t=>t.team===$('teamB').value)}
- if(!a||!b||a.team===b.team){$('results').hidden=true;$('message').textContent='Select two different fictional teams.';return}
+ if(!a||!b||a.team===b.team){$('results').hidden=true;$('message').textContent='Select two different teams.';return}
  $('results').hidden=false;
- $('message').textContent=mode==='upcoming'?'Fictional scheduled pairing — not a real game date or forecast':'Custom comparison — fictional statistics only';
+ $('message').textContent=mode==='upcoming'?'Fictional scheduled pairing — not a real game date or forecast':(realMode?'Custom comparison — approved dataset; descriptive statistics only':'Custom comparison — fictional statistics only');
  for(const [suffix,t] of [['A',a],['B',b]]){
- $('name'+suffix).textContent=t.team;$('record'+suffix).textContent=(t.wins??'—')+'–'+(t.losses??'—')+' demo record';
+ $('name'+suffix).textContent=t.team;$('record'+suffix).textContent=(t.wins??'—')+'–'+(t.losses??'—')+(realMode?' record':' demo record');
  $('conf'+suffix).textContent=t.conference||'Conference unavailable';$('head'+suffix).textContent=t.team;
  }
  const tbody=$('metrics');tbody.replaceChildren();
@@ -188,7 +188,7 @@ function render(){
  const wrap=document.createElement('div');wrap.className='table-wrap';
  const table=document.createElement('table');table.className='benchmark-table';
  const head=document.createElement('thead');const hr=document.createElement('tr');
- for(const title of ['Metric',off.team+' offense',def.team+' allows','Demo avg.','Def. rank']){const th=document.createElement('th');th.scope='col';th.textContent=title;hr.append(th)}
+ for(const title of ['Metric',off.team+' offense',def.team+' allows',(realMode?'Dataset avg.':'Demo avg.'),'Def. rank']){const th=document.createElement('th');th.scope='col';th.textContent=title;hr.append(th)}
  head.append(hr);table.append(head);
  const body=document.createElement('tbody');
  for(const [offKey,label,defKey,higherOff] of allowedMetrics){
@@ -212,10 +212,27 @@ function render(){
 }
 async function init(){
  try{
- const [response,scheduleResponse]=await Promise.all([fetch('data/teams.json',{cache:'no-store'}),fetch('data/demo-schedule.json',{cache:'no-store'})]);
+ const response=await fetch('data/teams.json',{cache:'no-store'});
  if(!response.ok)throw Error('Team dataset unavailable');
- if(!scheduleResponse.ok)throw Error('Fictional schedule unavailable');
- const data=await response.json(),schedule=await scheduleResponse.json();
+ const data=await response.json();
+ if(data.schemaVersion!==1||!Array.isArray(data.rows)||typeof data.demo!=='boolean')throw Error('Unsupported team dataset');
+ realMode=data.demo===false;
+ if(realMode){
+   if(data.approvedForPrivateDisplay!==true||!data.generatedAt||!data.scope||data.rows.length<2)throw Error('Real dataset requires explicit private-display approval and provenance');
+   $('rankings').hidden=true;
+   $('upcomingMode').hidden=true;
+   $('upcomingControls').hidden=true;
+   $('customMode').textContent='Custom team comparison';
+   document.querySelector('header p').textContent='Matchup analysis · Approved team statistics';
+   document.querySelector('main > .notice').replaceChildren(document.createTextNode('Approved team-statistics comparison only. No live schedule or upcoming-game rankings are available; this is not a prediction. Scope: '+data.scope));
+   document.querySelector('#results > .muted:last-child').textContent='Efficiency gaps describe observed differences; they are not projected scores or win probabilities.';
+   document.querySelector('.benchmark-key').previousElementSibling.textContent='Benchmarks use the loaded approved dataset, not necessarily all Division I teams.';
+   document.querySelectorAll('.benchmark-key span').forEach(el=>{el.textContent=el.textContent.replace('demo average','dataset average')});
+   document.querySelector('.footer').textContent='Independent prototype. No NCAA affiliation. Approved dataset only.';
+ }else{
+   const scheduleResponse=await fetch('data/demo-schedule.json',{cache:'no-store'});
+   if(!scheduleResponse.ok)throw Error('Fictional schedule unavailable');
+   const schedule=await scheduleResponse.json();
  if(schedule.schemaVersion!==1||schedule.demo!==true||schedule.season!==2027||schedule.mode!=='rolling-fictional-calendar'||!Array.isArray(schedule.rows))throw Error('Only approved fictional schedule data is supported');
  const ids=new Set();
  for(const g of schedule.rows){
@@ -223,19 +240,21 @@ async function init(){
   ids.add(g.gameId);
  }
  demoGames=schedule.rows.slice().sort((a,b)=>a.dayOffset-b.dayOffset||a.gameId.localeCompare(b.gameId));
- if(data.schemaVersion!==1||data.demo!==true||!Array.isArray(data.rows))throw Error('Only approved synthetic demo data is supported');
+ }
+ if(!Array.isArray(data.rows))throw Error('Team rows missing');
  teams=data.rows.filter(t=>t&&typeof t.team==='string').sort((a,b)=>a.team.localeCompare(b.team));
- if(teams.length<2)throw Error('At least two fictional teams are required');
+ if(teams.length<2)throw Error('At least two teams are required');
  for(const id of ['teamA','teamB'])for(const t of teams){const o=document.createElement('option');o.value=t.team;o.textContent=t.team;$(id).append(o)}
  $('teamB').selectedIndex=1;
- upcomingGames().forEach(g=>{const o=document.createElement('option');o.value=g.gameId;o.textContent=gameLabel(g);$('game').append(o)});
+ if(!realMode)upcomingGames().forEach(g=>{const o=document.createElement('option');o.value=g.gameId;o.textContent=gameLabel(g);$('game').append(o)});
  $('days').addEventListener('change',renderRankings);
  $('category').addEventListener('change',renderRankings);
- renderRankings();
+ if(!realMode)renderRankings();
+ if(realMode)mode='custom';
  $('upcomingMode').addEventListener('click',()=>chooseMode('upcoming'));
  $('customMode').addEventListener('click',()=>chooseMode('custom'));
  $('game').addEventListener('change',render);$('teamA').addEventListener('change',render);$('teamB').addEventListener('change',render);
- render();
+ if(realMode)chooseMode('custom');else render();
  }catch(error){$('message').textContent='Comparison unavailable: '+error.message;$('results').hidden=true}
 }
 init();
