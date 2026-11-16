@@ -22,6 +22,10 @@ class CompletedGamesOfflineTests(unittest.TestCase):
         self.assertEqual(r["teams"]["South Dakota"]["losses"], 1)
         self.assertIn("PARTIAL", r["status"])
 
+    def test_conflicting_duplicate_id_rejected(self):
+        with self.assertRaises(ValueError):
+            review([game(1), game(1, hp=71)], {"South Dakota": ["South Dakota"]})
+
     def test_unresolved_status_and_missing_winner(self):
         rows = [game(1, status="scheduled", hp=None, ap=None, hw=None, aw=None),
                 game(2, status="postponed", hp=None, ap=None, hw=None, aw=None),
