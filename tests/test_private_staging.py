@@ -41,7 +41,7 @@ class StagingTests(unittest.TestCase):
     def test_rejects_nonempty_destination(self):
         self.destination.mkdir()
         (self.destination / "existing.txt").write_text("keep", encoding="utf-8")
-        with self.assertRaisesRegex(ValueError, "must be empty"):
+        with self.assertRaisesRegex(ValueError, "must not exist"):
             stage(self.source, self.destination)
 
     def test_rejects_public_repository_destination(self):
