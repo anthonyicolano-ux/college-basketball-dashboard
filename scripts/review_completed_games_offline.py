@@ -1,4 +1,4 @@
-"""Offline-only review of completed game records for eight known season-stat discrepancies.
+"""Offline-only review of completed game records for current season-stat discrepancies.
 No network access, provider credentials, KV writes, or publication.
 Input is a private local JSON array of game records. Output is counts only.
 Game schema/status semantics must be verified against actual CBBD response before use.
@@ -8,19 +8,17 @@ import json
 from collections import Counter
 from pathlib import Path
 
-TARGETS = ("Alabama A&M", "Central Connecticut State", "Cleveland State",
-           "North Carolina A&T", "Princeton", "Quinnipiac",
-           "Rhode Island", "Tennessee Tech")
-
-
 def review(games, team_aliases):
     if not isinstance(games, list):
         raise ValueError("Expected game list")
     if not isinstance(team_aliases, dict):
         raise ValueError("Expected team alias dictionary")
+    targets = sorted(team_aliases)
+    if not targets or len(targets) > 32 or any(not isinstance(x, str) or not x.strip() for x in targets):
+        raise ValueError('Expected 1 to 32 named schools')
     # Strict caller-supplied aliases; do not fuzzy-match team identities.
     aliases = {}
-    for canonical in TARGETS:
+    for canonical in targets:
         labels = team_aliases.get(canonical, [])
         if not isinstance(labels, list) or not all(isinstance(x, str) and x for x in labels):
             raise ValueError("Invalid aliases")
@@ -28,7 +26,7 @@ def review(games, team_aliases):
             if label in aliases and aliases[label] != canonical:
                 raise ValueError("Ambiguous alias")
             aliases[label] = canonical
-    counts = {team: Counter() for team in TARGETS}
+    counts = {team: Counter() for team in targets}
     seen = set()
     for game in games:
         if not isinstance(game, dict):
@@ -56,7 +54,7 @@ def review(games, team_aliases):
                 counts[team]["unresolved_status_or_score"] += 1
     return {"status": "OFFLINE_PARTIAL_COVERAGE_NOT_SEASON_RECONCILIATION",
             "unique_input_games": len(seen),
-            "teams": {team: dict(sorted(counts[team].items())) for team in TARGETS}}
+            "teams": {team: dict(sorted(counts[team].items())) for team in targets}}
 
 
 def main():
