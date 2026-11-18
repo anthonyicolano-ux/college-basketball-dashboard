@@ -13,6 +13,8 @@ on:
       - 'private-site/test_inspect_private_schema.py'
       - 'private-site/api_budget.py'
       - 'private-site/test_api_budget.py'
+      - 'private-site/fetch_season_snapshot.py'
+      - 'private-site/test_fetch_season_snapshot.py'
   workflow_dispatch:
 jobs:
   validate:
