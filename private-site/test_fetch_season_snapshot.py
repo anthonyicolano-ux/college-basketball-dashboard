@@ -8,7 +8,7 @@ class SnapshotTests(unittest.TestCase):
     def test_two_calls_for_season(self):
         urls = plan(800)
         self.assertEqual(len(urls), 2)
-        self.assertTrue(all("season=2027" in url for url in urls))
+        self.assertEqual(urls, (\n            "https://api.collegebasketballdata.com/stats/team/season?season=2027",\n            "https://api.collegebasketballdata.com/stats/player/season?season=2027",\n        ))
 
     def test_budget_blocks_fetch(self):
         with self.assertRaises(ValueError):
@@ -30,7 +30,7 @@ class SnapshotTests(unittest.TestCase):
                 return b'{"not":"an array"}'
         with patch("fetch_season_snapshot.urlopen", return_value=FakeResponse()):
             with self.assertRaises(ValueError):
-                fetch_json("https://api.collegebasketballdata.com/stats/season/teams?season=2027", "synthetic-token")
+                fetch_json("https://api.collegebasketballdata.com/stats/team/season?season=2027", "synthetic-token")
 
 
 if __name__ == "__main__":
