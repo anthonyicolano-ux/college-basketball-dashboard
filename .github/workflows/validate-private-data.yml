@@ -19,6 +19,8 @@ on:
       - 'private-site/test_normalize_season_snapshot.py'
       - 'private-site/check_provider_mapping.py'
       - 'private-site/test_check_provider_mapping.py'
+      - 'private-site/provider_field_mapping.py'
+      - 'private-site/test_provider_field_mapping.py'
   workflow_dispatch:
 jobs:
   validate:
