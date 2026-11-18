@@ -13,7 +13,7 @@ from urllib.error import HTTPError
 from api_budget import Budget, permit_refresh
 
 BASE = "https://api.collegebasketballdata.com"
-ENDPOINTS = ("stats/season/teams", "stats/season/players")
+ENDPOINTS = ("stats/team/season", "stats/player/season")
 
 
 def plan(remaining):
