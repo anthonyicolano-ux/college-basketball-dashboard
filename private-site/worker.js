@@ -141,9 +141,10 @@ export default {
             'content-type':'application/json; charset=utf-8','cache-control':'private, no-store',
             'x-content-type-options':'nosniff'}});
         }
-        // Do not serve malformed or unapproved expanded records from KV.
-        if(dataset?.rows?.length>203)return new Response('Private player dataset not approved',
-          {status:503,headers:{'cache-control':'no-store'}});
+        // Reject malformed or unapproved expanded payloads without a second KV read.
+        if(Array.isArray(dataset?.rows)&&dataset.rows.length>203)
+          return new Response('Private player dataset not approved',
+            {status:503,headers:{'cache-control':'no-store'}});
       }
     }
     // Legacy pilot player records are still validated before serving; do not
