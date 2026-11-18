@@ -97,3 +97,19 @@ test('unapproved legacy pilot players fail closed',async()=>{
   const response=await get(env,'/data/players.json',await authCookie(env));
   assert.equal(response.status,503);
 });
+
+test('expanded teams reject inconsistent win-loss-game totals',async()=>{
+  const teams=dataset(Array.from({length:30},(_,i)=>team(i)));
+  teams.rows[0].games=4;
+  const env=mock(teams,dataset(Array.from({length:250},(_,i)=>player(i))));
+  const response=await get(env,'/data/teams.json',await authCookie(env));
+  assert.equal(await response.text(),'demo fallback');
+});
+
+test('expanded players reject malformed numeric metrics',async()=>{
+  const players=dataset(Array.from({length:250},(_,i)=>player(i)));
+  players.rows[0].points='invalid';
+  const env=mock(dataset(Array.from({length:30},(_,i)=>team(i))),players);
+  const response=await get(env,'/data/players.json',await authCookie(env));
+  assert.equal(response.status,503);
+});
