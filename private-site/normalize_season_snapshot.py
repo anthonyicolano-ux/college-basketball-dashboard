@@ -27,10 +27,10 @@ def normalize_rows(raw, fields, kind):
     return normalized
 
 
-def build(raw_teams, raw_players, *, display_permission_confirmed=False):
+def build(raw_teams, raw_players, *, display_permission_confirmed=False,\n          expected_team_count=None):
     if display_permission_confirmed is not True:
         raise ValueError("Private-display permission must be explicitly confirmed")
-    team_rows = normalize_rows(raw_teams, TEAM_FIELDS, "teams")
+    team_rows = normalize_rows(raw_teams, TEAM_FIELDS, "teams")\n    if expected_team_count is None or type(expected_team_count) is not int or expected_team_count < 300:\n        raise ValueError("Verified Division I team count of at least 300 is required")\n    if len(team_rows) != expected_team_count:\n        raise ValueError("Incomplete team coverage; refusing to label snapshot full coverage")
     player_rows = normalize_rows(raw_players, PLAYER_FIELDS, "players")
     timestamp = datetime.now(timezone.utc).isoformat()
     meta = dict(schemaVersion=1, season=2027, seasonLabel="2026-27",
@@ -49,12 +49,12 @@ def main():
     parser.add_argument("raw_teams", type=Path)
     parser.add_argument("raw_players", type=Path)
     parser.add_argument("--out", type=Path, required=True)
-    parser.add_argument("--confirm-display-permission", action="store_true")
+    parser.add_argument("--confirm-display-permission", action="store_true")\n    parser.add_argument("--expected-team-count", type=int, required=True)
     args = parser.parse_args()
     raw_teams = json.loads(args.raw_teams.read_text(encoding="utf-8"))
     raw_players = json.loads(args.raw_players.read_text(encoding="utf-8"))
     teams, players = build(raw_teams, raw_players,
-                           display_permission_confirmed=args.confirm_display_permission)
+                           display_permission_confirmed=args.confirm_display_permission,\n                           expected_team_count=args.expected_team_count)
     if args.out.exists() and any(args.out.iterdir()):
         parser.error("Output directory must be empty")
     args.out.mkdir(parents=True, exist_ok=True)
