@@ -43,6 +43,28 @@ class NormalizeTests(unittest.TestCase):
             build(self.teams, self.players, display_permission_confirmed=True,
                   expected_team_count=365)
 
+    def test_nested_mapping_full_coverage(self):
+        teams = [dict(self.teams[0], team=f"Team {i}") for i in range(365)]
+        raw_teams = [{"identity": {"team": row["team"]}, "metrics": row} for row in teams]
+        raw_players = [{"identity": {"name": "Example", "team": "Team 0"},
+                        "metrics": self.players[0]}]
+        team_map = {key: f"metrics.{key}" for key in teams[0]}
+        team_map["team"] = "identity.team"
+        player_map = {key: f"metrics.{key}" for key in self.players[0]}
+        player_map.update(name="identity.name", team="identity.team")
+        output, people = build(raw_teams, raw_players,
+                               display_permission_confirmed=True,
+                               expected_team_count=365,
+                               team_field_paths=team_map,
+                               player_field_paths=player_map)
+        self.assertEqual(len(output["rows"]), 365)
+        self.assertEqual(people["rows"][0]["team"], "Team 0")
+
+    def test_partial_mapping_rejected(self):
+        with self.assertRaisesRegex(ValueError, "Both provider"):
+            build(self.teams, self.players, display_permission_confirmed=True,
+                  expected_team_count=365, team_field_paths={"team": "team"})
+
     def test_unknown_team_rejected(self):
         self.players[0]["team"] = "Unknown"
         with self.assertRaises(ValueError):
