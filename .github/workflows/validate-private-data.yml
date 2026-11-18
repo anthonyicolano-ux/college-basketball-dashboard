@@ -5,6 +5,8 @@ on:
       - 'private-site/validate_full_coverage.py'
       - 'private-site/test_validate_full_coverage.py'
       - '.github/workflows/validate-private-data.yml'
+      - 'private-site/worker.js'
+      - 'private-site/worker.test.mjs'
   workflow_dispatch:
 jobs:
   validate:
@@ -16,3 +18,5 @@ jobs:
           python-version: '3.12'
       - name: Run synthetic validation tests
         run: python -m unittest discover -s private-site -p 'test_validate_full_coverage.py' -v
+      - name: Run Worker route tests
+        run: node --test private-site/worker.test.mjs
