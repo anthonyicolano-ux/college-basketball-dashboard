@@ -27,3 +27,6 @@ For approved future data: PPG = points / games, raw offensive rating = 100 × po
 
 ## Security
 Public pages read only repository-approved JSON. No client API calls or credentials. Future secrets should go to **Settings → Secrets and variables → Actions**, not to files, logs, or chat. A live updater and scheduled workflow have deliberately not been enabled pending rights clearance.
+
+## Private Cloudflare build troubleshooting
+The private Cloudflare Worker is configured to build from the `main` branch. After a merge, check Workers & Pages → college-basketball-private → Deployments for a new Git-triggered build. If no new build appears, inspect the Git integration and build logs rather than redeploying an older Worker version. A repository commit does not itself prove that production was updated. Keep the authenticated Worker, KV bindings, and provider datasets unchanged while diagnosing deployment triggers.
