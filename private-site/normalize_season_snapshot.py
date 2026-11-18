@@ -7,6 +7,7 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 from validate_full_coverage import validate_teams, validate_players
+from provider_field_mapping import map_records
 
 TEAM_FIELDS = ("team", "conference", "games", "wins", "losses", "ppg",
                "oppPpg", "offRating", "defRating", "netRating", "scoringMargin")
@@ -28,9 +29,14 @@ def normalize_rows(raw, fields, kind):
 
 
 def build(raw_teams, raw_players, *, display_permission_confirmed=False,
-          expected_team_count=None):
+          expected_team_count=None, team_field_paths=None, player_field_paths=None):
     if display_permission_confirmed is not True:
         raise ValueError("Private-display permission must be explicitly confirmed")
+    if (team_field_paths is None) != (player_field_paths is None):
+        raise ValueError("Both provider field mappings must be supplied together")
+    if team_field_paths is not None:
+        raw_teams = map_records(raw_teams, team_field_paths, TEAM_FIELDS)
+        raw_players = map_records(raw_players, player_field_paths, PLAYER_FIELDS)
     team_rows = normalize_rows(raw_teams, TEAM_FIELDS, "teams")
     if expected_team_count is None or type(expected_team_count) is not int or expected_team_count < 300:
         raise ValueError("Verified Division I team count of at least 300 is required")
@@ -56,12 +62,18 @@ def main():
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--confirm-display-permission", action="store_true")
     parser.add_argument("--expected-team-count", type=int, required=True)
+    parser.add_argument("--field-mapping", type=Path, help="Reviewed JSON with teams and players field-path dictionaries")
     args = parser.parse_args()
     raw_teams = json.loads(args.raw_teams.read_text(encoding="utf-8"))
     raw_players = json.loads(args.raw_players.read_text(encoding="utf-8"))
+    mappings = json.loads(args.field_mapping.read_text(encoding="utf-8")) if args.field_mapping else None
+    if mappings is not None and (not isinstance(mappings, dict) or set(mappings) != {"teams", "players"}):
+        parser.error("Field mapping must contain exactly teams and players dictionaries")
     teams, players = build(raw_teams, raw_players,
                            display_permission_confirmed=args.confirm_display_permission,
-                           expected_team_count=args.expected_team_count)
+                           expected_team_count=args.expected_team_count,
+                           team_field_paths=mappings["teams"] if mappings else None,
+                           player_field_paths=mappings["players"] if mappings else None)
     if args.out.exists() and any(args.out.iterdir()):
         parser.error("Output directory must be empty")
     args.out.mkdir(parents=True, exist_ok=True)
