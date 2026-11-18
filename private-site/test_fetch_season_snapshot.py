@@ -8,7 +8,10 @@ class SnapshotTests(unittest.TestCase):
     def test_two_calls_for_season(self):
         urls = plan(800)
         self.assertEqual(len(urls), 2)
-        self.assertEqual(urls, (\n            "https://api.collegebasketballdata.com/stats/team/season?season=2027",\n            "https://api.collegebasketballdata.com/stats/player/season?season=2027",\n        ))
+        self.assertEqual(urls, (
+            "https://api.collegebasketballdata.com/stats/team/season?season=2027",
+            "https://api.collegebasketballdata.com/stats/player/season?season=2027",
+        ))
 
     def test_budget_blocks_fetch(self):
         with self.assertRaises(ValueError):
