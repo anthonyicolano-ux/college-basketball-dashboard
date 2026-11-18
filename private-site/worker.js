@@ -55,6 +55,29 @@ export default {
         ['wins','losses','games','ppg','oppPpg','offRating','defRating','netRating','scoringMargin'].every(k=>
           typeof r[k]==='number'&&Number.isFinite(r[k])));
     }
+    // Expanded coverage requires an explicitly approved, bounded dataset.
+    // Existing 1/4/24-team pilot datasets retain their original validation path.
+    function validExpandedTeams(data) {
+      if(data?.schemaVersion!==1||data.season!==2027||data.demo!==false||
+         data.approvedForPrivateDisplay!==true||
+         typeof data.source!=='string'||!data.source.trim()||
+         typeof data.scope!=='string'||!data.scope.trim()||
+         typeof data.generatedAt!=='string'||Number.isNaN(Date.parse(data.generatedAt))||
+         !Array.isArray(data.rows)||data.rows.length<=24||data.rows.length>400) return false;
+      const names=new Set();
+      return data.rows.every(r=>{
+        if(!r||typeof r.team!=='string'||!r.team.trim()||r.team.length>120||
+           names.has(r.team)||typeof r.conference!=='string'||!r.conference.trim())return false;
+        names.add(r.team);
+        const required=['wins','losses','games','ppg','oppPpg','offRating','defRating','netRating','scoringMargin'];
+        if(!required.every(k=>typeof r[k]==='number'&&Number.isFinite(r[k])))return false;
+        if(!['wins','losses','games'].every(k=>Number.isInteger(r[k])&&r[k]>=0))return false;
+        return r.wins+r.losses===r.games;
+      });
+    }
+    function validPrivateTeams(data) {
+      return validTeamPilot(data)||validExpandedTeams(data);
+    }
     // Derive private refresh status from the actual validated KV pilot dataset.
     // Do not use the public demo's stale refresh-status.json for live team data.
     if(url.pathname==='/data/refresh-status.json'&&env.PRIVATE_DATA){
@@ -62,8 +85,8 @@ export default {
       if(raw){
         let dataset=null;
         try { dataset=JSON.parse(raw); } catch {}
-        if(validTeamPilot(dataset)){
-          const status={schemaVersion:1,outcome:'private team pilot published ('+dataset.rows.length+' team'+(dataset.rows.length===1?'':'s')+')',lastSuccessAt:dataset.generatedAt,lastAttemptAt:dataset.generatedAt};
+        if(validPrivateTeams(dataset)){
+          const status={schemaVersion:1,outcome:'private team data published ('+dataset.rows.length+' team'+(dataset.rows.length===1?'':'s')+')',lastSuccessAt:dataset.generatedAt,lastAttemptAt:dataset.generatedAt};
           return new Response(JSON.stringify(status),{headers:{'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'}});
         }
       }
@@ -78,9 +101,9 @@ export default {
         // Private publication is limited to approved dataset sizes and UI-required fields.
         // Never forward arbitrary provider fields or an unbounded KV payload.
         const allowed=['team','conference','wins','losses','games','ppg','oppPpg','offRating','defRating','netRating','scoringMargin','pace','fgPct','threePct','ftPct','eFg','tsPct','rebounds','offRebounds','defRebounds','oppRebounds','reboundingMargin','assists','turnovers'];
-        if(validTeamPilot(dataset)){
+        if(validPrivateTeams(dataset)){
           const rows=dataset.rows.map(source=>Object.fromEntries(allowed.map(key=>[key,source[key]??null])));
-          const publicView={schemaVersion:1,season:2027,seasonLabel:'2026–27',scope:'Private '+rows.length+'-team pilot · Data: CollegeBasketballData.com',generatedAt:dataset.generatedAt,demo:false,rows};
+          const publicView={schemaVersion:1,season:2027,seasonLabel:'2026–27',scope:validExpandedTeams(dataset)?dataset.scope:'Private '+rows.length+'-team pilot · Data: CollegeBasketballData.com',generatedAt:dataset.generatedAt,demo:false,rows};
           return new Response(JSON.stringify(publicView),{headers:{'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'}});
         }
       }
