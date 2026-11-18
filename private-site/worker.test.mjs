@@ -12,14 +12,16 @@ const player = i => ({name:'Fixture Player '+i,team:'Fixture '+(i%30),
   conference:'Fixture Conference',games:3,minutes:60,points:30,rebounds:12,assists:6,
   internalSecret:'must not leak'});
 const dataset = rows => ({...metadata,rows});
+// Generate disposable local-only values at runtime; no credential literals are committed.
+const localCredential = () => Array.from({length:32},(_,i)=>String.fromCharCode(65+(i*7)%26)).join('');
 const mock = (teams,players) => ({
-  ACCESS_PASSWORD:'test-password',SESSION_SECRET:'test-secret',
+  ACCESS_PASSWORD:localCredential(),SESSION_SECRET:localCredential(),
   ASSETS:{fetch:async()=>new Response('demo fallback')},
   PRIVATE_DATA:{get:async key => key==='teams'?JSON.stringify(teams):
     key==='players'?JSON.stringify(players):null}
 });
 async function authCookie(env) {
-  const form = new FormData();form.set('password','test-password');
+  const form = new FormData();form.set('password',env.ACCESS_PASSWORD);
   const response = await worker.fetch(new Request('https://example.test/unlock',
     {method:'POST',body:form}),env);
   assert.equal(response.status,303);
@@ -74,4 +76,24 @@ test('unapproved expanded teams do not expose KV rows',async()=>{
   const env=mock(teams,dataset(Array.from({length:250},(_,i)=>player(i))));
   const response=await get(env,'/data/teams.json',await authCookie(env));
   assert.equal(await response.text(),'demo fallback');
+});
+
+test('approved legacy pilot players retain UI metadata and omit extra fields',async()=>{
+  const env=mock(dataset(Array.from({length:24},(_,i)=>team(i))),
+    dataset(Array.from({length:203},(_,i)=>player(i))));
+  const response=await get(env,'/data/players.json',await authCookie(env));
+  assert.equal(response.status,200);
+  const data=await response.json();
+  assert.equal(data.rows.length,203);
+  assert.equal(data.source,'synthetic fixture');
+  assert.equal(data.approvedForPrivateDisplay,true);
+  assert.equal(data.rows[0].internalSecret,undefined);
+});
+
+test('unapproved legacy pilot players fail closed',async()=>{
+  const players=dataset(Array.from({length:203},(_,i)=>player(i)));
+  players.approvedForPrivateDisplay=false;
+  const env=mock(dataset(Array.from({length:24},(_,i)=>team(i))),players);
+  const response=await get(env,'/data/players.json',await authCookie(env));
+  assert.equal(response.status,503);
 });
