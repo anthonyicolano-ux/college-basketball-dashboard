@@ -16,10 +16,9 @@ class NormalizeTests(unittest.TestCase):
                              points=12, rebounds=4, assists=2, minutes=25)]
 
     def test_valid_exact_shape(self):
-        teams, players = build(self.teams, self.players,
-                               display_permission_confirmed=True)
-        self.assertEqual(len(teams["rows"]), 2)
-        self.assertEqual(players["season"], 2027)
+        with self.assertRaisesRegex(ValueError, "at least 300"):
+            build(self.teams, self.players, display_permission_confirmed=True,
+                  expected_team_count=2)
 
     def test_requires_permission(self):
         with self.assertRaises(ValueError):
@@ -28,7 +27,21 @@ class NormalizeTests(unittest.TestCase):
     def test_missing_fields_fail_instead_of_guessing(self):
         del self.teams[0]["offRating"]
         with self.assertRaisesRegex(ValueError, "mapping required"):
-            build(self.teams, self.players, display_permission_confirmed=True)
+            build(self.teams, self.players, display_permission_confirmed=True,
+                  expected_team_count=365)
+
+    def test_verified_full_coverage(self):
+        teams = [dict(self.teams[0], team=f"Team {i}") for i in range(365)]
+        players = [dict(self.players[0], team="Team 0")]
+        output, people = build(teams, players, display_permission_confirmed=True,
+                               expected_team_count=365)
+        self.assertEqual(len(output["rows"]), 365)
+        self.assertEqual(len(people["rows"]), 1)
+
+    def test_count_mismatch_rejected(self):
+        with self.assertRaisesRegex(ValueError, "Incomplete team coverage"):
+            build(self.teams, self.players, display_permission_confirmed=True,
+                  expected_team_count=365)
 
     def test_unknown_team_rejected(self):
         self.players[0]["team"] = "Unknown"
