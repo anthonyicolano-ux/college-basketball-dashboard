@@ -25,7 +25,7 @@ class SchemaInspectionTests(unittest.TestCase):
         self.assertIn("name", summary["fields"])
         self.assertIn("providerId", summary["fields"])
         self.assertEqual(summary["missingRequiredFields"], ["assists", "minutes", "rebounds"])
-        self.assertTrue(summary["requiredNumericTypesValid"])
+        self.assertFalse(summary["requiredNumericTypesValid"])
         self.assertNotIn(marker, serialized)
         self.assertNotIn("PRIVATE_ID_MARKER", serialized)
         self.assertNotIn("Test Team", serialized)
