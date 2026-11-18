@@ -103,9 +103,47 @@ export default {
         const allowed=['team','conference','wins','losses','games','ppg','oppPpg','offRating','defRating','netRating','scoringMargin','pace','fgPct','threePct','ftPct','eFg','tsPct','rebounds','offRebounds','defRebounds','oppRebounds','reboundingMargin','assists','turnovers'];
         if(validPrivateTeams(dataset)){
           const rows=dataset.rows.map(source=>Object.fromEntries(allowed.map(key=>[key,source[key]??null])));
-          const publicView={schemaVersion:1,season:2027,seasonLabel:'2026–27',scope:validExpandedTeams(dataset)?dataset.scope:'Private '+rows.length+'-team pilot · Data: CollegeBasketballData.com',generatedAt:dataset.generatedAt,demo:false,rows};
+          const publicView={schemaVersion:1,season:2027,seasonLabel:'2026–27',scope:validExpandedTeams(dataset)?dataset.scope:'Private '+rows.length+'-team pilot · Data: CollegeBasketballData.com',source:validExpandedTeams(dataset)?dataset.source:'CollegeBasketballData.com',approvedForPrivateDisplay:true,generatedAt:dataset.generatedAt,demo:false,rows};
           return new Response(JSON.stringify(publicView),{headers:{'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'}});
         }
+      }
+    }
+    // Expanded player datasets must be approved, bounded, and structurally safe.
+    // Keep the current pilot response path for compatibility until its schema is audited.
+    function validExpandedPlayers(data) {
+      if(data?.schemaVersion!==1||data.season!==2027||data.demo!==false||
+         data.approvedForPrivateDisplay!==true||
+         typeof data.source!=='string'||!data.source.trim()||
+         typeof data.scope!=='string'||!data.scope.trim()||
+         typeof data.generatedAt!=='string'||Number.isNaN(Date.parse(data.generatedAt))||
+         !Array.isArray(data.rows)||data.rows.length<=203||data.rows.length>10000)return false;
+      return data.rows.every(r=>r&&typeof r.name==='string'&&r.name.trim()&&r.name.length<=150&&
+        typeof r.team==='string'&&r.team.trim()&&
+        ['games','points','rebounds','assists','minutes'].every(k=>
+          typeof r[k]==='number'&&Number.isFinite(r[k])&&r[k]>=0)&&
+        Number.isInteger(r.games));
+    }
+    if(url.pathname==='/data/players.json'&&env.PRIVATE_DATA){
+      const raw=await env.PRIVATE_DATA.get('players');
+      if(raw){
+        let dataset=null;
+        try {dataset=JSON.parse(raw);}catch{}
+        if(validExpandedPlayers(dataset)){
+          const allowed=['name','team','conference','games','minutes','points','rebounds',
+            'offRebounds','defRebounds','assists','steals','blocks','turnovers',
+            'fgMade','fgAttempted','fgPct','threeMade','threeAttempted','threePct',
+            'ftMade','ftAttempted','ftPct'];
+          const rows=dataset.rows.map(source=>Object.fromEntries(allowed.map(k=>[k,source[k]??null])));
+          const view={schemaVersion:1,season:2027,seasonLabel:'2026–27',
+            scope:dataset.scope,source:dataset.source,approvedForPrivateDisplay:true,
+            generatedAt:dataset.generatedAt,demo:false,rows};
+          return new Response(JSON.stringify(view),{headers:{
+            'content-type':'application/json; charset=utf-8','cache-control':'private, no-store',
+            'x-content-type-options':'nosniff'}});
+        }
+        // Do not serve malformed or unapproved expanded records from KV.
+        if(dataset?.rows?.length>203)return new Response('Private player dataset not approved',
+          {status:503,headers:{'cache-control':'no-store'}});
       }
     }
     // Other datasets retain their existing private KV lookup behavior.
