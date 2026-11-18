@@ -9,6 +9,8 @@ on:
       - 'private-site/worker.test.mjs'
       - 'private-site/player-coverage.mjs'
       - 'private-site/player-coverage.test.mjs'
+      - 'private-site/inspect_private_schema.py'
+      - 'private-site/test_inspect_private_schema.py'
   workflow_dispatch:
 jobs:
   validate:
@@ -19,6 +21,6 @@ jobs:
         with:
           python-version: '3.12'
       - name: Run synthetic validation tests
-        run: python -m unittest discover -s private-site -p 'test_validate_full_coverage.py' -v
+        run: python -m unittest discover -s private-site -p 'test_*.py' -v
       - name: Run Worker route tests
         run: node --test private-site/worker.test.mjs private-site/player-coverage.test.mjs
