@@ -57,6 +57,11 @@ class CoverageValidationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "nonfinite"):
             validate_teams(self.teams)
 
+    def test_malformed_player_team_rejected(self):
+        self.players["rows"][0]["team"] = ["not", "a", "team"]
+        with self.assertRaisesRegex(ValueError, "outside covered"):
+            validate_players(self.players, validate_teams(self.teams))
+
     def test_unknown_player_team_rejected(self):
         self.players["rows"][0]["team"] = "Unknown"
         with self.assertRaisesRegex(ValueError, "outside covered"):
