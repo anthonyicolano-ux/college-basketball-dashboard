@@ -5,6 +5,7 @@ Usage: python private-site/validate_full_coverage.py teams.json players.json
 """
 import json
 import math
+from datetime import datetime
 import sys
 from pathlib import Path
 
@@ -27,6 +28,10 @@ def load(path):
         raise ValueError("Source provenance required")
     if not isinstance(data.get("generatedAt"), str) or not data["generatedAt"].strip():
         raise ValueError("Generation timestamp required")
+    try:
+        datetime.fromisoformat(data["generatedAt"].replace("Z", "+00:00"))
+    except ValueError as exc:
+        raise ValueError("Invalid generation timestamp") from exc
     if not isinstance(data.get("scope"), str) or not data["scope"].strip():
         raise ValueError("Dataset scope required")
     if not isinstance(data.get("rows"), list):
