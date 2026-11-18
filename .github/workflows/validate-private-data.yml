@@ -15,6 +15,10 @@ on:
       - 'private-site/test_api_budget.py'
       - 'private-site/fetch_season_snapshot.py'
       - 'private-site/test_fetch_season_snapshot.py'
+      - 'private-site/normalize_season_snapshot.py'
+      - 'private-site/test_normalize_season_snapshot.py'
+      - 'private-site/check_provider_mapping.py'
+      - 'private-site/test_check_provider_mapping.py'
   workflow_dispatch:
 jobs:
   validate:
