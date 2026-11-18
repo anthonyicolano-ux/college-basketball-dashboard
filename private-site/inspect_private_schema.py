@@ -19,6 +19,17 @@ def summarize(path):
     types = {}
     for key in keys:
         types[key] = sorted({type(row.get(key)).__name__ for row in rows if isinstance(row, dict)})
+    required_player_fields = {"name", "team", "games", "points", "rebounds", "assists", "minutes"}
+    required_team_fields = {"team", "conference", "wins", "losses", "games", "ppg",
+                            "oppPpg", "offRating", "defRating", "netRating", "scoringMargin"}
+    is_player = "name" in keys
+    expected = required_player_fields if is_player else required_team_fields
+    required_types_ok = all(
+        key in types and all(kind in {"int", "float"} for kind in types[key])
+        for key in ({"games", "points", "rebounds", "assists", "minutes"}
+                    if is_player else {"wins", "losses", "games", "ppg", "oppPpg",
+                                       "offRating", "defRating", "netRating", "scoringMargin"})
+    )
     return {
         "schemaVersion": data.get("schemaVersion"),
         "season": data.get("season"),
@@ -30,6 +41,8 @@ def summarize(path):
         "rowCount": len(rows),
         "fields": keys,
         "fieldTypes": types,
+        "missingRequiredFields": sorted(expected - set(keys)),
+        "requiredNumericTypesValid": required_types_ok,
     }
 
 
