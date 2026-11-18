@@ -80,7 +80,7 @@ def validate_players(data, teams):
         name, team = row.get("name"), row.get("team")
         if not isinstance(name, str) or not name.strip() or len(name) > 150:
             raise ValueError(f"Invalid player name in row {i}")
-        if team not in teams:
+        if not isinstance(team, str) or not team.strip() or team not in teams:
             raise ValueError(f"Player team outside covered teams: {team}")
         if any(not number(row, field) for field in PLAYER_NUMBERS):
             raise ValueError(f"Missing or nonfinite player metrics for {name}")
