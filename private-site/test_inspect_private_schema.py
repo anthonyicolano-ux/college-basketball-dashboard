@@ -24,6 +24,8 @@ class SchemaInspectionTests(unittest.TestCase):
         self.assertEqual(summary["rowCount"], 1)
         self.assertIn("name", summary["fields"])
         self.assertIn("providerId", summary["fields"])
+        self.assertEqual(summary["missingRequiredFields"], ["assists", "minutes", "rebounds"])
+        self.assertTrue(summary["requiredNumericTypesValid"])
         self.assertNotIn(marker, serialized)
         self.assertNotIn("PRIVATE_ID_MARKER", serialized)
         self.assertNotIn("Test Team", serialized)
@@ -36,6 +38,8 @@ class SchemaInspectionTests(unittest.TestCase):
             summary = summarize(path)
         self.assertEqual(summary["rowCount"], 0)
         self.assertEqual(summary["fields"], [])
+        self.assertFalse(summary["requiredNumericTypesValid"])
+        self.assertTrue(summary["missingRequiredFields"])
 
 
 if __name__ == "__main__":
