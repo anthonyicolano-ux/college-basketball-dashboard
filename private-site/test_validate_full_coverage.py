@@ -86,6 +86,21 @@ class CoverageValidationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "timestamp"):
                 load(path)
 
+    def test_full_coverage_synthetic_scale(self):
+        self.teams["rows"] = [team(f"Test {i}") for i in range(365)]
+        self.players["rows"] = [
+            player(f"Player {i}", f"Test {i % 365}") for i in range(5500)
+        ]
+        covered = validate_teams(self.teams)
+        validate_players(self.players, covered)
+        self.assertEqual(len(covered), 365)
+
+    def test_full_coverage_missing_team_rejected(self):
+        self.teams["rows"] = [team(f"Test {i}") for i in range(365)]
+        self.players["rows"] = [player("Unmatched Player", "Not Covered")]
+        with self.assertRaisesRegex(ValueError, "outside covered"):
+            validate_players(self.players, validate_teams(self.teams))
+
     def test_oversized_team_dataset_rejected(self):
         self.teams["rows"] = [team(f"Test {i}") for i in range(401)]
         with self.assertRaisesRegex(ValueError, "count"):
