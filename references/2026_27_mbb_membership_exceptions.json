@@ -3,7 +3,7 @@
   "status": "REVIEW_REQUIRED_NOT_APPROVED",
   "scope": "2026-27 men's basketball participation vs full NCAA Division I membership",
   "candidateCount": 365,
-  "notes": "Independent directories disagree on totals (365 vs 366). Do not infer NCAA eligibility or publish solely from directory counts.",
+  "notes": "Four transitioning schools have independent evidence supporting 2026-27 Division I basketball participation; Saint Francis (PA) is absent from the 2026-27 NEC roster. These are scoped exception findings, NOT full 365-school NCAA review.",
   "sources": [
     {
       "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=MBB&type=12",
@@ -31,28 +31,78 @@
       "school": "New Haven",
       "reason": "Official NCAA organization page lists Division II reclassifying to Division I, so active-member status differs from DI basketball participation",
       "officialSource": "https://web3.ncaa.org/directory/orgDetail?id=470",
-      "decision": "pending"
+      "decision": "participation_supported_membership_transitioning",
+      "evidence": [
+        {
+          "url": "https://ncaaorg.s3.amazonaws.com/committees/d1/stratvision/Jun2025D1SVPC_Report.pdf",
+          "finding": "NCAA approved transition beginning August 2025"
+        },
+        {
+          "url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment",
+          "finding": "2026-27 NEC men's basketball roster includes New Haven"
+        }
+      ]
     },
     {
       "school": "West Florida",
       "reason": "2026-27 entrant from Division II; independently confirm MBB participation and classification",
-      "decision": "pending"
+      "decision": "participation_supported_membership_transitioning",
+      "evidence": [
+        {
+          "url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment",
+          "finding": "2026-27 ASUN men's basketball roster includes West Florida"
+        },
+        {
+          "url": "https://www.menscollegebasketball.net/teams",
+          "finding": "2026-27 West Florida game schedule listed"
+        }
+      ]
     },
     {
       "school": "Mercyhurst",
       "reason": "Reclassification; distinguish season participation from full membership",
-      "decision": "pending"
+      "decision": "participation_supported_membership_transitioning",
+      "evidence": [
+        {
+          "url": "https://www.mercyhurst.edu/d1",
+          "finding": "University states all sports moved to DI competition starting 2024-25, during provisional period"
+        },
+        {
+          "url": "https://ncaaorg.s3.amazonaws.com/committees/d1/stratvision/Jun2025D1SVPC_Report.pdf",
+          "finding": "NCAA advanced Mercyhurst to Year Two of DI reclassification"
+        }
+      ]
     },
     {
       "school": "West Georgia",
       "reason": "Reclassification; distinguish season participation from full membership",
-      "decision": "pending"
+      "decision": "participation_supported_membership_transitioning",
+      "evidence": [
+        {
+          "url": "https://ncaaorg.s3.amazonaws.com/committees/d1/stratvision/Jun2025D1SVPC_Report.pdf",
+          "finding": "NCAA advanced West Georgia to Year Two of DI reclassification"
+        },
+        {
+          "url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment",
+          "finding": "2026-27 conference realignment lists West Georgia in UAC"
+        }
+      ]
     },
     {
       "school": "Saint Francis (PA)",
       "reason": "Appears in one independent 366-entry directory with zero games but absent from the current 365-candidate roster; investigate whether it should be excluded",
-      "decision": "pending"
+      "decision": "exclude_from_2026_27_di_conference_roster_supported",
+      "evidence": [
+        {
+          "url": "https://newsespn.pages.dev/mens-college-basketball/story/_/id/49973549/college-basketball-conference-changes-realignment",
+          "finding": "2026-27 NEC roster excludes Saint Francis following move to Division III"
+        },
+        {
+          "url": "https://www.menscollegebasketball.net/teams",
+          "finding": "Site still lists Saint Francis but with zero games"
+        }
+      ]
     }
   ],
-  "releasePolicy": "Require independent school-level review; this exception file is NOT a reviewed membership list."
+  "releasePolicy": "Do not treat exception findings as approved membership. Full reviewed school list and separate display-rights confirmation remain required."
 }
