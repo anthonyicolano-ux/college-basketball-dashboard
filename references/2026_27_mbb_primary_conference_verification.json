@@ -306,10 +306,223 @@
         "Yale"
       ],
       "note": "Compared school-by-school with official conference membership listing (Ivy: 2026-27 men's basketball standings). Display-name aliases normalized; affiliation only, not independent NCAA eligibility certification."
+    },
+    {
+      "conference": "America East",
+      "source": "https://americaeast.com/standings.aspx?path=mbball",
+      "official": true,
+      "schoolCount": 9,
+      "schoolNames": [
+        "Binghamton",
+        "Bryant",
+        "Maine",
+        "New Hampshire",
+        "NJIT",
+        "UAlbany",
+        "UMass Lowell",
+        "UMBC",
+        "Vermont"
+      ],
+      "note": "Matched 2026-27 basketball team names against official conference standings, conference schedule, NCAA directory, or official conference media guide. Membership verification only; reclassification/championship eligibility requires separate check."
+    },
+    {
+      "conference": "ASUN",
+      "source": "https://asunsports.org/standings.aspx?path=mbball",
+      "official": true,
+      "schoolCount": 8,
+      "schoolNames": [
+        "Bellarmine",
+        "FGCU",
+        "Jacksonville",
+        "Lipscomb",
+        "North Florida",
+        "Queens",
+        "Stetson",
+        "West Florida"
+      ],
+      "note": "Matched 2026-27 basketball team names against official conference standings, conference schedule, NCAA directory, or official conference media guide. Membership verification only; reclassification/championship eligibility requires separate check."
+    },
+    {
+      "conference": "Big South",
+      "source": "https://bigsouthsports.com/standings.aspx?path=mbball",
+      "official": true,
+      "schoolCount": 9,
+      "schoolNames": [
+        "Charleston Southern",
+        "Gardner-Webb",
+        "High Point",
+        "Longwood",
+        "Presbyterian",
+        "Radford",
+        "UNC Asheville",
+        "USC Upstate",
+        "Winthrop"
+      ],
+      "note": "Matched 2026-27 basketball team names against official conference standings, conference schedule, NCAA directory, or official conference media guide. Membership verification only; reclassification/championship eligibility requires separate check."
+    },
+    {
+      "conference": "CAA",
+      "source": "https://caasports.com/news/2026/5/20/caa-announces-mens-basketball-conference-opponents-for-2026-27-season.aspx",
+      "official": true,
+      "schoolCount": 13,
+      "schoolNames": [
+        "Campbell",
+        "Charleston",
+        "Drexel",
+        "Elon",
+        "Hampton",
+        "Hofstra",
+        "Monmouth",
+        "North Carolina A&T",
+        "Northeastern",
+        "Stony Brook",
+        "Towson",
+        "UNC Wilmington",
+        "William & Mary"
+      ],
+      "note": "Matched 2026-27 basketball team names against official conference standings, conference schedule, NCAA directory, or official conference media guide. Membership verification only; reclassification/championship eligibility requires separate check."
+    },
+    {
+      "conference": "MAC",
+      "source": "https://getsomemaction.com/standings.aspx?path=mbball",
+      "official": true,
+      "schoolCount": 12,
+      "schoolNames": [
+        "Akron",
+        "Ball State",
+        "Bowling Green",
+        "Buffalo",
+        "Central Michigan",
+        "Eastern Michigan",
+        "Kent State",
+        "Miami (Ohio)",
+        "Ohio",
+        "Toledo",
+        "UMass",
+        "Western Michigan"
+      ],
+      "note": "Matched 2026-27 basketball team names against official conference standings, conference schedule, NCAA directory, or official conference media guide. Membership verification only; reclassification/championship eligibility requires separate check."
+    },
+    {
+      "conference": "Missouri Valley",
+      "source": "https://mvc-sports.com/news/2026/9/16/arch-madness-missouri-valley-announces-mens-basketball-2026-27-conference-slate.aspx",
+      "official": true,
+      "schoolCount": 11,
+      "schoolNames": [
+        "Belmont",
+        "Bradley",
+        "Drake",
+        "Evansville",
+        "Illinois State",
+        "Indiana State",
+        "Murray State",
+        "Northern Iowa",
+        "Southern Illinois",
+        "UIC",
+        "Valparaiso"
+      ],
+      "note": "Matched 2026-27 basketball team names against official conference standings, conference schedule, NCAA directory, or official conference media guide. Membership verification only; reclassification/championship eligibility requires separate check."
+    },
+    {
+      "conference": "Mountain West",
+      "source": "https://mountainwest.sidearmsports.com/news/2026/9/29/mountain-west-announces-2026-27-mens-basketball-conference-and-broadcast-schedule.aspx",
+      "official": true,
+      "schoolCount": 10,
+      "schoolNames": [
+        "Air Force",
+        "Grand Canyon",
+        "Hawai'i",
+        "Nevada",
+        "New Mexico",
+        "San José State",
+        "UC Davis",
+        "UNLV",
+        "UTEP",
+        "Wyoming"
+      ],
+      "note": "Matched 2026-27 basketball team names against official conference standings, conference schedule, NCAA directory, or official conference media guide. Membership verification only; reclassification/championship eligibility requires separate check."
+    },
+    {
+      "conference": "OVC",
+      "source": "https://ovcsports.com/news/2026/7/10/mens-basketball-ovc-releases-2026-27-conference-basketball-schedule.aspx",
+      "official": true,
+      "schoolCount": 9,
+      "schoolNames": [
+        "Eastern Illinois",
+        "Lindenwood",
+        "Morehead State",
+        "Southeast Missouri",
+        "SIUE",
+        "Southern Indiana",
+        "Tennessee State",
+        "UT Martin",
+        "Western Illinois"
+      ],
+      "note": "Matched 2026-27 basketball team names against official conference standings, conference schedule, NCAA directory, or official conference media guide. Membership verification only; reclassification/championship eligibility requires separate check."
+    },
+    {
+      "conference": "Patriot",
+      "source": "https://patriotleague.org/standings.aspx?path=mbball",
+      "official": true,
+      "schoolCount": 10,
+      "schoolNames": [
+        "American",
+        "Army",
+        "Boston University",
+        "Bucknell",
+        "Colgate",
+        "Holy Cross",
+        "Lafayette",
+        "Lehigh",
+        "Loyola Maryland",
+        "Navy"
+      ],
+      "note": "Matched 2026-27 basketball team names against official conference standings, conference schedule, NCAA directory, or official conference media guide. Membership verification only; reclassification/championship eligibility requires separate check."
+    },
+    {
+      "conference": "Southland",
+      "source": "https://web3.ncaa.org/directory/orgDetail?id=914",
+      "official": true,
+      "schoolCount": 12,
+      "schoolNames": [
+        "East Texas A&M",
+        "Houston Christian",
+        "Lamar",
+        "LSU New Orleans",
+        "McNeese",
+        "Nicholls",
+        "Northwestern State",
+        "Southeastern Louisiana",
+        "Stephen F. Austin",
+        "Texas A&M-Corpus Christi",
+        "UIW",
+        "UTRGV"
+      ],
+      "note": "Matched 2026-27 basketball team names against official conference standings, conference schedule, NCAA directory, or official conference media guide. Membership verification only; reclassification/championship eligibility requires separate check."
+    },
+    {
+      "conference": "SoCon",
+      "source": "https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/athletics.wofford.edu/documents/2026/8/27/2026_VB_MG_V2.pdf",
+      "official": true,
+      "schoolCount": 11,
+      "schoolNames": [
+        "Chattanooga",
+        "The Citadel",
+        "East Tennessee State",
+        "Furman",
+        "Mercer",
+        "Samford",
+        "Tennessee Tech",
+        "UNC Greensboro",
+        "VMI",
+        "Western Carolina",
+        "Wofford"
+      ],
+      "note": "Matched 2026-27 basketball team names against official conference standings, conference schedule, NCAA directory, or official conference media guide. Membership verification only; reclassification/championship eligibility requires separate check."
     }
   ],
-  "verifiedSchoolConferencePairs": 177,
-  "unverifiedCandidateSchoolConferencePairs": 188,
+  "verifiedSchoolConferencePairs": 291,
+  "unverifiedCandidateSchoolConferencePairs": 74,
   "limitations": [
     "Conference membership supports participation but does not independently establish NCAA eligibility status for every transitioning program.",
     "The 18 matches are a partial audit; do not mark the full 365-school roster reviewed:true.",
