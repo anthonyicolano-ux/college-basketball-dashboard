@@ -27,6 +27,7 @@ on:
       - 'private-site/test_free_tier_readiness.py'
       - 'private-site/prepare_private_release.py'
       - 'private-site/test_prepare_private_release.py'
+      - 'private-site/publish_private_kv.py'
   workflow_dispatch:
 jobs:
   validate:
