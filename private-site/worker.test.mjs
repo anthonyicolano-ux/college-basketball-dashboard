@@ -150,3 +150,26 @@ test('missing versioned player data fails closed instead of using legacy data',a
   const response=await get(env,'/data/players.json',await authCookie(env));
   assert.equal(response.status,503);
 });
+
+test('client can pin an immutable release across team and player requests',async()=>{
+  const releaseA='a'.repeat(16)+'-'+'b'.repeat(16);
+  const releaseB='c'.repeat(16)+'-'+'d'.repeat(16);
+  const teams=dataset(Array.from({length:365},(_,i)=>team(i)));
+  const players=dataset(Array.from({length:365},(_,i)=>({...player(i),team:'Fixture '+i})));
+  const env=mock(null,null);
+  env.PRIVATE_DATA.get=async key=>{
+    if(key==='active-release')return JSON.stringify({release:releaseB});
+    if(key==='release:'+releaseA+':teams')return JSON.stringify(teams);
+    if(key==='release:'+releaseA+':players')return JSON.stringify(players);
+    return null;
+  };
+  const cookie=await authCookie(env);
+  const first=await get(env,'/data/teams.json?release='+releaseA,cookie);
+  const second=await get(env,'/data/players.json?release='+releaseA,cookie);
+  assert.equal(first.status,200);
+  assert.equal(second.status,200);
+  assert.equal((await first.json()).release,releaseA);
+  assert.equal((await second.json()).release,releaseA);
+  const bad=await get(env,'/data/teams.json?release=invalid',cookie);
+  assert.equal(bad.status,400);
+});
