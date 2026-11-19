@@ -7,7 +7,7 @@ The provider labels points.total as season total; convert to per-game explicitly
 from math import isfinite
 
 TEAM_PATHS = {
-    "team": "team", "conference": "conference", "games": "games",
+    "team": "team", "teamId": "teamId", "conference": "conference", "games": "games",
     "wins": "wins", "losses": "losses",
     "pointsTotal": "teamStats.points.total",
     "opponentPointsTotal": "opponentStats.points.total",
@@ -15,7 +15,7 @@ TEAM_PATHS = {
     "defRating": "opponentStats.rating",
 }
 PLAYER_PATHS = {
-    "name": "name", "team": "team", "games": "games",
+    "name": "name", "team": "team", "teamId": "teamId", "games": "games",
     "points": "points", "rebounds": "rebounds.total",
     "assists": "assists", "minutes": "minutes",
     "id": "athleteId",
@@ -39,7 +39,7 @@ def map_team(row):
     mapped = {key: at(row,path) for key,path in TEAM_PATHS.items()}
     games = finite(mapped["games"],"games")
     if games <= 0:
-        raise ValueError("Zero-game teams require separate handling")
+        raise ValueError("Zero-game team: exclude only after reviewing coverage")
     points = finite(mapped.pop("pointsTotal"),"team points")
     opp = finite(mapped.pop("opponentPointsTotal"),"opponent points")
     mapped["ppg"] = points / games
