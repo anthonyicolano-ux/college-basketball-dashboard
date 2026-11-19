@@ -136,10 +136,180 @@
         "UConn"
       ],
       "note": "Official conference site explicitly lists current member institutions; matched school-by-school against candidate roster, including separately tracked Kansas/UConn"
+    },
+    {
+      "conference": "ACC",
+      "source": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "official": true,
+      "schoolCount": 18,
+      "schoolNames": [
+        "Boston College",
+        "California",
+        "Clemson",
+        "Florida State",
+        "Georgia Tech",
+        "Louisville",
+        "Miami (Florida)",
+        "NC State",
+        "North Carolina",
+        "Notre Dame",
+        "Pittsburgh",
+        "SMU",
+        "Stanford",
+        "Syracuse",
+        "Virginia",
+        "Virginia Tech",
+        "Wake Forest",
+        "Duke"
+      ],
+      "note": "Compared school-by-school with official conference membership listing (Ivy: 2026-27 men's basketball standings). Display-name aliases normalized; affiliation only, not independent NCAA eligibility certification."
+    },
+    {
+      "conference": "Atlantic 10",
+      "source": "https://admin.atlantic10.com/news/2026/9/30/championships-atlantic-10-conference-taps-playfly-sports-for-men-s-basketball-tournament-ticket-sales.aspx",
+      "official": true,
+      "schoolCount": 14,
+      "schoolNames": [
+        "Davidson",
+        "Dayton",
+        "Duquesne",
+        "Fordham",
+        "George Mason",
+        "George Washington",
+        "La Salle",
+        "Loyola Chicago",
+        "Rhode Island",
+        "Richmond",
+        "Saint Joseph's",
+        "Saint Louis",
+        "St. Bonaventure",
+        "VCU"
+      ],
+      "note": "Compared school-by-school with official conference membership listing (Ivy: 2026-27 men's basketball standings). Display-name aliases normalized; affiliation only, not independent NCAA eligibility certification."
+    },
+    {
+      "conference": "American",
+      "source": "https://d1hg55pco9dr97.cloudfront.net/news/2026/10/12/administration-jmu-to-the-american-frequently-asked-questions",
+      "official": true,
+      "schoolCount": 13,
+      "schoolNames": [
+        "Charlotte",
+        "East Carolina",
+        "Florida Atlantic",
+        "Memphis",
+        "North Texas",
+        "Rice",
+        "Temple",
+        "Tulane",
+        "Tulsa",
+        "UAB",
+        "USF",
+        "UTSA",
+        "Wichita State"
+      ],
+      "note": "Compared school-by-school with official conference membership listing (Ivy: 2026-27 men's basketball standings). Display-name aliases normalized; affiliation only, not independent NCAA eligibility certification."
+    },
+    {
+      "conference": "Big Sky",
+      "source": "https://bigskyconf.com/news/2026/7/1/general-the-big-sky-conference-grows-membership-to-11-full-time-members.aspx",
+      "official": true,
+      "schoolCount": 11,
+      "schoolNames": [
+        "Eastern Washington",
+        "Idaho",
+        "Idaho State",
+        "Montana",
+        "Montana State",
+        "Northern Arizona",
+        "Northern Colorado",
+        "Portland State",
+        "Southern Utah",
+        "Utah Tech",
+        "Weber State"
+      ],
+      "note": "Compared school-by-school with official conference membership listing (Ivy: 2026-27 men's basketball standings). Display-name aliases normalized; affiliation only, not independent NCAA eligibility certification."
+    },
+    {
+      "conference": "Big West",
+      "source": "https://bigwest.org/news/2026/7/1/california-baptist-sacramento-state-and-utah-valley-officially-join-the-big-west.aspx",
+      "official": true,
+      "schoolCount": 12,
+      "schoolNames": [
+        "Cal Poly",
+        "Cal State Bakersfield",
+        "Cal State Fullerton",
+        "Cal State Northridge",
+        "California Baptist",
+        "Long Beach State",
+        "Sacramento State",
+        "UC Irvine",
+        "UC Riverside",
+        "UC San Diego",
+        "UC Santa Barbara",
+        "Utah Valley"
+      ],
+      "note": "Compared school-by-school with official conference membership listing (Ivy: 2026-27 men's basketball standings). Display-name aliases normalized; affiliation only, not independent NCAA eligibility certification."
+    },
+    {
+      "conference": "Conference USA",
+      "source": "https://conferenceusa.com/sports/2023/6/22/members_2025.aspx",
+      "official": true,
+      "schoolCount": 10,
+      "schoolNames": [
+        "Delaware",
+        "FIU",
+        "Jacksonville State",
+        "Kennesaw State",
+        "Liberty",
+        "Middle Tennessee",
+        "Missouri State",
+        "New Mexico State",
+        "Sam Houston",
+        "Western Kentucky"
+      ],
+      "note": "Compared school-by-school with official conference membership listing (Ivy: 2026-27 men's basketball standings). Display-name aliases normalized; affiliation only, not independent NCAA eligibility certification."
+    },
+    {
+      "conference": "Horizon",
+      "source": "https://horizonleague.org/sports/2017/9/5/GEN_0905170006.aspx",
+      "official": true,
+      "schoolCount": 12,
+      "schoolNames": [
+        "Cleveland State",
+        "Detroit Mercy",
+        "Green Bay",
+        "IU Indy",
+        "Milwaukee",
+        "Northern Illinois",
+        "Northern Kentucky",
+        "Oakland",
+        "Purdue Fort Wayne",
+        "Robert Morris",
+        "Wright State",
+        "Youngstown State"
+      ],
+      "note": "Compared school-by-school with official conference membership listing (Ivy: 2026-27 men's basketball standings). Display-name aliases normalized; affiliation only, not independent NCAA eligibility certification."
+    },
+    {
+      "conference": "Ivy",
+      "source": "https://ivyleague.com/standings.aspx?standings=2298",
+      "official": true,
+      "schoolCount": 8,
+      "schoolNames": [
+        "Brown",
+        "Columbia",
+        "Cornell",
+        "Dartmouth",
+        "Harvard",
+        "Penn",
+        "Princeton",
+        "Yale"
+      ],
+      "note": "Compared school-by-school with official conference membership listing (Ivy: 2026-27 men's basketball standings). Display-name aliases normalized; affiliation only, not independent NCAA eligibility certification."
     }
   ],
-  "verifiedSchoolConferencePairs": 79,
-  "unverifiedCandidateSchoolConferencePairs": 286,
+  "verifiedSchoolConferencePairs": 177,
+  "unverifiedCandidateSchoolConferencePairs": 188,
   "limitations": [
     "Conference membership supports participation but does not independently establish NCAA eligibility status for every transitioning program.",
     "The 18 matches are a partial audit; do not mark the full 365-school roster reviewed:true.",
