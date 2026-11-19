@@ -29,6 +29,11 @@ on:
       - 'private-site/test_prepare_private_release.py'
       - 'private-site/publish_private_kv.py'
       - 'private-site/test_publish_private_kv.py'
+      - 'private-site/frontend-release.test.mjs'
+      - 'assets/release.js'
+      - 'assets/app.js'
+      - 'index.html'
+      - 'players.html'
   workflow_dispatch:
 jobs:
   validate:
@@ -41,4 +46,4 @@ jobs:
       - name: Run synthetic validation tests
         run: python -m unittest discover -s private-site -p 'test_*.py' -v
       - name: Run Worker route tests
-        run: node --test private-site/worker.test.mjs private-site/player-coverage.test.mjs
+        run: node --test private-site/worker.test.mjs private-site/player-coverage.test.mjs private-site/frontend-release.test.mjs
