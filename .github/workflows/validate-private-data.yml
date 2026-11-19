@@ -2,6 +2,14 @@ name: Validate private basketball data code
 on:
   pull_request:
     paths:
+      - 'private-site/build_official_membership_review_sheet.py'
+      - 'private-site/finalize_official_membership_review.py'
+      - 'private-site/test_finalize_official_membership_review.py'
+      - 'private-site/resolve_reviewed_membership_from_kv.py'
+      - 'private-site/test_resolve_reviewed_membership_from_kv.py'
+      - 'references/2026_27_mbb_membership_exceptions.json'
+      - 'references/di_mens_basketball_candidates_2026_27.json'
+      - 'references/di_mens_basketball_2026_27.json'
       - 'private-site/create_membership_review.py'
       - 'private-site/finalize_membership_review.py'
       - 'private-site/test_membership_review_workflow.py'
