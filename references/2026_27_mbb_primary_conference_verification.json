@@ -2,7 +2,7 @@
   "season": 2027,
   "reviewedAt": "2026-11-19",
   "scope": "2026-27 men's basketball conference membership cross-check",
-  "status": "PARTIAL_PRIMARY_SOURCE_CONFIRMED_NOT_FULL_NCAA_REVIEW",
+  "status": "ALL_32_CONFERENCE_AFFILIATIONS_CHECKED_NCAA_ELIGIBILITY_PENDING",
   "conferences": [
     {
       "conference": "NEC",
@@ -519,10 +519,147 @@
         "Wofford"
       ],
       "note": "Matched 2026-27 basketball team names against official conference standings, conference schedule, NCAA directory, or official conference media guide. Membership verification only; reclassification/championship eligibility requires separate check."
+    },
+    {
+      "conference": "Metro",
+      "source": "https://themetro.org/sports/2017/6/20/GEN_0620175706.aspx",
+      "official": true,
+      "schoolCount": 13,
+      "schoolNames": [
+        "Canisius",
+        "Fairfield",
+        "Iona",
+        "Manhattan",
+        "Marist",
+        "Merrimack",
+        "Mount St. Mary's",
+        "Niagara",
+        "Quinnipiac",
+        "Rider",
+        "Sacred Heart",
+        "Saint Peter's",
+        "Siena"
+      ],
+      "note": "Matched school-by-school to 2026-27 official conference membership, standings or basketball schedules. Conference affiliation only; NCAA reclassification and championship eligibility are separate."
+    },
+    {
+      "conference": "MEAC",
+      "source": "https://meacsports.com/sports/2017/9/8/About%20The%20MEAC_0908173619.aspx",
+      "official": true,
+      "schoolCount": 8,
+      "schoolNames": [
+        "Coppin State",
+        "Delaware State",
+        "Howard",
+        "Maryland Eastern Shore",
+        "Morgan State",
+        "NC Central",
+        "Norfolk State",
+        "South Carolina State"
+      ],
+      "note": "Matched school-by-school to 2026-27 official conference membership, standings or basketball schedules. Conference affiliation only; NCAA reclassification and championship eligibility are separate."
+    },
+    {
+      "conference": "SWAC",
+      "source": "https://swac.org/standings.aspx?path=mbball",
+      "official": true,
+      "schoolCount": 12,
+      "schoolNames": [
+        "Alabama A&M",
+        "Alabama State",
+        "Alcorn State",
+        "Arkansas-Pine Bluff",
+        "Bethune-Cookman",
+        "Florida A&M",
+        "Grambling",
+        "Jackson State",
+        "Mississippi Valley State",
+        "Prairie View A&M",
+        "Southern",
+        "Texas Southern"
+      ],
+      "note": "Matched school-by-school to 2026-27 official conference membership, standings or basketball schedules. Conference affiliation only; NCAA reclassification and championship eligibility are separate."
+    },
+    {
+      "conference": "Summit",
+      "source": "https://thesummitleague.org/standings.aspx?path=mbball",
+      "official": true,
+      "schoolCount": 8,
+      "schoolNames": [
+        "Kansas City",
+        "North Dakota",
+        "North Dakota State",
+        "Omaha",
+        "Oral Roberts",
+        "South Dakota",
+        "South Dakota State",
+        "St. Thomas"
+      ],
+      "note": "Matched school-by-school to 2026-27 official conference membership, standings or basketball schedules. Conference affiliation only; NCAA reclassification and championship eligibility are separate."
+    },
+    {
+      "conference": "Sun Belt",
+      "source": "https://sunbeltsports.org/standings.aspx?path=mbball",
+      "official": true,
+      "schoolCount": 14,
+      "schoolNames": [
+        "App State",
+        "Arkansas State",
+        "Coastal Carolina",
+        "Georgia Southern",
+        "Georgia State",
+        "James Madison",
+        "Louisiana",
+        "Louisiana Tech",
+        "Marshall",
+        "Old Dominion",
+        "South Alabama",
+        "Southern Miss",
+        "Troy",
+        "UL Monroe"
+      ],
+      "note": "Matched school-by-school to 2026-27 official conference membership, standings or basketball schedules. Conference affiliation only; NCAA reclassification and championship eligibility are separate."
+    },
+    {
+      "conference": "UAC",
+      "source": "https://uacsports.com/news/2026/7/15/united-athletic-conference-announces-2026-27-mens-womens-basketball-schedules.aspx",
+      "official": true,
+      "schoolCount": 9,
+      "schoolNames": [
+        "Abilene Christian",
+        "Austin Peay",
+        "Central Arkansas",
+        "Eastern Kentucky",
+        "Little Rock",
+        "North Alabama",
+        "Tarleton State",
+        "UT Arlington",
+        "West Georgia"
+      ],
+      "note": "Matched school-by-school to 2026-27 official conference membership, standings or basketball schedules. Conference affiliation only; NCAA reclassification and championship eligibility are separate."
+    },
+    {
+      "conference": "WCC",
+      "source": "https://wccsports.com/standings.aspx?path=mbball",
+      "official": true,
+      "schoolCount": 10,
+      "schoolNames": [
+        "Denver",
+        "Loyola Marymount",
+        "Pacific",
+        "Pepperdine",
+        "Portland",
+        "Saint Mary's",
+        "San Diego",
+        "San Francisco",
+        "Santa Clara",
+        "Seattle"
+      ],
+      "note": "Matched school-by-school to 2026-27 official conference membership, standings or basketball schedules. Conference affiliation only; NCAA reclassification and championship eligibility are separate."
     }
   ],
-  "verifiedSchoolConferencePairs": 291,
-  "unverifiedCandidateSchoolConferencePairs": 74,
+  "verifiedSchoolConferencePairs": 365,
+  "unverifiedCandidateSchoolConferencePairs": 0,
   "limitations": [
     "Conference membership supports participation but does not independently establish NCAA eligibility status for every transitioning program.",
     "The 18 matches are a partial audit; do not mark the full 365-school roster reviewed:true.",
