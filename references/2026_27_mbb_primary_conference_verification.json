@@ -1,0 +1,51 @@
+{
+  "season": 2027,
+  "reviewedAt": "2026-11-19",
+  "scope": "2026-27 men's basketball conference membership cross-check",
+  "status": "PARTIAL_PRIMARY_SOURCE_CONFIRMED_NOT_FULL_NCAA_REVIEW",
+  "conferences": [
+    {
+      "conference": "NEC",
+      "source": "https://necsports.com/sports/2026/7/1/gen_aboutnec_2627.aspx",
+      "official": true,
+      "schoolCount": 9,
+      "schoolNames": [
+        "Central Connecticut State",
+        "Chicago State",
+        "FDU",
+        "Le Moyne",
+        "LIU",
+        "Mercyhurst",
+        "New Haven",
+        "Stonehill",
+        "Wagner"
+      ],
+      "note": "NEC officially lists nine current member institutions; Mercyhurst and New Haven are reclassifying"
+    },
+    {
+      "conference": "Pac-12",
+      "source": "https://pac-12.com/news/2026/6/30/general-the-new-pac-12-conference-officially-launches-with-the-addition-of-seven-full-time-members.aspx",
+      "official": true,
+      "schoolCount": 9,
+      "schoolNames": [
+        "Boise State",
+        "Colorado State",
+        "Fresno State",
+        "Gonzaga",
+        "Oregon State",
+        "San Diego State",
+        "Texas State",
+        "Utah State",
+        "Washington State"
+      ],
+      "note": "Pac-12 official release names all nine members and confirms nine men's basketball teams"
+    }
+  ],
+  "verifiedSchoolConferencePairs": 18,
+  "unverifiedCandidateSchoolConferencePairs": 347,
+  "limitations": [
+    "Conference membership supports participation but does not independently establish NCAA eligibility status for every transitioning program.",
+    "The 18 matches are a partial audit; do not mark the full 365-school roster reviewed:true.",
+    "No CBBD API requests used."
+  ]
+}
