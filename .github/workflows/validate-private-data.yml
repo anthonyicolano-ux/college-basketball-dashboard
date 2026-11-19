@@ -2,6 +2,10 @@ name: Validate private basketball data code
 on:
   pull_request:
     paths:
+      - 'private-site/create_membership_review.py'
+      - 'private-site/finalize_membership_review.py'
+      - 'private-site/test_membership_review_workflow.py'
+      - '.github/workflows/one-pass-private-basketball-release.yml'
       - 'private-site/audit_real_provider_mapping.py'
       - 'private-site/test_audit_real_provider_mapping.py'
       - 'private-site/audit_division_one_membership.py'
