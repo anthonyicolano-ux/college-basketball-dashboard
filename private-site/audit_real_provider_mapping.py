@@ -40,10 +40,16 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("raw_teams", type=Path)
     parser.add_argument("raw_players", type=Path)
+    parser.add_argument("--reviewed-membership", type=Path)
     args = parser.parse_args()
+    teams = json.loads(args.raw_teams.read_text())
+    players = json.loads(args.raw_players.read_text())
+    if args.reviewed_membership:
+        from filter_division_one import load_approved_ids, filter_division_one
+        teams, players = filter_division_one(teams, players, load_approved_ids(args.reviewed_membership))
     report = {
-        "teams": inspect(json.loads(args.raw_teams.read_text()), TEAM_PATHS),
-        "players": inspect(json.loads(args.raw_players.read_text()), PLAYER_PATHS),
+        "teams": inspect(teams, TEAM_PATHS),
+        "players": inspect(players, PLAYER_PATHS),
     }
     print(json.dumps(report, indent=2))
     if any(group["missingByField"] or group["wrongTypeByField"] for group in report.values()):
