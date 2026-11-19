@@ -4,6 +4,8 @@ on:
     paths:
       - 'private-site/reconcile_ncaa_sponsorship.py'
       - 'private-site/test_reconcile_ncaa_sponsorship.py'
+      - 'private-site/test_real_ncaa_evidence_matrix.py'
+      - 'references/2026_27_mbb_ncaa_sport_evidence.json'
       - 'references/2026_27_mbb_school_evidence_matrix.json'
       - 'private-site/build_official_membership_review_sheet.py'
       - 'private-site/finalize_official_membership_review.py'
