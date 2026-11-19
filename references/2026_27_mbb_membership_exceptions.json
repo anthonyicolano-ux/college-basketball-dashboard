@@ -1,0 +1,58 @@
+{
+  "season": 2027,
+  "status": "REVIEW_REQUIRED_NOT_APPROVED",
+  "scope": "2026-27 men's basketball participation vs full NCAA Division I membership",
+  "candidateCount": 365,
+  "notes": "Independent directories disagree on totals (365 vs 366). Do not infer NCAA eligibility or publish solely from directory counts.",
+  "sources": [
+    {
+      "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=MBB&type=12",
+      "type": "official sport-filter directory",
+      "limitation": "school-level listing not extracted or verified"
+    },
+    {
+      "url": "https://www.ncaa.org/division-i/member-schools/",
+      "type": "official membership overview",
+      "limitation": "not a basketball participation roster"
+    },
+    {
+      "url": "https://www.menscollegebasketball.net/teams",
+      "type": "independent season schedule directory",
+      "limitation": "366 entries; includes Saint Francis with zero listed games; not an NCAA membership ruling"
+    },
+    {
+      "url": "https://legionreport.com/college-basketball-teams-by-conference/",
+      "type": "independent conference compilation",
+      "limitation": "365 conference entries; not official school-level verification"
+    }
+  ],
+  "priorityReviews": [
+    {
+      "school": "New Haven",
+      "reason": "Official NCAA organization page lists Division II reclassifying to Division I, so active-member status differs from DI basketball participation",
+      "officialSource": "https://web3.ncaa.org/directory/orgDetail?id=470",
+      "decision": "pending"
+    },
+    {
+      "school": "West Florida",
+      "reason": "2026-27 entrant from Division II; independently confirm MBB participation and classification",
+      "decision": "pending"
+    },
+    {
+      "school": "Mercyhurst",
+      "reason": "Reclassification; distinguish season participation from full membership",
+      "decision": "pending"
+    },
+    {
+      "school": "West Georgia",
+      "reason": "Reclassification; distinguish season participation from full membership",
+      "decision": "pending"
+    },
+    {
+      "school": "Saint Francis (PA)",
+      "reason": "Appears in one independent 366-entry directory with zero games but absent from the current 365-candidate roster; investigate whether it should be excluded",
+      "decision": "pending"
+    }
+  ],
+  "releasePolicy": "Require independent school-level review; this exception file is NOT a reviewed membership list."
+}
