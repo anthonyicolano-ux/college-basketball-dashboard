@@ -39,13 +39,66 @@
         "Washington State"
       ],
       "note": "Pac-12 official release names all nine members and confirms nine men's basketball teams"
+    },
+    {
+      "conference": "Big Ten",
+      "source": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "official": true,
+      "schoolCount": 18,
+      "schoolNames": [
+        "Illinois",
+        "Indiana",
+        "Iowa",
+        "Maryland",
+        "Michigan",
+        "Michigan State",
+        "Minnesota",
+        "Nebraska",
+        "Northwestern",
+        "Ohio State",
+        "Oregon",
+        "Penn State",
+        "Purdue",
+        "Rutgers",
+        "UCLA",
+        "USC",
+        "Washington",
+        "Wisconsin"
+      ],
+      "note": "NCAA official Big Ten directory lists 18 institutions; school display names normalized to roster names"
+    },
+    {
+      "conference": "SEC",
+      "source": "https://storage.googleapis.com/secsports-prod/upload/2026/09/01/d80ca705-8d1b-439b-ada8-606b7cc60487.pdf",
+      "official": true,
+      "schoolCount": 16,
+      "schoolNames": [
+        "Alabama",
+        "Arkansas",
+        "Auburn",
+        "Florida",
+        "Georgia",
+        "Kentucky",
+        "LSU",
+        "Mississippi State",
+        "Missouri",
+        "Oklahoma",
+        "Ole Miss",
+        "South Carolina",
+        "Tennessee",
+        "Texas",
+        "Texas A&M",
+        "Vanderbilt"
+      ],
+      "note": "SEC 2026-27 constitution/bylaws identifies all 16 member schools"
     }
   ],
-  "verifiedSchoolConferencePairs": 18,
-  "unverifiedCandidateSchoolConferencePairs": 347,
+  "verifiedSchoolConferencePairs": 52,
+  "unverifiedCandidateSchoolConferencePairs": 313,
   "limitations": [
     "Conference membership supports participation but does not independently establish NCAA eligibility status for every transitioning program.",
     "The 18 matches are a partial audit; do not mark the full 365-school roster reviewed:true.",
-    "No CBBD API requests used."
+    "No CBBD API requests used.",
+    "Official conference affiliation does not by itself establish every school's men's basketball sponsorship or eligibility."
   ]
 }
