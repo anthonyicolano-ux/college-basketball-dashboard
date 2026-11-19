@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from validate_full_coverage import validate_teams, validate_players
 from provider_field_mapping import map_records
+from derived_team_metrics import derive_team_metrics
 
 TEAM_FIELDS = ("team", "conference", "games", "wins", "losses", "ppg",
                "oppPpg", "offRating", "defRating", "netRating", "scoringMargin")
@@ -51,6 +52,13 @@ def build(raw_teams, raw_players, *, display_permission_confirmed=False,
     players = {**meta, "rows": player_rows}
     names = validate_teams(teams)
     validate_players(players, names)
+    for row in teams["rows"]:
+        derived = derive_team_metrics(row)
+        if abs(row["scoringMargin"] - derived["calculatedScoringMargin"]) > 0.11:
+            raise ValueError(f"Scoring margin disagrees with PPG for {row['team']}")
+        if abs(row["netRating"] - derived["calculatedNetRating"]) > 0.11:
+            raise ValueError(f"Net rating disagrees with offensive/defensive ratings for {row['team']}")
+        row.update(derived)
     return teams, players
 
 
