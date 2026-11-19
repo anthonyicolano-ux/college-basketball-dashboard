@@ -15,12 +15,12 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Check out requested development branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ inputs.ref_to_test }}
           persist-credentials: false
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - name: Run offline Python validation tests
