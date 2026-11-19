@@ -15,6 +15,12 @@ def prepare(raw_teams, raw_players, approved_ids):
     teams, players = filter_division_one(raw_teams, raw_players, approved_ids)
     mapped_teams = [map_team(team) for team in teams]
     mapped_players = [map_player(player) for player in players]
+    # Require the same stable provider IDs across the selected team and player sets.
+    by_id = {str(t["teamId"]): t["team"] for t in mapped_teams}
+    for player in mapped_players:
+        expected_name = by_id[str(player["teamId"])]
+        if player["team"] != expected_name:
+            raise ValueError("Provider player team name disagrees with stable team ID")
     return build(mapped_teams, mapped_players,
                  display_permission_confirmed=True,
                  expected_team_count=len(approved_ids))
