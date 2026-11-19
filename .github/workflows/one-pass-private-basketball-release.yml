@@ -41,6 +41,7 @@ jobs:
         run: |
           set -euo pipefail
           python -m unittest discover -s private-site -p 'test_*.py'
+          node --test private-site/worker.test.mjs private-site/player-coverage.test.mjs private-site/frontend-release.test.mjs
           if [ "$DISPLAY_RIGHTS" != "true" ]; then
             echo "::error::Private display rights must be confirmed"; exit 1
           fi
@@ -78,6 +79,8 @@ jobs:
           python private-site/audit_division_one_membership.py "$RAW/raw-teams.json" --reviewed-membership private-site/reviewed-division-one-2027.json
           python private-site/prepare_real_2027.py "$RAW/raw-teams.json" "$RAW/raw-players.json" --reviewed-membership private-site/reviewed-division-one-2027.json --confirm-display-permission --out "$OUT"
           python private-site/prepare_private_release.py "$OUT/teams.json" "$OUT/players.json"
+          # Dry-run the publisher before making any Cloudflare KV writes.
+          python private-site/publish_private_kv.py "$OUT/teams.json" "$OUT/players.json" > /dev/null
           python private-site/publish_private_kv.py "$OUT/teams.json" "$OUT/players.json" --publish
           echo "Validated private release staged in versioned Cloudflare KV keys. Active release unchanged."
       - name: Remove raw and derived private data
