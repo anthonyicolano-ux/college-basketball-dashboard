@@ -2,6 +2,7 @@ name: Validate private basketball data code
 on:
   pull_request:
     paths:
+      - 'private-site/report_release_readiness.py'
       - 'private-site/reconcile_ncaa_sponsorship.py'
       - 'private-site/test_reconcile_ncaa_sponsorship.py'
       - 'private-site/test_real_ncaa_evidence_matrix.py'
@@ -76,5 +77,7 @@ jobs:
           python-version: '3.12'
       - name: Run synthetic validation tests
         run: python -m unittest discover -s private-site -p 'test_*.py' -v
+      - name: Summarize offline release readiness
+        run: python private-site/report_release_readiness.py
       - name: Run Worker route tests
         run: node --test private-site/worker.test.mjs private-site/player-coverage.test.mjs private-site/frontend-release.test.mjs
