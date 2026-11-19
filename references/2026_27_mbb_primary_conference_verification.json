@@ -91,10 +91,55 @@
         "Vanderbilt"
       ],
       "note": "SEC 2026-27 constitution/bylaws identifies all 16 member schools"
+    },
+    {
+      "conference": "Big 12",
+      "source": "https://big12sports.com/news/2019/7/31/big-12-conference.aspx",
+      "official": true,
+      "schoolCount": 16,
+      "schoolNames": [
+        "Arizona",
+        "Arizona State",
+        "Baylor",
+        "BYU",
+        "Cincinnati",
+        "Colorado",
+        "Houston",
+        "Iowa State",
+        "Kansas State",
+        "Oklahoma State",
+        "TCU",
+        "Texas Tech",
+        "UCF",
+        "Utah",
+        "West Virginia",
+        "Kansas"
+      ],
+      "note": "Official conference site explicitly lists current member institutions; matched school-by-school against candidate roster, including separately tracked Kansas/UConn"
+    },
+    {
+      "conference": "Big East",
+      "source": "https://www.bigeast.com/sports/2026/9/10/BE_history_090926.aspx",
+      "official": true,
+      "schoolCount": 11,
+      "schoolNames": [
+        "Butler",
+        "Creighton",
+        "DePaul",
+        "Georgetown",
+        "Marquette",
+        "Providence",
+        "St. John's",
+        "Seton Hall",
+        "Villanova",
+        "Xavier",
+        "UConn"
+      ],
+      "note": "Official conference site explicitly lists current member institutions; matched school-by-school against candidate roster, including separately tracked Kansas/UConn"
     }
   ],
-  "verifiedSchoolConferencePairs": 52,
-  "unverifiedCandidateSchoolConferencePairs": 313,
+  "verifiedSchoolConferencePairs": 79,
+  "unverifiedCandidateSchoolConferencePairs": 286,
   "limitations": [
     "Conference membership supports participation but does not independently establish NCAA eligibility status for every transitioning program.",
     "The 18 matches are a partial audit; do not mark the full 365-school roster reviewed:true.",
