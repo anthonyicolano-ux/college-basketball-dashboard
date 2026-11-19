@@ -29,11 +29,11 @@ function updateTeamOptions(){
 async function init(){
  const status=$('status');try{const sr=await fetch('data/refresh-status.json',{cache:'no-store'});const refresh=sr.ok?await sr.json():null;const release=typeof refresh?.release==='string'&&/^[a-f0-9]{16}-[a-f0-9]{16}$/.test(refresh.release)?refresh.release:null;const dataUrl='data/'+(mode==='players'?'players':'teams')+'.json'+(release?'?release='+encodeURIComponent(release):'');const response=await fetch(dataUrl,{cache:'no-store'});if(!response.ok)throw Error('No dashboard dataset is published');const data=await response.json();if(data.schemaVersion!==1||!Array.isArray(data.rows)||typeof data.demo!=='boolean'||data.season!==2027)throw Error('Dataset format or season not supported');
  if(!data.demo && (data.approvedForPrivateDisplay!==true||typeof data.generatedAt!=='string'||!data.generatedAt||typeof data.scope!=='string'||!data.scope||!data.source))throw Error('Real dataset lacks explicit private-display approval or provenance');
+ if(release && data.release!==release)throw Error('Dataset release does not match pinned refresh status');
  rows=data.rows;
  const cs=[...new Set(rows.map(x=>x.conference).filter(Boolean))].sort();for(const c of cs){const o=document.createElement('option');o.value=c;o.textContent=c;$('conference').append(o)}
  updateTeamOptions();
  status.textContent=`${data.demo?'DEMO: synthetic figures only. Not actual NCAA statistics.':'APPROVED PRIVATE DATASET: descriptive statistics, coverage may be incomplete.'} · Season ${data.seasonLabel} · ${data.scope||'scope not specified'} · Data generated ${data.generatedAt||'unknown'}.`;
- if(release && data.release!==release)throw Error('Dataset release does not match pinned refresh status');
  if(refresh){$('refresh').textContent=`Latest attempt: ${refresh.outcome||'not run'}. Last successful data update: ${refresh.lastSuccessAt||'none'}.`}
  if(data.demo){document.querySelectorAll('.demo').forEach(x=>x.hidden=false)}render();
  }catch(err){status.textContent='No approved data published yet. No provider requests were made. '+err.message;$('count').textContent='0 records';}
