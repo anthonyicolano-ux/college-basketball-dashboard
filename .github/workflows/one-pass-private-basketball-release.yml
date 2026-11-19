@@ -3,6 +3,10 @@ name: One-pass private basketball release (manual, fail closed)
 on:
   workflow_dispatch:
     inputs:
+      verified_remaining_calls:
+        description: 'Current shared API quota remaining (from account usage screen)'
+        required: true
+        type: string
       confirm_private_display_rights:
         description: 'Confirm provider terms permit this private dashboard presentation'
         required: true
@@ -22,6 +26,7 @@ jobs:
     timeout-minutes: 15
     env:
       CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+      REMAINING: ${{ inputs.verified_remaining_calls }}
       DISPLAY_RIGHTS: ${{ inputs.confirm_private_display_rights }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       CLOUDFLARE_KV_NAMESPACE_ID: ${{ secrets.CLOUDFLARE_KV_NAMESPACE_ID }}
@@ -40,6 +45,9 @@ jobs:
           if [ "$DISPLAY_RIGHTS" != "true" ]; then
             echo "::error::Private display rights must be confirmed"; exit 1
           fi
+          if ! [[ "$REMAINING" =~ ^[0-9]+$ ]] || [ "$REMAINING" -lt 602 ]; then
+            echo "::error::At least 602 verified remaining shared calls required"; exit 1
+          fi
           if [ -z "$CBBD_API_KEY" ]; then
             echo "::error::CBBD_API_KEY secret missing"; exit 1
           fi
@@ -57,22 +65,6 @@ jobs:
           if len(ids) != len(set(map(str,ids))) or not 300 <= len(ids) <= 400:
               raise SystemExit('Membership invalid; refusing fetch')
           print('Reviewed membership count:',len(ids))
-          PY
-      - name: Check live shared quota without consuming an API call
-        shell: bash
-        run: |
-          set -euo pipefail
-          python - <<'PY'
-          import json, os, urllib.request
-          req = urllib.request.Request('https://api.collegebasketballdata.com/info', headers={'Authorization': 'Bearer '+os.environ['CBBD_API_KEY']})
-          with urllib.request.urlopen(req, timeout=30) as response:
-              data=json.load(response)
-          remaining=data.get('remainingCalls')
-          if isinstance(remaining,bool) or not isinstance(remaining,(int,float)) or remaining < 602:
-              raise SystemExit('Shared API quota insufficient or unknown; no paid API calls made')
-          with open(os.environ['GITHUB_ENV'],'a',encoding='utf-8') as file:
-              file.write('REMAINING='+str(int(remaining))+'\\n')
-          print('Quota guard passed; at least 602 shared calls remain')
           PY
       - name: Fetch once, audit, normalize, validate and prepare private release
         shell: bash
