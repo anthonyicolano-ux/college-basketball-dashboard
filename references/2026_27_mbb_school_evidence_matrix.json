@@ -1,0 +1,3674 @@
+{
+  "season": 2027,
+  "sport": "mens_basketball",
+  "status": "EVIDENCE_MATRIX_NOT_RELEASE_APPROVAL",
+  "created": "2026-11-19",
+  "candidateCount": 365,
+  "conferenceAffiliationsChecked": 365,
+  "ncaaSportSpecificParticipationConfirmed": 5,
+  "ncaaSportSpecificParticipationPending": 360,
+  "sourceFiles": [
+    "references/di_mens_basketball_candidates_2026_27.json",
+    "references/di_mens_basketball_2026_27.json",
+    "references/2026_27_mbb_primary_conference_verification.json",
+    "references/2026_27_mbb_eligibility_release_review.json"
+  ],
+  "reviewed": false,
+  "schoolEvidence": [
+    {
+      "schoolName": "Boston College",
+      "conference": "ACC",
+      "conferencePrimarySource": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "California",
+      "conference": "ACC",
+      "conferencePrimarySource": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Clemson",
+      "conference": "ACC",
+      "conferencePrimarySource": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Florida State",
+      "conference": "ACC",
+      "conferencePrimarySource": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Georgia Tech",
+      "conference": "ACC",
+      "conferencePrimarySource": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Louisville",
+      "conference": "ACC",
+      "conferencePrimarySource": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Miami (Florida)",
+      "conference": "ACC",
+      "conferencePrimarySource": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "NC State",
+      "conference": "ACC",
+      "conferencePrimarySource": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "North Carolina",
+      "conference": "ACC",
+      "conferencePrimarySource": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Notre Dame",
+      "conference": "ACC",
+      "conferencePrimarySource": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Pittsburgh",
+      "conference": "ACC",
+      "conferencePrimarySource": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "SMU",
+      "conference": "ACC",
+      "conferencePrimarySource": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Stanford",
+      "conference": "ACC",
+      "conferencePrimarySource": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Syracuse",
+      "conference": "ACC",
+      "conferencePrimarySource": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Virginia",
+      "conference": "ACC",
+      "conferencePrimarySource": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Virginia Tech",
+      "conference": "ACC",
+      "conferencePrimarySource": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Wake Forest",
+      "conference": "ACC",
+      "conferencePrimarySource": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Binghamton",
+      "conference": "America East",
+      "conferencePrimarySource": "https://americaeast.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Bryant",
+      "conference": "America East",
+      "conferencePrimarySource": "https://americaeast.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Maine",
+      "conference": "America East",
+      "conferencePrimarySource": "https://americaeast.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "New Hampshire",
+      "conference": "America East",
+      "conferencePrimarySource": "https://americaeast.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "NJIT",
+      "conference": "America East",
+      "conferencePrimarySource": "https://americaeast.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UAlbany",
+      "conference": "America East",
+      "conferencePrimarySource": "https://americaeast.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UMass Lowell",
+      "conference": "America East",
+      "conferencePrimarySource": "https://americaeast.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UMBC",
+      "conference": "America East",
+      "conferencePrimarySource": "https://americaeast.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Vermont",
+      "conference": "America East",
+      "conferencePrimarySource": "https://americaeast.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Charlotte",
+      "conference": "American",
+      "conferencePrimarySource": "https://d1hg55pco9dr97.cloudfront.net/news/2026/10/12/administration-jmu-to-the-american-frequently-asked-questions",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "East Carolina",
+      "conference": "American",
+      "conferencePrimarySource": "https://d1hg55pco9dr97.cloudfront.net/news/2026/10/12/administration-jmu-to-the-american-frequently-asked-questions",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Florida Atlantic",
+      "conference": "American",
+      "conferencePrimarySource": "https://d1hg55pco9dr97.cloudfront.net/news/2026/10/12/administration-jmu-to-the-american-frequently-asked-questions",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Memphis",
+      "conference": "American",
+      "conferencePrimarySource": "https://d1hg55pco9dr97.cloudfront.net/news/2026/10/12/administration-jmu-to-the-american-frequently-asked-questions",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "North Texas",
+      "conference": "American",
+      "conferencePrimarySource": "https://d1hg55pco9dr97.cloudfront.net/news/2026/10/12/administration-jmu-to-the-american-frequently-asked-questions",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Rice",
+      "conference": "American",
+      "conferencePrimarySource": "https://d1hg55pco9dr97.cloudfront.net/news/2026/10/12/administration-jmu-to-the-american-frequently-asked-questions",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Temple",
+      "conference": "American",
+      "conferencePrimarySource": "https://d1hg55pco9dr97.cloudfront.net/news/2026/10/12/administration-jmu-to-the-american-frequently-asked-questions",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Tulane",
+      "conference": "American",
+      "conferencePrimarySource": "https://d1hg55pco9dr97.cloudfront.net/news/2026/10/12/administration-jmu-to-the-american-frequently-asked-questions",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Tulsa",
+      "conference": "American",
+      "conferencePrimarySource": "https://d1hg55pco9dr97.cloudfront.net/news/2026/10/12/administration-jmu-to-the-american-frequently-asked-questions",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UAB",
+      "conference": "American",
+      "conferencePrimarySource": "https://d1hg55pco9dr97.cloudfront.net/news/2026/10/12/administration-jmu-to-the-american-frequently-asked-questions",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "USF",
+      "conference": "American",
+      "conferencePrimarySource": "https://d1hg55pco9dr97.cloudfront.net/news/2026/10/12/administration-jmu-to-the-american-frequently-asked-questions",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UTSA",
+      "conference": "American",
+      "conferencePrimarySource": "https://d1hg55pco9dr97.cloudfront.net/news/2026/10/12/administration-jmu-to-the-american-frequently-asked-questions",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Wichita State",
+      "conference": "American",
+      "conferencePrimarySource": "https://d1hg55pco9dr97.cloudfront.net/news/2026/10/12/administration-jmu-to-the-american-frequently-asked-questions",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Davidson",
+      "conference": "Atlantic 10",
+      "conferencePrimarySource": "https://admin.atlantic10.com/news/2026/9/30/championships-atlantic-10-conference-taps-playfly-sports-for-men-s-basketball-tournament-ticket-sales.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Dayton",
+      "conference": "Atlantic 10",
+      "conferencePrimarySource": "https://admin.atlantic10.com/news/2026/9/30/championships-atlantic-10-conference-taps-playfly-sports-for-men-s-basketball-tournament-ticket-sales.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Duquesne",
+      "conference": "Atlantic 10",
+      "conferencePrimarySource": "https://admin.atlantic10.com/news/2026/9/30/championships-atlantic-10-conference-taps-playfly-sports-for-men-s-basketball-tournament-ticket-sales.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Fordham",
+      "conference": "Atlantic 10",
+      "conferencePrimarySource": "https://admin.atlantic10.com/news/2026/9/30/championships-atlantic-10-conference-taps-playfly-sports-for-men-s-basketball-tournament-ticket-sales.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "George Mason",
+      "conference": "Atlantic 10",
+      "conferencePrimarySource": "https://admin.atlantic10.com/news/2026/9/30/championships-atlantic-10-conference-taps-playfly-sports-for-men-s-basketball-tournament-ticket-sales.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "George Washington",
+      "conference": "Atlantic 10",
+      "conferencePrimarySource": "https://admin.atlantic10.com/news/2026/9/30/championships-atlantic-10-conference-taps-playfly-sports-for-men-s-basketball-tournament-ticket-sales.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "La Salle",
+      "conference": "Atlantic 10",
+      "conferencePrimarySource": "https://admin.atlantic10.com/news/2026/9/30/championships-atlantic-10-conference-taps-playfly-sports-for-men-s-basketball-tournament-ticket-sales.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Loyola Chicago",
+      "conference": "Atlantic 10",
+      "conferencePrimarySource": "https://admin.atlantic10.com/news/2026/9/30/championships-atlantic-10-conference-taps-playfly-sports-for-men-s-basketball-tournament-ticket-sales.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Rhode Island",
+      "conference": "Atlantic 10",
+      "conferencePrimarySource": "https://admin.atlantic10.com/news/2026/9/30/championships-atlantic-10-conference-taps-playfly-sports-for-men-s-basketball-tournament-ticket-sales.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Richmond",
+      "conference": "Atlantic 10",
+      "conferencePrimarySource": "https://admin.atlantic10.com/news/2026/9/30/championships-atlantic-10-conference-taps-playfly-sports-for-men-s-basketball-tournament-ticket-sales.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Saint Joseph's",
+      "conference": "Atlantic 10",
+      "conferencePrimarySource": "https://admin.atlantic10.com/news/2026/9/30/championships-atlantic-10-conference-taps-playfly-sports-for-men-s-basketball-tournament-ticket-sales.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Saint Louis",
+      "conference": "Atlantic 10",
+      "conferencePrimarySource": "https://admin.atlantic10.com/news/2026/9/30/championships-atlantic-10-conference-taps-playfly-sports-for-men-s-basketball-tournament-ticket-sales.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "St. Bonaventure",
+      "conference": "Atlantic 10",
+      "conferencePrimarySource": "https://admin.atlantic10.com/news/2026/9/30/championships-atlantic-10-conference-taps-playfly-sports-for-men-s-basketball-tournament-ticket-sales.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "VCU",
+      "conference": "Atlantic 10",
+      "conferencePrimarySource": "https://admin.atlantic10.com/news/2026/9/30/championships-atlantic-10-conference-taps-playfly-sports-for-men-s-basketball-tournament-ticket-sales.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Bellarmine",
+      "conference": "ASUN",
+      "conferencePrimarySource": "https://asunsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "FGCU",
+      "conference": "ASUN",
+      "conferencePrimarySource": "https://asunsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Jacksonville",
+      "conference": "ASUN",
+      "conferencePrimarySource": "https://asunsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Lipscomb",
+      "conference": "ASUN",
+      "conferencePrimarySource": "https://asunsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "North Florida",
+      "conference": "ASUN",
+      "conferencePrimarySource": "https://asunsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Queens",
+      "conference": "ASUN",
+      "conferencePrimarySource": "https://asunsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Stetson",
+      "conference": "ASUN",
+      "conferencePrimarySource": "https://asunsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "West Florida",
+      "conference": "ASUN",
+      "conferencePrimarySource": "https://asunsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "confirmed",
+      "ncaaSportSource": "https://web3.ncaa.org/directory/orgDetail?id=11740",
+      "fullDivisionOneMember": "no",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Arizona",
+      "conference": "Big 12",
+      "conferencePrimarySource": "https://big12sports.com/news/2019/7/31/big-12-conference.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Arizona State",
+      "conference": "Big 12",
+      "conferencePrimarySource": "https://big12sports.com/news/2019/7/31/big-12-conference.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Baylor",
+      "conference": "Big 12",
+      "conferencePrimarySource": "https://big12sports.com/news/2019/7/31/big-12-conference.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "BYU",
+      "conference": "Big 12",
+      "conferencePrimarySource": "https://big12sports.com/news/2019/7/31/big-12-conference.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Cincinnati",
+      "conference": "Big 12",
+      "conferencePrimarySource": "https://big12sports.com/news/2019/7/31/big-12-conference.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Colorado",
+      "conference": "Big 12",
+      "conferencePrimarySource": "https://big12sports.com/news/2019/7/31/big-12-conference.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Houston",
+      "conference": "Big 12",
+      "conferencePrimarySource": "https://big12sports.com/news/2019/7/31/big-12-conference.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Iowa State",
+      "conference": "Big 12",
+      "conferencePrimarySource": "https://big12sports.com/news/2019/7/31/big-12-conference.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Kansas State",
+      "conference": "Big 12",
+      "conferencePrimarySource": "https://big12sports.com/news/2019/7/31/big-12-conference.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Oklahoma State",
+      "conference": "Big 12",
+      "conferencePrimarySource": "https://big12sports.com/news/2019/7/31/big-12-conference.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "TCU",
+      "conference": "Big 12",
+      "conferencePrimarySource": "https://big12sports.com/news/2019/7/31/big-12-conference.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Texas Tech",
+      "conference": "Big 12",
+      "conferencePrimarySource": "https://big12sports.com/news/2019/7/31/big-12-conference.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UCF",
+      "conference": "Big 12",
+      "conferencePrimarySource": "https://big12sports.com/news/2019/7/31/big-12-conference.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Utah",
+      "conference": "Big 12",
+      "conferencePrimarySource": "https://big12sports.com/news/2019/7/31/big-12-conference.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "West Virginia",
+      "conference": "Big 12",
+      "conferencePrimarySource": "https://big12sports.com/news/2019/7/31/big-12-conference.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Butler",
+      "conference": "Big East",
+      "conferencePrimarySource": "https://www.bigeast.com/sports/2026/9/10/BE_history_090926.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Creighton",
+      "conference": "Big East",
+      "conferencePrimarySource": "https://www.bigeast.com/sports/2026/9/10/BE_history_090926.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "DePaul",
+      "conference": "Big East",
+      "conferencePrimarySource": "https://www.bigeast.com/sports/2026/9/10/BE_history_090926.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Georgetown",
+      "conference": "Big East",
+      "conferencePrimarySource": "https://www.bigeast.com/sports/2026/9/10/BE_history_090926.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Marquette",
+      "conference": "Big East",
+      "conferencePrimarySource": "https://www.bigeast.com/sports/2026/9/10/BE_history_090926.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Providence",
+      "conference": "Big East",
+      "conferencePrimarySource": "https://www.bigeast.com/sports/2026/9/10/BE_history_090926.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "St. John's",
+      "conference": "Big East",
+      "conferencePrimarySource": "https://www.bigeast.com/sports/2026/9/10/BE_history_090926.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Seton Hall",
+      "conference": "Big East",
+      "conferencePrimarySource": "https://www.bigeast.com/sports/2026/9/10/BE_history_090926.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Villanova",
+      "conference": "Big East",
+      "conferencePrimarySource": "https://www.bigeast.com/sports/2026/9/10/BE_history_090926.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Xavier",
+      "conference": "Big East",
+      "conferencePrimarySource": "https://www.bigeast.com/sports/2026/9/10/BE_history_090926.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Eastern Washington",
+      "conference": "Big Sky",
+      "conferencePrimarySource": "https://bigskyconf.com/news/2026/7/1/general-the-big-sky-conference-grows-membership-to-11-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Idaho",
+      "conference": "Big Sky",
+      "conferencePrimarySource": "https://bigskyconf.com/news/2026/7/1/general-the-big-sky-conference-grows-membership-to-11-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Idaho State",
+      "conference": "Big Sky",
+      "conferencePrimarySource": "https://bigskyconf.com/news/2026/7/1/general-the-big-sky-conference-grows-membership-to-11-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Montana",
+      "conference": "Big Sky",
+      "conferencePrimarySource": "https://bigskyconf.com/news/2026/7/1/general-the-big-sky-conference-grows-membership-to-11-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Montana State",
+      "conference": "Big Sky",
+      "conferencePrimarySource": "https://bigskyconf.com/news/2026/7/1/general-the-big-sky-conference-grows-membership-to-11-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Northern Arizona",
+      "conference": "Big Sky",
+      "conferencePrimarySource": "https://bigskyconf.com/news/2026/7/1/general-the-big-sky-conference-grows-membership-to-11-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Northern Colorado",
+      "conference": "Big Sky",
+      "conferencePrimarySource": "https://bigskyconf.com/news/2026/7/1/general-the-big-sky-conference-grows-membership-to-11-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Portland State",
+      "conference": "Big Sky",
+      "conferencePrimarySource": "https://bigskyconf.com/news/2026/7/1/general-the-big-sky-conference-grows-membership-to-11-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Southern Utah",
+      "conference": "Big Sky",
+      "conferencePrimarySource": "https://bigskyconf.com/news/2026/7/1/general-the-big-sky-conference-grows-membership-to-11-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Utah Tech",
+      "conference": "Big Sky",
+      "conferencePrimarySource": "https://bigskyconf.com/news/2026/7/1/general-the-big-sky-conference-grows-membership-to-11-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Weber State",
+      "conference": "Big Sky",
+      "conferencePrimarySource": "https://bigskyconf.com/news/2026/7/1/general-the-big-sky-conference-grows-membership-to-11-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Charleston Southern",
+      "conference": "Big South",
+      "conferencePrimarySource": "https://bigsouthsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Gardner-Webb",
+      "conference": "Big South",
+      "conferencePrimarySource": "https://bigsouthsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "High Point",
+      "conference": "Big South",
+      "conferencePrimarySource": "https://bigsouthsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Longwood",
+      "conference": "Big South",
+      "conferencePrimarySource": "https://bigsouthsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Presbyterian",
+      "conference": "Big South",
+      "conferencePrimarySource": "https://bigsouthsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Radford",
+      "conference": "Big South",
+      "conferencePrimarySource": "https://bigsouthsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UNC Asheville",
+      "conference": "Big South",
+      "conferencePrimarySource": "https://bigsouthsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "USC Upstate",
+      "conference": "Big South",
+      "conferencePrimarySource": "https://bigsouthsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Winthrop",
+      "conference": "Big South",
+      "conferencePrimarySource": "https://bigsouthsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Illinois",
+      "conference": "Big Ten",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Indiana",
+      "conference": "Big Ten",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Iowa",
+      "conference": "Big Ten",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Maryland",
+      "conference": "Big Ten",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Michigan",
+      "conference": "Big Ten",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Michigan State",
+      "conference": "Big Ten",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Minnesota",
+      "conference": "Big Ten",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Nebraska",
+      "conference": "Big Ten",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Northwestern",
+      "conference": "Big Ten",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Ohio State",
+      "conference": "Big Ten",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Oregon",
+      "conference": "Big Ten",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Penn State",
+      "conference": "Big Ten",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Purdue",
+      "conference": "Big Ten",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Rutgers",
+      "conference": "Big Ten",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UCLA",
+      "conference": "Big Ten",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "USC",
+      "conference": "Big Ten",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Washington",
+      "conference": "Big Ten",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Wisconsin",
+      "conference": "Big Ten",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=827",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Cal Poly",
+      "conference": "Big West",
+      "conferencePrimarySource": "https://bigwest.org/news/2026/7/1/california-baptist-sacramento-state-and-utah-valley-officially-join-the-big-west.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Cal State Bakersfield",
+      "conference": "Big West",
+      "conferencePrimarySource": "https://bigwest.org/news/2026/7/1/california-baptist-sacramento-state-and-utah-valley-officially-join-the-big-west.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Cal State Fullerton",
+      "conference": "Big West",
+      "conferencePrimarySource": "https://bigwest.org/news/2026/7/1/california-baptist-sacramento-state-and-utah-valley-officially-join-the-big-west.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Cal State Northridge",
+      "conference": "Big West",
+      "conferencePrimarySource": "https://bigwest.org/news/2026/7/1/california-baptist-sacramento-state-and-utah-valley-officially-join-the-big-west.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "California Baptist",
+      "conference": "Big West",
+      "conferencePrimarySource": "https://bigwest.org/news/2026/7/1/california-baptist-sacramento-state-and-utah-valley-officially-join-the-big-west.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Long Beach State",
+      "conference": "Big West",
+      "conferencePrimarySource": "https://bigwest.org/news/2026/7/1/california-baptist-sacramento-state-and-utah-valley-officially-join-the-big-west.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Sacramento State",
+      "conference": "Big West",
+      "conferencePrimarySource": "https://bigwest.org/news/2026/7/1/california-baptist-sacramento-state-and-utah-valley-officially-join-the-big-west.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UC Irvine",
+      "conference": "Big West",
+      "conferencePrimarySource": "https://bigwest.org/news/2026/7/1/california-baptist-sacramento-state-and-utah-valley-officially-join-the-big-west.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UC Riverside",
+      "conference": "Big West",
+      "conferencePrimarySource": "https://bigwest.org/news/2026/7/1/california-baptist-sacramento-state-and-utah-valley-officially-join-the-big-west.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UC San Diego",
+      "conference": "Big West",
+      "conferencePrimarySource": "https://bigwest.org/news/2026/7/1/california-baptist-sacramento-state-and-utah-valley-officially-join-the-big-west.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UC Santa Barbara",
+      "conference": "Big West",
+      "conferencePrimarySource": "https://bigwest.org/news/2026/7/1/california-baptist-sacramento-state-and-utah-valley-officially-join-the-big-west.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Utah Valley",
+      "conference": "Big West",
+      "conferencePrimarySource": "https://bigwest.org/news/2026/7/1/california-baptist-sacramento-state-and-utah-valley-officially-join-the-big-west.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Campbell",
+      "conference": "CAA",
+      "conferencePrimarySource": "https://caasports.com/news/2026/5/20/caa-announces-mens-basketball-conference-opponents-for-2026-27-season.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Charleston",
+      "conference": "CAA",
+      "conferencePrimarySource": "https://caasports.com/news/2026/5/20/caa-announces-mens-basketball-conference-opponents-for-2026-27-season.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Drexel",
+      "conference": "CAA",
+      "conferencePrimarySource": "https://caasports.com/news/2026/5/20/caa-announces-mens-basketball-conference-opponents-for-2026-27-season.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Elon",
+      "conference": "CAA",
+      "conferencePrimarySource": "https://caasports.com/news/2026/5/20/caa-announces-mens-basketball-conference-opponents-for-2026-27-season.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Hampton",
+      "conference": "CAA",
+      "conferencePrimarySource": "https://caasports.com/news/2026/5/20/caa-announces-mens-basketball-conference-opponents-for-2026-27-season.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Hofstra",
+      "conference": "CAA",
+      "conferencePrimarySource": "https://caasports.com/news/2026/5/20/caa-announces-mens-basketball-conference-opponents-for-2026-27-season.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Monmouth",
+      "conference": "CAA",
+      "conferencePrimarySource": "https://caasports.com/news/2026/5/20/caa-announces-mens-basketball-conference-opponents-for-2026-27-season.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "North Carolina A&T",
+      "conference": "CAA",
+      "conferencePrimarySource": "https://caasports.com/news/2026/5/20/caa-announces-mens-basketball-conference-opponents-for-2026-27-season.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Northeastern",
+      "conference": "CAA",
+      "conferencePrimarySource": "https://caasports.com/news/2026/5/20/caa-announces-mens-basketball-conference-opponents-for-2026-27-season.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Stony Brook",
+      "conference": "CAA",
+      "conferencePrimarySource": "https://caasports.com/news/2026/5/20/caa-announces-mens-basketball-conference-opponents-for-2026-27-season.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Towson",
+      "conference": "CAA",
+      "conferencePrimarySource": "https://caasports.com/news/2026/5/20/caa-announces-mens-basketball-conference-opponents-for-2026-27-season.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UNC Wilmington",
+      "conference": "CAA",
+      "conferencePrimarySource": "https://caasports.com/news/2026/5/20/caa-announces-mens-basketball-conference-opponents-for-2026-27-season.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "William & Mary",
+      "conference": "CAA",
+      "conferencePrimarySource": "https://caasports.com/news/2026/5/20/caa-announces-mens-basketball-conference-opponents-for-2026-27-season.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Delaware",
+      "conference": "Conference USA",
+      "conferencePrimarySource": "https://conferenceusa.com/sports/2023/6/22/members_2025.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "FIU",
+      "conference": "Conference USA",
+      "conferencePrimarySource": "https://conferenceusa.com/sports/2023/6/22/members_2025.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Jacksonville State",
+      "conference": "Conference USA",
+      "conferencePrimarySource": "https://conferenceusa.com/sports/2023/6/22/members_2025.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Kennesaw State",
+      "conference": "Conference USA",
+      "conferencePrimarySource": "https://conferenceusa.com/sports/2023/6/22/members_2025.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Liberty",
+      "conference": "Conference USA",
+      "conferencePrimarySource": "https://conferenceusa.com/sports/2023/6/22/members_2025.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Middle Tennessee",
+      "conference": "Conference USA",
+      "conferencePrimarySource": "https://conferenceusa.com/sports/2023/6/22/members_2025.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Missouri State",
+      "conference": "Conference USA",
+      "conferencePrimarySource": "https://conferenceusa.com/sports/2023/6/22/members_2025.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "New Mexico State",
+      "conference": "Conference USA",
+      "conferencePrimarySource": "https://conferenceusa.com/sports/2023/6/22/members_2025.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Sam Houston",
+      "conference": "Conference USA",
+      "conferencePrimarySource": "https://conferenceusa.com/sports/2023/6/22/members_2025.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Western Kentucky",
+      "conference": "Conference USA",
+      "conferencePrimarySource": "https://conferenceusa.com/sports/2023/6/22/members_2025.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Cleveland State",
+      "conference": "Horizon",
+      "conferencePrimarySource": "https://horizonleague.org/sports/2017/9/5/GEN_0905170006.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Detroit Mercy",
+      "conference": "Horizon",
+      "conferencePrimarySource": "https://horizonleague.org/sports/2017/9/5/GEN_0905170006.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Green Bay",
+      "conference": "Horizon",
+      "conferencePrimarySource": "https://horizonleague.org/sports/2017/9/5/GEN_0905170006.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "IU Indy",
+      "conference": "Horizon",
+      "conferencePrimarySource": "https://horizonleague.org/sports/2017/9/5/GEN_0905170006.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Milwaukee",
+      "conference": "Horizon",
+      "conferencePrimarySource": "https://horizonleague.org/sports/2017/9/5/GEN_0905170006.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Northern Illinois",
+      "conference": "Horizon",
+      "conferencePrimarySource": "https://horizonleague.org/sports/2017/9/5/GEN_0905170006.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Northern Kentucky",
+      "conference": "Horizon",
+      "conferencePrimarySource": "https://horizonleague.org/sports/2017/9/5/GEN_0905170006.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Oakland",
+      "conference": "Horizon",
+      "conferencePrimarySource": "https://horizonleague.org/sports/2017/9/5/GEN_0905170006.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Purdue Fort Wayne",
+      "conference": "Horizon",
+      "conferencePrimarySource": "https://horizonleague.org/sports/2017/9/5/GEN_0905170006.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Robert Morris",
+      "conference": "Horizon",
+      "conferencePrimarySource": "https://horizonleague.org/sports/2017/9/5/GEN_0905170006.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Wright State",
+      "conference": "Horizon",
+      "conferencePrimarySource": "https://horizonleague.org/sports/2017/9/5/GEN_0905170006.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Youngstown State",
+      "conference": "Horizon",
+      "conferencePrimarySource": "https://horizonleague.org/sports/2017/9/5/GEN_0905170006.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Brown",
+      "conference": "Ivy",
+      "conferencePrimarySource": "https://ivyleague.com/standings.aspx?standings=2298",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Columbia",
+      "conference": "Ivy",
+      "conferencePrimarySource": "https://ivyleague.com/standings.aspx?standings=2298",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Cornell",
+      "conference": "Ivy",
+      "conferencePrimarySource": "https://ivyleague.com/standings.aspx?standings=2298",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Dartmouth",
+      "conference": "Ivy",
+      "conferencePrimarySource": "https://ivyleague.com/standings.aspx?standings=2298",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Harvard",
+      "conference": "Ivy",
+      "conferencePrimarySource": "https://ivyleague.com/standings.aspx?standings=2298",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Penn",
+      "conference": "Ivy",
+      "conferencePrimarySource": "https://ivyleague.com/standings.aspx?standings=2298",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Princeton",
+      "conference": "Ivy",
+      "conferencePrimarySource": "https://ivyleague.com/standings.aspx?standings=2298",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Yale",
+      "conference": "Ivy",
+      "conferencePrimarySource": "https://ivyleague.com/standings.aspx?standings=2298",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Canisius",
+      "conference": "Metro",
+      "conferencePrimarySource": "https://themetro.org/sports/2017/6/20/GEN_0620175706.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Fairfield",
+      "conference": "Metro",
+      "conferencePrimarySource": "https://themetro.org/sports/2017/6/20/GEN_0620175706.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Iona",
+      "conference": "Metro",
+      "conferencePrimarySource": "https://themetro.org/sports/2017/6/20/GEN_0620175706.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Manhattan",
+      "conference": "Metro",
+      "conferencePrimarySource": "https://themetro.org/sports/2017/6/20/GEN_0620175706.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Marist",
+      "conference": "Metro",
+      "conferencePrimarySource": "https://themetro.org/sports/2017/6/20/GEN_0620175706.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Merrimack",
+      "conference": "Metro",
+      "conferencePrimarySource": "https://themetro.org/sports/2017/6/20/GEN_0620175706.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Mount St. Mary's",
+      "conference": "Metro",
+      "conferencePrimarySource": "https://themetro.org/sports/2017/6/20/GEN_0620175706.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Niagara",
+      "conference": "Metro",
+      "conferencePrimarySource": "https://themetro.org/sports/2017/6/20/GEN_0620175706.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Quinnipiac",
+      "conference": "Metro",
+      "conferencePrimarySource": "https://themetro.org/sports/2017/6/20/GEN_0620175706.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Rider",
+      "conference": "Metro",
+      "conferencePrimarySource": "https://themetro.org/sports/2017/6/20/GEN_0620175706.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Sacred Heart",
+      "conference": "Metro",
+      "conferencePrimarySource": "https://themetro.org/sports/2017/6/20/GEN_0620175706.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Saint Peter's",
+      "conference": "Metro",
+      "conferencePrimarySource": "https://themetro.org/sports/2017/6/20/GEN_0620175706.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Siena",
+      "conference": "Metro",
+      "conferencePrimarySource": "https://themetro.org/sports/2017/6/20/GEN_0620175706.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Akron",
+      "conference": "MAC",
+      "conferencePrimarySource": "https://getsomemaction.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Ball State",
+      "conference": "MAC",
+      "conferencePrimarySource": "https://getsomemaction.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Bowling Green",
+      "conference": "MAC",
+      "conferencePrimarySource": "https://getsomemaction.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Buffalo",
+      "conference": "MAC",
+      "conferencePrimarySource": "https://getsomemaction.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Central Michigan",
+      "conference": "MAC",
+      "conferencePrimarySource": "https://getsomemaction.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Eastern Michigan",
+      "conference": "MAC",
+      "conferencePrimarySource": "https://getsomemaction.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Kent State",
+      "conference": "MAC",
+      "conferencePrimarySource": "https://getsomemaction.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Miami (Ohio)",
+      "conference": "MAC",
+      "conferencePrimarySource": "https://getsomemaction.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Ohio",
+      "conference": "MAC",
+      "conferencePrimarySource": "https://getsomemaction.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Toledo",
+      "conference": "MAC",
+      "conferencePrimarySource": "https://getsomemaction.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UMass",
+      "conference": "MAC",
+      "conferencePrimarySource": "https://getsomemaction.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Western Michigan",
+      "conference": "MAC",
+      "conferencePrimarySource": "https://getsomemaction.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Coppin State",
+      "conference": "MEAC",
+      "conferencePrimarySource": "https://meacsports.com/sports/2017/9/8/About%20The%20MEAC_0908173619.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Delaware State",
+      "conference": "MEAC",
+      "conferencePrimarySource": "https://meacsports.com/sports/2017/9/8/About%20The%20MEAC_0908173619.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Howard",
+      "conference": "MEAC",
+      "conferencePrimarySource": "https://meacsports.com/sports/2017/9/8/About%20The%20MEAC_0908173619.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Maryland Eastern Shore",
+      "conference": "MEAC",
+      "conferencePrimarySource": "https://meacsports.com/sports/2017/9/8/About%20The%20MEAC_0908173619.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Morgan State",
+      "conference": "MEAC",
+      "conferencePrimarySource": "https://meacsports.com/sports/2017/9/8/About%20The%20MEAC_0908173619.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "NC Central",
+      "conference": "MEAC",
+      "conferencePrimarySource": "https://meacsports.com/sports/2017/9/8/About%20The%20MEAC_0908173619.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Norfolk State",
+      "conference": "MEAC",
+      "conferencePrimarySource": "https://meacsports.com/sports/2017/9/8/About%20The%20MEAC_0908173619.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "South Carolina State",
+      "conference": "MEAC",
+      "conferencePrimarySource": "https://meacsports.com/sports/2017/9/8/About%20The%20MEAC_0908173619.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Belmont",
+      "conference": "Missouri Valley",
+      "conferencePrimarySource": "https://mvc-sports.com/news/2026/9/16/arch-madness-missouri-valley-announces-mens-basketball-2026-27-conference-slate.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Bradley",
+      "conference": "Missouri Valley",
+      "conferencePrimarySource": "https://mvc-sports.com/news/2026/9/16/arch-madness-missouri-valley-announces-mens-basketball-2026-27-conference-slate.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Drake",
+      "conference": "Missouri Valley",
+      "conferencePrimarySource": "https://mvc-sports.com/news/2026/9/16/arch-madness-missouri-valley-announces-mens-basketball-2026-27-conference-slate.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Evansville",
+      "conference": "Missouri Valley",
+      "conferencePrimarySource": "https://mvc-sports.com/news/2026/9/16/arch-madness-missouri-valley-announces-mens-basketball-2026-27-conference-slate.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Illinois State",
+      "conference": "Missouri Valley",
+      "conferencePrimarySource": "https://mvc-sports.com/news/2026/9/16/arch-madness-missouri-valley-announces-mens-basketball-2026-27-conference-slate.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Indiana State",
+      "conference": "Missouri Valley",
+      "conferencePrimarySource": "https://mvc-sports.com/news/2026/9/16/arch-madness-missouri-valley-announces-mens-basketball-2026-27-conference-slate.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Murray State",
+      "conference": "Missouri Valley",
+      "conferencePrimarySource": "https://mvc-sports.com/news/2026/9/16/arch-madness-missouri-valley-announces-mens-basketball-2026-27-conference-slate.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Northern Iowa",
+      "conference": "Missouri Valley",
+      "conferencePrimarySource": "https://mvc-sports.com/news/2026/9/16/arch-madness-missouri-valley-announces-mens-basketball-2026-27-conference-slate.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Southern Illinois",
+      "conference": "Missouri Valley",
+      "conferencePrimarySource": "https://mvc-sports.com/news/2026/9/16/arch-madness-missouri-valley-announces-mens-basketball-2026-27-conference-slate.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UIC",
+      "conference": "Missouri Valley",
+      "conferencePrimarySource": "https://mvc-sports.com/news/2026/9/16/arch-madness-missouri-valley-announces-mens-basketball-2026-27-conference-slate.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Valparaiso",
+      "conference": "Missouri Valley",
+      "conferencePrimarySource": "https://mvc-sports.com/news/2026/9/16/arch-madness-missouri-valley-announces-mens-basketball-2026-27-conference-slate.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Air Force",
+      "conference": "Mountain West",
+      "conferencePrimarySource": "https://mountainwest.sidearmsports.com/news/2026/9/29/mountain-west-announces-2026-27-mens-basketball-conference-and-broadcast-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Grand Canyon",
+      "conference": "Mountain West",
+      "conferencePrimarySource": "https://mountainwest.sidearmsports.com/news/2026/9/29/mountain-west-announces-2026-27-mens-basketball-conference-and-broadcast-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Hawai'i",
+      "conference": "Mountain West",
+      "conferencePrimarySource": "https://mountainwest.sidearmsports.com/news/2026/9/29/mountain-west-announces-2026-27-mens-basketball-conference-and-broadcast-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Nevada",
+      "conference": "Mountain West",
+      "conferencePrimarySource": "https://mountainwest.sidearmsports.com/news/2026/9/29/mountain-west-announces-2026-27-mens-basketball-conference-and-broadcast-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "New Mexico",
+      "conference": "Mountain West",
+      "conferencePrimarySource": "https://mountainwest.sidearmsports.com/news/2026/9/29/mountain-west-announces-2026-27-mens-basketball-conference-and-broadcast-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "San José State",
+      "conference": "Mountain West",
+      "conferencePrimarySource": "https://mountainwest.sidearmsports.com/news/2026/9/29/mountain-west-announces-2026-27-mens-basketball-conference-and-broadcast-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UC Davis",
+      "conference": "Mountain West",
+      "conferencePrimarySource": "https://mountainwest.sidearmsports.com/news/2026/9/29/mountain-west-announces-2026-27-mens-basketball-conference-and-broadcast-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UNLV",
+      "conference": "Mountain West",
+      "conferencePrimarySource": "https://mountainwest.sidearmsports.com/news/2026/9/29/mountain-west-announces-2026-27-mens-basketball-conference-and-broadcast-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UTEP",
+      "conference": "Mountain West",
+      "conferencePrimarySource": "https://mountainwest.sidearmsports.com/news/2026/9/29/mountain-west-announces-2026-27-mens-basketball-conference-and-broadcast-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Wyoming",
+      "conference": "Mountain West",
+      "conferencePrimarySource": "https://mountainwest.sidearmsports.com/news/2026/9/29/mountain-west-announces-2026-27-mens-basketball-conference-and-broadcast-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Central Connecticut State",
+      "conference": "NEC",
+      "conferencePrimarySource": "https://necsports.com/sports/2026/7/1/gen_aboutnec_2627.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Chicago State",
+      "conference": "NEC",
+      "conferencePrimarySource": "https://necsports.com/sports/2026/7/1/gen_aboutnec_2627.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "FDU",
+      "conference": "NEC",
+      "conferencePrimarySource": "https://necsports.com/sports/2026/7/1/gen_aboutnec_2627.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Le Moyne",
+      "conference": "NEC",
+      "conferencePrimarySource": "https://necsports.com/sports/2026/7/1/gen_aboutnec_2627.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "confirmed",
+      "ncaaSportSource": "https://web3.ncaa.org/directory/orgDetail?id=349",
+      "fullDivisionOneMember": "yes",
+      "championshipEligible": "confirmed"
+    },
+    {
+      "schoolName": "LIU",
+      "conference": "NEC",
+      "conferencePrimarySource": "https://necsports.com/sports/2026/7/1/gen_aboutnec_2627.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Mercyhurst",
+      "conference": "NEC",
+      "conferencePrimarySource": "https://necsports.com/sports/2026/7/1/gen_aboutnec_2627.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "confirmed",
+      "ncaaSportSource": "https://web3.ncaa.org/directory/orgDetail?id=408",
+      "fullDivisionOneMember": "no",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "New Haven",
+      "conference": "NEC",
+      "conferencePrimarySource": "https://necsports.com/sports/2026/7/1/gen_aboutnec_2627.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "confirmed",
+      "ncaaSportSource": "https://web3.ncaa.org/directory/orgDetail?id=470",
+      "fullDivisionOneMember": "no",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Stonehill",
+      "conference": "NEC",
+      "conferencePrimarySource": "https://necsports.com/sports/2026/7/1/gen_aboutnec_2627.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Wagner",
+      "conference": "NEC",
+      "conferencePrimarySource": "https://necsports.com/sports/2026/7/1/gen_aboutnec_2627.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Eastern Illinois",
+      "conference": "OVC",
+      "conferencePrimarySource": "https://ovcsports.com/news/2026/7/10/mens-basketball-ovc-releases-2026-27-conference-basketball-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Lindenwood",
+      "conference": "OVC",
+      "conferencePrimarySource": "https://ovcsports.com/news/2026/7/10/mens-basketball-ovc-releases-2026-27-conference-basketball-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Morehead State",
+      "conference": "OVC",
+      "conferencePrimarySource": "https://ovcsports.com/news/2026/7/10/mens-basketball-ovc-releases-2026-27-conference-basketball-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Southeast Missouri",
+      "conference": "OVC",
+      "conferencePrimarySource": "https://ovcsports.com/news/2026/7/10/mens-basketball-ovc-releases-2026-27-conference-basketball-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "SIUE",
+      "conference": "OVC",
+      "conferencePrimarySource": "https://ovcsports.com/news/2026/7/10/mens-basketball-ovc-releases-2026-27-conference-basketball-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Southern Indiana",
+      "conference": "OVC",
+      "conferencePrimarySource": "https://ovcsports.com/news/2026/7/10/mens-basketball-ovc-releases-2026-27-conference-basketball-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Tennessee State",
+      "conference": "OVC",
+      "conferencePrimarySource": "https://ovcsports.com/news/2026/7/10/mens-basketball-ovc-releases-2026-27-conference-basketball-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UT Martin",
+      "conference": "OVC",
+      "conferencePrimarySource": "https://ovcsports.com/news/2026/7/10/mens-basketball-ovc-releases-2026-27-conference-basketball-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Western Illinois",
+      "conference": "OVC",
+      "conferencePrimarySource": "https://ovcsports.com/news/2026/7/10/mens-basketball-ovc-releases-2026-27-conference-basketball-schedule.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Boise State",
+      "conference": "Pac-12",
+      "conferencePrimarySource": "https://pac-12.com/news/2026/6/30/general-the-new-pac-12-conference-officially-launches-with-the-addition-of-seven-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Colorado State",
+      "conference": "Pac-12",
+      "conferencePrimarySource": "https://pac-12.com/news/2026/6/30/general-the-new-pac-12-conference-officially-launches-with-the-addition-of-seven-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Fresno State",
+      "conference": "Pac-12",
+      "conferencePrimarySource": "https://pac-12.com/news/2026/6/30/general-the-new-pac-12-conference-officially-launches-with-the-addition-of-seven-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Oregon State",
+      "conference": "Pac-12",
+      "conferencePrimarySource": "https://pac-12.com/news/2026/6/30/general-the-new-pac-12-conference-officially-launches-with-the-addition-of-seven-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "San Diego State",
+      "conference": "Pac-12",
+      "conferencePrimarySource": "https://pac-12.com/news/2026/6/30/general-the-new-pac-12-conference-officially-launches-with-the-addition-of-seven-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Texas State",
+      "conference": "Pac-12",
+      "conferencePrimarySource": "https://pac-12.com/news/2026/6/30/general-the-new-pac-12-conference-officially-launches-with-the-addition-of-seven-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Utah State",
+      "conference": "Pac-12",
+      "conferencePrimarySource": "https://pac-12.com/news/2026/6/30/general-the-new-pac-12-conference-officially-launches-with-the-addition-of-seven-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Washington State",
+      "conference": "Pac-12",
+      "conferencePrimarySource": "https://pac-12.com/news/2026/6/30/general-the-new-pac-12-conference-officially-launches-with-the-addition-of-seven-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "American",
+      "conference": "Patriot",
+      "conferencePrimarySource": "https://patriotleague.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Army",
+      "conference": "Patriot",
+      "conferencePrimarySource": "https://patriotleague.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Boston University",
+      "conference": "Patriot",
+      "conferencePrimarySource": "https://patriotleague.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Bucknell",
+      "conference": "Patriot",
+      "conferencePrimarySource": "https://patriotleague.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Colgate",
+      "conference": "Patriot",
+      "conferencePrimarySource": "https://patriotleague.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Holy Cross",
+      "conference": "Patriot",
+      "conferencePrimarySource": "https://patriotleague.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Lafayette",
+      "conference": "Patriot",
+      "conferencePrimarySource": "https://patriotleague.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Lehigh",
+      "conference": "Patriot",
+      "conferencePrimarySource": "https://patriotleague.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Loyola Maryland",
+      "conference": "Patriot",
+      "conferencePrimarySource": "https://patriotleague.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Navy",
+      "conference": "Patriot",
+      "conferencePrimarySource": "https://patriotleague.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Alabama",
+      "conference": "SEC",
+      "conferencePrimarySource": "https://storage.googleapis.com/secsports-prod/upload/2026/09/01/d80ca705-8d1b-439b-ada8-606b7cc60487.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Arkansas",
+      "conference": "SEC",
+      "conferencePrimarySource": "https://storage.googleapis.com/secsports-prod/upload/2026/09/01/d80ca705-8d1b-439b-ada8-606b7cc60487.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Auburn",
+      "conference": "SEC",
+      "conferencePrimarySource": "https://storage.googleapis.com/secsports-prod/upload/2026/09/01/d80ca705-8d1b-439b-ada8-606b7cc60487.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Florida",
+      "conference": "SEC",
+      "conferencePrimarySource": "https://storage.googleapis.com/secsports-prod/upload/2026/09/01/d80ca705-8d1b-439b-ada8-606b7cc60487.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Georgia",
+      "conference": "SEC",
+      "conferencePrimarySource": "https://storage.googleapis.com/secsports-prod/upload/2026/09/01/d80ca705-8d1b-439b-ada8-606b7cc60487.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Kentucky",
+      "conference": "SEC",
+      "conferencePrimarySource": "https://storage.googleapis.com/secsports-prod/upload/2026/09/01/d80ca705-8d1b-439b-ada8-606b7cc60487.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "LSU",
+      "conference": "SEC",
+      "conferencePrimarySource": "https://storage.googleapis.com/secsports-prod/upload/2026/09/01/d80ca705-8d1b-439b-ada8-606b7cc60487.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Mississippi State",
+      "conference": "SEC",
+      "conferencePrimarySource": "https://storage.googleapis.com/secsports-prod/upload/2026/09/01/d80ca705-8d1b-439b-ada8-606b7cc60487.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Missouri",
+      "conference": "SEC",
+      "conferencePrimarySource": "https://storage.googleapis.com/secsports-prod/upload/2026/09/01/d80ca705-8d1b-439b-ada8-606b7cc60487.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Oklahoma",
+      "conference": "SEC",
+      "conferencePrimarySource": "https://storage.googleapis.com/secsports-prod/upload/2026/09/01/d80ca705-8d1b-439b-ada8-606b7cc60487.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Ole Miss",
+      "conference": "SEC",
+      "conferencePrimarySource": "https://storage.googleapis.com/secsports-prod/upload/2026/09/01/d80ca705-8d1b-439b-ada8-606b7cc60487.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "South Carolina",
+      "conference": "SEC",
+      "conferencePrimarySource": "https://storage.googleapis.com/secsports-prod/upload/2026/09/01/d80ca705-8d1b-439b-ada8-606b7cc60487.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Tennessee",
+      "conference": "SEC",
+      "conferencePrimarySource": "https://storage.googleapis.com/secsports-prod/upload/2026/09/01/d80ca705-8d1b-439b-ada8-606b7cc60487.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Texas",
+      "conference": "SEC",
+      "conferencePrimarySource": "https://storage.googleapis.com/secsports-prod/upload/2026/09/01/d80ca705-8d1b-439b-ada8-606b7cc60487.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Texas A&M",
+      "conference": "SEC",
+      "conferencePrimarySource": "https://storage.googleapis.com/secsports-prod/upload/2026/09/01/d80ca705-8d1b-439b-ada8-606b7cc60487.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Vanderbilt",
+      "conference": "SEC",
+      "conferencePrimarySource": "https://storage.googleapis.com/secsports-prod/upload/2026/09/01/d80ca705-8d1b-439b-ada8-606b7cc60487.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Chattanooga",
+      "conference": "SoCon",
+      "conferencePrimarySource": "https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/athletics.wofford.edu/documents/2026/8/27/2026_VB_MG_V2.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "The Citadel",
+      "conference": "SoCon",
+      "conferencePrimarySource": "https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/athletics.wofford.edu/documents/2026/8/27/2026_VB_MG_V2.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "East Tennessee State",
+      "conference": "SoCon",
+      "conferencePrimarySource": "https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/athletics.wofford.edu/documents/2026/8/27/2026_VB_MG_V2.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Furman",
+      "conference": "SoCon",
+      "conferencePrimarySource": "https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/athletics.wofford.edu/documents/2026/8/27/2026_VB_MG_V2.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Mercer",
+      "conference": "SoCon",
+      "conferencePrimarySource": "https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/athletics.wofford.edu/documents/2026/8/27/2026_VB_MG_V2.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Samford",
+      "conference": "SoCon",
+      "conferencePrimarySource": "https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/athletics.wofford.edu/documents/2026/8/27/2026_VB_MG_V2.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Tennessee Tech",
+      "conference": "SoCon",
+      "conferencePrimarySource": "https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/athletics.wofford.edu/documents/2026/8/27/2026_VB_MG_V2.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UNC Greensboro",
+      "conference": "SoCon",
+      "conferencePrimarySource": "https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/athletics.wofford.edu/documents/2026/8/27/2026_VB_MG_V2.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "VMI",
+      "conference": "SoCon",
+      "conferencePrimarySource": "https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/athletics.wofford.edu/documents/2026/8/27/2026_VB_MG_V2.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Western Carolina",
+      "conference": "SoCon",
+      "conferencePrimarySource": "https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/athletics.wofford.edu/documents/2026/8/27/2026_VB_MG_V2.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Wofford",
+      "conference": "SoCon",
+      "conferencePrimarySource": "https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/athletics.wofford.edu/documents/2026/8/27/2026_VB_MG_V2.pdf",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "East Texas A&M",
+      "conference": "Southland",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=914",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Houston Christian",
+      "conference": "Southland",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=914",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Lamar",
+      "conference": "Southland",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=914",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "LSU New Orleans",
+      "conference": "Southland",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=914",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "McNeese",
+      "conference": "Southland",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=914",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Nicholls",
+      "conference": "Southland",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=914",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Northwestern State",
+      "conference": "Southland",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=914",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Southeastern Louisiana",
+      "conference": "Southland",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=914",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Stephen F. Austin",
+      "conference": "Southland",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=914",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Texas A&M-Corpus Christi",
+      "conference": "Southland",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=914",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UIW",
+      "conference": "Southland",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=914",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UTRGV",
+      "conference": "Southland",
+      "conferencePrimarySource": "https://web3.ncaa.org/directory/orgDetail?id=914",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Alabama A&M",
+      "conference": "SWAC",
+      "conferencePrimarySource": "https://swac.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Alabama State",
+      "conference": "SWAC",
+      "conferencePrimarySource": "https://swac.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Alcorn State",
+      "conference": "SWAC",
+      "conferencePrimarySource": "https://swac.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Arkansas-Pine Bluff",
+      "conference": "SWAC",
+      "conferencePrimarySource": "https://swac.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Bethune-Cookman",
+      "conference": "SWAC",
+      "conferencePrimarySource": "https://swac.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Florida A&M",
+      "conference": "SWAC",
+      "conferencePrimarySource": "https://swac.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Grambling",
+      "conference": "SWAC",
+      "conferencePrimarySource": "https://swac.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Jackson State",
+      "conference": "SWAC",
+      "conferencePrimarySource": "https://swac.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Mississippi Valley State",
+      "conference": "SWAC",
+      "conferencePrimarySource": "https://swac.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Prairie View A&M",
+      "conference": "SWAC",
+      "conferencePrimarySource": "https://swac.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Southern",
+      "conference": "SWAC",
+      "conferencePrimarySource": "https://swac.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Texas Southern",
+      "conference": "SWAC",
+      "conferencePrimarySource": "https://swac.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Kansas City",
+      "conference": "Summit",
+      "conferencePrimarySource": "https://thesummitleague.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "North Dakota",
+      "conference": "Summit",
+      "conferencePrimarySource": "https://thesummitleague.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "North Dakota State",
+      "conference": "Summit",
+      "conferencePrimarySource": "https://thesummitleague.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Omaha",
+      "conference": "Summit",
+      "conferencePrimarySource": "https://thesummitleague.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Oral Roberts",
+      "conference": "Summit",
+      "conferencePrimarySource": "https://thesummitleague.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "South Dakota",
+      "conference": "Summit",
+      "conferencePrimarySource": "https://thesummitleague.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "South Dakota State",
+      "conference": "Summit",
+      "conferencePrimarySource": "https://thesummitleague.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "St. Thomas",
+      "conference": "Summit",
+      "conferencePrimarySource": "https://thesummitleague.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "App State",
+      "conference": "Sun Belt",
+      "conferencePrimarySource": "https://sunbeltsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Arkansas State",
+      "conference": "Sun Belt",
+      "conferencePrimarySource": "https://sunbeltsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Coastal Carolina",
+      "conference": "Sun Belt",
+      "conferencePrimarySource": "https://sunbeltsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Georgia Southern",
+      "conference": "Sun Belt",
+      "conferencePrimarySource": "https://sunbeltsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Georgia State",
+      "conference": "Sun Belt",
+      "conferencePrimarySource": "https://sunbeltsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "James Madison",
+      "conference": "Sun Belt",
+      "conferencePrimarySource": "https://sunbeltsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Louisiana",
+      "conference": "Sun Belt",
+      "conferencePrimarySource": "https://sunbeltsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Louisiana Tech",
+      "conference": "Sun Belt",
+      "conferencePrimarySource": "https://sunbeltsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Marshall",
+      "conference": "Sun Belt",
+      "conferencePrimarySource": "https://sunbeltsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Old Dominion",
+      "conference": "Sun Belt",
+      "conferencePrimarySource": "https://sunbeltsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "South Alabama",
+      "conference": "Sun Belt",
+      "conferencePrimarySource": "https://sunbeltsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Southern Miss",
+      "conference": "Sun Belt",
+      "conferencePrimarySource": "https://sunbeltsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Troy",
+      "conference": "Sun Belt",
+      "conferencePrimarySource": "https://sunbeltsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UL Monroe",
+      "conference": "Sun Belt",
+      "conferencePrimarySource": "https://sunbeltsports.org/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Abilene Christian",
+      "conference": "UAC",
+      "conferencePrimarySource": "https://uacsports.com/news/2026/7/15/united-athletic-conference-announces-2026-27-mens-womens-basketball-schedules.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Austin Peay",
+      "conference": "UAC",
+      "conferencePrimarySource": "https://uacsports.com/news/2026/7/15/united-athletic-conference-announces-2026-27-mens-womens-basketball-schedules.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Central Arkansas",
+      "conference": "UAC",
+      "conferencePrimarySource": "https://uacsports.com/news/2026/7/15/united-athletic-conference-announces-2026-27-mens-womens-basketball-schedules.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Eastern Kentucky",
+      "conference": "UAC",
+      "conferencePrimarySource": "https://uacsports.com/news/2026/7/15/united-athletic-conference-announces-2026-27-mens-womens-basketball-schedules.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Little Rock",
+      "conference": "UAC",
+      "conferencePrimarySource": "https://uacsports.com/news/2026/7/15/united-athletic-conference-announces-2026-27-mens-womens-basketball-schedules.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "North Alabama",
+      "conference": "UAC",
+      "conferencePrimarySource": "https://uacsports.com/news/2026/7/15/united-athletic-conference-announces-2026-27-mens-womens-basketball-schedules.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Tarleton State",
+      "conference": "UAC",
+      "conferencePrimarySource": "https://uacsports.com/news/2026/7/15/united-athletic-conference-announces-2026-27-mens-womens-basketball-schedules.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UT Arlington",
+      "conference": "UAC",
+      "conferencePrimarySource": "https://uacsports.com/news/2026/7/15/united-athletic-conference-announces-2026-27-mens-womens-basketball-schedules.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "West Georgia",
+      "conference": "UAC",
+      "conferencePrimarySource": "https://uacsports.com/news/2026/7/15/united-athletic-conference-announces-2026-27-mens-womens-basketball-schedules.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "confirmed",
+      "ncaaSportSource": "https://web3.ncaa.org/directory/orgDetail?id=766",
+      "fullDivisionOneMember": "no",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Denver",
+      "conference": "WCC",
+      "conferencePrimarySource": "https://wccsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Loyola Marymount",
+      "conference": "WCC",
+      "conferencePrimarySource": "https://wccsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Pacific",
+      "conference": "WCC",
+      "conferencePrimarySource": "https://wccsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Pepperdine",
+      "conference": "WCC",
+      "conferencePrimarySource": "https://wccsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Portland",
+      "conference": "WCC",
+      "conferencePrimarySource": "https://wccsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Saint Mary's",
+      "conference": "WCC",
+      "conferencePrimarySource": "https://wccsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "San Diego",
+      "conference": "WCC",
+      "conferencePrimarySource": "https://wccsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "San Francisco",
+      "conference": "WCC",
+      "conferencePrimarySource": "https://wccsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Santa Clara",
+      "conference": "WCC",
+      "conferencePrimarySource": "https://wccsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Seattle",
+      "conference": "WCC",
+      "conferencePrimarySource": "https://wccsports.com/standings.aspx?path=mbball",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Duke",
+      "conference": "ACC",
+      "conferencePrimarySource": "https://theacc.com/news/2026/7/27/general-acc-announces-2026-27-conference-leadership.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Kansas",
+      "conference": "Big 12",
+      "conferencePrimarySource": "https://big12sports.com/news/2019/7/31/big-12-conference.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "UConn",
+      "conference": "Big East",
+      "conferencePrimarySource": "https://www.bigeast.com/sports/2026/9/10/BE_history_090926.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "schoolName": "Gonzaga",
+      "conference": "Pac-12",
+      "conferencePrimarySource": "https://pac-12.com/news/2026/6/30/general-the-new-pac-12-conference-officially-launches-with-the-addition-of-seven-full-time-members.aspx",
+      "conferenceAffiliation": "checked",
+      "ncaaSportSponsorship": "pending",
+      "ncaaSportSource": null,
+      "fullDivisionOneMember": "not_verified",
+      "championshipEligible": "not_verified"
+    }
+  ],
+  "notes": [
+    "Conference affiliation evidence does not by itself establish sport sponsorship, full membership, or championship eligibility.",
+    "This file is a traceability matrix, not the independently reviewed release approval file.",
+    "No CBBD requests were made."
+  ]
+}
