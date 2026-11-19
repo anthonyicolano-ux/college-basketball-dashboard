@@ -1,0 +1,18 @@
+{
+  "season": 2027,
+  "checkedOn": "2026-11-19",
+  "status": "SCHOOL_LEVEL_EVIDENCE_MISSING",
+  "totalCandidates": 365,
+  "uniqueNames": 365,
+  "conferences": 32,
+  "schoolsWithIndividualOfficialNCAAEvidence": 0,
+  "schoolsWithSecondarySourceOnly": 365,
+  "primaryIssue": "The existing school records have secondary-source URLs; conference count reconciliation is not independent school-level NCAA eligibility verification.",
+  "verificationApproach": "Obtain an authoritative 2026-27 NCAA sport-filtered roster or official conference team lists, compare normalized school names, resolve mismatches and transitioning institutions, and retain evidence before setting reviewed=true.",
+  "doNotDo": [
+    "Do not mark reviewed:true from conference totals.",
+    "Do not treat a generic NCAA homepage URL as individual school evidence.",
+    "Do not run the release workflow with a fabricated approved school list."
+  ],
+  "apiCallsUsed": 0
+}
