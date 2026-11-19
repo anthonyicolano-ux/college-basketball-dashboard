@@ -1,7 +1,9 @@
 """Offline tests for the opt-in season snapshot fetcher."""
 import unittest
+import tempfile
+from pathlib import Path
 from unittest.mock import patch
-from fetch_season_snapshot import plan, fetch_json
+from fetch_season_snapshot import plan, fetch_json, main
 
 
 class SnapshotTests(unittest.TestCase):
@@ -35,6 +37,34 @@ class SnapshotTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 fetch_json("https://api.collegebasketballdata.com/stats/team/season?season=2027", "synthetic-token")
 
+
+    def test_empty_team_snapshot_skips_player_call(self):
+        with tempfile.TemporaryDirectory() as temp, \
+             patch("fetch_season_snapshot.plan", return_value=("team-url", "player-url")), \
+             patch("fetch_season_snapshot.fetch_json", return_value=[]) as fetch, \
+             patch("fetch_season_snapshot.os.environ.get", return_value="synthetic-token"), \
+             patch("fetch_season_snapshot.argparse.ArgumentParser.parse_args") as args:
+            args.return_value.allow_network = True
+            args.return_value.remaining_calls = 800
+            args.return_value.out = Path(temp) / "raw"
+            with self.assertRaisesRegex(ValueError, "player request skipped"):
+                main()
+            fetch.assert_called_once_with("team-url", "synthetic-token")
+            self.assertEqual(list((Path(temp) / "raw").iterdir()), [])
+
+    def test_empty_player_snapshot_saves_nothing(self):
+        with tempfile.TemporaryDirectory() as temp, \
+             patch("fetch_season_snapshot.plan", return_value=("team-url", "player-url")), \
+             patch("fetch_season_snapshot.fetch_json", side_effect=[[{"team": "Synthetic"}], []]) as fetch, \
+             patch("fetch_season_snapshot.os.environ.get", return_value="synthetic-token"), \
+             patch("fetch_season_snapshot.argparse.ArgumentParser.parse_args") as args:
+            args.return_value.allow_network = True
+            args.return_value.remaining_calls = 800
+            args.return_value.out = Path(temp) / "raw"
+            with self.assertRaisesRegex(ValueError, "nothing saved"):
+                main()
+            self.assertEqual(fetch.call_count, 2)
+            self.assertEqual(list((Path(temp) / "raw").iterdir()), [])
 
 if __name__ == "__main__":
     unittest.main()
