@@ -2,6 +2,9 @@ name: Validate private basketball data code
 on:
   pull_request:
     paths:
+      - 'private-site/reconcile_ncaa_sponsorship.py'
+      - 'private-site/test_reconcile_ncaa_sponsorship.py'
+      - 'references/2026_27_mbb_school_evidence_matrix.json'
       - 'private-site/build_official_membership_review_sheet.py'
       - 'private-site/finalize_official_membership_review.py'
       - 'private-site/test_finalize_official_membership_review.py'
