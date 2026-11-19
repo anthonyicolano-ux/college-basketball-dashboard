@@ -1,0 +1,61 @@
+name: Inspect real 2026-27 basketball API schema (2 calls)
+on:
+  workflow_dispatch:
+    inputs:
+      verified_remaining_calls:
+        description: 'Current remaining calls shown in CBBD account (must be at least 602)'
+        required: true
+        default: '801'
+        type: string
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+      REMAINING: ${{ inputs.verified_remaining_calls }}
+    steps:
+      - name: Safely inspect provider schemas without retaining records
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os
+          from urllib.request import Request, urlopen
+          from collections import Counter
+          remaining=os.environ['REMAINING']
+          if not remaining.isdecimal() or int(remaining)<602:
+              raise SystemExit('At least 602 verified remaining calls required (600 reserved).')
+          key=os.environ.get('CBBD_API_KEY','')
+          if not key:
+              raise SystemExit('CBBD_API_KEY secret is not configured.')
+          for label, endpoint in [('teams','stats/team/season'),('players','stats/player/season')]:
+              url='https://api.collegebasketballdata.com/'+endpoint+'?season=2027'
+              request=Request(url,headers={'Authorization':'Bearer '+key,'Accept':'application/json'})
+              with urlopen(request,timeout=45) as response:
+                  raw=response.read(15_000_001)
+              if len(raw)>15_000_000:
+                  raise SystemExit('Response exceeds size limit; stopped.')
+              rows=json.loads(raw)
+              if not isinstance(rows,list) or not rows or any(not isinstance(r,dict) for r in rows):
+                  raise SystemExit('Unexpected '+label+' response shape.')
+              counts=Counter()
+              def paths(row,prefix=''):
+                  for k,v in row.items():
+                      path=prefix+'.'+str(k) if prefix else str(k)
+                      if isinstance(v,dict):
+                          yield from paths(v,path)
+                      else:
+                          yield path
+              for row in rows:
+                  counts.update(set(paths(row)))
+              print(label+' record count: '+str(len(rows)))
+              print(label+' field paths (path | present / total):')
+              for path in sorted(counts):
+                  print('  '+path+' | '+str(counts[path])+' / '+str(len(rows)))
+              del rows,raw
+          print('No raw records, names, player statistics, or API key printed or uploaded.')
+          print('This inspection does not publish or change the dashboard.')
+          PY
