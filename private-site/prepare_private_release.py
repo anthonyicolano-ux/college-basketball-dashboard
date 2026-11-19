@@ -12,13 +12,13 @@ def release_manifest(teams_path, players_path):
     teams = load(teams_path)
     players = load(players_path)
     team_names = validate_teams(teams)
+    if len(team_names) < 300:
+        raise ValueError("Refusing to publish partial team coverage")
     validate_players(players, team_names)
     if teams["generatedAt"] != players["generatedAt"]:
         raise ValueError("Team and player snapshots must share one generation timestamp")
     if teams["source"] != players["source"]:
         raise ValueError("Source mismatch between team and player snapshots")
-    if len(team_names) < 300:
-        raise ValueError("Refusing to publish partial team coverage")
     if len(players["rows"]) <= 203:
         raise ValueError("Refusing to publish pilot-sized player coverage")
     result = {"season": 2027, "generatedAt": teams["generatedAt"],
