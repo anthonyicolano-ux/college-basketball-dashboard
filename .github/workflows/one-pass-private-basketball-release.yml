@@ -78,7 +78,7 @@ jobs:
           RAW="$RUNNER_TEMP/cbb-raw"
           OUT="$RUNNER_TEMP/cbb-release"
           mkdir -p "$RAW" "$OUT"
-          python private-site/fetch_season_snapshot.py --allow-network --remaining-calls "$REMAINING" --out "$RAW"
+          python private-site/fetch_season_snapshot.py --allow-network --remaining-calls "$REMAINING" --reviewed-membership "$RUNNER_TEMP/reviewed-division-one-2027.json" --out "$RAW"
           python private-site/audit_real_provider_mapping.py "$RAW/raw-teams.json" "$RAW/raw-players.json" --reviewed-membership "$RUNNER_TEMP/reviewed-division-one-2027.json"
           python private-site/audit_division_one_membership.py "$RAW/raw-teams.json" --reviewed-membership "$RUNNER_TEMP/reviewed-division-one-2027.json"
           python private-site/prepare_real_2027.py "$RAW/raw-teams.json" "$RAW/raw-players.json" --reviewed-membership "$RUNNER_TEMP/reviewed-division-one-2027.json" --confirm-display-permission --out "$OUT"
