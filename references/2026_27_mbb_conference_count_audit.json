@@ -1,0 +1,69 @@
+{
+  "season": 2027,
+  "scope": "2026-27 NCAA Division I men's basketball conference-count reconciliation",
+  "status": "CONFERENCE_COUNTS_RECONCILED_SCHOOL_LEVEL_NOT_VERIFIED",
+  "candidateSchools": 361,
+  "additionalSchools": [
+    "Duke",
+    "Kansas",
+    "UConn",
+    "Gonzaga"
+  ],
+  "totalSchools": 365,
+  "conferences": 32,
+  "conferenceCountMismatches": [],
+  "conferenceCounts": {
+    "ACC": 18,
+    "America East": 9,
+    "American": 13,
+    "ASUN": 8,
+    "Atlantic 10": 14,
+    "Big 12": 16,
+    "Big East": 11,
+    "Big Sky": 11,
+    "Big South": 9,
+    "Big Ten": 18,
+    "Big West": 12,
+    "CAA": 13,
+    "Conference USA": 10,
+    "Horizon": 12,
+    "Ivy": 8,
+    "MAC": 12,
+    "MEAC": 8,
+    "Metro": 13,
+    "Missouri Valley": 11,
+    "Mountain West": 10,
+    "NEC": 9,
+    "OVC": 9,
+    "Pac-12": 9,
+    "Patriot": 10,
+    "SEC": 16,
+    "SoCon": 11,
+    "Southland": 12,
+    "Summit": 8,
+    "Sun Belt": 14,
+    "SWAC": 12,
+    "UAC": 9,
+    "WCC": 10
+  },
+  "evidence": [
+    {
+      "url": "https://legionreport.com/college-basketball-teams-by-conference/",
+      "description": "Independent 2026-27 conference count table; matches all 32 counts"
+    },
+    {
+      "url": "https://web7.rotowire.com/cbasketball/article/college-basketball-travel-miles-139335",
+      "description": "Independent 365-team and 32-conference season count"
+    },
+    {
+      "url": "https://www.menscollegebasketball.net/teams",
+      "description": "Independent 366-entry schedule directory; Saint Francis PA listed with zero games, hence not used as definitive membership"
+    }
+  ],
+  "limitations": [
+    "Conference count equality does not independently verify every school name or provider identity.",
+    "Do not mark roster reviewed:true or activate full release solely from this audit.",
+    "Four additional schools in the separate reference are Duke, Kansas, UConn and Gonzaga; they are NOT the four transitioning programs."
+  ],
+  "apiCallsConsumed": 0
+}
