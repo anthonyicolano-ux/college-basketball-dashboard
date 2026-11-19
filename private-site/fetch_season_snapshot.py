@@ -43,6 +43,7 @@ def main():
     parser.add_argument("--allow-network", action="store_true")
     parser.add_argument("--remaining-calls", type=int)
     parser.add_argument("--out", type=Path)
+    parser.add_argument("--reviewed-membership", type=Path, help="Reviewed provider team IDs; check all before player request")
     args = parser.parse_args()
     if not args.allow_network:
         print("DRY RUN: no network requests, no files written, no KV publication")
@@ -65,6 +66,15 @@ def main():
     # cannot satisfy the existing >=300-team validation gate.
     if len(team_rows) < 300:
         raise ValueError("Fewer than 300 team season records; player request skipped and nothing saved")
+    if args.reviewed_membership is not None:
+        from filter_division_one import load_approved_ids
+        approved = {str(x) for x in load_approved_ids(args.reviewed_membership)}
+        if len(approved) != 365:
+            raise ValueError("Expected exactly 365 unique reviewed team IDs")
+        available = {str(row["teamId"]) for row in team_rows if isinstance(row, dict) and row.get("teamId") is not None}
+        missing = approved - available
+        if missing:
+            raise ValueError(f"{len(missing)} reviewed teams missing from season stats; player request skipped and nothing saved")
     player_rows = fetch_json(urls[1], token)
     if not player_rows:
         raise ValueError("No 2026-27 player season statistics returned; nothing saved")
