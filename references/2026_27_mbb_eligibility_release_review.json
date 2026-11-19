@@ -1,0 +1,58 @@
+{
+  "season": 2027,
+  "sport": "mens_basketball",
+  "reviewedAt": "2026-11-19",
+  "status": "PARTIAL_NCAA_SPORT_SPECIFIC_EVIDENCE_RELEASE_NOT_APPROVED",
+  "candidateSchoolCount": 365,
+  "conferenceAffiliationAudit": {
+    "schoolsChecked": 365,
+    "conferencesChecked": 32,
+    "sourceFile": "references/2026_27_mbb_primary_conference_verification.json",
+    "limitation": "Conference affiliation alone does not establish individual NCAA Division I men's basketball sponsorship or NCAA championship eligibility."
+  },
+  "definitions": {
+    "participatesInDivisionOneMensBasketball": "2026-27 NCAA institution directory explicitly lists Men's Basketball, Division I.",
+    "fullDivisionOneMembership": "Separate NCAA institution classification; reclassifying schools may not yet be full members.",
+    "championshipEligible": "Separate NCAA postseason eligibility; do not infer from participation or conference membership."
+  },
+  "ncaaSportSpecificChecks": [
+    {
+      "school": "West Florida",
+      "ncaaDirectory": "https://web3.ncaa.org/directory/orgDetail?id=11740",
+      "mensBasketballDivision": "I",
+      "mensBasketballConference": "Atlantic Sun Conference",
+      "institutionClassification": "Division II (Reclassifying Member)",
+      "reclassification": "Division I-FCS Year 1",
+      "participation": "confirmed",
+      "fullMember": "no",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "school": "Mercyhurst",
+      "ncaaDirectory": "https://web3.ncaa.org/directory/orgDetail?id=408",
+      "mensBasketballDivision": "I",
+      "mensBasketballConference": "Northeast Conference",
+      "institutionClassification": "Division II (Reclassifying Member)",
+      "reclassification": "Division I-FCS Year 3",
+      "participation": "confirmed",
+      "fullMember": "no",
+      "championshipEligible": "not_verified"
+    }
+  ],
+  "remainingPriorityExceptions": [
+    "New Haven",
+    "West Georgia",
+    "Le Moyne",
+    "Saint Francis (PA)"
+  ],
+  "releasePolicy": {
+    "includeParticipatingReclassifyingSchoolsInTeamAndPlayerStats": true,
+    "showChampionshipEligibilityAsSeparateField": true,
+    "doNotMarkAll365OfficiallyReviewed": true,
+    "doNotFetchPaidOrQuotaLimitedSeasonStatsUntilFullRosterReviewAndRightsChecks": true
+  },
+  "notes": [
+    "2026-27 NCAA sport-specific directory entries are stronger evidence than conference rosters for whether a school sponsors Division I men's basketball.",
+    "This is an incremental review and is not a release authorization."
+  ]
+}
