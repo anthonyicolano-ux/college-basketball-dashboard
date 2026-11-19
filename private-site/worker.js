@@ -78,6 +78,35 @@ export default {
     function validPrivateTeams(data) {
       return validTeamPilot(data)||validExpandedTeams(data);
     }
+    // A single pointer selects one immutable team/player release. When present,
+    // never fall back to unrelated legacy KV keys or demo data on a read failure.
+    // Each request resolves one pointer; the client may need a refresh to see
+    // the same release across separate HTTP requests after activation.
+    if(env.PRIVATE_DATA && ['/data/teams.json','/data/players.json','/data/refresh-status.json'].includes(url.pathname)){
+      const pointerRaw=await env.PRIVATE_DATA.get('active-release');
+      if(pointerRaw!==null && pointerRaw!==undefined){
+        let pointer=null;
+        try { pointer=JSON.parse(pointerRaw); } catch {}
+        const release=pointer?.release;
+        if(typeof release!=='string'||!/^([a-f0-9]{16})-([a-f0-9]{16})$/.test(release))
+          return new Response('Private release pointer invalid',{status:503,headers:{'cache-control':'no-store'}});
+        const key=url.pathname==='/data/players.json'?'players':'teams';
+        const raw=await env.PRIVATE_DATA.get('release:'+release+':'+key);
+        let data=null;
+        try {data=JSON.parse(raw);}catch{}
+        const valid=key==='teams'?validExpandedTeams(data):validExpandedPlayers(data);
+        if(!valid)
+          return new Response('Private release data unavailable',{status:503,headers:{'cache-control':'no-store'}});
+        if(url.pathname==='/data/refresh-status.json'){
+          return new Response(JSON.stringify({schemaVersion:1,outcome:'private team data published ('+data.rows.length+' teams)',lastSuccessAt:data.generatedAt,lastAttemptAt:data.generatedAt}),{headers:{'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'}});
+        }
+        const allowed=key==='teams'?
+          ['team','conference','wins','losses','games','ppg','oppPpg','offRating','defRating','netRating','scoringMargin','pace','fgPct','threePct','ftPct','eFg','tsPct','rebounds','offRebounds','defRebounds','oppRebounds','reboundingMargin','assists','turnovers']:
+          ['name','team','conference','games','minutes','points','rebounds','offRebounds','defRebounds','assists','steals','blocks','turnovers','fgMade','fgAttempted','fgPct','threeMade','threeAttempted','threePct','ftMade','ftAttempted','ftPct'];
+        const rows=data.rows.map(source=>Object.fromEntries(allowed.map(k=>[k,source[k]??null])));
+        return new Response(JSON.stringify({schemaVersion:1,season:2027,seasonLabel:'2026–27',scope:data.scope,source:data.source,approvedForPrivateDisplay:true,generatedAt:data.generatedAt,demo:false,rows}),{headers:{'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'}});
+      }
+    }
     // Derive private refresh status from the actual validated KV pilot dataset.
     // Do not use the public demo's stale refresh-status.json for live team data.
     if(url.pathname==='/data/refresh-status.json'&&env.PRIVATE_DATA){
