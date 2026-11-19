@@ -2,6 +2,10 @@ name: Validate private basketball data code
 on:
   pull_request:
     paths:
+      - 'private-site/filter_division_one.py'
+      - 'private-site/test_filter_division_one.py'
+      - 'private-site/verified_2027_provider_mapping.py'
+      - 'private-site/test_verified_2027_provider_mapping.py'
       - 'private-site/validate_full_coverage.py'
       - 'private-site/test_validate_full_coverage.py'
       - '.github/workflows/validate-private-data.yml'
