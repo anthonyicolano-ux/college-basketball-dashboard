@@ -2,7 +2,7 @@
   "season": 2027,
   "sport": "mens_basketball",
   "reviewedAt": "2026-11-19",
-  "status": "PARTIAL_NCAA_SPORT_SPECIFIC_EVIDENCE_RELEASE_NOT_APPROVED",
+  "status": "PRIORITY_EXCEPTIONS_REVIEWED_FULL_365_SPORT_SPONSORSHIP_NOT_APPROVED",
   "candidateSchoolCount": 365,
   "conferenceAffiliationAudit": {
     "schoolsChecked": 365,
@@ -37,14 +37,53 @@
       "participation": "confirmed",
       "fullMember": "no",
       "championshipEligible": "not_verified"
+    },
+    {
+      "school": "New Haven",
+      "ncaaDirectory": "https://web3.ncaa.org/directory/orgDetail?id=470",
+      "mensBasketballDivision": "I",
+      "mensBasketballConference": "Northeast Conference",
+      "institutionClassification": "Division II (Reclassifying Member)",
+      "reclassification": "Division I-FCS Year 2",
+      "participation": "confirmed",
+      "fullMember": "no",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "school": "West Georgia",
+      "ncaaDirectory": "https://web3.ncaa.org/directory/orgDetail?id=766",
+      "mensBasketballDivision": "I",
+      "mensBasketballConference": "United Athletic Conference",
+      "institutionClassification": "Division II (Reclassifying Member)",
+      "reclassification": "Division I-FCS Year 3",
+      "participation": "confirmed",
+      "fullMember": "no",
+      "championshipEligible": "not_verified"
+    },
+    {
+      "school": "Le Moyne",
+      "ncaaDirectory": "https://web3.ncaa.org/directory/orgDetail?id=349",
+      "mensBasketballDivision": "I",
+      "mensBasketballConference": "Northeast Conference",
+      "institutionClassification": "Division I (Active)",
+      "participation": "confirmed",
+      "fullMember": "yes",
+      "championshipEligible": "confirmed",
+      "championshipEligibilitySource": "https://www.lemoyne.edu/news/le-moyne-college-completes-accelerated-reclassification-to-full-ncaa-division-i-status/"
+    },
+    {
+      "school": "Saint Francis (PA)",
+      "ncaaDirectory": "https://web3.ncaa.org/directory/orgDetail?id=600",
+      "institutionClassification": "Division I (Reclassifying Member)",
+      "reclassification": "Division III Year 1",
+      "participation": "exclude_from_2026_27_di_mens_basketball",
+      "fullMember": "no",
+      "championshipEligible": "no",
+      "transitionSource": "https://www.francis.edu/D3TransitionFAQ",
+      "note": "Transition to Division III beginning 2026-27; not a candidate in the 365-school DI roster"
     }
   ],
-  "remainingPriorityExceptions": [
-    "New Haven",
-    "West Georgia",
-    "Le Moyne",
-    "Saint Francis (PA)"
-  ],
+  "remainingPriorityExceptions": [],
   "releasePolicy": {
     "includeParticipatingReclassifyingSchoolsInTeamAndPlayerStats": true,
     "showChampionshipEligibilityAsSeparateField": true,
@@ -53,6 +92,7 @@
   },
   "notes": [
     "2026-27 NCAA sport-specific directory entries are stronger evidence than conference rosters for whether a school sponsors Division I men's basketball.",
-    "This is an incremental review and is not a release authorization."
+    "This is an incremental review and is not a release authorization.",
+    "Priority exception checks completed against NCAA organization directory and university transition statements. NCAA sport-specific sponsorship still needs to be validated for the other candidate schools before reviewed:true."
   ]
 }
