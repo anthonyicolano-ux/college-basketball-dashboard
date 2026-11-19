@@ -1,0 +1,58 @@
+name: Inspect real basketball season data (private, 2 calls max)
+
+on:
+  workflow_dispatch:
+    inputs:
+      verified_remaining_calls:
+        description: 'Verified remaining shared monthly API calls (not an estimate)'
+        required: true
+        type: number
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check secret presence
+        run: |
+          if [ -z "$CBBD_API_KEY" ]; then
+            echo "::error::CBBD_API_KEY is missing"; exit 1
+          fi
+      - name: Verify shared quota, fetch two snapshots, print field names only
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/private-cbb"
+          chmod 700 "$RUNNER_TEMP/private-cbb"
+          # No speculative quota endpoint requests: operator must verify quota first.
+          REMAINING='${{ inputs.verified_remaining_calls }}'
+          if ! [[ "$REMAINING" =~ ^[0-9]+$ ]] || [ "$REMAINING" -lt 602 ]; then
+            echo "::error::Verified shared quota must be at least 602"; exit 1
+          fi
+          python private-site/fetch_season_snapshot.py --allow-network --remaining-calls "$REMAINING" --out "$RUNNER_TEMP/private-cbb"
+          python private-site/inspect_provider_paths.py "$RUNNER_TEMP/private-cbb/raw-teams.json" "$RUNNER_TEMP/private-cbb/raw-players.json" > "$RUNNER_TEMP/private-cbb/inventory.json"
+          python private-site/suggest_provider_mapping.py "$RUNNER_TEMP/private-cbb/inventory.json" > "$RUNNER_TEMP/private-cbb/suggestions.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'private-cbb'
+          inv=json.loads((root/'inventory.json').read_text())
+          suggestions=json.loads((root/'suggestions.json').read_text())
+          for kind in ('teams','players'):
+              print(kind,'records:',inv[kind]['recordCount'])
+              print(kind,'field paths:',[x['path'] for x in inv[kind]['paths']])
+              print(kind,'candidate mappings:',suggestions[kind])
+          print('Raw records not printed, uploaded, committed or published.')
+          PY
+      - name: Remove private snapshots
+        if: always()
+        run: rm -rf "$RUNNER_TEMP/private-cbb"

@@ -1,0 +1,88 @@
+name: One-pass private basketball release (manual, fail closed)
+
+on:
+  workflow_dispatch:
+    inputs:
+      verified_remaining_calls:
+        description: 'Current shared API quota remaining (from account usage screen)'
+        required: true
+        type: string
+      confirm_private_display_rights:
+        description: 'Confirm provider terms permit this private dashboard presentation'
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: basketball-private-release
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+      REMAINING: ${{ inputs.verified_remaining_calls }}
+      DISPLAY_RIGHTS: ${{ inputs.confirm_private_display_rights }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_KV_NAMESPACE_ID: ${{ secrets.CLOUDFLARE_KV_NAMESPACE_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate local tests and release prerequisites before any API request
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s private-site -p 'test_*.py'
+          node --test private-site/worker.test.mjs private-site/player-coverage.test.mjs private-site/frontend-release.test.mjs
+          if [ "$DISPLAY_RIGHTS" != "true" ]; then
+            echo "::error::Private display rights must be confirmed"; exit 1
+          fi
+          if ! [[ "$REMAINING" =~ ^[0-9]+$ ]] || [ "$REMAINING" -lt 602 ]; then
+            echo "::error::At least 602 verified remaining shared calls required"; exit 1
+          fi
+          if [ -z "$CBBD_API_KEY" ]; then
+            echo "::error::CBBD_API_KEY secret missing"; exit 1
+          fi
+          if [ -z "$CLOUDFLARE_ACCOUNT_ID" ] || [ -z "$CLOUDFLARE_KV_NAMESPACE_ID" ] || [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::error::Cloudflare staging secrets missing; zero API calls made"; exit 1
+          fi
+          if [ ! -f private-site/reviewed-division-one-2027.json ]; then
+            echo "::error::Reviewed Division I membership file is missing; zero API calls made"; exit 1
+          fi
+          python - <<'PY'
+          import json,sys
+          sys.path.insert(0,'private-site')
+          from filter_division_one import load_approved_ids
+          ids=load_approved_ids('private-site/reviewed-division-one-2027.json')
+          if len(ids) != len(set(map(str,ids))) or not 300 <= len(ids) <= 400:
+              raise SystemExit('Membership invalid; refusing fetch')
+          print('Reviewed membership count:',len(ids))
+          PY
+      - name: Fetch once, audit, normalize, validate and prepare private release
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          RAW="$RUNNER_TEMP/cbb-raw"
+          OUT="$RUNNER_TEMP/cbb-release"
+          mkdir -p "$RAW" "$OUT"
+          python private-site/fetch_season_snapshot.py --allow-network --remaining-calls "$REMAINING" --out "$RAW"
+          python private-site/audit_real_provider_mapping.py "$RAW/raw-teams.json" "$RAW/raw-players.json" --reviewed-membership private-site/reviewed-division-one-2027.json
+          python private-site/audit_division_one_membership.py "$RAW/raw-teams.json" --reviewed-membership private-site/reviewed-division-one-2027.json
+          python private-site/prepare_real_2027.py "$RAW/raw-teams.json" "$RAW/raw-players.json" --reviewed-membership private-site/reviewed-division-one-2027.json --confirm-display-permission --out "$OUT"
+          python private-site/prepare_private_release.py "$OUT/teams.json" "$OUT/players.json"
+          # Dry-run the publisher before making any Cloudflare KV writes.
+          python private-site/publish_private_kv.py "$OUT/teams.json" "$OUT/players.json" > /dev/null
+          python private-site/publish_private_kv.py "$OUT/teams.json" "$OUT/players.json" --publish
+          echo "Validated private release staged in versioned Cloudflare KV keys. Active release unchanged."
+      - name: Remove raw and derived private data
+        if: always()
+        run: rm -rf "$RUNNER_TEMP/cbb-raw" "$RUNNER_TEMP/cbb-release"

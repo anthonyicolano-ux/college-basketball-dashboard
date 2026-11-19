@@ -1,0 +1,67 @@
+name: Validate private basketball data code
+on:
+  pull_request:
+    paths:
+      - 'private-site/create_membership_review.py'
+      - 'private-site/finalize_membership_review.py'
+      - 'private-site/test_membership_review_workflow.py'
+      - '.github/workflows/one-pass-private-basketball-release.yml'
+      - 'private-site/audit_real_provider_mapping.py'
+      - 'private-site/test_audit_real_provider_mapping.py'
+      - 'private-site/audit_division_one_membership.py'
+      - 'private-site/test_audit_division_one_membership.py'
+      - 'private-site/prepare_real_2027.py'
+      - 'private-site/test_prepare_real_2027.py'
+      - 'private-site/filter_division_one.py'
+      - 'private-site/test_filter_division_one.py'
+      - 'private-site/verified_2027_provider_mapping.py'
+      - 'private-site/test_verified_2027_provider_mapping.py'
+      - 'private-site/validate_full_coverage.py'
+      - 'private-site/test_validate_full_coverage.py'
+      - '.github/workflows/validate-private-data.yml'
+      - 'private-site/worker.js'
+      - 'private-site/worker.test.mjs'
+      - 'private-site/player-coverage.mjs'
+      - 'private-site/player-coverage.test.mjs'
+      - 'private-site/inspect_private_schema.py'
+      - 'private-site/test_inspect_private_schema.py'
+      - 'private-site/api_budget.py'
+      - 'private-site/test_api_budget.py'
+      - 'private-site/fetch_season_snapshot.py'
+      - 'private-site/test_fetch_season_snapshot.py'
+      - 'private-site/normalize_season_snapshot.py'
+      - 'private-site/test_normalize_season_snapshot.py'
+      - 'private-site/check_provider_mapping.py'
+      - 'private-site/test_check_provider_mapping.py'
+      - 'private-site/provider_field_mapping.py'
+      - 'private-site/test_provider_field_mapping.py'
+      - 'private-site/derived_team_metrics.py'
+      - 'private-site/test_derived_team_metrics.py'
+      - 'private-site/free_tier_readiness.py'
+      - 'private-site/test_free_tier_readiness.py'
+      - 'private-site/prepare_private_release.py'
+      - 'private-site/test_prepare_private_release.py'
+      - 'private-site/publish_private_kv.py'
+      - 'private-site/test_publish_private_kv.py'
+      - 'private-site/frontend-release.test.mjs'
+      - 'private-site/inspect_provider_paths.py'
+      - 'private-site/test_inspect_provider_paths.py'
+      - 'private-site/suggest_provider_mapping.py'
+      - 'private-site/test_suggest_provider_mapping.py'
+      - 'assets/release.js'
+      - 'assets/app.js'
+      - 'index.html'
+      - 'players.html'
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run synthetic validation tests
+        run: python -m unittest discover -s private-site -p 'test_*.py' -v
+      - name: Run Worker route tests
+        run: node --test private-site/worker.test.mjs private-site/player-coverage.test.mjs private-site/frontend-release.test.mjs
