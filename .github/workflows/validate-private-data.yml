@@ -32,6 +32,8 @@ on:
       - 'private-site/frontend-release.test.mjs'
       - 'private-site/inspect_provider_paths.py'
       - 'private-site/test_inspect_provider_paths.py'
+      - 'private-site/suggest_provider_mapping.py'
+      - 'private-site/test_suggest_provider_mapping.py'
       - 'assets/release.js'
       - 'assets/app.js'
       - 'index.html'
