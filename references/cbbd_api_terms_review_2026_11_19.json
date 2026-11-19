@@ -1,0 +1,29 @@
+{
+  "reviewDate": "2026-11-19",
+  "source": "https://collegebasketballdata.com/terms",
+  "termsEffectiveDate": "2026-08-12",
+  "scope": "CBBD API data only; not separately licensed packs or third-party intellectual property",
+  "findings": {
+    "privateDashboardAllowed": true,
+    "privateCachingAllowed": true,
+    "reasonableFactualStatsDisplayAllowed": true,
+    "derivedRankingsAllowed": true,
+    "attributionRequired": false,
+    "attributionRecommended": "Data provided by CollegeBasketballData.com",
+    "rawDatasetRedistributionAllowed": false,
+    "apiKeyInClientAllowed": false,
+    "sharedQuotaWithFootball": true
+  },
+  "dashboardConditions": [
+    "Keep API key exclusively in GitHub Actions secrets/server-side configuration.",
+    "Keep raw provider responses private; do not provide bulk downloads or raw feeds to viewers.",
+    "Display reasonable factual statistics and independently derived comparisons, rankings and charts.",
+    "Avoid logos, photos, and other third-party intellectual property unless independently authorized.",
+    "Verify current terms again before live release; terms can change."
+  ],
+  "releaseGate": "Documented terms support intended private use, but workflow's explicit rights-confirmation checkbox remains required. This review does not verify NCAA school eligibility or provider endpoint coverage.",
+  "additionalReferences": [
+    "https://api.collegebasketballdata.com/data-availability",
+    "https://api.collegebasketballdata.com/api/info"
+  ]
+}
