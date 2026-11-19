@@ -1,0 +1,29 @@
+name: Validate private basketball data code
+on:
+  workflow_dispatch:
+    inputs:
+      ref_to_test:
+        description: 'Development branch to test'
+        required: true
+        default: 'feature/full-coverage-private-data-validation'
+        type: string
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out requested development branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref_to_test }}
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run offline Python validation tests
+        run: python -m unittest discover -s private-site -p 'test_*.py' -v
+      - name: Run offline Worker and frontend tests
+        run: node --test private-site/worker.test.mjs private-site/player-coverage.test.mjs private-site/frontend-release.test.mjs
