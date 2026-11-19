@@ -28,6 +28,9 @@ jobs:
       CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
       REMAINING: ${{ inputs.verified_remaining_calls }}
       DISPLAY_RIGHTS: ${{ inputs.confirm_private_display_rights }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_KV_NAMESPACE_ID: ${{ secrets.CLOUDFLARE_KV_NAMESPACE_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -46,6 +49,9 @@ jobs:
           fi
           if [ -z "$CBBD_API_KEY" ]; then
             echo "::error::CBBD_API_KEY secret missing"; exit 1
+          fi
+          if [ -z "$CLOUDFLARE_ACCOUNT_ID" ] || [ -z "$CLOUDFLARE_KV_NAMESPACE_ID" ] || [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::error::Cloudflare staging secrets missing; zero API calls made"; exit 1
           fi
           if [ ! -f private-site/reviewed-division-one-2027.json ]; then
             echo "::error::Reviewed Division I membership file is missing; zero API calls made"; exit 1
@@ -71,9 +77,9 @@ jobs:
           python private-site/audit_real_provider_mapping.py "$RAW/raw-teams.json" "$RAW/raw-players.json"
           python private-site/audit_division_one_membership.py "$RAW/raw-teams.json" --reviewed-membership private-site/reviewed-division-one-2027.json
           python private-site/prepare_real_2027.py "$RAW/raw-teams.json" "$RAW/raw-players.json" --reviewed-membership private-site/reviewed-division-one-2027.json --confirm-display-permission --out "$OUT"
-          python private-site/validate_full_coverage.py "$OUT/teams.json" "$OUT/players.json"
           python private-site/prepare_private_release.py "$OUT/teams.json" "$OUT/players.json"
-          echo "Validated release prepared in ephemeral private runner. No KV writes or raw artifact uploads."
+          python private-site/publish_private_kv.py "$OUT/teams.json" "$OUT/players.json" --publish
+          echo "Validated private release staged in versioned Cloudflare KV keys. Active release unchanged."
       - name: Remove raw and derived private data
         if: always()
         run: rm -rf "$RUNNER_TEMP/cbb-raw" "$RUNNER_TEMP/cbb-release"
