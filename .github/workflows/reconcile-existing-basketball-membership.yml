@@ -16,6 +16,9 @@ jobs:
     env:
       CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
       REMAINING: ${{ inputs.verified_remaining_calls }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_KV_NAMESPACE_ID: ${{ secrets.CLOUDFLARE_KV_NAMESPACE_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -33,6 +36,7 @@ jobs:
           fi
           python - <<'PY'
           import json, os, sys
+          from urllib.parse import quote
           from collections import defaultdict
           from urllib.request import Request, urlopen
           sys.path.insert(0,'scripts')
@@ -80,6 +84,27 @@ jobs:
           for name in missing:
               print(' -',name)
           print('No raw team statistics, provider IDs, or API keys stored or published.')
-          if duplicate_ids or missing_identity:
-              raise SystemExit('Review required before membership approval')
+          if duplicate_ids or missing_identity or missing or ambiguous:
+              raise SystemExit('Unresolved identity matching; draft not stored')
+          # Store only private candidate IDs; this is NOT approved NCAA membership.
+          account=os.environ.get('CLOUDFLARE_ACCOUNT_ID','')
+          namespace=os.environ.get('CLOUDFLARE_KV_NAMESPACE_ID','')
+          token=os.environ.get('CLOUDFLARE_API_TOKEN','')
+          if not all((account,namespace,token)):
+              raise SystemExit('Cloudflare KV credentials missing; no candidate map stored')
+          payload=json.dumps({'season':2027,'reviewed':False,
+                              'status':'candidate_identity_only_not_division_one_approved',
+                              'teamIdsByName':{name:next(iter(ids)) for name,ids in sorted(matched.items())}},
+                             separators=(',',':')).encode('utf-8')
+          url=('https://api.cloudflare.com/client/v4/accounts/'+quote(account,safe='')+
+               '/storage/kv/namespaces/'+quote(namespace,safe='')+
+               '/values/'+quote('basketball:candidate-team-ids:2027',safe=''))
+          request=Request(url,data=payload,method='PUT',headers={
+              'Authorization':'Bearer '+token,'Content-Type':'application/json'})
+          with urlopen(request,timeout=30) as response:
+              result=json.loads(response.read(4096))
+          if result.get('success') is not True:
+              raise SystemExit('Candidate identity KV write failed')
+          print('Private candidate ID mapping saved to KV; NOT approved for publication.')
+          print('Active dashboard release remains unchanged.')
           PY
