@@ -52,6 +52,20 @@ class SnapshotTests(unittest.TestCase):
             fetch.assert_called_once_with("team-url", "synthetic-token")
             self.assertEqual(list((Path(temp) / "raw").iterdir()), [])
 
+    def test_small_team_snapshot_skips_player_call(self):
+        with tempfile.TemporaryDirectory() as temp, \
+             patch("fetch_season_snapshot.plan", return_value=("team-url", "player-url")), \
+             patch("fetch_season_snapshot.fetch_json", return_value=[{"team": f"Synthetic {i}"} for i in range(299)]) as fetch, \
+             patch("fetch_season_snapshot.os.environ.get", return_value="synthetic-token"), \
+             patch("fetch_season_snapshot.argparse.ArgumentParser.parse_args") as args:
+            args.return_value.allow_network = True
+            args.return_value.remaining_calls = 800
+            args.return_value.out = Path(temp) / "raw"
+            with self.assertRaisesRegex(ValueError, "Fewer than 300"):
+                main()
+            fetch.assert_called_once_with("team-url", "synthetic-token")
+            self.assertEqual(list((Path(temp) / "raw").iterdir()), [])
+
     def test_empty_player_snapshot_saves_nothing(self):
         with tempfile.TemporaryDirectory() as temp, \
              patch("fetch_season_snapshot.plan", return_value=("team-url", "player-url")), \
