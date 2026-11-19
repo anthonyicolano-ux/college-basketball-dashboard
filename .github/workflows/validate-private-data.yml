@@ -25,6 +25,8 @@ on:
       - 'private-site/test_derived_team_metrics.py'
       - 'private-site/free_tier_readiness.py'
       - 'private-site/test_free_tier_readiness.py'
+      - 'private-site/prepare_private_release.py'
+      - 'private-site/test_prepare_private_release.py'
   workflow_dispatch:
 jobs:
   validate:
