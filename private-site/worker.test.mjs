@@ -113,3 +113,40 @@ test('expanded players reject malformed numeric metrics',async()=>{
   const response=await get(env,'/data/players.json',await authCookie(env));
   assert.equal(response.status,503);
 });
+
+test('versioned release serves both datasets without leaking extra fields',async()=>{
+  const teams=dataset(Array.from({length:365},(_,i)=>({...team(i),internalSecret:'hidden'})));
+  const players=dataset(Array.from({length:365},(_,i)=>({...player(i),team:'Fixture '+i})));
+  const env=mock(null,null);
+  const originalGet=env.PRIVATE_DATA.get;
+  env.PRIVATE_DATA.get=async key=>{
+    if(key==='active-release')return JSON.stringify({release:'a'.repeat(16)+'-'+'b'.repeat(16)});
+    if(key.startsWith('release:'))return JSON.stringify(key.endsWith(':teams')?teams:players);
+    return originalGet(key);
+  };
+  const cookie=await authCookie(env);
+  const teamResponse=await get(env,'/data/teams.json',cookie);
+  const playerResponse=await get(env,'/data/players.json',cookie);
+  assert.equal(teamResponse.status,200);
+  assert.equal(playerResponse.status,200);
+  assert.equal((await teamResponse.json()).rows.length,365);
+  const people=await playerResponse.json();
+  assert.equal(people.rows.length,365);
+  assert.equal(people.rows[0].internalSecret,undefined);
+});
+
+test('invalid release pointer fails closed instead of showing demo',async()=>{
+  const env=mock(null,null);
+  env.PRIVATE_DATA.get=async key=>key==='active-release'?'{"release":"invalid"}':null;
+  const response=await get(env,'/data/teams.json',await authCookie(env));
+  assert.equal(response.status,503);
+  assert.doesNotMatch(await response.text(),/demo fallback/);
+});
+
+test('missing versioned player data fails closed instead of using legacy data',async()=>{
+  const env=mock(null,null);
+  env.PRIVATE_DATA.get=async key=>key==='active-release'?
+    JSON.stringify({release:'a'.repeat(16)+'-'+'b'.repeat(16)}):null;
+  const response=await get(env,'/data/players.json',await authCookie(env));
+  assert.equal(response.status,503);
+});
