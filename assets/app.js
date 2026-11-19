@@ -27,9 +27,9 @@ function updateTeamOptions(){
  selector.value=teams.includes(previous)?previous:'';
 }
 async function init(){
- const status=$('status');try{const sr=await fetch('data/refresh-status.json',{cache:'no-store'});const refresh=sr.ok?await sr.json():null;const release=typeof refresh?.release==='string'&&/^[a-f0-9]{16}-[a-f0-9]{16}$/.test(refresh.release)?refresh.release:null;const dataUrl='data/'+(mode==='players'?'players':'teams')+'.json'+(release?'?release='+encodeURIComponent(release):'');const response=await fetch(dataUrl,{cache:'no-store'});if(!response.ok)throw Error('No dashboard dataset is published');const data=await response.json();if(data.schemaVersion!==1||!Array.isArray(data.rows)||typeof data.demo!=='boolean'||data.season!==2027)throw Error('Dataset format or season not supported');
+ const status=$('status');try{const sr=await fetch('data/refresh-status.json',{cache:'no-store'});const refresh=sr.ok?await sr.json():null;const release=BasketballRelease.select(refresh);const dataUrl=BasketballRelease.url(mode,release);const response=await fetch(dataUrl,{cache:'no-store'});if(!response.ok)throw Error('No dashboard dataset is published');const data=await response.json();if(data.schemaVersion!==1||!Array.isArray(data.rows)||typeof data.demo!=='boolean'||data.season!==2027)throw Error('Dataset format or season not supported');
  if(!data.demo && (data.approvedForPrivateDisplay!==true||typeof data.generatedAt!=='string'||!data.generatedAt||typeof data.scope!=='string'||!data.scope||!data.source))throw Error('Real dataset lacks explicit private-display approval or provenance');
- if(release && data.release!==release)throw Error('Dataset release does not match pinned refresh status');
+ BasketballRelease.verify(data,release);
  rows=data.rows;
  const cs=[...new Set(rows.map(x=>x.conference).filter(Boolean))].sort();for(const c of cs){const o=document.createElement('option');o.value=c;o.textContent=c;$('conference').append(o)}
  updateTeamOptions();
