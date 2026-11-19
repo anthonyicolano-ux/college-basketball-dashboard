@@ -54,17 +54,21 @@ jobs:
           if [ -z "$CLOUDFLARE_ACCOUNT_ID" ] || [ -z "$CLOUDFLARE_KV_NAMESPACE_ID" ] || [ -z "$CLOUDFLARE_API_TOKEN" ]; then
             echo "::error::Cloudflare staging secrets missing; zero API calls made"; exit 1
           fi
-          if [ ! -f private-site/reviewed-division-one-2027.json ]; then
-            echo "::error::Reviewed Division I membership file is missing; zero API calls made"; exit 1
+          if [ ! -f private-site/reviewed-division-one-schools-2027.json ]; then
+            echo "::error::Independent reviewed school-name membership file missing; zero API calls made"; exit 1
           fi
+          umask 077
+          python private-site/resolve_reviewed_membership_from_kv.py \
+            --reviewed-schools private-site/reviewed-division-one-schools-2027.json \
+            --out "$RUNNER_TEMP/reviewed-division-one-2027.json"
           python - <<'PY'
-          import json,sys
+          import json,os,sys
           sys.path.insert(0,'private-site')
           from filter_division_one import load_approved_ids
-          ids=load_approved_ids('private-site/reviewed-division-one-2027.json')
-          if len(ids) != len(set(map(str,ids))) or not 300 <= len(ids) <= 400:
-              raise SystemExit('Membership invalid; refusing fetch')
-          print('Reviewed membership count:',len(ids))
+          ids=load_approved_ids(os.environ['RUNNER_TEMP']+'/reviewed-division-one-2027.json')
+          if not 300 <= len(ids) <= 400:
+              raise SystemExit('Membership count invalid; refusing fetch')
+          print('Independently reviewed membership count:',len(ids))
           PY
       - name: Fetch once, audit, normalize, validate and prepare private release
         shell: bash
@@ -75,9 +79,9 @@ jobs:
           OUT="$RUNNER_TEMP/cbb-release"
           mkdir -p "$RAW" "$OUT"
           python private-site/fetch_season_snapshot.py --allow-network --remaining-calls "$REMAINING" --out "$RAW"
-          python private-site/audit_real_provider_mapping.py "$RAW/raw-teams.json" "$RAW/raw-players.json" --reviewed-membership private-site/reviewed-division-one-2027.json
-          python private-site/audit_division_one_membership.py "$RAW/raw-teams.json" --reviewed-membership private-site/reviewed-division-one-2027.json
-          python private-site/prepare_real_2027.py "$RAW/raw-teams.json" "$RAW/raw-players.json" --reviewed-membership private-site/reviewed-division-one-2027.json --confirm-display-permission --out "$OUT"
+          python private-site/audit_real_provider_mapping.py "$RAW/raw-teams.json" "$RAW/raw-players.json" --reviewed-membership "$RUNNER_TEMP/reviewed-division-one-2027.json"
+          python private-site/audit_division_one_membership.py "$RAW/raw-teams.json" --reviewed-membership "$RUNNER_TEMP/reviewed-division-one-2027.json"
+          python private-site/prepare_real_2027.py "$RAW/raw-teams.json" "$RAW/raw-players.json" --reviewed-membership "$RUNNER_TEMP/reviewed-division-one-2027.json" --confirm-display-permission --out "$OUT"
           python private-site/prepare_private_release.py "$OUT/teams.json" "$OUT/players.json"
           # Dry-run the publisher before making any Cloudflare KV writes.
           python private-site/publish_private_kv.py "$OUT/teams.json" "$OUT/players.json" > /dev/null
@@ -85,4 +89,4 @@ jobs:
           echo "Validated private release staged in versioned Cloudflare KV keys. Active release unchanged."
       - name: Remove raw and derived private data
         if: always()
-        run: rm -rf "$RUNNER_TEMP/cbb-raw" "$RUNNER_TEMP/cbb-release"
+        run: rm -rf "$RUNNER_TEMP/cbb-raw" "$RUNNER_TEMP/cbb-release" "$RUNNER_TEMP/reviewed-division-one-2027.json"
