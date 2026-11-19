@@ -61,6 +61,10 @@ def main():
     team_rows = fetch_json(urls[0], token)
     if not team_rows:
         raise ValueError("No 2026-27 team season statistics returned; player request skipped and nothing saved")
+    # This release requires broad Division I coverage. A small pilot snapshot
+    # cannot satisfy the existing >=300-team validation gate.
+    if len(team_rows) < 300:
+        raise ValueError("Fewer than 300 team season records; player request skipped and nothing saved")
     player_rows = fetch_json(urls[1], token)
     if not player_rows:
         raise ValueError("No 2026-27 player season statistics returned; nothing saved")
