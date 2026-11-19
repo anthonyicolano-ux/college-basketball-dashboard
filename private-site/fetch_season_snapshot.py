@@ -56,8 +56,15 @@ def main():
     if args.out.exists() and any(args.out.iterdir()):
         parser.error("Output directory must be empty to avoid overwriting snapshots")
     args.out.mkdir(parents=True, exist_ok=True)
-    # Both calls must succeed before either raw snapshot is saved.
-    datasets = [fetch_json(url, token) for url in urls]
+    # Check team coverage before spending the second shared-quota request.
+    # A zero-row season response cannot produce a usable private dashboard.
+    team_rows = fetch_json(urls[0], token)
+    if not team_rows:
+        raise ValueError("No 2026-27 team season statistics returned; player request skipped and nothing saved")
+    player_rows = fetch_json(urls[1], token)
+    if not player_rows:
+        raise ValueError("No 2026-27 player season statistics returned; nothing saved")
+    datasets = (team_rows, player_rows)
     for name, data in zip(("raw-teams.json", "raw-players.json"), datasets):
         (args.out / name).write_text(json.dumps(data), encoding="utf-8")
     print("Saved two private raw snapshots; NOT normalized, validated, or published")
