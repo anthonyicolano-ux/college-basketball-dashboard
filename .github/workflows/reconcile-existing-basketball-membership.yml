@@ -1,0 +1,85 @@
+name: Reconcile existing basketball membership (one API call, no publication)
+
+on:
+  workflow_dispatch:
+    inputs:
+      verified_remaining_calls:
+        description: 'Current shared remaining API calls; minimum 602'
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+      REMAINING: ${{ inputs.verified_remaining_calls }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Match existing candidate schools to current provider team identities
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! [[ "$REMAINING" =~ ^[0-9]+$ ]] || [ "$REMAINING" -lt 602 ]; then
+            echo "::error::Insufficient verified shared API quota"; exit 1
+          fi
+          if [ -z "$CBBD_API_KEY" ]; then
+            echo "::error::Missing CBBD_API_KEY"; exit 1
+          fi
+          python - <<'PY'
+          import json, os, sys
+          from collections import defaultdict
+          from urllib.request import Request, urlopen
+          sys.path.insert(0,'scripts')
+          from audit_bulk_candidate_matching import key, PROVIDER_NAME_ALIASES
+          with open('references/di_mens_basketball_candidates_2026_27.json',encoding='utf-8') as f:
+              candidates=json.load(f)['candidates']
+          with open('references/di_mens_basketball_2026_27.json',encoding='utf-8') as f:
+              reference=json.load(f)['schools']
+          names=defaultdict(set)
+          for c in candidates+reference:
+              for alias in (c['name'], *c.get('aliases',[]), *PROVIDER_NAME_ALIASES.get(c['name'],())):
+                  names[key(alias)].add(c['name'])
+          url='https://api.collegebasketballdata.com/stats/team/season?season=2027'
+          request=Request(url,headers={'Authorization':'Bearer '+os.environ['CBBD_API_KEY'],'Accept':'application/json'})
+          with urlopen(request,timeout=60) as response:
+              raw=response.read(15_000_001)
+          if len(raw)>15_000_000:
+              raise SystemExit('Response size limit exceeded')
+          rows=json.loads(raw)
+          if not isinstance(rows,list) or not rows:
+              raise SystemExit('Unexpected provider response')
+          matched=defaultdict(set)
+          ambiguous=set()
+          missing_identity=0
+          for row in rows:
+              if not isinstance(row,dict) or not isinstance(row.get('team'),str) or row.get('teamId') is None:
+                  missing_identity+=1
+                  continue
+              options=names.get(key(row['team']),set())
+              if len(options)==1:
+                  matched[next(iter(options))].add(str(row['teamId']))
+              elif len(options)>1:
+                  ambiguous.update(options)
+          all_names={c['name'] for c in candidates+reference}
+          missing=sorted(all_names-set(matched))
+          duplicate_ids=sorted(name for name,ids in matched.items() if len(ids)!=1)
+          print('Provider team records:',len(rows))
+          print('Previously staged schools:',len(all_names))
+          print('Schools with exactly one candidate-name match:',len(matched)-len(duplicate_ids))
+          print('Schools needing manual reconciliation:',len(missing))
+          print('Ambiguous candidate aliases:',len(ambiguous))
+          print('Schools matching multiple provider IDs:',len(duplicate_ids))
+          print('Provider records missing team name or ID:',missing_identity)
+          print('Unmatched staged school names (review only, not eligibility decisions):')
+          for name in missing:
+              print(' -',name)
+          print('No raw team statistics, provider IDs, or API keys stored or published.')
+          if duplicate_ids or missing_identity:
+              raise SystemExit('Review required before membership approval')
+          PY
