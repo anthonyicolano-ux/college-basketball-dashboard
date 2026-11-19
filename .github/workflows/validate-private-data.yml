@@ -30,6 +30,8 @@ on:
       - 'private-site/publish_private_kv.py'
       - 'private-site/test_publish_private_kv.py'
       - 'private-site/frontend-release.test.mjs'
+      - 'private-site/inspect_provider_paths.py'
+      - 'private-site/test_inspect_provider_paths.py'
       - 'assets/release.js'
       - 'assets/app.js'
       - 'index.html'
