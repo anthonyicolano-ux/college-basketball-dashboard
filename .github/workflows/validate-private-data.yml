@@ -21,6 +21,8 @@ on:
       - 'private-site/test_check_provider_mapping.py'
       - 'private-site/provider_field_mapping.py'
       - 'private-site/test_provider_field_mapping.py'
+      - 'private-site/derived_team_metrics.py'
+      - 'private-site/test_derived_team_metrics.py'
   workflow_dispatch:
 jobs:
   validate:
