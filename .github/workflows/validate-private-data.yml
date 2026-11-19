@@ -2,6 +2,10 @@ name: Validate private basketball data code
 on:
   pull_request:
     paths:
+      - 'private-site/audit_division_one_membership.py'
+      - 'private-site/test_audit_division_one_membership.py'
+      - 'private-site/prepare_real_2027.py'
+      - 'private-site/test_prepare_real_2027.py'
       - 'private-site/filter_division_one.py'
       - 'private-site/test_filter_division_one.py'
       - 'private-site/verified_2027_provider_mapping.py'
