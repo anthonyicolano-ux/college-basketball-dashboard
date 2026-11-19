@@ -66,8 +66,8 @@ jobs:
           sys.path.insert(0,'private-site')
           from filter_division_one import load_approved_ids
           ids=load_approved_ids(os.environ['RUNNER_TEMP']+'/reviewed-division-one-2027.json')
-          if not 300 <= len(ids) <= 400:
-              raise SystemExit('Membership count invalid; refusing fetch')
+          if len(ids) != 365:
+              raise SystemExit('2026-27 NCAA projects 365 DI men\'s basketball teams; full-coverage membership must contain exactly 365 unique IDs; refusing fetch')
           print('Independently reviewed membership count:',len(ids))
           PY
       - name: Fetch once, audit, normalize, validate and prepare private release
