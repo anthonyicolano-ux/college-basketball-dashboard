@@ -87,9 +87,15 @@ export default {
       if(pointerRaw!==null && pointerRaw!==undefined){
         let pointer=null;
         try { pointer=JSON.parse(pointerRaw); } catch {}
-        const release=pointer?.release;
-        if(typeof release!=='string'||!/^([a-f0-9]{16})-([a-f0-9]{16})$/.test(release))
+        const activeRelease=pointer?.release;
+        if(typeof activeRelease!=='string'||!/^([a-f0-9]{16})-([a-f0-9]{16})$/.test(activeRelease))
           return new Response('Private release pointer invalid',{status:503,headers:{'cache-control':'no-store'}});
+        // Clients pin the release returned by their first request. An explicit
+        // release can only be read after authentication and must be well formed.
+        const requestedRelease=url.searchParams.get('release');
+        if(requestedRelease!==null&&!/^([a-f0-9]{16})-([a-f0-9]{16})$/.test(requestedRelease))
+          return new Response('Invalid release selection',{status:400,headers:{'cache-control':'no-store'}});
+        const release=requestedRelease||activeRelease;
         const key=url.pathname==='/data/players.json'?'players':'teams';
         const raw=await env.PRIVATE_DATA.get('release:'+release+':'+key);
         let data=null;
@@ -98,13 +104,13 @@ export default {
         if(!valid)
           return new Response('Private release data unavailable',{status:503,headers:{'cache-control':'no-store'}});
         if(url.pathname==='/data/refresh-status.json'){
-          return new Response(JSON.stringify({schemaVersion:1,outcome:'private team data published ('+data.rows.length+' teams)',lastSuccessAt:data.generatedAt,lastAttemptAt:data.generatedAt}),{headers:{'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'}});
+          return new Response(JSON.stringify({schemaVersion:1,outcome:'private team data published ('+data.rows.length+' teams)',lastSuccessAt:data.generatedAt,lastAttemptAt:data.generatedAt,release}),{headers:{'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'}});
         }
         const allowed=key==='teams'?
           ['team','conference','wins','losses','games','ppg','oppPpg','offRating','defRating','netRating','scoringMargin','pace','fgPct','threePct','ftPct','eFg','tsPct','rebounds','offRebounds','defRebounds','oppRebounds','reboundingMargin','assists','turnovers']:
           ['name','team','conference','games','minutes','points','rebounds','offRebounds','defRebounds','assists','steals','blocks','turnovers','fgMade','fgAttempted','fgPct','threeMade','threeAttempted','threePct','ftMade','ftAttempted','ftPct'];
         const rows=data.rows.map(source=>Object.fromEntries(allowed.map(k=>[k,source[k]??null])));
-        return new Response(JSON.stringify({schemaVersion:1,season:2027,seasonLabel:'2026–27',scope:data.scope,source:data.source,approvedForPrivateDisplay:true,generatedAt:data.generatedAt,demo:false,rows}),{headers:{'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'}});
+        return new Response(JSON.stringify({schemaVersion:1,season:2027,seasonLabel:'2026–27',scope:data.scope,source:data.source,approvedForPrivateDisplay:true,generatedAt:data.generatedAt,demo:false,release,rows}),{headers:{'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'}});
       }
     }
     // Derive private refresh status from the actual validated KV pilot dataset.
