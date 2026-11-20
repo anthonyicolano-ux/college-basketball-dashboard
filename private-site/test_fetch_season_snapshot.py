@@ -47,6 +47,7 @@ class SnapshotTests(unittest.TestCase):
             args.return_value.allow_network = True
             args.return_value.remaining_calls = 800
             args.return_value.out = Path(temp) / "raw"
+            args.return_value.reviewed_membership = None
             with self.assertRaisesRegex(ValueError, "player request skipped"):
                 main()
             fetch.assert_called_once_with("team-url", "synthetic-token")
@@ -61,6 +62,7 @@ class SnapshotTests(unittest.TestCase):
             args.return_value.allow_network = True
             args.return_value.remaining_calls = 800
             args.return_value.out = Path(temp) / "raw"
+            args.return_value.reviewed_membership = None
             with self.assertRaisesRegex(ValueError, "Fewer than 300"):
                 main()
             fetch.assert_called_once_with("team-url", "synthetic-token")
@@ -75,6 +77,7 @@ class SnapshotTests(unittest.TestCase):
             args.return_value.allow_network = True
             args.return_value.remaining_calls = 800
             args.return_value.out = Path(temp) / "raw"
+            args.return_value.reviewed_membership = None
             with self.assertRaisesRegex(ValueError, "nothing saved"):
                 main()
             self.assertEqual(fetch.call_count, 2)
